@@ -3,17 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "exports": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-relay": "^9.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-node5": "^12.0.1",
+    "babel-register": "^6.26.0",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "graphql": "^15.0.0"
+    "graphql": "^14.4.1",
+    "graphql-relay": "^0.6.0",
+    "lodash": "^4.17.15",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
