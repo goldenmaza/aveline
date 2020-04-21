@@ -1,24 +1,28 @@
 import {
+    GraphQLBoolean,
     GraphQLInt,
     GraphQLList,
     GraphQLString
 } from 'graphql';
 
-import Region from '../schema/region';
+import Page from '../schema/page';
 
 import db from '../db';
 
-const regionFields = {
-    type: new GraphQLList(Region),
+const pageFields = {
+    type: new GraphQLList(Page),
     args: {
         id: {
             type: GraphQLInt
         },
-        value: {
-            type: GraphQLString
-        },
         label: {
             type: GraphQLString
+        },
+        layout: {
+            type: GraphQLInt
+        },
+        hidden: {
+            type: GraphQLBoolean
         },
         title: {
             type: GraphQLString
@@ -28,8 +32,8 @@ const regionFields = {
         }
     },
     resolve(root, args) {
-        return db.models.region.findAll({where: args});
+        return db.models.page.findAll({where: args});
     }
 };
 
-export default regionFields;
+export default pageFields;
