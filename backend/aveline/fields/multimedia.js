@@ -18,11 +18,11 @@ const multimediaFields = {
         page: {
             type: GraphQLInt
         },
-        src: {
-            type: GraphQLString
-        },
         ordering: {
             type: GraphQLInt
+        },
+        src: {
+            type: GraphQLString
         },
         box: {
             type: GraphQLBoolean

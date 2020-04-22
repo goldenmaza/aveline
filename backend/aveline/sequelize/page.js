@@ -7,12 +7,16 @@ const seqPage = {
         autoIncrement: true,
         primaryKey: true
     },
-    label: {
-        type: Sequelize.STRING,
+    ordering: {
+        type: Sequelize.TINYINT,
         allowNull: false
     },
     layout: {
         type: Sequelize.TINYINT,
+        allowNull: false
+    },
+    label: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     hidden: {

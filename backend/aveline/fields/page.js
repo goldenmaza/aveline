@@ -15,11 +15,14 @@ const pageFields = {
         id: {
             type: GraphQLInt
         },
-        label: {
-            type: GraphQLString
+        ordering: {
+            type: GraphQLInt
         },
         layout: {
             type: GraphQLInt
+        },
+        label: {
+            type: GraphQLString
         },
         hidden: {
             type: GraphQLBoolean

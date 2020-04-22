@@ -11,16 +11,16 @@ const seqMultimedia = {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    src: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     ordering: {
         type: Sequelize.SMALLINT,
         allowNull: false
     },
+    src: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     box: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.BOOLEAN,
         allowNull: false
     },
     hidden: {

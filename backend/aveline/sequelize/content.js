@@ -11,6 +11,10 @@ const seqContent = {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    ordering: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     header: {
         type: Sequelize.STRING,
         allowNull: false

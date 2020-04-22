@@ -16,16 +16,22 @@ const Page = new GraphQLObjectType({
                     return page.id;
                 }
             },
-            label: {
-                type: GraphQLString,
+            ordering: {
+                type: GraphQLInt,
                 resolve(page) {
-                    return page.label;
+                    return page.ordering;
                 }
             },
             layout: {
                 type: GraphQLInt,
                 resolve(page) {
                     return page.layout;
+                }
+            },
+            label: {
+                type: GraphQLString,
+                resolve(page) {
+                    return page.label;
                 }
             },
             hidden: {
