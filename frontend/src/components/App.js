@@ -1,6 +1,18 @@
 import React, { Component, Fragment } from 'react';
 
-import Header from './Header';
+import Header from './common/Header';
+import Nav from './common/Nav';
+import Heading from './common/Heading';
+import Handler from './common/Handler';
+import Menu from './common/Menu';
+import Section from './common/Section';
+import Footer from './common/Footer';
+import Container from './common/Container';
+import Contact from './common/Contact';
+import Social from './common/Social';
+import Sitemap from './common/Sitemap';
+import Brand from './common/Brand';
+import Copyright from './common/Copyright';
 
 class App extends Component {
     constructor(props) {

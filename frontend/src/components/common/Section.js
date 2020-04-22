@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Heading from './Heading';
+import Content from './Content';
 
 class Section extends Component {
     constructor(props) {
