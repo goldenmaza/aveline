@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Region from './Region';
 import Type from './Type';
@@ -6,7 +6,7 @@ import Model from './Model';
 import Category from './Category';
 import Item from './Item';
 
-class BuildTool extends React.Component {
+class BuildTool extends Component {
     constructor(props) {
         super(props);
     }

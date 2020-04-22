@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Select from './Select';
 
-class Model extends React.Component {
+class Model extends Component {
     constructor(props) {
         super(props);
         this.state = {
