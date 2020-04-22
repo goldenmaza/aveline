@@ -25,4 +25,4 @@ const seqRegion = {
     }
 };
 
-export seqRegion;
+export { seqRegion };

@@ -11,6 +11,10 @@ const seqMultimedia = {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    src: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     ordering: {
         type: Sequelize.SMALLINT,
         allowNull: false

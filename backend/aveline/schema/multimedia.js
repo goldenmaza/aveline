@@ -22,6 +22,12 @@ const Multimedia = new GraphQLObjectType({
                     return multimedia.page;
                 }
             },
+            src: {
+                type: GraphQLString,
+                resolve(multimedia) {
+                    return multimedia.src;
+                }
+            },
             ordering: {
                 type: GraphQLInt,
                 resolve(multimedia) {
