@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
-class Container extends Component {
+class Navigation extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div>
-                {this.props.children}
-            </div>
+            <div></div>
         );
     }
 }
 
-export default Container;
+export default Navigation;
