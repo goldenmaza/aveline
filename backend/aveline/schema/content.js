@@ -22,16 +22,22 @@ const Content = new GraphQLObjectType({
                     return content.page;
                 }
             },
+            content: {
+                type: GraphQLInt,
+                resolve(content) {
+                    return content.content;
+                }
+            },
             ordering: {
                 type: GraphQLInt,
                 resolve(content) {
                     return content.ordering;
                 }
             },
-            header: {
+            heading: {
                 type: GraphQLString,
                 resolve(content) {
-                    return content.header;
+                    return content.heading;
                 }
             },
             text: {

@@ -46,6 +46,12 @@ const Multimedia = new GraphQLObjectType({
                     return multimedia.hidden;
                 }
             },
+            alt: {
+                type: GraphQLString,
+                resolve(multimedia) {
+                    return multimedia.alt;
+                }
+            },
             title: {
                 type: GraphQLString,
                 resolve(multimedia) {

@@ -18,10 +18,13 @@ const contentFields = {
         page: {
             type: GraphQLInt
         },
+        content: {
+            type: GraphQLInt
+        },
         ordering: {
             type: GraphQLInt
         },
-        header: {
+        heading: {
             type: GraphQLString
         },
         text: {

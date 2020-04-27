@@ -30,6 +30,9 @@ const multimediaFields = {
         hidden: {
             type: GraphQLBoolean
         },
+        alt: {
+            type: GraphQLString
+        },
         title: {
             type: GraphQLString
         },

@@ -27,6 +27,10 @@ const seqMultimedia = {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
+    alt: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     title: {
         type: Sequelize.STRING,
         allowNull: false

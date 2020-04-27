@@ -16,6 +16,12 @@ const Page = new GraphQLObjectType({
                     return page.id;
                 }
             },
+            page: {
+                type: GraphQLInt,
+                resolve(page) {
+                    return page.page;
+                }
+            },
             ordering: {
                 type: GraphQLInt,
                 resolve(page) {
@@ -26,6 +32,12 @@ const Page = new GraphQLObjectType({
                 type: GraphQLInt,
                 resolve(page) {
                     return page.layout;
+                }
+            },
+            tag: {
+                type: GraphQLString,
+                resolve(page) {
+                    return page.tag;
                 }
             },
             label: {
