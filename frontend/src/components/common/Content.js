@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Heading from './Heading';
+import Collage from './Collage';
 
 class Content extends Component {
     constructor(props) {
@@ -9,8 +10,8 @@ class Content extends Component {
             loading: true,
             page: null,
             content: null,
-            level_a: 'h3',
-            level_b: 'h4'
+            multimedia: null,
+            level: 'h3'
         };
     }
 
@@ -25,9 +26,16 @@ class Content extends Component {
                     content (hidden: false) {
                         id
                         page
-                        ordering
                         heading
                         text
+                    }
+                    multimedia (hidden: false) {
+                        id
+                        page
+                        content
+                        src
+                        alt
+                        title
                     }
                 }
             `
@@ -46,6 +54,7 @@ class Content extends Component {
             this.setState({
                 page: result.data.page,
                 content: result.data.content,
+                multimedia: result.data.multimedia,
                 loading: false
             });
         });
@@ -55,22 +64,30 @@ class Content extends Component {
         if (this.state.loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { level_a, level_b, page, content } = this.state;
+            const { level, page, content, multimedia } = this.state;
             const { tag } = this.props;
             const sections = [];
+            let collection = [];
 
             page.forEach(p => {
                 content.forEach(c => {
                     if (p.id === c.page && p.tag === tag) {
+                        multimedia.forEach(m => {
+                            if (m.content !== null && p.id === m.page && c.id === m.content) {
+                                collection.push(m);
+                            }
+                        });
                         sections.push(
                             <section key={p.tag + c.id}>
-                                <Heading level={level_a} label={c.heading} />
-                                <p>
+                                <Heading level={level} label={c.heading} />
+                                <p id={p.tag + c.id}>
                                     {c.text}
                                 </p>
+                                <Collage collection={collection} />
                             </section>
                         );
                     }
+                    collection = [];
                 });
             });
 

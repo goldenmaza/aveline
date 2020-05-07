@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import Heading from './Heading';
+
 class Sitemap extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
-            page: null
+            page: null,
+            level: 'h3',
+            label: 'Sitemap content'
         }
     }
 
@@ -21,7 +25,7 @@ class Sitemap extends Component {
         if (this.state.loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const page = this.state.page;
+            const { level, label, page } = this.state;
             const items = [];
 
             page.forEach(p => {
@@ -36,9 +40,14 @@ class Sitemap extends Component {
             });
 
             return (
-                <ul>
-                    {items}
-                </ul>
+                <>
+                    <Heading hidden={true} level={level} label={label} />
+                    <nav>
+                        <ul>
+                            {items}
+                        </ul>
+                    </nav>
+                </>
             );
         }
     }
