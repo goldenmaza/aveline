@@ -1,34 +1,26 @@
 import Sequelize from 'sequelize';
 
-const seqContent = {
+const seqNavigation = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-    page: {
+    office: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true,
     },
-    content: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
-    ordering: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-    },
-    box: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-    },
-    heading: {
+    latitude: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    text: {
-        type: Sequelize.TEXT,
+    longitude: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    main: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
     },
     hidden: {
@@ -37,4 +29,4 @@ const seqContent = {
     }
 };
 
-export { seqContent };
+export { seqNavigation };

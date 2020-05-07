@@ -34,6 +34,12 @@ const Content = new GraphQLObjectType({
                     return content.ordering;
                 }
             },
+            box: {
+                type: GraphQLBoolean,
+                resolve(multimedia) {
+                    return multimedia.box;
+                }
+            },
             heading: {
                 type: GraphQLString,
                 resolve(content) {

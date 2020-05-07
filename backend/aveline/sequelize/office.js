@@ -1,35 +1,35 @@
 import Sequelize from 'sequelize';
 
-const seqContent = {
+const seqOffice = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-    page: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    content: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
     ordering: {
-        type: Sequelize.SMALLINT,
+        type: Sequelize.TINYINT,
         allowNull: false
     },
-    box: {
+    main: {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    heading: {
+    region: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    locale: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    label: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    text: {
-        type: Sequelize.TEXT,
-        allowNull: false
+    orgnr: {
+        type: Sequelize.STRING,
+        allowNull: true
     },
     hidden: {
         type: Sequelize.BOOLEAN,
@@ -37,4 +37,4 @@ const seqContent = {
     }
 };
 
-export { seqContent };
+export { seqOffice };

@@ -1,41 +1,21 @@
 import Sequelize from 'sequelize';
 
-const seqPage = {
+const seqContact = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-    page: {
+    office: {
         type: Sequelize.INTEGER,
-        allowNull: true
-    },
-    main: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: false,
     },
     ordering: {
         type: Sequelize.TINYINT,
         allowNull: false
     },
-    box: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-    },
-    layout: {
-        type: Sequelize.TINYINT,
-        allowNull: false
-    },
-    tag: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    label: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    hidden: {
+    main: {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
@@ -43,10 +23,38 @@ const seqPage = {
         type: Sequelize.STRING,
         allowNull: false
     },
-    aria: {
+    forename: {
         type: Sequelize.STRING,
+        allowNull: true
+    },
+    surname: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    street: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    postal: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    country: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    phone: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    hidden: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
     }
 };
 
-export { seqPage };
+export { seqContact };

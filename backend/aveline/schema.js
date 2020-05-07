@@ -7,6 +7,10 @@ import {
 import pageFields from './fields/page';
 import contentFields from './fields/content';
 import multimediaFields from './fields/multimedia';
+import officeFields from './fields/office';
+import contactFields from './fields/contact';
+import socialFields from './fields/social';
+import navigationFields from './fields/navigation';
 
 // BuildTool fields...
 import regionFields from './fields/region';
@@ -24,6 +28,10 @@ const QueryBundle = new GraphQLObjectType({
             page: pageFields,
             content: contentFields,
             multimedia: multimediaFields,
+            office: officeFields,
+            contact: contactFields,
+            social: socialFields,
+            navigation: navigationFields,
             region: regionFields,
             type: typeFields,
             model: modelFields,

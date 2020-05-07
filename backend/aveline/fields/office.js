@@ -1,54 +1,46 @@
 import {
     GraphQLBoolean,
+    GraphQLChar,
     GraphQLInt,
     GraphQLList,
     GraphQLString
 } from 'graphql';
 
-import Page from '../schema/page';
+import Office from '../schema/office';
 
 import db from '../db';
 
-const pageFields = {
-    type: new GraphQLList(Page),
+const officeFields = {
+    type: new GraphQLList(Office),
     args: {
         id: {
             type: GraphQLInt
         },
-        page: {
+        ordering: {
             type: GraphQLInt
         },
         main: {
             type: GraphQLBoolean
         },
-        ordering: {
-            type: GraphQLInt
+        region: {
+            type: GraphQLString
         },
-        box: {
-            type: GraphQLBoolean
-        },
-        layout: {
-            type: GraphQLInt
-        },
-        tag: {
+        locale: {
             type: GraphQLString
         },
         label: {
             type: GraphQLString
         },
+        orgnr: {
+            type: GraphQLString
+        },
         hidden: {
             type: GraphQLBoolean
-        },
-        title: {
-            type: GraphQLString
-        },
-        aria: {
-            type: GraphQLString
         }
     },
     resolve(root, args) {
-        return db.models.page.findAll({where: args});
+        return db.models.office.findAll({where: args});
     }
 };
 
-export default pageFields;
+export default officeFields;

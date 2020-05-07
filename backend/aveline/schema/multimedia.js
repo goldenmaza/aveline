@@ -22,6 +22,24 @@ const Multimedia = new GraphQLObjectType({
                     return multimedia.page;
                 }
             },
+            content: {
+                type: GraphQLInt,
+                resolve(content) {
+                    return content.content;
+                }
+            },
+            contact: {
+                type: GraphQLInt,
+                resolve(content) {
+                    return content.contact;
+                }
+            },
+            office: {
+                type: GraphQLInt,
+                resolve(content) {
+                    return content.office;
+                }
+            },
             ordering: {
                 type: GraphQLInt,
                 resolve(multimedia) {
@@ -32,6 +50,12 @@ const Multimedia = new GraphQLObjectType({
                 type: GraphQLString,
                 resolve(multimedia) {
                     return multimedia.src;
+                }
+            },
+            slideshow: {
+                type: GraphQLBoolean,
+                resolve(multimedia) {
+                    return multimedia.slideshow;
                 }
             },
             box: {

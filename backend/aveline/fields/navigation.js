@@ -5,41 +5,35 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Content from '../schema/content';
+import Navigation from '../schema/navigation';
 
 import db from '../db';
 
-const contentFields = {
-    type: new GraphQLList(Content),
+const navigationFields = {
+    type: new GraphQLList(Navigation),
     args: {
         id: {
             type: GraphQLInt
         },
-        page: {
+        office: {
             type: GraphQLInt
         },
-        content: {
-            type: GraphQLInt
+        latitude: {
+            type: GraphQLString
         },
-        ordering: {
-            type: GraphQLInt
+        longitude: {
+            type: GraphQLString
         },
-        box: {
+        main: {
             type: GraphQLBoolean
-        },
-        heading: {
-            type: GraphQLString
-        },
-        text: {
-            type: GraphQLString
         },
         hidden: {
             type: GraphQLBoolean
         }
     },
     resolve(root, args) {
-        return db.models.content.findAll({where: args});
+        return db.models.navigation.findAll({where: args});
     }
 };
 
-export default contentFields;
+export default navigationFields;

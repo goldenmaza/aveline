@@ -9,7 +9,19 @@ const seqMultimedia = {
     },
     page: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
+    },
+    content: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    contact: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    office: {
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     ordering: {
         type: Sequelize.SMALLINT,
@@ -17,6 +29,10 @@ const seqMultimedia = {
     },
     src: {
         type: Sequelize.STRING,
+        allowNull: false
+    },
+    slideshow: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
     },
     box: {
