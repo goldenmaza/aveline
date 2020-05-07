@@ -19,7 +19,7 @@ class Header extends Component {
         const requestBody = {
             query: `
                 query {
-                    page (hidden: false) {
+                    page (hidden: false, main: true) {
                         id
                         ordering
                         label
@@ -39,6 +39,7 @@ class Header extends Component {
         fetch('http://localhost:6969/api', options).then(promise => {
             return promise.json();
         }).then(result => {
+            console.log(result);
             this.setState({
                 page: result.data.page,
                 loading: false
@@ -52,7 +53,7 @@ class Header extends Component {
         } else {
             const { level, label, page } = this.state;
             return (
-                <header role="banner">
+                <header role='banner'>
                     <nav>
                         <Heading hidden={true} level={level} label={label} />
                         <Handler />

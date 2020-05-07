@@ -54,10 +54,12 @@ class Handler extends Component {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const { toggled, multimedia } = this.state;
-            const handler = toggled ? 'handler_toggle active' : "handler_toggle";
+            const handler = toggled ? 'handler_toggle active' : 'handler_toggle';
             return (
-                <div className="top_navigation">
-                    <img className="nav_logotype" src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
+                <div className='nav_container'>
+                    <a href='/'>
+                        <img className='nav_logotype' src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
+                    </a>
                     <div className={handler} onClick={this.toggleBar}>
                         <i></i><i></i><i></i>
                     </div>

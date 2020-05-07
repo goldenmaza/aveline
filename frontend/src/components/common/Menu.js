@@ -33,7 +33,7 @@ class Menu extends Component {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const { page, toggled, active } = this.state;
-            const handler = toggled ? 'handler_navigation active' : "handler_navigation";
+            const handler = toggled ? 'handler_navigation active' : 'handler_navigation';
             const items = [];
 
             page.forEach(p => {
