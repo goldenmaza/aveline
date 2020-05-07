@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Heading from './common/Heading';
-import Header from './common/Header';
-import Section from './common/Section';
-import Footer from './common/Footer';
+import Selector from './common/Selector';
+import Prevention from './common/Prevention';
 
 class App extends Component {
     constructor(props) {
@@ -29,9 +28,14 @@ class App extends Component {
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
-                <Header />
-                <Section tag={this.state.tag} />
-                <Footer />
+                <Switch>
+                    <Route exact path='/' render={() => <Selector component={'Home'} tag={this.state.tag} />} />
+                    <Route exact path='/p/contact/' render={() => <Selector component={'Form'} tag={this.state.tag} />} />
+                    {this.state.tag !== null &&
+                        <Route path='/p/' render={() => <Selector component={'Page'} tag={this.state.tag} />} />
+                    }
+                    <Route component={Prevention} />
+                </Switch>
             </>
         );
     }
