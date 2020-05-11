@@ -6,7 +6,7 @@ class FormHelp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 'h3',
+            level: 'h4',
             label: 'Help section'
         };
     }
@@ -14,38 +14,112 @@ class FormHelp extends Component {
     render() {
         const { level, label } = this.state;
         return (
-            <section>
-                <Heading hidden={true} level={level} label={label} />
+            <section className={'helpSection'}>
+                <header>
+                    <Heading hidden={false} level={level} label={label} />
+                </header>
                 <div>
                     <strong>Forename:</strong>
-                    <p>a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore, hyphen and/or an apostrophe - number of characters between 2 and 50</p>
+                    <div>
+                        <p>
+                            <strong>Alphabetic characters:</strong>a to z, åäö, A to Z and ÅÄÖ
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, dot, underscore, hyphen and/or an apostrophe
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 2 and 50
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <strong>Surname:</strong>
-                    <p>a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore, hyphen and/or an apostrophe - number of characters between 2 and 50</p>
+                    <div>
+                        <p>
+                            <strong>Alphabetic characters:</strong>a to z, åäö, A to Z and ÅÄÖ
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, dot, underscore, hyphen and/or an apostrophe
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 2 and 50
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <strong>Address:</strong>
-                    <p>a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore, hyphen and/or an apostrophe - number of characters between 3 and 100</p>
+                    <div>
+                        <p>
+                            <strong>Alphabetic characters:</strong>a to z, åäö, A to Z and ÅÄÖ
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, dot, underscore, hyphen and/or an apostrophe
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 3 and 100
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <strong>Phone:</strong>
-                    <p>0 to 9, space, plus sign and/or hyphen - number of characters between 3 and 25</p>
+                    <div>
+                        <p>
+                            <strong>Digits:</strong>0 to 9
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, plus sign and/or hyphen
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 3 and 25
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <strong>E-mail:</strong>
-                    <p>e.g. username + AT + domain + DOT + prefix</p>
-                    <p>username - a to z, A to Z, 0 to 9, dot and/or hyphen - number of characters between 2 and 50</p>
-                    <p>domain - a to z, A to Z, 0 to 9, dot and/or hyphen - number of characters between 2 and 50</p>
-                    <p>ending - a to z and/or A to Z - number of characters between 2 and 13</p>
+                    <div>
+                        <div>
+                            <p>e.g. username + AT + domain + DOT + suffix</p>
+                        </div>
+                        <div>
+                            <p>
+                                <strong>username:</strong>a to z, A to Z, 0 to 9, dot and/or hyphen - number of characters between 2 and 50
+                            </p>
+                            <p>
+                                <strong>domain:</strong>a to z, A to Z, 0 to 9, dot and/or hyphen - number of characters between 2 and 50
+                            </p>
+                            <p>
+                                <strong>suffix:</strong>a to z and/or A to Z - number of characters between 2 and 13
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <strong>Purpose:</strong>
-                    <p>a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore, hyphen and/or an apostrophe - number of characters between 2 and 50</p>
+                    <div>
+                        <p>
+                            <strong>Alphabetic characters:</strong>a to z, åäö, A to Z and ÅÄÖ
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, dot, underscore, hyphen and/or an apostrophe
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 2 and 50
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <strong>Message:</strong>
-                    <p>a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore, hyphen and/or an apostrophe - number of characters between 2 and 5000</p>
+                    <div>
+                        <p>
+                            <strong>Alphabetic characters:</strong>a to z, åäö, A to Z and ÅÄÖ
+                        </p>
+                        <p>
+                            <strong>Others:</strong>space, dot, underscore, hyphen and/or an apostrophe
+                        </p>
+                        <p>
+                            <strong>Limit:</strong>number of characters between 5 and 5000
+                        </p>
+                    </div>
                 </div>
             </section>
         );

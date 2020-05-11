@@ -23,7 +23,7 @@ class Form extends Component {
                 phoneInput: RegExp("^([0-9'\\- ]{3,25})$"),
                 emailInput: RegExp("^([a-zA-Z0-9.\\-]{2,50})+@([a-zA-Z0-9.\\-]{2,50})+.([a-zA-Z]{2,13})$"),
                 purposeInput: RegExp("^([a-zA-ZåäöÅÄÖ0-9.'\\-_ ]{2,50})$"),
-                messageInput: RegExp("^([a-zA-ZåäöÅÄÖ.'\\-_ ]{2,5000})$")
+                messageInput: RegExp("^([a-zA-ZåäöÅÄÖ.'\\-_ ]{5,5000})$")
             },
             maxLength: { // Refactor to a central utility...
                 forenameInput: 50,
@@ -35,13 +35,13 @@ class Form extends Component {
                 messageInput: 5000
             },
             remainingLength: { // Refactor to a central utility...
-                forenameInput: '',
-                surnameInput: '',
-                addressInput: '',
-                phoneInput: '',
-                emailInput: '',
-                purposeInput: '',
-                messageInput: ''
+                forenameInput: 0,
+                surnameInput: 0,
+                addressInput: 0,
+                phoneInput: 0,
+                emailInput: 0,
+                purposeInput: 0,
+                messageInput: 0
             },
             title: { // Refactor to a central utility...
                 forenameInput: 'What is your forename?',
@@ -273,13 +273,13 @@ class Form extends Component {
 
         this.setState({
             remainingLength: {
-                forenameInput: '',
-                surnameInput: '',
-                addressInput: '',
-                phoneInput: '',
-                emailInput: '',
-                purposeInput: '',
-                messageInput: ''
+                forenameInput: 0,
+                surnameInput: 0,
+                addressInput: 0,
+                phoneInput: 0,
+                emailInput: 0,
+                purposeInput: 0,
+                messageInput: 0
             },
             validation: {
                 forenameInput: '?',
@@ -297,78 +297,89 @@ class Form extends Component {
     }
 
     render() {
-        const { maxLength, remainingLength, title, placeholder, clearDisabled, displayHelp, submitDisabled, level, label } = this.state;
+        const { maxLength, remainingLength, title, placeholder, validation, clearDisabled, displayHelp, submitDisabled, level, label } = this.state;
+        const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
+        const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
+        const address = validation.addressInput === 'invalid' ? 'invalid' : '';
+        const phone = validation.phoneInput === 'invalid' ? 'invalid' : '';
+        const email = validation.emailInput === 'invalid' ? 'invalid' : '';
+        const purpose = validation.purposeInput === 'invalid' ? 'invalid' : '';
+        const message = validation.messageInput === 'invalid' ? 'invalid' : '';
         return (
-            <section>
+            <>
                 {!this.props.minimalForm &&
-                    <Contact minimalContact={this.props.minimalContact} tag={this.props.tag} />
+                    <section>
+                        <Contact minimalContact={this.props.minimalContact} tag={this.props.tag} />
+                    </section>
                 }
                 <section>
                     <Heading hidden={true} level={level} label={label} />
                     <form id='contactForm' encType='application/x-www-form-urlencoded' method='POST' action='#' noValidate>
                         <div className='formBody'>
                             <div className='formGroup'>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='forenameInput'>
-                                            <strong className='required'>Forename:</strong>
-                                            <input id='forenameInput' className='input' type='text' maxLength={maxLength['forenameInput']} onKeyUp={this.onKeyUp} title={title['forenameInput']} placeholder={placeholder['forenameInput']} />
-                                            <span className='forenameCounter'>{remainingLength['forenameInput']}</span>
-                                        </label>
+                                <div className='formGroup'>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='forenameInput'>
+                                                <strong className='required'>Forename:</strong>
+                                                <input id='forenameInput' className={forename} type='text' maxLength={maxLength['forenameInput']} onKeyUp={this.onKeyUp} title={title['forenameInput']} placeholder={placeholder['forenameInput']} />
+                                                <span className='forenameCounter'>{remainingLength['forenameInput']}</span>
+                                            </label>
+                                        </div>
+                                        <div className='formElement'>
+                                            <label htmlFor='surnameInput'>
+                                                <strong className='required'>Surname:</strong>
+                                                <input id='surnameInput' className={surname} type='text' maxLength={maxLength['surnameInput']} onKeyUp={this.onKeyUp} title={title['surnameInput']} placeholder={placeholder['surnameInput']} />
+                                                <span className='surnameCounter'>{remainingLength['surnameInput']}</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div className='formElement'>
-                                        <label htmlFor='surnameInput'>
-                                            <strong className='required'>Surname:</strong>
-                                            <input id='surnameInput' className='input' type='text' maxLength={maxLength['surnameInput']} onKeyUp={this.onKeyUp} title={title['surnameInput']} placeholder={placeholder['surnameInput']} />
-                                            <span className='surnameCounter'>{remainingLength['surnameInput']}</span>
-                                        </label>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='addressInput'>
+                                                <strong className='required'>Address:</strong>
+                                                <input id='addressInput' className={address} type='text' maxLength={maxLength['addressInput']} onKeyUp={this.onKeyUp} title={title['addressInput']} placeholder={placeholder['addressInput']} />
+                                                <span className='addressCounter'>{remainingLength['addressInput']}</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='addressInput'>
-                                            <strong className='required'>Address:</strong>
-                                            <input id='addressInput' className='input' type='text' maxLength={maxLength['addressInput']} onKeyUp={this.onKeyUp} title={title['addressInput']} placeholder={placeholder['addressInput']} />
-                                            <span className='addressCounter'>{remainingLength['addressInput']}</span>
-                                        </label>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='phoneInput'>
+                                                <strong className='required'>Phone:</strong>
+                                                <input id='phoneInput' className={phone} type='tel' maxLength={maxLength['phoneInput']} onKeyUp={this.onKeyUp} title={title['phoneInput']} placeholder={placeholder['phoneInput']} />
+                                                <span className='phoneCounter'>{remainingLength['phoneInput']}</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='phoneInput'>
-                                            <strong className='required'>Phone:</strong>
-                                            <input id='phoneInput' className='input' type='tel' maxLength={maxLength['phoneInput']} onKeyUp={this.onKeyUp} title={title['phoneInput']} placeholder={placeholder['phoneInput']} />
-                                            <span className='phoneCounter'>{remainingLength['phoneInput']}</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='emailInput'>
-                                            <strong className='required'>E-mail:</strong>
-                                            <input id='emailInput' className='input' type='email' maxLength={maxLength['emailInput']} onKeyUp={this.onKeyUp} title={title['emailInput']} placeholder={placeholder['emailInput']} />
-                                            <span className='emailCounter'>{remainingLength['emailInput']}</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='formGroup'>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='purposeInput'>
-                                            <strong className='required'>Purpose:</strong>
-                                            <input id='purposeInput' className='input' type='text' maxLength={maxLength['purposeInput']} onKeyUp={this.onKeyUp} title={title['purposeInput']} placeholder={placeholder['purposeInput']} />
-                                            <span className='purposeCounter'>{remainingLength['purposeInput']}</span>
-                                        </label>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='emailInput'>
+                                                <strong className='required'>E-mail:</strong>
+                                                <input id='emailInput' className={email} type='email' maxLength={maxLength['emailInput']} onKeyUp={this.onKeyUp} title={title['emailInput']} placeholder={placeholder['emailInput']} />
+                                                <span className='emailCounter'>{remainingLength['emailInput']}</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='formRow'>
-                                    <div className='formElement'>
-                                        <label htmlFor='messageInput'>
-                                            <strong className='required'>Message:</strong>
-                                            <textarea id='messageInput' className='textarea' maxLength={maxLength['messageInput']} onKeyUp={this.onKeyUp} title={title['messageInput']} placeholder={placeholder['messageInput']}></textarea>
-                                            <span className='messageCounter'>{remainingLength['messageInput']}</span>
-                                        </label>
+                                <div className='formGroup'>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='purposeInput'>
+                                                <strong className='required'>Purpose:</strong>
+                                                <input id='purposeInput' className={purpose} type='text' maxLength={maxLength['purposeInput']} onKeyUp={this.onKeyUp} title={title['purposeInput']} placeholder={placeholder['purposeInput']} />
+                                                <span className='purposeCounter'>{remainingLength['purposeInput']}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className='formRow'>
+                                        <div className='formElement'>
+                                            <label htmlFor='messageInput'>
+                                                <strong className='required'>Message:</strong>
+                                                <textarea id='messageInput' className={message} maxLength={maxLength['messageInput']} onKeyUp={this.onKeyUp} title={title['messageInput']} placeholder={placeholder['messageInput']}></textarea>
+                                                <span className='messageCounter'>{remainingLength['messageInput']}</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -400,7 +411,7 @@ class Form extends Component {
                         <FormHelp />
                     }
                 </section>
-            </section>
+            </>
         );
     }
 }
