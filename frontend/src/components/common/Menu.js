@@ -6,9 +6,10 @@ class Menu extends Component {
         super(props);
         this.state = {
             loading: true,
-            toggled: false,
+            toggle: false,
             active: 'active',
-            page: null
+            page: null,
+            content: null
         }
 
         this.toggleBar = this.toggleBar.bind(this);
@@ -17,34 +18,38 @@ class Menu extends Component {
     componentDidMount() {
         this.setState({
             loading: this.props.page !== null && this.props.page.length > 0 ? false : true,
-            page: this.props.page
+            toggle: this.props.toggled,
+            page: this.props.page,
+            content: this.props.content
         });
     }
 
     toggleBar() {
-        const currentState = this.state.toggled;
-        this.setState({
-            toggled: !currentState
-        });
+        this.setState(state => ({
+            toggle: !state.toggle
+        }));
     }
 
     render() {
         if (this.state.loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { page, toggled, active } = this.state;
+            const { toggle, active, page, content } = this.state;
+            const toggled = this.props.toggled === toggle ? toggle : this.props.toggled;
             const handler = toggled ? 'handler_navigation active' : 'handler_navigation';
             const items = [];
 
             page.forEach(p => {
-                const to = '/p/' + p.label.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o');
-                items.push(
-                    <li key={p.id}>
-                        <NavLink to={to} activeClassName={active} onClick={this.toggleBar} title={p.title}>
-                            {p.label}
-                        </NavLink>
-                    </li>
-                );
+                if (content.some(c => c.page === p.id)) {
+                    const to = '/p/' + p.label.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o');
+                    items.push(
+                        <li key={p.id}>
+                            <NavLink to={to} activeClassName={active} onClick={this.toggleBar} title={p.title}>
+                                {p.label}
+                            </NavLink>
+                        </li>
+                    );
+                }
             });
 
             return (
