@@ -29,9 +29,9 @@ class Collage extends Component {
             });
 
             return (
-                <section>
+                <div>
                     { collage }
-                </section>
+                </div>
             );
         }
     }

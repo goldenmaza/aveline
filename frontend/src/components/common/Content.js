@@ -72,15 +72,17 @@ class Content extends Component {
             page.forEach(p => {
                 content.forEach(c => {
                     if (p.id === c.page && p.tag === tag) {
+                        const id = p.tag + c.id;
                         multimedia.forEach(m => {
                             if (m.content !== null && p.id === m.page && c.id === m.content) {
                                 collection.push(m);
                             }
                         });
                         sections.push(
-                            <section key={p.tag + c.id}>
+                            <section key={id}>
+                                <i className='anchor' id={id} />
                                 <Heading level={level} label={c.heading} />
-                                <p id={p.tag + c.id}>
+                                <p>
                                     {c.text}
                                 </p>
                                 <Collage collection={collection} />

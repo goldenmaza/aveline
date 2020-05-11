@@ -12,7 +12,7 @@ class Highlights extends Component {
             content: null,
             multimedia: null,
             level: 'h3',
-            label: 'Highlights content'
+            label: 'Highlights navigation'
         };
     }
 
@@ -78,6 +78,11 @@ class Highlights extends Component {
                             <li key={p.id + m.id}>
                                 <NavLink to={to} title={p.title}>
                                     <img className='highlights_image' src={m.src} alt={m.alt} />
+                                    <div>
+                                        <span>
+                                            {p.title}
+                                        </span>
+                                    </div>
                                 </NavLink>
                             </li>
                         );
@@ -94,6 +99,11 @@ class Highlights extends Component {
                                     <li key={p.id + c.id + m.id}>
                                         <NavLink to={to+'#'+p.tag+c.id} title={c.text}>
                                             <img className='highlights_image' src={m.src} alt={m.alt} />
+                                            <div>
+                                                <span>
+                                                    {c.heading}
+                                                </span>
+                                            </div>
                                         </NavLink>
                                     </li>
                                 );
@@ -107,7 +117,7 @@ class Highlights extends Component {
                 <section>
                     <Heading hidden={true} level={level} label={label} />
                     <nav>
-                        <ul>
+                        <ul className='highlights_navigation'>
                             { highlights }
                         </ul>
                     </nav>

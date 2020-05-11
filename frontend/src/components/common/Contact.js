@@ -14,9 +14,7 @@ class Contact extends Component {
             social: null,
             navigation: null,
             multimedia: null,
-            target: null,
-            level: 'h2',
-            label: 'Page content'
+            target: null
         };
 
         this.toggleOffice = this.toggleOffice.bind(this);
@@ -106,7 +104,7 @@ class Contact extends Component {
         if (this.state.loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
-            const { office, contact, social, navigation, multimedia, target, level, label } = this.state;
+            const { office, contact, social, navigation, multimedia, target } = this.state;
             const main = [];
             const socials = [];
             const offices = [];
@@ -126,24 +124,34 @@ class Contact extends Component {
                                     <strong>
                                         {o.label}
                                     </strong>
+                                    <p>
+                                        Orgnr: <a href={orgnr}>{o.orgnr}</a>
+                                    </p>
                                 </li>
                                 <li>
-                                    <a href={orgnr}>{o.orgnr}</a>
+                                    <p>
+                                        {c.street}
+                                    </p>
                                 </li>
                                 <li>
-                                    {c.street}
+                                    <p>
+                                        {c.postal}
+                                    </p>
                                 </li>
                                 <li>
-                                    {c.postal}
+                                    <p>
+                                        {c.country}
+                                    </p>
                                 </li>
                                 <li>
-                                    {c.country}
+                                    <p>
+                                        Tel: <a href={phone}>{c.phone}</a>
+                                    </p>
                                 </li>
                                 <li>
-                                    <a href={phone}>{c.phone}</a>
-                                </li>
-                                <li>
-                                    <a href={email}>{c.email}</a>
+                                    <p>
+                                        E-mail: <a href={email}>{c.email}</a>
+                                    </p>
                                 </li>
                                 <li>
                                     <strong>
@@ -190,9 +198,10 @@ class Contact extends Component {
 
             return (
                 <>
-                    <Heading hidden={true} level={level} label={label} />
                     {!this.props.minimalContact &&
-                        <Content tag={this.props.tag} />
+                        <>
+                            <Content tag={this.props.tag} />
+                        </>
                     }
                     { main }
                     {socials.length > 0 &&
