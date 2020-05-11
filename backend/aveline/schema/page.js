@@ -22,22 +22,28 @@ const Page = new GraphQLObjectType({
                     return page.page;
                 }
             },
-            main: {
-                type: GraphQLBoolean,
-                resolve(page) {
-                    return page.main;
-                }
-            },
             ordering: {
                 type: GraphQLInt,
                 resolve(page) {
                     return page.ordering;
                 }
             },
+            main: {
+                type: GraphQLBoolean,
+                resolve(page) {
+                    return page.main;
+                }
+            },
             box: {
                 type: GraphQLBoolean,
-                resolve(multimedia) {
-                    return multimedia.box;
+                resolve(page) {
+                    return page.box;
+                }
+            },
+            sitemap: {
+                type: GraphQLBoolean,
+                resolve(page) {
+                    return page.sitemap;
                 }
             },
             layout: {

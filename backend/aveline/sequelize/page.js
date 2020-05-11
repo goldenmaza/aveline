@@ -11,15 +11,19 @@ const seqPage = {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-    main: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-    },
     ordering: {
         type: Sequelize.TINYINT,
         allowNull: false
     },
+    main: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
     box: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
+    sitemap: {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },

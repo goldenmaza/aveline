@@ -18,13 +18,16 @@ const pageFields = {
         page: {
             type: GraphQLInt
         },
-        main: {
-            type: GraphQLBoolean
-        },
         ordering: {
             type: GraphQLInt
         },
+        main: {
+            type: GraphQLBoolean
+        },
         box: {
+            type: GraphQLBoolean
+        },
+        sitemap: {
             type: GraphQLBoolean
         },
         layout: {

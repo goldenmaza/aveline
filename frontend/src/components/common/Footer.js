@@ -11,11 +11,10 @@ class Footer extends Component {
         this.state = {
             loading: true,
             page: null,
+            content: null,
             multimedia: null,
             level: 'h2',
-            label: 'Footer content',
-            level_logo: 'h3',
-            label_logo: 'Logotype content'
+            label: 'Footer content'
         }
     }
 
@@ -26,9 +25,14 @@ class Footer extends Component {
                     page (hidden: false) {
                         id
                         main
-                        ordering
+                        sitemap
                         label
                         title
+                    }
+                    content (hidden: false) {
+                        id
+                        page
+                        heading
                     }
                     multimedia (page: null) {
                         src
@@ -52,6 +56,7 @@ class Footer extends Component {
             console.log(result);
             this.setState({
                 page: result.data.page,
+                content: result.data.content,
                 multimedia: result.data.multimedia,
                 loading: false
             });
@@ -62,25 +67,26 @@ class Footer extends Component {
         if (this.state.loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { level, label, level_logo, label_logo, page, multimedia } = this.state;
+            const { level, label, page, content, multimedia } = this.state;
             return (
                 <footer>
-                    <Heading hidden={true} level={level} label={label} />
-                    <section>
-                        <Heading hidden={true} level={level_logo} label={label_logo} />
-                        <img className='footer_logotype' src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
-                    </section>
+                    <header>
+                        <Heading hidden={true} level={level} label={label} />
+                        <a href='/'>
+                            <img className='footer_logotype' src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
+                        </a>
+                    </header>
                     <div>
-                        <section>
+                        <div className='contact_minimal'>
                             <Contact minimalContact={true} tag={this.props.tag} />
-                        </section>
-                        <section>
-                            <Sitemap page={page} />
-                        </section>
+                        </div>
+                        <div>
+                            <Sitemap page={page} content={content} />
+                        </div>
                     </div>
-                    <section>
+                    <footer>
                         <Copyright />
-                    </section>
+                    </footer>
                 </footer>
             );
         }
