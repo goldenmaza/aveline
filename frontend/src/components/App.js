@@ -25,15 +25,14 @@ class App extends Component {
 
     render() {
         const { level, label, tag } = this.state;
-        console.log(this.state);
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <Switch>
-                    <Route exact path='/' render={() => <Selector component={'Home'} tag={tag} />} />
-                    <Route exact path='/p/contact/' render={() => <Selector component={'Form'} tag={tag} />} />
+                    <Route exact path='/' render={() => <Selector component={'home'} tag={tag} />} />
+                    <Route exact path='/p/contact/' render={() => <Selector component={'form'} tag={tag} />} />
                     {tag !== null &&
-                        <Route path='/p/' render={() => <Selector component={'Content'} tag={tag} />} />
+                        <Route path='/p/' render={() => <Selector component={'content'} tag={tag} />} />
                     }
                     <Route component={Prevention} />
                 </Switch>

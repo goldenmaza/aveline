@@ -32,15 +32,15 @@ class Selector extends Component {
             return (
                 <>
                     <Header />
-                    <main>
+                    <main className={component}>
                         <Heading hidden={true} level={level} label={label} />
-                        {component === 'Home' &&
+                        {component === 'home' &&
                             <Home tag={this.props.tag} />
                         }
-                        {component === 'Form' &&
+                        {component === 'form' &&
                             <Form tag={this.props.tag} />
                         }
-                        {component === 'Content' &&
+                        {component === 'content' &&
                             <Content tag={this.props.tag} />
                         }
                     </main>
