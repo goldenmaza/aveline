@@ -65,7 +65,7 @@ class Content extends Component {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const { level, page, content, multimedia } = this.state;
-            const { tag } = this.props;
+            const { tag, children } = this.props;
             const sections = [];
             let collection = [];
 
@@ -80,18 +80,35 @@ class Content extends Component {
                         });
                         sections.push(
                             <section key={id}>
-                                <i className='anchor' id={id} />
-                                <Heading level={level} label={c.heading} />
-                                <p>
-                                    {c.text}
-                                </p>
-                                <Collage collection={collection} />
+                                <div id={id} className='contentContainer'>
+                                    <Heading level={level} label={c.heading} />
+                                    <p>
+                                        {c.text}
+                                    </p>
+                                    <Collage collection={collection} />
+                                </div>
+                                { children }
                             </section>
                         );
                     }
                     collection = [];
                 });
             });
+
+            if (sections.length === 0) { // Contact page specific
+                page.forEach(p => {
+                    if (p.tag === tag) {
+                        const id = p.tag;
+                        sections.push(
+                            <section key={id}>
+                                <div id={id} className='contentContainer'>
+                                </div>
+                                { children }
+                            </section>
+                        );
+                    }
+                });
+            }
 
             return (
                 <>
