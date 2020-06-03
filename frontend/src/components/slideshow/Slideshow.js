@@ -66,10 +66,12 @@ class Slideshow extends Component {
             });
 
             return (
-                <div>
+                <section>
                     <Heading hidden={true} level={level} label={label} />
-                    <Slider index={index} sources={sources} start={start} duration={duration} loop={loop} />
-                </div>
+                    {sources.length > 0 &&
+                        <Slider index={index} sources={sources} start={start} duration={duration} loop={loop} />
+                    }
+                </section>
             );
         }
     }
