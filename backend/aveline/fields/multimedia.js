@@ -39,6 +39,9 @@ const multimediaFields = {
         box: {
             type: GraphQLBoolean
         },
+        logo: {
+            type: GraphQLBoolean
+        },
         hidden: {
             type: GraphQLBoolean
         },

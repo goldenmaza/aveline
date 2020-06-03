@@ -64,6 +64,12 @@ const Multimedia = new GraphQLObjectType({
                     return multimedia.box;
                 }
             },
+            logo: {
+                type: GraphQLBoolean,
+                resolve(multimedia) {
+                    return multimedia.logo;
+                }
+            },
             hidden: {
                 type: GraphQLBoolean,
                 resolve(multimedia) {

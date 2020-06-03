@@ -39,6 +39,10 @@ const seqMultimedia = {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
+    logo: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
     hidden: {
         type: Sequelize.BOOLEAN,
         allowNull: false
