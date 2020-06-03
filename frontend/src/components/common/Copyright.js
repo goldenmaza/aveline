@@ -19,7 +19,7 @@ class Copyright extends Component {
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <div className='footer_copyright'>
-                    <strong>&copy; {copyright} <a href='/'>Aveline.se</a>. All rights reserved.</strong>
+                    <strong>&copy; {copyright} <a href='/'>XactPartner.com</a>. All rights reserved.</strong>
                 </div>
                 <div className='footer_by'>
                     <span>by <a href='http://www.hellstrand.org' target='_blank' rel='noopener noreferrer'>goldenmaza</a></span>
