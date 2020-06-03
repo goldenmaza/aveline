@@ -76,7 +76,6 @@ class Form extends Component {
                 purposeInput: '?',
                 messageInput: '?'
             },
-            clearDisabled: true,
             displayHelp: false,
             submitDisabled: true,
             level: 'h3',
@@ -244,13 +243,11 @@ class Form extends Component {
         if (this.validateForm()) {
             console.info('Valid Form')
             this.setState({
-                clearDisabled: false,
                 submitDisabled: false
             });
         } else {
             console.info('Invalid Form')
             this.setState({
-                clearDisabled: false,
                 submitDisabled: true
             });
         }
@@ -290,14 +287,14 @@ class Form extends Component {
                 purposeInput: '?',
                 messageInput: '?'
             },
-            clearDisabled: true,
             displayHelp: false,
             submitDisabled: true
         }, this.onChange);
     }
 
     render() {
-        const { maxLength, remainingLength, title, placeholder, validation, clearDisabled, displayHelp, submitDisabled, level, label } = this.state;
+        const { maxLength, remainingLength, title, placeholder, validation, displayHelp, submitDisabled, level, label } = this.state;
+        const { tag, minimalForm, minimalContact } = this.props;
         const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
         const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
         const address = validation.addressInput === 'invalid' ? 'invalid' : '';
@@ -307,10 +304,8 @@ class Form extends Component {
         const message = validation.messageInput === 'invalid' ? 'invalid' : '';
         return (
             <>
-                {!this.props.minimalForm &&
-                    <section>
-                        <Contact minimalContact={this.props.minimalContact} tag={this.props.tag} />
-                    </section>
+                {!minimalForm &&
+                    <Contact minimalContact={minimalContact} tag={tag} />
                 }
                 <section>
                     <Heading hidden={true} level={level} label={label} />
@@ -322,14 +317,14 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='forenameInput'>
                                                 <strong className='required'>Forename:</strong>
-                                                <input id='forenameInput' className={forename} type='text' maxLength={maxLength['forenameInput']} onKeyUp={this.onKeyUp} title={title['forenameInput']} placeholder={placeholder['forenameInput']} />
+                                                <input id='forenameInput' className={forename} type='text' maxLength={maxLength['forenameInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['forenameInput']} placeholder={placeholder['forenameInput']} />
                                                 <span className='forenameCounter'>{remainingLength['forenameInput']}</span>
                                             </label>
                                         </div>
                                         <div className='formElement'>
                                             <label htmlFor='surnameInput'>
                                                 <strong className='required'>Surname:</strong>
-                                                <input id='surnameInput' className={surname} type='text' maxLength={maxLength['surnameInput']} onKeyUp={this.onKeyUp} title={title['surnameInput']} placeholder={placeholder['surnameInput']} />
+                                                <input id='surnameInput' className={surname} type='text' maxLength={maxLength['surnameInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['surnameInput']} placeholder={placeholder['surnameInput']} />
                                                 <span className='surnameCounter'>{remainingLength['surnameInput']}</span>
                                             </label>
                                         </div>
@@ -338,7 +333,7 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='addressInput'>
                                                 <strong className='required'>Address:</strong>
-                                                <input id='addressInput' className={address} type='text' maxLength={maxLength['addressInput']} onKeyUp={this.onKeyUp} title={title['addressInput']} placeholder={placeholder['addressInput']} />
+                                                <input id='addressInput' className={address} type='text' maxLength={maxLength['addressInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['addressInput']} placeholder={placeholder['addressInput']} />
                                                 <span className='addressCounter'>{remainingLength['addressInput']}</span>
                                             </label>
                                         </div>
@@ -347,7 +342,7 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='phoneInput'>
                                                 <strong className='required'>Phone:</strong>
-                                                <input id='phoneInput' className={phone} type='tel' maxLength={maxLength['phoneInput']} onKeyUp={this.onKeyUp} title={title['phoneInput']} placeholder={placeholder['phoneInput']} />
+                                                <input id='phoneInput' className={phone} type='tel' maxLength={maxLength['phoneInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['phoneInput']} placeholder={placeholder['phoneInput']} />
                                                 <span className='phoneCounter'>{remainingLength['phoneInput']}</span>
                                             </label>
                                         </div>
@@ -356,7 +351,7 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='emailInput'>
                                                 <strong className='required'>E-mail:</strong>
-                                                <input id='emailInput' className={email} type='email' maxLength={maxLength['emailInput']} onKeyUp={this.onKeyUp} title={title['emailInput']} placeholder={placeholder['emailInput']} />
+                                                <input id='emailInput' className={email} type='email' maxLength={maxLength['emailInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['emailInput']} placeholder={placeholder['emailInput']} />
                                                 <span className='emailCounter'>{remainingLength['emailInput']}</span>
                                             </label>
                                         </div>
@@ -367,7 +362,7 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='purposeInput'>
                                                 <strong className='required'>Purpose:</strong>
-                                                <input id='purposeInput' className={purpose} type='text' maxLength={maxLength['purposeInput']} onKeyUp={this.onKeyUp} title={title['purposeInput']} placeholder={placeholder['purposeInput']} />
+                                                <input id='purposeInput' className={purpose} type='text' maxLength={maxLength['purposeInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['purposeInput']} placeholder={placeholder['purposeInput']} />
                                                 <span className='purposeCounter'>{remainingLength['purposeInput']}</span>
                                             </label>
                                         </div>
@@ -376,7 +371,7 @@ class Form extends Component {
                                         <div className='formElement'>
                                             <label htmlFor='messageInput'>
                                                 <strong className='required'>Message:</strong>
-                                                <textarea id='messageInput' className={message} maxLength={maxLength['messageInput']} onKeyUp={this.onKeyUp} title={title['messageInput']} placeholder={placeholder['messageInput']}></textarea>
+                                                <textarea id='messageInput' className={message} maxLength={maxLength['messageInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['messageInput']} placeholder={placeholder['messageInput']}></textarea>
                                                 <span className='messageCounter'>{remainingLength['messageInput']}</span>
                                             </label>
                                         </div>
@@ -388,7 +383,7 @@ class Form extends Component {
                                     <div className='formElement'>
                                         <label htmlFor='clearButton'>
                                             <strong>Clear button:</strong>
-                                            <input id='clearButton' className='input' type='button' disabled={clearDisabled ? 'disabled' : ''} onClick={this.clearButton} title={title['clearButton']} value={placeholder['clearButton']} />
+                                            <input id='clearButton' className='input' type='button' onClick={this.clearButton} title={title['clearButton']} value={placeholder['clearButton']} />
                                         </label>
                                     </div>
                                     <div className='formElement'>
