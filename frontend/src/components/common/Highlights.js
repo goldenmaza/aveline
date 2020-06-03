@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import Heading from './Heading';
 
@@ -26,7 +27,7 @@ class Highlights extends Component {
                         label
                         title
                     }
-                    content (hidden: false, box: true, content: null) {
+                    content (hidden: false, box: true) {
                         id
                         page
                         heading
@@ -35,6 +36,7 @@ class Highlights extends Component {
                     multimedia (hidden: false, box: true) {
                         id
                         page
+                        content
                         src
                         alt
                         title
@@ -53,7 +55,6 @@ class Highlights extends Component {
         fetch('http://localhost:6969/api', options).then(promise => {
             return promise.json();
         }).then(result => {
-            console.log(result);
             this.setState({
                 page: result.data.page,
                 content: result.data.content,
@@ -71,13 +72,13 @@ class Highlights extends Component {
             const highlights = [];
 
             page.forEach(p => {
+                const to = '/p/' + p.tag;
                 multimedia.forEach(m => {
                     if (p.id === m.page) {
-                        const to = '/p/' + p.tag;
                         highlights.push(
                             <li key={p.id + m.id}>
                                 <NavLink to={to} title={p.title}>
-                                    <img className='highlights_image' src={m.src} alt={m.alt} />
+                                    <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
                                     <div>
                                         <span>
                                             {p.title}
@@ -90,21 +91,21 @@ class Highlights extends Component {
                 });
             });
             page.forEach(p => {
+                const to = '/p/' + p.tag;
                 content.forEach(c => {
                     if (p.id === c.page) {
                         multimedia.forEach(m => {
-                            if (c.page === m.page) {
-                                const to = '/p/' + p.tag;
+                            if (c.id === m.content) {
                                 highlights.push(
                                     <li key={p.id + c.id + m.id}>
-                                        <NavLink to={to+'#'+p.tag+c.id} title={c.text}>
-                                            <img className='highlights_image' src={m.src} alt={m.alt} />
+                                        <HashLink to={to+'#'+p.tag+c.id} title={c.text}>
+                                            <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
                                             <div>
                                                 <span>
                                                     {c.heading}
                                                 </span>
                                             </div>
-                                        </NavLink>
+                                        </HashLink>
                                     </li>
                                 );
                             }
