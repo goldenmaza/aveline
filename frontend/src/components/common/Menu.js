@@ -40,7 +40,7 @@ class Menu extends Component {
             const items = [];
 
             page.forEach(p => {
-                if (content.some(c => c.page === p.id)) {
+                //if (content.some(c => c.page === p.id)) {
                     const to = '/p/' + p.label.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o');
                     items.push(
                         <li key={p.id}>
@@ -49,7 +49,7 @@ class Menu extends Component {
                             </NavLink>
                         </li>
                     );
-                }
+                //}
             });
 
             return (

@@ -22,7 +22,6 @@ class Handler extends Component {
                 query {
                     page (hidden: false, main: true) {
                         id
-                        ordering
                         label
                         title
                     }
@@ -30,7 +29,7 @@ class Handler extends Component {
                         id
                         page
                     }
-                    multimedia (page: null) {
+                    multimedia (hidden: false, logo: true) {
                         src
                         alt
                         title

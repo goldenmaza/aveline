@@ -34,7 +34,7 @@ class Footer extends Component {
                         page
                         heading
                     }
-                    multimedia (page: null) {
+                    multimedia (hidden: false, logo: true) {
                         src
                         alt
                         title
@@ -53,7 +53,6 @@ class Footer extends Component {
         fetch('http://localhost:6969/api', options).then(promise => {
             return promise.json();
         }).then(result => {
-            console.log(result);
             this.setState({
                 page: result.data.page,
                 content: result.data.content,
