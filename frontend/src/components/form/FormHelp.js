@@ -6,12 +6,12 @@ class FormHelp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 'h4',
-            label: 'Help section'
+            level: process.env.REACT_APP_DOC_FORMHELP_LEVEL,
+            label: process.env.REACT_APP_DOC_FORMHELP_LABEL
         };
     }
 
-    render() {
+    render() {// TODO: Refactor so help details are generated dynamically based on the values stated under .env
         const { level, label } = this.state;
         return (
             <section className={'helpSection'}>

@@ -16,23 +16,37 @@ class Form extends Component {
             emailInput: null,
             purposeInput: null,
             messageInput: null,
+            strong: { // Refactor to a central utility...
+                forenameInput: process.env.REACT_APP_DOC_FORM_STRONG_FORENAME,
+                surnameInput: process.env.REACT_APP_DOC_FORM_STRONG_SURNAME,
+                addressInput: process.env.REACT_APP_DOC_FORM_STRONG_ADDRESS,
+                phoneInput: process.env.REACT_APP_DOC_FORM_STRONG_PHONE,
+                emailInput: process.env.REACT_APP_DOC_FORM_STRONG_EMAIL,
+                purposeInput: process.env.REACT_APP_DOC_FORM_STRONG_PURPOSE,
+                messageInput: process.env.REACT_APP_DOC_FORM_STRONG_MESSAGE,
+                clearButton: process.env.REACT_APP_DOC_FORM_STRONG_CLEAR,
+                helpButton: process.env.REACT_APP_DOC_FORM_STRONG_HELP,
+                submitButton: process.env.REACT_APP_DOC_FORM_STRONG_SUBMIT
+            },
             regex: { // Refactor to a central utility...
-                forenameInput: RegExp("^([a-zA-ZåäöÅÄÖ.'_\\- ]{2,50})$"),
-                surnameInput: RegExp("^([a-zA-ZåäöÅÄÖ.'_\\- ]{2,50})$"),
-                addressInput: RegExp("^([a-zA-ZåäöÅÄÖ.'_\\- ]{3,100})$"),
-                phoneInput: RegExp("^([0-9'\\- ]{3,25})$"),
-                emailInput: RegExp("^([a-zA-Z0-9.\\-]{2,50})+@([a-zA-Z0-9.\\-]{2,50})+.([a-zA-Z]{2,13})$"),
-                purposeInput: RegExp("^([a-zA-ZåäöÅÄÖ0-9.'\\-_ ]{2,50})$"),
-                messageInput: RegExp("^([a-zA-ZåäöÅÄÖ.'\\-_ ]{5,5000})$")
+                forenameInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_FORENAME),
+                surnameInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_SURNAME),
+                addressInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS),
+                phoneInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_PHONE),
+                emailInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL),
+                purposeInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE),
+                messageInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE)
             },
             maxLength: { // Refactor to a central utility...
-                forenameInput: 50,
-                surnameInput: 50,
-                addressInput: 100,
-                phoneInput: 25,
-                emailInput: 113,
-                purposeInput: 50,
-                messageInput: 5000
+                forenameInput: process.env.REACT_APP_DOC_FORM_REGEX_FORENAME_MAX,
+                surnameInput: process.env.REACT_APP_DOC_FORM_REGEX_SURNAME_MAX,
+                addressInput: process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS_MAX,
+                phoneInput: process.env.REACT_APP_DOC_FORM_REGEX_PHONE_MAX,
+                emailInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_USERNAME_MAX)
+                            + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_DOMAIN_MAX)
+                            + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_SUFFIX_MAX),
+                purposeInput: process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE_MAX,
+                messageInput: process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE_MAX
             },
             remainingLength: { // Refactor to a central utility...
                 forenameInput: 0,
@@ -44,28 +58,28 @@ class Form extends Component {
                 messageInput: 0
             },
             title: { // Refactor to a central utility...
-                forenameInput: 'What is your forename?',
-                surnameInput: 'What is your surname?',
-                addressInput: 'What is your address?',
-                phoneInput: 'What is your phone number?',
-                emailInput: 'What is your E-mail address?',
-                purposeInput: 'What is the purpose of this contact?',
-                messageInput: 'Please give a detailed message...',
-                clearButton: 'If you want to clear out this contact form, press here!',
-                helpButton: 'If you need help with this contact form, press here!',
-                submitButton: 'If you are ready to submit this message, press here!'
+                forenameInput: process.env.REACT_APP_DOC_FORM_TITLE_FORENAME,
+                surnameInput: process.env.REACT_APP_DOC_FORM_TITLE_SURNAME,
+                addressInput: process.env.REACT_APP_DOC_FORM_TITLE_ADDRESS,
+                phoneInput: process.env.REACT_APP_DOC_FORM_TITLE_PHONE,
+                emailInput: process.env.REACT_APP_DOC_FORM_TITLE_EMAIL,
+                purposeInput: process.env.REACT_APP_DOC_FORM_TITLE_PURPOSE,
+                messageInput: process.env.REACT_APP_DOC_FORM_TITLE_MESSAGE,
+                clearButton: process.env.REACT_APP_DOC_FORM_TITLE_CLEAR,
+                helpButton: process.env.REACT_APP_DOC_FORM_TITLE_HELP,
+                submitButton: process.env.REACT_APP_DOC_FORM_TITLE_SUBMIT
             },
             placeholder: { // Refactor to a central utility...
-                forenameInput: 'Forename',
-                surnameInput: 'Surname',
-                addressInput: 'Address',
-                phoneInput: 'Phone',
-                emailInput: 'E-mail',
-                purposeInput: 'Purpose',
-                messageInput: 'Please give a detailed message...',
-                clearButton: 'Clear',
-                helpButton: 'Help',
-                submitButton: 'Submit'
+                forenameInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_FORENAME,
+                surnameInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_SURNAME,
+                addressInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_ADDRESS,
+                phoneInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_PHONE,
+                emailInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_EMAIL,
+                purposeInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_PURPOSE,
+                messageInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_MESSAGE,
+                clearButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_CLEAR,
+                helpButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_HELP,
+                submitButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_SUBMIT
             },
             validation: { // Refactor to a central utility...
                 forenameInput: '?',
@@ -78,8 +92,8 @@ class Form extends Component {
             },
             displayHelp: false,
             submitDisabled: true,
-            level: 'h3',
-            label: 'Contact form'
+            level: process.env.REACT_APP_DOC_FORM_LEVEL,
+            label: process.env.REACT_APP_DOC_FORM_LABEL
         };
 
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -218,7 +232,7 @@ class Form extends Component {
         };
 
         const options = {
-            url: 'http://localhost:6969/mail',
+            url: process.env.REACT_APP_SERVER_MAIL_ADDRESS,
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Accept': 'application/json',
@@ -293,7 +307,7 @@ class Form extends Component {
     }
 
     render() {
-        const { maxLength, remainingLength, title, placeholder, validation, displayHelp, submitDisabled, level, label } = this.state;
+        const { strong, maxLength, remainingLength, title, placeholder, validation, displayHelp, submitDisabled, level, label } = this.state;
         const { tag, minimalForm, minimalContact } = this.props;
         const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
         const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
@@ -316,14 +330,14 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='forenameInput'>
-                                                <strong className='required'>Forename:</strong>
+                                                <strong className='required'>{strong['forenameInput']}</strong>
                                                 <input id='forenameInput' className={forename} type='text' maxLength={maxLength['forenameInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['forenameInput']} placeholder={placeholder['forenameInput']} />
                                                 <span className='forenameCounter'>{remainingLength['forenameInput']}</span>
                                             </label>
                                         </div>
                                         <div className='formElement'>
                                             <label htmlFor='surnameInput'>
-                                                <strong className='required'>Surname:</strong>
+                                                <strong className='required'>{strong['surnameInput']}</strong>
                                                 <input id='surnameInput' className={surname} type='text' maxLength={maxLength['surnameInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['surnameInput']} placeholder={placeholder['surnameInput']} />
                                                 <span className='surnameCounter'>{remainingLength['surnameInput']}</span>
                                             </label>
@@ -332,7 +346,7 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='addressInput'>
-                                                <strong className='required'>Address:</strong>
+                                                <strong className='required'>{strong['addressInput']}</strong>
                                                 <input id='addressInput' className={address} type='text' maxLength={maxLength['addressInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['addressInput']} placeholder={placeholder['addressInput']} />
                                                 <span className='addressCounter'>{remainingLength['addressInput']}</span>
                                             </label>
@@ -341,7 +355,7 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='phoneInput'>
-                                                <strong className='required'>Phone:</strong>
+                                                <strong className='required'>{strong['phoneInput']}</strong>
                                                 <input id='phoneInput' className={phone} type='tel' maxLength={maxLength['phoneInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['phoneInput']} placeholder={placeholder['phoneInput']} />
                                                 <span className='phoneCounter'>{remainingLength['phoneInput']}</span>
                                             </label>
@@ -350,7 +364,7 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='emailInput'>
-                                                <strong className='required'>E-mail:</strong>
+                                                <strong className='required'>{strong['emailInput']}</strong>
                                                 <input id='emailInput' className={email} type='email' maxLength={maxLength['emailInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['emailInput']} placeholder={placeholder['emailInput']} />
                                                 <span className='emailCounter'>{remainingLength['emailInput']}</span>
                                             </label>
@@ -361,7 +375,7 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='purposeInput'>
-                                                <strong className='required'>Purpose:</strong>
+                                                <strong className='required'>{strong['purposeInput']}</strong>
                                                 <input id='purposeInput' className={purpose} type='text' maxLength={maxLength['purposeInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['purposeInput']} placeholder={placeholder['purposeInput']} />
                                                 <span className='purposeCounter'>{remainingLength['purposeInput']}</span>
                                             </label>
@@ -370,7 +384,7 @@ class Form extends Component {
                                     <div className='formRow'>
                                         <div className='formElement'>
                                             <label htmlFor='messageInput'>
-                                                <strong className='required'>Message:</strong>
+                                                <strong className='required'>{strong['messageInput']}</strong>
                                                 <textarea id='messageInput' className={message} maxLength={maxLength['messageInput']} onKeyUp={this.onKeyUp} autoComplete="off" title={title['messageInput']} placeholder={placeholder['messageInput']}></textarea>
                                                 <span className='messageCounter'>{remainingLength['messageInput']}</span>
                                             </label>
@@ -382,19 +396,19 @@ class Form extends Component {
                                 <div className='formRow'>
                                     <div className='formElement'>
                                         <label htmlFor='clearButton'>
-                                            <strong>Clear button:</strong>
+                                            <strong>{strong['clearButton']}</strong>
                                             <input id='clearButton' className='input' type='button' onClick={this.clearButton} title={title['clearButton']} value={placeholder['clearButton']} />
                                         </label>
                                     </div>
                                     <div className='formElement'>
                                         <label htmlFor='helpButton'>
-                                            <strong>Help button:</strong>
+                                            <strong>{strong['helpButton']}</strong>
                                             <input id='helpButton' className='input' type='button' onClick={this.helpButton} title={title['helpButton']} value={placeholder['helpButton']} />
                                         </label>
                                     </div>
                                     <div className='formElement'>
                                         <label htmlFor='submitButton'>
-                                            <strong>Submit button:</strong>
+                                            <strong>{strong['submitButton']}</strong>
                                             <input id='submitButton' className='input' type='button' disabled={submitDisabled ? 'disabled' : ''} onClick={this.submitButton} title={title['submitButton']} value={placeholder['submitButton']} />
                                         </label>
                                     </div>

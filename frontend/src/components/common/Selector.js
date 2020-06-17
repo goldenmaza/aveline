@@ -12,8 +12,8 @@ class Selector extends Component {
         super(props);
         this.state = {
             loading: true,
-            level: 'h2',
-            label: 'Page content'
+            level: process.env.REACT_APP_DOC_SELECTOR_LEVEL,
+            label: process.env.REACT_APP_DOC_SELECTOR_LABEL
         };
     }
 

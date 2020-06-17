@@ -11,7 +11,7 @@ class Content extends Component {
             page: null,
             content: null,
             multimedia: null,
-            level: 'h3'
+            level: process.env.REACT_APP_DOC_CONTENT_LEVEL
         };
     }
 
@@ -48,7 +48,7 @@ class Content extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({

@@ -13,8 +13,8 @@ class Slideshow extends Component {
             start: 0,
             duration: 3000,
             loop: true,
-            level: 'h3',
-            label: 'Slideshow content'
+            level: process.env.REACT_APP_DOC_SLIDESHOW_LEVEL,
+            label: process.env.REACT_APP_DOC_SLIDESHOW_LABEL
         };
     }
 
@@ -39,7 +39,7 @@ class Slideshow extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({

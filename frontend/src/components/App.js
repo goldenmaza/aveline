@@ -9,8 +9,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 'h1',
-            label: 'Aveline',
+            level: process.env.REACT_APP_DOC_LEVEL,
+            label: process.env.REACT_APP_DOC_LABEL,
             tag: null
         };
     }

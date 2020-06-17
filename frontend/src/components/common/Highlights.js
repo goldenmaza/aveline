@@ -12,8 +12,8 @@ class Highlights extends Component {
             page: null,
             content: null,
             multimedia: null,
-            level: 'h3',
-            label: 'Highlights navigation'
+            level: process.env.REACT_APP_DOC_HIGHLIGHTS_LEVEL,
+            label: process.env.REACT_APP_DOC_HIGHLIGHTS_LABEL
         };
     }
 
@@ -52,7 +52,7 @@ class Highlights extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({
