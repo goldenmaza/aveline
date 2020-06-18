@@ -1,4 +1,6 @@
 import Sequelize from 'sequelize';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Sequelize definitions...
 import { seqRegion } from './sequelize/region';
@@ -13,6 +15,11 @@ import { seqOffice } from './sequelize/office';
 import { seqContact } from './sequelize/contact';
 import { seqSocial } from './sequelize/social';
 import { seqNavigation } from './sequelize/navigation';
+
+//TODO: Refector to use for dev, test and prod...
+//const env = process.env.NODE_ENV || 'development';
+//const config = require('./../config/config.js')[env];
+//config.database (same as process.env.SEQUELIZE_DATABASE) etc
 
 // Create a new Sequelize instance to setup the connection with a database (localhost)...
 const db = new Sequelize(process.env.SEQUELIZE_DATABASE, process.env.SEQUELIZE_USERNAME, process.env.SEQUELIZE_PASSWORD, {
