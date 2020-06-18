@@ -15,9 +15,9 @@ class Copyright extends Component {
         const { level, label } = this.state;
         const year = new Date().getFullYear();
         const copyright = year > 2020 ? '2020 - ' + year : year;
-        const link = process.env.REACT_APP_DOCUMENT_FOOTER_COPYRIGHT_LINK;
-        const maza_link = process.env.REACT_APP_DOCUMENT_FOOTER_BY_LINK;
-        const maza_label = process.env.REACT_APP_DOCUMENT_FOOTER_BY_LABEL;
+        const link = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LINK;
+        const maza_link = process.env.REACT_APP_DOC_FOOTER_BY_LINK;
+        const maza_label = process.env.REACT_APP_DOC_FOOTER_BY_LABEL;
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
