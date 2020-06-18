@@ -15,9 +15,10 @@ import { seqSocial } from './sequelize/social';
 import { seqNavigation } from './sequelize/navigation';
 
 // Create a new Sequelize instance to setup the connection with a database (localhost)...
-const db = new Sequelize('aveline', 'root', 'kng03tnTEWjMsXSz', {
-    dialect: 'mysql',
-    host: 'localhost',
+const db = new Sequelize(process.env.SEQUELIZE_DATABASE, process.env.SEQUELIZE_USERNAME, process.env.SEQUELIZE_PASSWORD, {
+    dialect: process.env.SEQUELIZE_DIALECT,
+    host: process.env.SEQUELIZE_HOST,
+    port: process.env.SEQUELIZE_PORT,
     pool: {
         max: 7,
         min: 0,
@@ -27,21 +28,6 @@ const db = new Sequelize('aveline', 'root', 'kng03tnTEWjMsXSz', {
         timestamps: false
     }
 });
-
-// Create a new Sequelize instance to setup the connection with a database (inleed)...
-//const db = new Sequelize('hellstrand_aveline', 'hellstrand_aveline', 'aveline', {
-//    dialect: 'mysql',
-//    host: '127.0.0.1',
-//    port: 3306,
-//    pool: {
-//        max: 7,
-//        min: 0,
-//        idle: 6000
-//    },
-//    define: {
-//        timestamps: false
-//    }
-//});
 
 // Validate the connection...
 db.authenticate().then((val) => {

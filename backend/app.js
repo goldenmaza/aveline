@@ -1,22 +1,22 @@
 import Express from 'express';
-import Helmet from 'helmet';
-import Compression from 'compression';
+//import Helmet from 'helmet';
+//import Compression from 'compression';
 import Parser from 'body-parser';
 import Cors from 'cors';
 
 import Graphql from 'express-graphql';
 import Nodemailer from 'nodemailer';
-//import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 import Schema from './aveline/schema';
 
 const app = Express();
 
 // Default configurations...
-//dotenv.config();
+dotenv.config();
 
-app.use(Helmet());
-app.use(Compression());
+//app.use(Helmet());
+//app.use(Compression());
 app.use(Parser.json());
 app.use(Parser.urlencoded({ extended: true }));
 app.use(Cors());
@@ -40,23 +40,23 @@ app.use('/api', Graphql({
 
 // Nodemailer configuration...
 const protocol = {
-    host: 'ns8.inleed.net',
-    port: 587,
+    host: process.env.PROTOCOL_HOST,
+    port: process.env.PROTOCOL_PORT,
     auth: {
-        user: 'test@hellstrand.org',
-        pass: 'testaccount'
+        user: process.env.PROTOCOL_USER,
+        pass: process.env.PROTOCOL_PASS
     }
 }
 
-const transporter = Nodemailer.createTransport(protocol);
-
-transporter.verify((err, suc) => {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Nodemailer\'s transporter has been verified...');
-    }
-});
+//const transporter = Nodemailer.createTransport(protocol);
+//
+//transporter.verify((err, suc) => {
+//    if (err) {
+//        console.error(err);
+//    } else {
+//        console.log('Nodemailer\'s transporter has been verified...');
+//    }
+//});
 
 app.use('/mail', (req, res, next) => {
     const sender = req.body.forename + " " + req.body.surname;
@@ -87,7 +87,7 @@ app.use('/mail', (req, res, next) => {
     });
 });
 
-const PORT = 6969; // refactor: load from process.env.PORT
-app.listen(PORT, () => {
-    console.log('Application is listening at port: ', PORT);
+const port = process.env.SERVER_PORT;
+app.listen(port, () => {
+    console.log('Application is listening at port: ', port);
 });
