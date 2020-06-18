@@ -12,13 +12,6 @@ import contactFields from './fields/contact';
 import socialFields from './fields/social';
 import navigationFields from './fields/navigation';
 
-// BuildTool fields...
-import regionFields from './fields/region';
-import typeFields from './fields/type';
-import modelFields from './fields/model';
-import categoryFields from './fields/category';
-import itemFields from './fields/item';
-
 // Declaration of the Query tag for GraphQL...
 const QueryBundle = new GraphQLObjectType({
     name: 'Query',
@@ -32,11 +25,6 @@ const QueryBundle = new GraphQLObjectType({
             contact: contactFields,
             social: socialFields,
             navigation: navigationFields,
-            region: regionFields,
-            type: typeFields,
-            model: modelFields,
-            category: categoryFields,
-            item: itemFields
         };
     }
 });
