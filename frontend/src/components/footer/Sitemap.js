@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-import Heading from './Heading';
+import Heading from '../common/Heading';
 
 class Sitemap extends Component {
     constructor(props) {

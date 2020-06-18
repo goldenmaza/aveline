@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Heading from './Heading';
+import Heading from '../common/Heading';
 import Handler from './Handler';
 
 class Header extends Component {

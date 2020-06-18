@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Heading from './Heading';
-import Contact from './Contact';
+import Heading from '../common/Heading';
+import Contact from '../common/Contact';
 import Sitemap from './Sitemap';
 import Copyright from './Copyright';
 

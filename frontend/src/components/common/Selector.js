@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import Content from './Content';
-import Header from './Header';
+import Header from '../header/Header';
 import Heading from './Heading';
 import Home from './Home';
 import Form from '../form/Form';
-import Footer from './Footer';
+import Footer from '../footer/Footer';
 
 class Selector extends Component {
     constructor(props) {
