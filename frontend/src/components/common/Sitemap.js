@@ -11,8 +11,8 @@ class Sitemap extends Component {
             loading: true,
             page: null,
             content: null,
-            level: 'h3',
-            label: 'Sitemap navigation'
+            level: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LEVEL,
+            label: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LABEL
         }
     }
 

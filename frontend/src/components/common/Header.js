@@ -8,8 +8,8 @@ class Header extends Component {
         super(props);
         this.state = {
             loading: true,
-            level: 'h2',
-            label: 'Main Navigation'
+            level: process.env.REACT_APP_DOC_HEADER_LEVEL,
+            label: process.env.REACT_APP_DOC_HEADER_LABEL
         };
     }
 

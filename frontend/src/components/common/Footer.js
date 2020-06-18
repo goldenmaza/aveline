@@ -13,8 +13,8 @@ class Footer extends Component {
             page: null,
             content: null,
             multimedia: null,
-            level: 'h2',
-            label: 'Footer content'
+            level: process.env.REACT_APP_DOC_FOOTER_LEVEL,
+            label: process.env.REACT_APP_DOC_FOOTER_LABEL
         }
     }
 
@@ -50,7 +50,7 @@ class Footer extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({

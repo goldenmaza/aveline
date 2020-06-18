@@ -45,7 +45,7 @@ class Handler extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({

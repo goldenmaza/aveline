@@ -6,8 +6,8 @@ class Copyright extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 'h3',
-            label: 'Copyright content'
+            level: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LEVEL,
+            label: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LABEL
         };
     }
 

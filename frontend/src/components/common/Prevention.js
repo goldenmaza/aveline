@@ -6,8 +6,8 @@ class Prevention extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 'h2',
-            label: '404 - Invalid action'
+            level: process.env.REACT_APP_DOC_E404_LEVEL,
+            label: process.env.REACT_APP_DOC_E404_LABEL
         };
     }
 
