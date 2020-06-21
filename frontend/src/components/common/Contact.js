@@ -78,7 +78,7 @@ class Contact extends Component {
             },
             body: JSON.stringify(requestBody)
         };
-        fetch('http://localhost:6969/api', options).then(promise => {
+        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
             return promise.json();
         }).then(result => {
             this.setState({
@@ -202,7 +202,7 @@ class Contact extends Component {
                             if (target === c.office && c.id === m.contact && m.box) {
                                 contacts.push(
                                     <li key={c.id}>
-                                        <a href='#'>
+                                        <div>
                                             <img className='contact_image' src={m.src} alt={m.alt} title={m.title} />
                                             <div>
                                                 <span>
@@ -215,7 +215,7 @@ class Contact extends Component {
                                                     <a href={'mailto:' + Buffer.from(c.email, "ascii").toString('hex')}>Send E-mail</a>
                                                 </span>
                                             </div>
-                                        </a>
+                                        </div>
                                     </li>
                                 );
                             }
