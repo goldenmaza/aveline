@@ -4,19 +4,19 @@ import {
     handlerComponent,
     menuComponent
 } from './header';
+import {
+    footerComponent,
+    sitemapComponent,
+    copyrightComponent
+} from './footer';
 
 const combinedReducers = combineReducers({
     headerComponent,
     handlerComponent,
-    menuComponent
+    menuComponent,
+    footerComponent,
+    sitemapComponent,
+    copyrightComponent
 });
 
 export default combinedReducers;
-//,
-//    slideshowReducer,
-//    highlightsReducer,
-//    contentReducer,
-//    contactReducer,
-//    formReducer,
-//    socialReducer,
-//    sitemapReducer
