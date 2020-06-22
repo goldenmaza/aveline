@@ -52,8 +52,8 @@ class Footer extends Component {
 }
 
 const mapStateToProps = state => ({
-    loading: state.handlerComponent.loading,
-    multimedia: state.handlerComponent.multimedia,
+    loading: state.handlerComponent.loading,//Note: Get logo from Handler...
+    multimedia: state.handlerComponent.multimedia,//Note: Get logo from Handler...
     level: state.footerComponent.level,
     label: state.footerComponent.label
 });
