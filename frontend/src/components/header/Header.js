@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import Heading from '../common/Heading';

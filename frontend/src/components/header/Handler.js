@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import Menu from './Menu';
@@ -26,10 +26,10 @@ class Handler extends Component {
     }
 
     render() {
-        if (this.props.loading) {
+        const { loading, toggled, multimedia } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { toggled, multimedia } = this.props;
             const handlerToggle = toggled ? 'handler_toggle active' : 'handler_toggle';
             return (
                 <>
