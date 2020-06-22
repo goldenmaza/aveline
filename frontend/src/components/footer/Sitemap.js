@@ -1,34 +1,29 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { Dispatch, bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 
 import Heading from '../common/Heading';
+
+import {
+    getFooterSitemap
+} from '../../redux/actions/footer';
 
 class Sitemap extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            page: null,
-            content: null,
-            level: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LEVEL,
-            label: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LABEL
-        }
     }
 
     componentDidMount() {
-        this.setState({
-            loading: this.props.page !== null && this.props.page.length > 0 ? false : true,
-            page: this.props.page,
-            content: this.props.content
-        });
+        this.props.actions.getFooterSitemap();
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, page, content, level, label } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { level, label, page, content } = this.state;
             const lists = [];
             let items = [];
 
@@ -75,4 +70,21 @@ class Sitemap extends Component {
     }
 }
 
-export default Sitemap;
+const mapStateToProps = state => ({
+    loading: state.sitemapComponent.loading,
+    page: state.sitemapComponent.page,
+    content: state.sitemapComponent.content,
+    level: state.sitemapComponent.level,
+    label: state.sitemapComponent.label
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+        getFooterSitemap
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Sitemap));

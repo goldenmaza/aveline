@@ -1,72 +1,31 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
 import Contact from '../common/Contact';
 import Sitemap from './Sitemap';
 import Copyright from './Copyright';
 
+//import {
+//    getFooterLogo
+//} from '../../redux/actions/footer';
+
 class Footer extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            page: null,
-            content: null,
-            multimedia: null,
-            level: process.env.REACT_APP_DOC_FOOTER_LEVEL,
-            label: process.env.REACT_APP_DOC_FOOTER_LABEL
-        }
     }
 
     componentDidMount() {
-        const requestBody = {
-            query: `
-                query {
-                    page (hidden: false) {
-                        id
-                        main
-                        sitemap
-                        label
-                        title
-                    }
-                    content (hidden: false) {
-                        id
-                        page
-                        heading
-                    }
-                    multimedia (hidden: false, logo: true) {
-                        src
-                        alt
-                        title
-                    }
-                }
-            `
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        };
-        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
-            return promise.json();
-        }).then(result => {
-            this.setState({
-                page: result.data.page,
-                content: result.data.content,
-                multimedia: result.data.multimedia,
-                loading: false
-            });
-        });
+        //this.props.actions.getFooterLogo();//Note: Get logo from Handler...
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, multimedia, level, label } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { level, label, page, content, multimedia } = this.state;
             return (
                 <footer>
                     <header>
@@ -80,7 +39,7 @@ class Footer extends Component {
                             <Contact minimalContact={true} tag={this.props.tag} />
                         </div>
                         <div>
-                            <Sitemap page={page} content={content} />
+                            <Sitemap />
                         </div>
                     </div>
                     <footer>
@@ -92,4 +51,19 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+const mapStateToProps = state => ({
+    loading: state.handlerComponent.loading,
+    multimedia: state.handlerComponent.multimedia,
+    level: state.footerComponent.level,
+    label: state.footerComponent.label
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Footer));

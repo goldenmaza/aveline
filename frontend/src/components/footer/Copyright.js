@@ -1,35 +1,48 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import Heading from '../common/Heading';
 
 class Copyright extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            level: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LEVEL,
-            label: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LABEL
-        };
     }
 
     render() {
-        const { level, label } = this.state;
+        const { created, level, label, name, link, by } = this.props;
         const year = new Date().getFullYear();
-        const copyright = year > 2020 ? '2020 - ' + year : year;
-        const link = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LINK;
-        const maza_link = process.env.REACT_APP_DOC_FOOTER_BY_LINK;
-        const maza_label = process.env.REACT_APP_DOC_FOOTER_BY_LABEL;
+        const copy = year > created ? created + ' - ' + year : year;
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <div className='footer_copyright'>
-                    <strong>&copy; {copyright} <a href='/'>{link}</a>. All rights reserved.</strong>
+                    <strong>&copy; {created} <a href='/'>{name}</a>. All rights reserved.</strong>
                 </div>
                 <div className='footer_by'>
-                    <span>by <a href={maza_link} target='_blank' rel='noopener noreferrer'>{maza_label}</a></span>
+                    <span>by <a href={link} target='_blank' rel='noopener noreferrer'>{by}</a></span>
                 </div>
             </>
         );
     }
 }
 
-export default Copyright;
+const mapStateToProps = state => ({
+    created: state.copyrightComponent.created,
+    level: state.copyrightComponent.level,
+    label: state.copyrightComponent.label,
+    name: state.copyrightComponent.name,
+    link: state.copyrightComponent.link,
+    by: state.copyrightComponent.by
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Copyright));
