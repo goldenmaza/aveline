@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Slideshow from '../slideshow/Slideshow';
+import Slideshow from './Slideshow';
 import Highlights from './Highlights';
 import Form from '../form/Form';
 

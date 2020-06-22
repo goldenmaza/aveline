@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Heading from './Heading';
-import Content from './Content';
+import Heading from '../common/Heading';
+import Content from '../common/Content';
 import Navigation from './Navigation';
 
 class Contact extends Component {

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
-import Contact from '../common/Contact';
+import Contact from '../contact/Contact';
 import Sitemap from './Sitemap';
 import Copyright from './Copyright';
 

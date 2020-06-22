@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Heading from '../common/Heading';
-import Contact from '../common/Contact';
+import Contact from '../contact/Contact';
 import FormHelp from './FormHelp';
 
 class Form extends Component {
