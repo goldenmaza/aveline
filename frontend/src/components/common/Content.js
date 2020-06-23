@@ -1,71 +1,29 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from './Heading';
 import Collage from './Collage';
 
+import {
+    getPageContent
+} from '../../redux/actions/common';
+
 class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            page: null,
-            content: null,
-            multimedia: null,
-            level: process.env.REACT_APP_DOC_CONTENT_LEVEL
-        };
     }
 
     componentDidMount() {
-        const requestBody = {
-            query: `
-                query {
-                    page (hidden: false) {
-                        id
-                        tag
-                    }
-                    content (hidden: false) {
-                        id
-                        page
-                        heading
-                        text
-                    }
-                    multimedia (hidden: false) {
-                        id
-                        page
-                        content
-                        src
-                        alt
-                        title
-                    }
-                }
-            `
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        };
-        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
-            return promise.json();
-        }).then(result => {
-            this.setState({
-                page: result.data.page,
-                content: result.data.content,
-                multimedia: result.data.multimedia,
-                loading: false
-            });
-        });
+        this.props.actions.getPageContent();
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, page, content, multimedia, level, tag, children } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { level, page, content, multimedia } = this.state;
-            const { tag, children } = this.props;
             const sections = [];
             let collection = [];
 
@@ -119,4 +77,21 @@ class Content extends Component {
     }
 }
 
-export default Content;
+const mapStateToProps = state => ({
+    loading: state.contentComponent.loading,
+    page: state.contentComponent.page,
+    content: state.contentComponent.content,
+    multimedia: state.contentComponent.multimedia,
+    level: state.contentComponent.level
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+        getPageContent
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Content));

@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Collage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            collection: props.collection ? props.collection : null
-        };
-    }
-
-    componentDidMount() {
-        this.setState({
-            loading: false
-        });
     }
 
     render() {
-        if (this.state.loading) {
-            return (<div></div>); // Refactor to display loading animation...
-        } else {
-            const { collection } = this.state;
-            const collage = [];
+        const { collection } = this.props;
+        const collage = [];
 
-            collection.forEach(c => {
-                collage.push(
+        collection.forEach(c => {
+            collage.push(
+                <a href={c.src} target='_blank' rel='noopener noreferrer'>
                     <img key={c.id} src={c.src} alt={c.alt} title={c.title} />
-                );
-            });
-
-            return (
-                <div>
-                    { collage }
-                </div>
+                    <div>
+                        <span>
+                            View source...
+                        </span>
+                    </div>
+                </a>
             );
-        }
+        });
+
+        return (
+            <div className='collageContainer'>
+                { collage }
+            </div>
+        );
     }
 }
 
-export default Collage;
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Collage));
