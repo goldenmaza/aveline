@@ -11,6 +11,10 @@ import {
     preventionComponent
 } from './common';
 import {
+    contactComponent,
+    navigationComponent
+} from './contact';
+import {
     footerComponent,
     sitemapComponent,
     copyrightComponent
@@ -24,6 +28,8 @@ const combinedReducers = combineReducers({
     contentComponent,
     collageComponent,
     preventionComponent,
+    contactComponent,
+    navigationComponent,
     footerComponent,
     sitemapComponent,
     copyrightComponent
