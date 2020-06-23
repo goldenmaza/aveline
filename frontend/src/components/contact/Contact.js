@@ -1,111 +1,38 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
 import Content from '../common/Content';
 import Navigation from './Navigation';
 
+import {
+    getContactDetails,
+    toggleContactOffice
+} from '../../redux/actions/contact';
+
 class Contact extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            office: null,
-            contact: null,
-            social: null,
-            navigation: null,
-            multimedia: null,
-            target: null
-        };
 
         this.toggleOffice = this.toggleOffice.bind(this);
     }
 
     componentDidMount() {
-        const requestBody = {
-            query: `
-                query {
-                    office (hidden: false) {
-                        id
-                        main
-                        region
-                        locale
-                        label
-                        orgnr
-                    }
-                    contact (hidden: false) {
-                        id
-                        office
-                        main
-                        title
-                        forename
-                        surname
-                        street
-                        postal
-                        country
-                        phone
-                        email
-                    }
-                    social (hidden: false) {
-                        id
-                        url
-                        media
-                        label
-                    }
-                    navigation (hidden: false) {
-                        id
-                        office
-                        latitude
-                        longitude
-                        main
-                    }
-                    multimedia (hidden: false) {
-                        id
-                        contact
-                        office
-                        box
-                        src
-                        alt
-                        title
-                    }
-                }
-            `
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        };
-        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
-            return promise.json();
-        }).then(result => {
-            this.setState({
-                office: result.data.office,
-                contact: result.data.contact,
-                social: result.data.social,
-                navigation: result.data.navigation,
-                multimedia: result.data.multimedia,
-                loading: false
-            });
-        });
+        this.props.actions.getContactDetails();
     }
 
     toggleOffice(event) {
-        event.preventDefault();
-
-        this.setState({
-            target: this.state.target === null ? Number(event.currentTarget.dataset.id) : null
-        });
+        const value = this.props.target === null ? Number(event.currentTarget.dataset.id) : null;
+        this.props.actions.toggleContactOffice(value);
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, office, contact, social, multimedia, tag, minimalContact, target } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
-            const { office, contact, social, navigation, multimedia, target } = this.state;
-            const { tag, minimalContact } = this.props;
             const main = [];
             const socials = [];
             const offices = [];
@@ -282,4 +209,23 @@ class Contact extends Component {
     }
 }
 
-export default Contact;
+const mapStateToProps = state => ({
+    loading: state.contactComponent.loading,
+    office: state.contactComponent.office,
+    contact: state.contactComponent.contact,
+    social: state.contactComponent.social,
+    multimedia: state.contactComponent.multimedia,
+    target: state.contactComponent.target
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+        getContactDetails,
+        toggleContactOffice
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Contact));

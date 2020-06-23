@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Heading from './Heading';
+import Heading from '../common/Heading';
 
 class Navigation extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true
-        };
-    }
-
-    componentDidMount() {
-        this.setState({
-            loading: false
-        });
     }
 
     render() {
-        if (this.state.loading) {
-            return (<div></div>); // Refactor to display loading animation...
-        } else {
-            return (
-                <iframe src={'https://maps.google.com/maps?q=' + this.props.address + '&t=k&z=13&ie=UTF8&iwloc=&output=embed'} tabIndex='-1'></iframe>
-            );
-        }
+        const { address } = this.props;
+        const src = 'https://maps.google.com/maps?q=' + address + '&t=k&z=13&ie=UTF8&iwloc=&output=embed';
+        return (
+            <iframe src={src} tabIndex='-1'></iframe>
+        );
     }
 }
 
-export default Navigation;
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Navigation));
