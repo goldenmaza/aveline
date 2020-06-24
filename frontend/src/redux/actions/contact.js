@@ -74,6 +74,6 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
         }));
 };
 
-export const toggleContactOffice = (int id) => (dispatch: Dispatch) => {
-    dispatch({id: string, type: TOGGLE_CONTACT_OFFICE });
+export const toggleContactOffice = (id: Number) => (dispatch: Dispatch) => {
+    dispatch({ id, type: TOGGLE_CONTACT_OFFICE });
 };

@@ -24,6 +24,8 @@ class Contact extends Component {
     }
 
     toggleOffice(event) {
+        event.preventDefault();
+
         const value = this.props.target === null ? Number(event.currentTarget.dataset.id) : null;
         this.props.actions.toggleContactOffice(value);
     }
