@@ -1,61 +1,30 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
 import Slider from './Slider';
 
-class Slideshow extends Component {
+import {
+    getResources
+} from '../../redux/actions/home';
+
+class Slideshow extends Component {//TODO: Rename to Presenter and modify source code to be able to play video files...
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            multimedia: null,
-            index: 0,
-            start: 0,
-            duration: 3000,
-            loop: true,
-            level: process.env.REACT_APP_DOC_SLIDESHOW_LEVEL,
-            label: process.env.REACT_APP_DOC_SLIDESHOW_LABEL
-        };
     }
 
     componentDidMount() {
-        const requestBody = {
-            query: `
-                query {
-                    multimedia (hidden: false, slideshow: true) {
-                        id
-                        src
-                        alt
-                        title
-                    }
-                }
-            `
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        };
-        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
-            return promise.json();
-        }).then(result => {
-            this.setState({
-                multimedia: result.data.multimedia,
-                loading: false
-            });
-        });
+        this.props.actions.getResources();
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, multimedia, level, label } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { multimedia, index, start, duration, loop, level, label } = this.state;
             const sources = [];
-
             multimedia.forEach(m => {
                 sources.push({
                     id: m.id,
@@ -64,12 +33,11 @@ class Slideshow extends Component {
                     title: m.title
                 });
             });
-
             return (
                 <section>
                     <Heading hidden={true} level={level} label={label} />
                     {sources.length > 0 &&
-                        <Slider index={index} sources={sources} start={start} duration={duration} loop={loop} />
+                        <Slider sources={sources} />
                     }
                 </section>
             );
@@ -77,4 +45,20 @@ class Slideshow extends Component {
     }
 }
 
-export default Slideshow;
+const mapStateToProps = state => ({
+    loading: state.slideshowComponent.loading,
+    multimedia: state.slideshowComponent.multimedia,
+    level: state.slideshowComponent.level,
+    label: state.slideshowComponent.label
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+        getResources
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Slideshow));

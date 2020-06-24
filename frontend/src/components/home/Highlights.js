@@ -1,74 +1,29 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { Dispatch, bindActionCreators } from 'redux';
+import { NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
+
+import {
+    getHighlights
+} from '../../redux/actions/home';
 
 class Highlights extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true,
-            page: null,
-            content: null,
-            multimedia: null,
-            level: process.env.REACT_APP_DOC_HIGHLIGHTS_LEVEL,
-            label: process.env.REACT_APP_DOC_HIGHLIGHTS_LABEL
-        };
     }
 
     componentDidMount() {
-        const requestBody = {
-            query: `
-                query {
-                    page (hidden: false, box: true, main: true) {
-                        id
-                        tag
-                        label
-                        title
-                    }
-                    content (hidden: false, box: true) {
-                        id
-                        page
-                        heading
-                        text
-                    }
-                    multimedia (hidden: false, box: true) {
-                        id
-                        page
-                        content
-                        src
-                        alt
-                        title
-                    }
-                }
-            `
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        };
-        fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options).then(promise => {
-            return promise.json();
-        }).then(result => {
-            this.setState({
-                page: result.data.page,
-                content: result.data.content,
-                multimedia: result.data.multimedia,
-                loading: false
-            });
-        });
+        this.props.actions.getHighlights();
     }
 
     render() {
-        if (this.state.loading) {
+        const { loading, page, content, multimedia, level, label } = this.props;
+        if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
-            const { page, content, multimedia, level, label } = this.state;
             const highlights = [];
 
             page.forEach(p => {
@@ -128,4 +83,22 @@ class Highlights extends Component {
     }
 }
 
-export default Highlights;
+const mapStateToProps = state => ({
+    loading: state.highlightsComponent.loading,
+    page: state.highlightsComponent.page,
+    content: state.highlightsComponent.content,
+    multimedia: state.highlightsComponent.multimedia,
+    level: state.highlightsComponent.level,
+    label: state.highlightsComponent.label
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+        getHighlights
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Highlights));
