@@ -21,6 +21,10 @@ import {
     navigationComponent
 } from './contact';
 import {
+    formComponent,
+    helpComponent
+} from './form';
+import {
     footerComponent,
     sitemapComponent,
     copyrightComponent
@@ -40,6 +44,8 @@ const combinedReducers = combineReducers({
     highlightsComponent,
     contactComponent,
     navigationComponent,
+    formComponent,
+    helpComponent,
     footerComponent,
     sitemapComponent,
     copyrightComponent
