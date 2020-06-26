@@ -9,7 +9,7 @@ import {
     storeHelpSection
 } from '../../redux/actions/form';
 
-class FormHelp extends Component {
+class HelpSection extends Component {
     constructor(props) {
         super(props);
 
@@ -260,12 +260,12 @@ class FormHelp extends Component {
 }
 
 const mapStateToProps = state => ({
-    helpMapping: state.helpComponent.helpMapping,
-    rangeMapping: state.helpComponent.rangeMapping,
-    symbolMapping: state.helpComponent.symbolMapping,
-    helpSection: state.helpComponent.helpSection,
-    level: state.helpComponent.level,
-    label: state.helpComponent.label
+    helpMapping: state.helpSectionComponent.helpMapping,
+    rangeMapping: state.helpSectionComponent.rangeMapping,
+    symbolMapping: state.helpSectionComponent.symbolMapping,
+    helpSection: state.helpSectionComponent.helpSection,
+    level: state.helpSectionComponent.level,
+    label: state.helpSectionComponent.label
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -277,4 +277,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(FormHelp));
+)(HelpSection));

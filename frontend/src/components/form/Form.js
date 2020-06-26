@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
 import Contact from '../contact/Contact';
-import FormHelp from './FormHelp';
+import FormHelp from './HelpSection';
 
 import {
     processForm,

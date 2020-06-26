@@ -88,7 +88,7 @@ export const formState = {
     label: process.env.REACT_APP_DOC_FORM_LABEL
 };
 
-export const helpState = {
+export const helpSectionState = {
     helpMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_HELP_MAPPING),
     rangeMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_RANGE_MAPPING),
     symbolMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_SYMBOLS_MAPPING),

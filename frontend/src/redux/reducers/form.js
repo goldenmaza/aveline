@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 import {
     formState,
-    helpState,
+    helpSectionState,
     REQ_FORM_TRANSMIT,
     RCV_FORM_TRANSMIT,
     ERR_FORM_TRANSMIT,
@@ -99,7 +99,7 @@ export const formComponent = (state = formState, action: AnyAction) => {
     }
 };
 
-export const helpComponent = (state = helpState, action: AnyAction) => {
+export const helpSectionComponent = (state = helpSectionState, action: AnyAction) => {
     switch (action.type) {
         case HELP_SECTION_STORE:
             return {
