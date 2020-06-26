@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
 import {
+    appComponent
+} from './app';
+import {
     headerComponent,
     handlerComponent,
     menuComponent
@@ -31,6 +34,7 @@ import {
 } from './footer';
 
 const combinedReducers = combineReducers({
+    appComponent,
     headerComponent,
     handlerComponent,
     menuComponent,
