@@ -28,7 +28,7 @@ export const contactComponent = (state = contactState, action: AnyAction) => {
         case RCV_CONTACT_DETAILS:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 office: action.result.data.office,
                 contact: action.result.data.contact,
                 social: action.result.data.social,

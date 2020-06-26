@@ -14,8 +14,8 @@ class Collage extends Component {
 
         collection.forEach(c => {
             collage.push(
-                <a href={c.src} target='_blank' rel='noopener noreferrer'>
-                    <img key={c.id} src={c.src} alt={c.alt} title={c.title} />
+                <a key={c.id} href={c.src} target='_blank' rel='noopener noreferrer'>
+                    <img src={c.src} alt={c.alt} title={c.title} />
                     <div>
                         <span>
                             View source...
