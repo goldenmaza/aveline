@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Dispatch, bindActionCreators } from 'redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Heading from './common/Heading';
 import Selector from './common/Selector';
@@ -8,23 +10,11 @@ import Prevention from './common/Prevention';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            level: process.env.REACT_APP_DOC_LEVEL,
-            label: process.env.REACT_APP_DOC_LABEL,
-            tag: null
-        };
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.location.pathname !== prevProps.location.pathname) {
-            this.setState({
-                tag: this.props.location.pathname.split("/").pop()
-            });
-        }
     }
 
     render() {
-        const { level, label, tag } = this.state;
+        const { level, label, location } = this.props;
+        const tag = location.pathname.split("/").pop();
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
@@ -41,4 +31,17 @@ class App extends Component {
     }
 }
 
-export default withRouter(props => <App {...props}/>);
+const mapStateToProps = state => ({
+    level: state.appComponent.level,
+    label: state.appComponent.label
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    actions: bindActionCreators({
+    }, dispatch)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(App));
