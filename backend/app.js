@@ -1,4 +1,6 @@
 import Express from 'express';
+import dotenv from 'dotenv';
+import path from 'path';
 //import Helmet from 'helmet';
 //import Compression from 'compression';
 import Parser from 'body-parser';
@@ -6,7 +8,6 @@ import Cors from 'cors';
 
 import Graphql from 'express-graphql';
 import Nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
 
 import Schema from './aveline/schema';
 
@@ -14,6 +15,9 @@ const app = Express();
 
 // Default configurations...
 dotenv.config();
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(Helmet());
 //app.use(Compression());
