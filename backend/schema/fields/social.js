@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Social from '../schema/social';
+import Social from '../types/social';
 
 import db from '../db';
 

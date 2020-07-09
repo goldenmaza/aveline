@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Page from '../schema/page';
+import Page from '../types/page';
 
 import db from '../db';
 

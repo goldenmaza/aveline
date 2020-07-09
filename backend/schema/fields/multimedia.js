@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from '../schema/multimedia';
+import Multimedia from '../types/multimedia';
 
 import db from '../db';
 

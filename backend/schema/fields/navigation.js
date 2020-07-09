@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Navigation from '../schema/navigation';
+import Navigation from '../types/navigation';
 
 import db from '../db';
 

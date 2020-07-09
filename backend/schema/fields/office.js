@@ -6,7 +6,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Office from '../schema/office';
+import Office from '../types/office';
 
 import db from '../db';
 
