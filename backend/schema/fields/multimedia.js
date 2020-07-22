@@ -9,6 +9,7 @@ import Multimedia from '../types/multimedia';
 
 import db from '../db';
 
+// This is the Multimedia's fields for the QueryBundle definition...
 const multimediaFields = {
     type: new GraphQLList(Multimedia),
     args: {
@@ -55,8 +56,8 @@ const multimediaFields = {
             type: GraphQLString
         }
     },
-    resolve(root, args) {
-        return db.models.multimedia.findAll({where: args});
+    async resolve(root, args) {
+        return await db.models.multimedia.findAll({where: args});
     }
 };
 

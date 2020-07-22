@@ -5,6 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
+// This is the Sequlize model definition (output type) of the Multimedia table...
 const Multimedia = new GraphQLObjectType({
     name: 'Multimedia',
     description: 'This represents a Multimedia',
@@ -24,20 +25,20 @@ const Multimedia = new GraphQLObjectType({
             },
             content: {
                 type: GraphQLInt,
-                resolve(content) {
-                    return content.content;
+                resolve(multimedia) {
+                    return multimedia.content;
                 }
             },
             contact: {
                 type: GraphQLInt,
-                resolve(content) {
-                    return content.contact;
+                resolve(multimedia) {
+                    return multimedia.contact;
                 }
             },
             office: {
                 type: GraphQLInt,
-                resolve(content) {
-                    return content.office;
+                resolve(multimedia) {
+                    return multimedia.office;
                 }
             },
             ordering: {
