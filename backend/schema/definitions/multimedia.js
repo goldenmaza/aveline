@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 
-const seqMultimedia = {
+// This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
+const seqMultimedia = {//TODO: rename to multimediaTable
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,19 +10,43 @@ const seqMultimedia = {
     },
     page: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'page',
+            key: "id"
+        },
+        field: "page"
     },
     content: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'content',
+            key: "id"
+        },
+        field: "content"
     },
     contact: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'contact',
+            key: "id"
+        },
+        field: "contact"
     },
     office: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'office',
+            key: "id"
+        },
+        field: "office"
     },
     ordering: {
         type: Sequelize.SMALLINT,

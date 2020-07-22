@@ -5,9 +5,14 @@ import {
     GraphQLString
 } from 'graphql';
 
+import { resolver } from 'graphql-sequelize';
+
+import Multimedia from '../types/multimedia'
+
+// This is the Sequlize model definition (output type) of the Office table...
 const Office = new GraphQLObjectType({
     name: 'Office',
-    description: 'This represents a Office',
+    description: 'This represents an Office',
     fields: () => {
         return {
             id: {
@@ -56,6 +61,12 @@ const Office = new GraphQLObjectType({
                 type: GraphQLBoolean,
                 resolve(office) {
                     return office.hidden;
+                }
+            },
+            thumbnail: {
+                type: Multimedia,
+                resolve(office) {
+                    return office.thumbnail;
                 }
             }
         };
