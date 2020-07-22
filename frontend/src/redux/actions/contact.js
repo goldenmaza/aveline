@@ -20,6 +20,14 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                     locale
                     label
                     orgnr
+                    thumbnail {
+                        id
+                        office
+                        box
+                        src
+                        alt
+                        title
+                    }
                 }
                 contact (hidden: false) {
                     id

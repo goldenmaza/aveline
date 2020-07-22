@@ -106,22 +106,21 @@ class Contact extends Component {
             });
 
             office.forEach(o => {
-                multimedia.forEach(m => {
-                    if (o.id === m.office && m.box) {
-                        offices.push(
-                            <li key={o.id} className={contact.some(c => c.office === o.id) ? '' : 'none'} data-id={o.id} onClick={this.toggleOffice}>
-                                <a href='#'>
-                                    <img className='office_image' src={m.src} alt={m.alt} title={m.title} />
-                                    <div>
-                                        <span>
-                                            {o.label}
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                        );
-                    }
-                });
+                const thumbnail = o.thumbnail;
+                if (thumbnail.box) {
+                    offices.push(
+                        <li key={o.id} className={contact.some(c => c.office === o.id) ? '' : 'none'} data-id={o.id} onClick={this.toggleOffice}>
+                            <a href='#'>
+                                <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
+                                <div>
+                                    <span>
+                                        {o.label}
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    );
+                }
             });
 
             office.forEach(o => {
