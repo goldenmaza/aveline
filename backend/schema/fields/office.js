@@ -6,8 +6,9 @@ import {
 } from 'graphql';
 
 import Office from '../types/office';
-import RegionalThumbnail from '../inputs/multimedia';
+import RegionalThumbnail from '../inputs/multimedia';//TODO: Rename Regional to something more generic...
 import RegionalEmployee from '../inputs/contact';
+import RegionalSocial from '../inputs/social';
 
 import db from '../db';
 
@@ -43,7 +44,10 @@ const officeFields = {
             type: RegionalThumbnail
         },
         employees: {
-            type: RegionalEmployee
+            type: new GraphQLList(RegionalEmployee)
+        },
+        socials: {
+            type: new GraphQLList(RegionalSocial)
         }
     },
     async resolve(root, args) {
@@ -51,11 +55,12 @@ const officeFields = {
             include: [{
                 all: true,
                 nested: true
-//                model: [db.models.multimedia, db.models.contact],
-//                as: ["thumbnail", "employees"],
+//                model: [db.models.multimedia, db.models.contact, db.models.social],
+//                as: ["thumbnail", "employees", "socials"],
 //                required: false,
 //                all: true
-            }]
+            }],
+            where: args
         });
     }
 };

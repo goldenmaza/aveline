@@ -88,13 +88,24 @@ const Navigation = db.define('navigation', seqNavigation);
 //    foreignKey: "content"
 //});
 //
-//// Relationships between Office and Contact tables, an Office can have several Contact (employees)...
+
+// Relationships between Office and Contact tables, an Office can have several Contact (employees)...
 Office.hasMany(Contact, {
     as: "employees",//Office's employees...
     foreignKey: "office"
 });
 Contact.belongsTo(Office, {
-    as: "employees",//Employee's office",
+    as: "employees",//Employee's office"...
+    foreignKey: "office"
+});
+
+//// Relationships between Office and Social tables, an Office can have several Social (social media accounts)...
+Office.hasMany(Social, {
+    as: "socials",//Office's social media...
+    foreignKey: "office"
+});
+Social.belongsTo(Office, {
+    as: "socials",//Social media's office"...
     foreignKey: "office"
 });
 
@@ -115,6 +126,16 @@ Contact.hasOne(Multimedia, {
 });
 Multimedia.belongsTo(Contact, {
     as: "portrait",//Multimedia portrait for Contact...
+    foreignKey: "contact"
+});
+
+//// Relationships between Contact and Social tables, a Contact can have several Social (social media accounts)...
+Contact.hasMany(Social, {
+    as: "profiles",//Contact's social media...
+    foreignKey: "contact"
+});
+Social.belongsTo(Contact, {
+    as: "profiles",//Social media's for Contact"...
     foreignKey: "contact"
 });
 

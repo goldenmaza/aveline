@@ -9,10 +9,17 @@ import Social from '../types/social';
 
 import db from '../db';
 
+// This is the Social's fields for the QueryBundle definition...
 const socialFields = {
     type: new GraphQLList(Social),
     args: {
         id: {
+            type: GraphQLInt
+        },
+        contact: {
+            type: GraphQLInt
+        },
+        office: {
             type: GraphQLInt
         },
         url: {
@@ -29,7 +36,9 @@ const socialFields = {
         }
     },
     resolve(root, args) {
-        return db.models.social.findAll({where: args});
+        return db.models.social.findAll({
+            where: args
+        });
     }
 };
 

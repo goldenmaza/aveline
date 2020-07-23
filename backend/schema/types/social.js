@@ -5,6 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
+// This is the Sequlize model definition (output type) of the Social table...
 const Social = new GraphQLObjectType({
     name: 'Social',
     description: 'This represents a Social',
@@ -14,6 +15,18 @@ const Social = new GraphQLObjectType({
                 type: GraphQLInt,
                 resolve(social) {
                     return social.id;
+                }
+            },
+            contact: {
+                type: GraphQLInt,
+                resolve(multimedia) {
+                    return multimedia.contact;
+                }
+            },
+            office: {
+                type: GraphQLInt,
+                resolve(multimedia) {
+                    return multimedia.office;
                 }
             },
             url: {

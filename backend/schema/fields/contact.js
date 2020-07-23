@@ -6,7 +6,8 @@ import {
 } from 'graphql';
 
 import Contact from '../types/contact';
-import RegionalThumbnail from '../inputs/multimedia';
+import RegionalThumbnail from '../inputs/multimedia';//TODO: Rename Regional to something more generic...
+import RegionalSocial from '../inputs/social';
 
 import db from '../db';
 
@@ -54,6 +55,9 @@ const contactFields = {
         },
         portrait: {
             type: RegionalThumbnail
+        },
+        profiles: {
+            type: new GraphQLList(RegionalSocial)
         }
     },
     async resolve(root, args) {
@@ -61,11 +65,12 @@ const contactFields = {
             include: [{
                 all: true,
                 nested: true
-//                model: [db.models.multimedia],
-//                as: ["portrait"],
+//                model: [db.models.multimedia, db.models.social],
+//                as: ["portraits", "profiles"],
 //                required: false,
 //                all: true
-            }]
+            }],
+            where: args
         });
     }
 };

@@ -1,8 +1,8 @@
 import {
     GraphQLBoolean,
     GraphQLInt,
-    GraphQLObjectType,
     GraphQLList,
+    GraphQLObjectType,
     GraphQLString
 } from 'graphql';
 
@@ -10,6 +10,7 @@ import { resolver } from 'graphql-sequelize';
 
 import Multimedia from '../types/multimedia';
 import Contact from '../types/contact';
+import Social from '../types/social';
 
 // This is the Sequlize model definition (output type) of the Office table...
 const Office = new GraphQLObjectType({
@@ -79,6 +80,14 @@ const Office = new GraphQLObjectType({
                     //console.log("typesOffice/employees:");
                     //console.log(office.employees);
                     return office.employees;
+                }
+            },
+            socials: {
+                type: new GraphQLList(Social),
+                resolve(office) {
+                    //console.log("typesOffice/socials:");
+                    //console.log(office.socials);
+                    return office.socials;
                 }
             }
         };

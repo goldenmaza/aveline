@@ -1,11 +1,13 @@
 import {
     GraphQLBoolean,
     GraphQLInt,
+    GraphQLList,
     GraphQLObjectType,
-    GraphQLString
+    GraphQLString,
 } from 'graphql';
 
 import Multimedia from '../types/multimedia';
+import Social from '../types/social';
 
 // This is the Sequlize model definition (output type) of the Contact table...
 const Contact = new GraphQLObjectType({
@@ -94,9 +96,17 @@ const Contact = new GraphQLObjectType({
             portrait: {
                 type: Multimedia,
                 resolve(contact) {
-                    //console.log("typesContact/thumbnail:");
-                    //console.log(contact.dataValues.thumbnails);
+                    //console.log("typesContact/portrait:");
+                    //console.log(contact.dataValues.portrait);
                     return contact.dataValues.portrait;
+                }
+            },
+            profiles: {
+                type: new GraphQLList(Social),
+                resolve(contact) {
+                    //console.log("typesContact/profiles:");
+                    //console.log(contact.dataValues.profiles);
+                    return contact.dataValues.profiles;
                 }
             }
         };
