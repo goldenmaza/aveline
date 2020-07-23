@@ -1,9 +1,6 @@
 export const contactState = {
     loading: true,
     office: null,
-    contact: null,
-    social: null,
-    multimedia: null,
     target: null
 };
 

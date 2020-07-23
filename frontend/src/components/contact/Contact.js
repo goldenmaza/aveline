@@ -31,87 +31,60 @@ class Contact extends Component {
     }
 
     render() {
-        const { loading, office, contact, social, multimedia, tag, minimalContact, target } = this.props;
+        const { loading, office, tag, minimalContact, target } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
             const main = [];
-            const socials = [];
-            const offices = [];
-            const contacts = [];
+            const regionalOffices = [];
+            const officeEmployees = [];
+            const regionalSocials = [];
             const children = [];
-            let addressNavigation = '';console.log(office);
+            let addressNavigation = '';
 
-            if (office !== null) {
                 office.forEach(o => {
-                    contact.forEach(c => {
-                        if (o.id === c.office && o.main && c.main) {
+                    const thumbnail = o.thumbnail;
+                    const employees = o.employees;
+                    const socials = o.socials;
+                    employees.forEach(e => {
+                        if (o.main && e.main) {//TODO: Is it required for both main to be verified?
                             const orgnr = 'https://www.allabolag.se/<ORGNR>/bokslut'.replace('<ORGNR>', o.orgnr);
-                            const phone = 'tel:<TEL>'.replace('<TEL>', c.phone);
-                            const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(c.email, "ascii").toString('hex'));
-                            const address = c.street + ', ' + c.postal + ', '  + c.country;
+                            const phone = 'tel:<TEL>'.replace('<TEL>', e.phone);
+                            const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(e.email, "ascii").toString('hex'));
+                            const address = e.street + ', ' + e.postal + ', '  + e.country;
                             addressNavigation = encodeURIComponent(address);
                             const find = 'https://www.google.se/maps/place/<FIND>'.replace('<FIND>', address);
                             main.push(
                                 <ul key={0}>
                                     <li>
-                                        <strong>
-                                            {o.label}
-                                        </strong>
-                                        <p>
-                                            Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a>
-                                        </p>
+                                        <strong>{o.label}</strong>
+                                        <p>Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a></p>
                                     </li>
                                     <li>
-                                        <p>
-                                            {c.street}
-                                        </p>
+                                        <p>{e.street}</p>
                                     </li>
                                     <li>
-                                        <p>
-                                            {c.postal}
-                                        </p>
+                                        <p>{e.postal}</p>
                                     </li>
                                     <li>
-                                        <p>
-                                            {c.country}
-                                        </p>
+                                        <p>{e.country}</p>
                                     </li>
                                     <li>
-                                        <p>
-                                            Phone: <a href={phone}>{c.phone}</a>
-                                        </p>
+                                        <p>Phone: <a href={phone}>{e.phone}</a></p>
                                     </li>
                                     <li>
-                                        <p>
-                                            E-mail: <a href={email}>{'Us'}</a>
-                                        </p>
+                                        <p>E-mail: <a href={email}>{'Us'}</a></p>
                                     </li>
                                     <li>
-                                        <strong>
-                                            <a href={find}>Find us...</a>
-                                        </strong>
+                                        <strong><a href={find}>Find us...</a></strong>
                                     </li>
                                 </ul>
                             );
                         }
                     });
-                });
-
-                social.forEach(s => {
-                    socials.push(
-                        <li key={s.id}>
-                            <a href={s.url + s.label} target='_blank' rel='noopener noreferrer'>{s.media}</a>
-                        </li>
-                    );
-                });
-
-                office.forEach(o => {
-                    let thumbnail = o.thumbnail;
-                    let employees = o.employees;
-                    if (thumbnail.box) {//TODO: Remove box and place condition with the query?//className={contact.some(c => c.office === o.id) ? '' : 'none'}
-                        offices.push(
-                            <li key={o.id} data-id={o.id} onClick={this.toggleOffice}>
+                    if (thumbnail.box) {//TODO: Remove box and place condition with the query?
+                        regionalOffices.push(
+                            <li key={o.id} className={employees.some(e => e.office === o.id) ? '' : 'none'} data-id={o.id} onClick={this.toggleOffice}>
                                 <a href='#'>
                                     <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
                                     <div>
@@ -123,12 +96,26 @@ class Contact extends Component {
                             </li>
                         );
                     }
+                    socials.forEach(s => {
+                        regionalSocials.push(
+                            <li key={s.id}>
+                                <a href={s.url + s.label} target='_blank' rel='noopener noreferrer'>{s.media}</a>
+                            </li>
+                        );
+                    });
                     if (o.id === target) {
                         employees.forEach(e => {
-                            let portrait = e.portrait;
+                            const portrait = e.portrait;
+                            const profiles = e.profiles;
                             if (portrait.box) {//TODO: Remove box and place condition with the query?
                                 const mailto = Buffer.from(e.email, "ascii").toString('hex');
-                                contacts.push(
+                                const media = [];
+                                profiles.forEach(p => {
+                                    media.push(
+                                        <a href={p.url + p.label} target='_blank' rel='noopener noreferrer'>{p.media}</a>
+                                    );
+                                });
+                                officeEmployees.push(
                                     <li key={e.id}>
                                         <div>
                                             <img className='contact_image' src={portrait.src} alt={portrait.alt} title={portrait.title} />
@@ -142,6 +129,11 @@ class Contact extends Component {
                                                 <span>
                                                     <a href={'mailto:' + mailto}>Send E-mail</a>
                                                 </span>
+                                                {media.length > 0 &&
+                                                    <span>
+                                                        Social media: { media }
+                                                    </span>
+                                                }
                                             </div>
                                         </div>
                                     </li>
@@ -150,19 +142,18 @@ class Contact extends Component {
                         });
                     }
                 });
-            }
 
             children.push(
                 <div key='0' className='childrenContainer'>
                     <div className='contact_summary'>
                         <div className='contact_full'>
                             { main }
-                            {socials.length > 0 &&
+                            {regionalSocials.length > 0 &&
                                 <ul>
                                     <li>
                                         <strong>Follow us:</strong>
                                     </li>
-                                    { socials }
+                                    { regionalSocials }
                                 </ul>
                             }
                         </div>
@@ -172,13 +163,13 @@ class Contact extends Component {
                             </div>
                         }
                     </div>
-                    {!minimalContact && offices.length > 0 &&
+                    {!minimalContact && regionalOffices.length > 0 &&
                         <div className='contact_tree'>
                             <ul>
-                                { offices }
+                                { regionalOffices }
                             </ul>
                             <ul>
-                                { contacts }
+                                { officeEmployees }
                             </ul>
                         </div>
                     }
@@ -190,12 +181,12 @@ class Contact extends Component {
                     {minimalContact ? (
                         <>
                             { main }
-                            {socials.length > 0 &&
+                            {regionalSocials.length > 0 &&
                                 <ul>
                                     <li>
                                         <strong>Follow us:</strong>
                                     </li>
-                                    { socials }
+                                    { regionalSocials }
                                 </ul>
                             }
                         </>
@@ -213,9 +204,6 @@ class Contact extends Component {
 const mapStateToProps = state => ({
     loading: state.contactComponent.loading,
     office: state.contactComponent.office,
-    contact: state.contactComponent.contact,
-    social: state.contactComponent.social,
-    multimedia: state.contactComponent.multimedia,
     target: state.contactComponent.target
 });
 

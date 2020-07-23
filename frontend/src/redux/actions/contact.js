@@ -13,7 +13,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                office (hidden: false) {
+                office {
                     id
                     main
                     region
@@ -49,13 +49,19 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                             alt
                             title
                         }
+                        profiles {
+                            id
+                            url
+                            media
+                            label
+                        }
                     }
-                }
-                social (hidden: false) {
-                    id
-                    url
-                    media
-                    label
+                    socials {
+                        id
+                        url
+                        media
+                        label
+                    }
                 }
             }
         `
