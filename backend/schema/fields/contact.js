@@ -6,6 +6,7 @@ import {
 } from 'graphql';
 
 import Contact from '../types/contact';
+import RegionalThumbnail from '../inputs/multimedia';
 
 import db from '../db';
 
@@ -50,10 +51,22 @@ const contactFields = {
         },
         hidden: {
             type: GraphQLBoolean
+        },
+        portrait: {
+            type: RegionalThumbnail
         }
     },
-    resolve(root, args) {
-        return db.models.contact.findAll({where: args});
+    async resolve(root, args) {
+        return await db.models.contact.findAll({
+            include: [{
+                all: true,
+                nested: true
+//                model: [db.models.multimedia],
+//                as: ["portrait"],
+//                required: false,
+//                all: true
+            }]
+        });
     }
 };
 

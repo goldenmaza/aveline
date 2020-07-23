@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 
-const seqContact = {
+// This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
+const seqContact = {//TODO: rename to contactTable
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,10 +10,16 @@ const seqContact = {
     },
     office: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'office',
+            key: "id"
+        },
+        field: "office"
     },
     ordering: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.SMALLINT,
         allowNull: false
     },
     main: {

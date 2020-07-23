@@ -5,6 +5,9 @@ import {
     GraphQLString
 } from 'graphql';
 
+import Multimedia from '../types/multimedia';
+
+// This is the Sequlize model definition (output type) of the Contact table...
 const Contact = new GraphQLObjectType({
     name: 'Contact',
     description: 'This represents a Contact',
@@ -86,6 +89,14 @@ const Contact = new GraphQLObjectType({
                 type: GraphQLBoolean,
                 resolve(contact) {
                     return contact.hidden;
+                }
+            },
+            portrait: {
+                type: Multimedia,
+                resolve(contact) {
+                    //console.log("typesContact/thumbnail:");
+                    //console.log(contact.dataValues.thumbnails);
+                    return contact.dataValues.portrait;
                 }
             }
         };

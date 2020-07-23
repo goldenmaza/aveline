@@ -89,37 +89,33 @@ const Navigation = db.define('navigation', seqNavigation);
 //});
 //
 //// Relationships between Office and Contact tables, an Office can have several Contact (employees)...
-//Office.hasMany(Contact, {
-//    as: "Office's employees",
-//    foreignKey: "office"
-//});
-//Contact.belongsTo(Office, {
-//    as: "Employee's office",
-//    foreignKey: "office"
-//});
+Office.hasMany(Contact, {
+    as: "employees",//Office's employees...
+    foreignKey: "office"
+});
+Contact.belongsTo(Office, {
+    as: "employees",//Employee's office",
+    foreignKey: "office"
+});
 
 // Relationships between Office and Multimedia tables, an Office can have a single Multimedia (regional thumbnail)...
-//Office.associate = function(models) {
 Office.hasOne(Multimedia, {//the FK will be in the target (Multimedia)...
     as: "thumbnail",//Office's regional thumbnail...
     foreignKey: "office"
 });
-//};
-//Multimedia.associate = function(models) {
 Multimedia.belongsTo(Office, {//the FK will be in the source (Multimedia)...
     as: "thumbnail",//Multimedia thumbnail for Office...
     foreignKey: "office"
 });
-//};
 
 //// Relationships between Contact and Multimedia tables, a Contact can have a single Multimedia (employee thumbnail)...
-//Contact.hasOne(Multimedia, {
-//    as: "Employee's thumbnail",
-//    foreignKey: "contact"
-//});
-//Multimedia.belongsTo(Contact, {
-//    as: "Multimedia thumbnail for Contact",
-//    foreignKey: "page"
-//});
+Contact.hasOne(Multimedia, {
+    as: "portrait",//Employee's portrait...
+    foreignKey: "contact"
+});
+Multimedia.belongsTo(Contact, {
+    as: "portrait",//Multimedia portrait for Contact...
+    foreignKey: "contact"
+});
 
 export default db;

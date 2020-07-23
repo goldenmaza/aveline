@@ -7,6 +7,7 @@ import {
 
 import Office from '../types/office';
 import RegionalThumbnail from '../inputs/multimedia';
+import RegionalEmployee from '../inputs/contact';
 
 import db from '../db';
 
@@ -40,14 +41,20 @@ const officeFields = {
         },
         thumbnail: {
             type: RegionalThumbnail
+        },
+        employees: {
+            type: RegionalEmployee
         }
     },
     async resolve(root, args) {
         return await db.models.office.findAll({
             include: [{
-                model: db.models.multimedia,
-                as: "thumbnail",
-                required: true
+                all: true,
+                nested: true
+//                model: [db.models.multimedia, db.models.contact],
+//                as: ["thumbnail", "employees"],
+//                required: false,
+//                all: true
             }]
         });
     }
