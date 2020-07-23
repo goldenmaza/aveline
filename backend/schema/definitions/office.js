@@ -9,7 +9,7 @@ const seqOffice = {//TODO: rename to officeTable
         primaryKey: true
     },
     ordering: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.SMALLINT,
         allowNull: false
     },
     main: {

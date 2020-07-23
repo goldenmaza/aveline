@@ -57,7 +57,9 @@ const multimediaFields = {
         }
     },
     async resolve(root, args) {
-        return await db.models.multimedia.findAll({where: args});
+        return await db.models.multimedia.findAll({
+            where: args
+        });
     }
 };
 
