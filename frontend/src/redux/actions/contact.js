@@ -28,34 +28,34 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                         alt
                         title
                     }
-                }
-                contact (hidden: false) {
-                    id
-                    office
-                    main
-                    title
-                    forename
-                    surname
-                    street
-                    postal
-                    country
-                    phone
-                    email
+                    employees {
+                        id
+                        office
+                        main
+                        title
+                        forename
+                        surname
+                        street
+                        postal
+                        country
+                        phone
+                        email
+                        portrait {
+                            id
+                            contact
+                            office
+                            box
+                            src
+                            alt
+                            title
+                        }
+                    }
                 }
                 social (hidden: false) {
                     id
                     url
                     media
                     label
-                }
-                multimedia (hidden: false) {
-                    id
-                    contact
-                    office
-                    box
-                    src
-                    alt
-                    title
                 }
             }
         `

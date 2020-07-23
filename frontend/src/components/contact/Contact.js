@@ -40,107 +40,107 @@ class Contact extends Component {
             const offices = [];
             const contacts = [];
             const children = [];
-            let addressNavigation = '';
+            let addressNavigation = '';console.log(office);
 
-            office.forEach(o => {
-                contact.forEach(c => {
-                    if (o.id === c.office && o.main && c.main) {
-                        const orgnr = 'https://www.allabolag.se/<ORGNR>/bokslut'.replace('<ORGNR>', o.orgnr);
-                        const phone = 'tel:<TEL>'.replace('<TEL>', c.phone);
-                        const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(c.email, "ascii").toString('hex'));
-                        const address = c.street + ', ' + c.postal + ', '  + c.country;
-                        addressNavigation = encodeURIComponent(address);
-                        const find = 'https://www.google.se/maps/place/<FIND>'.replace('<FIND>', address);
-                        main.push(
-                            <ul key={0}>
-                                <li>
-                                    <strong>
-                                        {o.label}
-                                    </strong>
-                                    <p>
-                                        Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        {c.street}
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        {c.postal}
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        {c.country}
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Phone: <a href={phone}>{c.phone}</a>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        E-mail: <a href={email}>{'Us'}</a>
-                                    </p>
-                                </li>
-                                <li>
-                                    <strong>
-                                        <a href={find}>Find us...</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                        );
-                    }
+            if (office !== null) {
+                office.forEach(o => {
+                    contact.forEach(c => {
+                        if (o.id === c.office && o.main && c.main) {
+                            const orgnr = 'https://www.allabolag.se/<ORGNR>/bokslut'.replace('<ORGNR>', o.orgnr);
+                            const phone = 'tel:<TEL>'.replace('<TEL>', c.phone);
+                            const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(c.email, "ascii").toString('hex'));
+                            const address = c.street + ', ' + c.postal + ', '  + c.country;
+                            addressNavigation = encodeURIComponent(address);
+                            const find = 'https://www.google.se/maps/place/<FIND>'.replace('<FIND>', address);
+                            main.push(
+                                <ul key={0}>
+                                    <li>
+                                        <strong>
+                                            {o.label}
+                                        </strong>
+                                        <p>
+                                            Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            {c.street}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            {c.postal}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            {c.country}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Phone: <a href={phone}>{c.phone}</a>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            E-mail: <a href={email}>{'Us'}</a>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            <a href={find}>Find us...</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                            );
+                        }
+                    });
                 });
-            });
 
-            social.forEach(s => {
-                socials.push(
-                    <li key={s.id}>
-                        <a href={s.url + s.label} target='_blank' rel='noopener noreferrer'>{s.media}</a>
-                    </li>
-                );
-            });
-
-            office.forEach(o => {
-                const thumbnail = o.thumbnail;
-                if (thumbnail.box) {
-                    offices.push(
-                        <li key={o.id} className={contact.some(c => c.office === o.id) ? '' : 'none'} data-id={o.id} onClick={this.toggleOffice}>
-                            <a href='#'>
-                                <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
-                                <div>
-                                    <span>
-                                        {o.label}
-                                    </span>
-                                </div>
-                            </a>
+                social.forEach(s => {
+                    socials.push(
+                        <li key={s.id}>
+                            <a href={s.url + s.label} target='_blank' rel='noopener noreferrer'>{s.media}</a>
                         </li>
                     );
-                }
-            });
+                });
 
-            office.forEach(o => {
-                contact.forEach(c => {
-                    if (o.id === c.office) {
-                        multimedia.forEach(m => {
-                            if (target === c.office && c.id === m.contact && m.box) {
+                office.forEach(o => {
+                    let thumbnail = o.thumbnail;
+                    let employees = o.employees;
+                    if (thumbnail.box) {//TODO: Remove box and place condition with the query?//className={contact.some(c => c.office === o.id) ? '' : 'none'}
+                        offices.push(
+                            <li key={o.id} data-id={o.id} onClick={this.toggleOffice}>
+                                <a href='#'>
+                                    <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
+                                    <div>
+                                        <span>
+                                            {o.label}
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        );
+                    }
+                    if (o.id === target) {
+                        employees.forEach(e => {
+                            let portrait = e.portrait;
+                            if (portrait.box) {//TODO: Remove box and place condition with the query?
+                                const mailto = Buffer.from(e.email, "ascii").toString('hex');
                                 contacts.push(
-                                    <li key={c.id}>
+                                    <li key={e.id}>
                                         <div>
-                                            <img className='contact_image' src={m.src} alt={m.alt} title={m.title} />
+                                            <img className='contact_image' src={portrait.src} alt={portrait.alt} title={portrait.title} />
                                             <div>
                                                 <span>
-                                                    {c.forename + ' ' + c.surname + ', ' + c.title}
+                                                    {e.forename + ' ' + e.surname + ', ' + e.title}
                                                 </span>
                                                 <span>
-                                                    Phone: <a href={'tel:' + c.phone}>{c.phone}</a>
+                                                    Phone: <a href={'tel:' + e.phone}>{e.phone}</a>
                                                 </span>
                                                 <span>
-                                                    <a href={'mailto:' + Buffer.from(c.email, "ascii").toString('hex')}>Send E-mail</a>
+                                                    <a href={'mailto:' + mailto}>Send E-mail</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -150,7 +150,7 @@ class Contact extends Component {
                         });
                     }
                 });
-            });
+            }
 
             children.push(
                 <div key='0' className='childrenContainer'>
