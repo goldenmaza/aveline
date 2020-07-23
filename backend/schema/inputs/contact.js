@@ -12,43 +12,43 @@ const RegionalEmployee = new GraphQLInputObjectType({
     fields: () => {
         return {
             id: {
-                type: GraphQLInt,
+                type: GraphQLInt
             },
             office: {
-                type: GraphQLInt,
+                type: GraphQLInt
             },
             ordering: {
-                type: GraphQLInt,
+                type: GraphQLInt
             },
             main: {
-                type: GraphQLBoolean,
+                type: GraphQLBoolean
             },
             title: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             forename: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             surname: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             street: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             postal: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             country: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             phone: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             email: {
-                type: GraphQLString,
+                type: GraphQLString
             },
             hidden: {
-                type: GraphQLBoolean,
+                type: GraphQLBoolean
             }
         };
     }
