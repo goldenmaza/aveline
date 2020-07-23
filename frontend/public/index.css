@@ -968,9 +968,13 @@ input.invalid::placeholder, textarea.invalid::placeholder {
     background-color: #333;/*TODO: FFF*/
 }
 
+.contact_minimal > ul {
+     padding: 0em 0.5em 1em 0.5em;
+ }
+
 .contact_minimal > ul > li {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .contact_full > ul > li {
@@ -984,7 +988,7 @@ input.invalid::placeholder, textarea.invalid::placeholder {
 }
 
 .contact_minimal > ul > li:nth-child(5), .contact_full > ul > li:nth-child(5) {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .contact_minimal > ul:first-child > li:last-child, .contact_full > ul:first-child > li:last-child {

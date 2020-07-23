@@ -9,7 +9,7 @@ import Cors from 'cors';
 import Graphql from 'express-graphql';
 import Nodemailer from 'nodemailer';
 
-import Schema from './aveline/schema';
+import Schema from './schema/schema';
 
 const app = Express();
 
@@ -17,7 +17,7 @@ const app = Express();
 dotenv.config();
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(Express.static(path.join(__dirname, 'public')));
 
 //app.use(Helmet());
 //app.use(Compression());
@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 app.use('/api', Graphql({
     schema: Schema,
     pretty: true,
-    graphiql: false
+    graphiql: true
 }));
 
 // Nodemailer configuration...
