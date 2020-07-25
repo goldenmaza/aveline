@@ -19,14 +19,14 @@ export const contactComponent = (state = contactState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                office: null,
+                offices: null,
                 target: null
             };
         case RCV_CONTACT_DETAILS:
             return {
                 ...state,
                 loading: false,
-                office: action.result.data.office
+                offices: action.result.data.offices
             };
         case ERR_CONTACT_DETAILS:
             return {

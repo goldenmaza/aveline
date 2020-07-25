@@ -13,7 +13,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                office {
+                offices {
                     id
                     main
                     region
@@ -40,7 +40,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                         country
                         phone
                         email
-                        portrait {
+                        portraits {
                             id
                             contact
                             office

@@ -5,7 +5,7 @@ export const selectorState = {
 
 export const contentState = {
     loading: true,
-    page: null,
+    pages: null,
     level: process.env.REACT_APP_DOC_CONTENT_LEVEL
 };
 

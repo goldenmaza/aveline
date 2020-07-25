@@ -22,13 +22,13 @@ export const contentComponent = (state = contentState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                page: null
+                pages: null
             };
         case RCV_PAGE_CONTENT:
             return {
                 ...state,
                 loading: !state.loading,
-                page: action.result.data.page
+                pages: action.result.data.pages
             };
         case ERR_PAGE_CONTENT:
             return {

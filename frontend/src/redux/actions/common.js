@@ -12,7 +12,7 @@ export const getPageContent = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                page {
+                pages {
                     id
                     route
                     paragraphs {

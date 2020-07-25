@@ -51,13 +51,13 @@ class Content extends Component {
     }
 
     render() {
-        const { loading, page, level, route, children } = this.props;
+        const { loading, pages, level, route, children } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const sections = [];
 
-            page.forEach(p => {
+            pages.forEach(p => {
                 if (p.route === route) { // Verify which page, route, the user has chosen to view...
                     const paragraphs = p.paragraphs;
                     paragraphs.forEach(c => {
@@ -73,7 +73,7 @@ class Content extends Component {
             });
 
             if (sections.length === 0) { // Contact page specific
-                page.forEach(p => {
+                pages.forEach(p => {
                     if (p.route === route) {
                         const id = p.route;
                         sections.push(
@@ -98,7 +98,7 @@ class Content extends Component {
 
 const mapStateToProps = state => ({
     loading: state.contentComponent.loading,
-    page: state.contentComponent.page,
+    pages: state.contentComponent.pages,
     level: state.contentComponent.level
 });
 

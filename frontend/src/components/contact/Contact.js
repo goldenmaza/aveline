@@ -31,7 +31,7 @@ class Contact extends Component {
     }
 
     render() {
-        const { loading, office, route, minimalContact, target } = this.props;
+        const { loading, offices, route, minimalContact, target } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
@@ -42,7 +42,7 @@ class Contact extends Component {
             const children = [];
             let addressNavigation = '';
 
-            office.forEach(o => {
+            offices.forEach(o => {
                 const thumbnail = o.thumbnail;
                 const employees = o.employees;
                 const socials = o.socials;
@@ -203,7 +203,7 @@ class Contact extends Component {
 
 const mapStateToProps = state => ({
     loading: state.contactComponent.loading,
-    office: state.contactComponent.office,
+    offices: state.contactComponent.offices,
     target: state.contactComponent.target
 });
 

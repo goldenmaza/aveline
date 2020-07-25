@@ -1,6 +1,6 @@
 export const contactState = {
     loading: true,
-    office: null,
+    offices: null,
     target: null
 };
 
