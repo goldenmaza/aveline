@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 
-const seqPage = {
+// This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
+const seqPage = {//TODO: rename to pageTable
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,7 +10,13 @@ const seqPage = {
     },
     page: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'page',
+            key: "id"
+        },
+        field: "page"
     },
     ordering: {
         type: Sequelize.TINYINT,
@@ -31,7 +38,7 @@ const seqPage = {
         type: Sequelize.TINYINT,
         allowNull: false
     },
-    tag: {
+    route: {
         type: Sequelize.STRING,
         allowNull: false
     },

@@ -6,6 +6,8 @@ import {
 } from 'graphql';
 
 import Content from '../types/content';
+import ParagraphCollage from '../inputs/multimedia';
+import PageParagraph from '../inputs/content';
 
 import db from '../db';
 
@@ -35,10 +37,26 @@ const contentFields = {
         },
         hidden: {
             type: GraphQLBoolean
+        },
+        collage: {
+            type: new GraphQLList(ParagraphCollage)
+        },
+        paragraphs: {
+            type: new GraphQLList(PageParagraph)
         }
     },
-    resolve(root, args) {
-        return db.models.content.findAll({where: args});
+    async resolve(root, args) {
+        return await db.models.content.findAll({
+            include: [{
+                all: true,
+                nested: true
+//                model: [db.models.multimedia, db.models.content],
+//                as: ["collage", "paragraphs"],
+//                required: false,
+//                all: true
+            }],
+            where: args
+        });
     }
 };
 

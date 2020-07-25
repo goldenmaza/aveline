@@ -6,6 +6,7 @@ import {
 } from 'graphql';
 
 import Page from '../types/page';
+import PageParagraph from '../inputs/content';
 
 import db from '../db';
 
@@ -33,7 +34,7 @@ const pageFields = {
         layout: {
             type: GraphQLInt
         },
-        tag: {
+        route: {
             type: GraphQLString
         },
         label: {
@@ -47,10 +48,23 @@ const pageFields = {
         },
         aria: {
             type: GraphQLString
+        },
+        paragraphs: {
+            type: new GraphQLList(PageParagraph)
         }
     },
-    resolve(root, args) {
-        return db.models.page.findAll({where: args});
+    async resolve(root, args) {
+        return await db.models.page.findAll({
+            include: [{
+                all: true,
+                nested: true
+//                model: [db.models.content],
+//                as: ["paragraphs"],
+//                required: false,
+//                all: true
+            }],
+            where: args
+        });
     }
 };
 

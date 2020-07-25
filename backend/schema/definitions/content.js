@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 
-const seqContent = {
+// This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
+const seqContent = {//TODO: rename to contentTable
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,11 +10,23 @@ const seqContent = {
     },
     page: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'page',
+            key: "id"
+        },
+        field: "page"
     },
     content: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: 'content',
+            key: "id"
+        },
+        field: "content"
     },
     ordering: {
         type: Sequelize.SMALLINT,

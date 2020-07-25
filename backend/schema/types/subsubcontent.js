@@ -7,12 +7,11 @@ import {
 } from 'graphql';
 
 import Multimedia from '../types/multimedia';
-import SubParagraph from '../types/subcontent';
 
 // This is the Sequlize model definition (output type) of the Content table...
-const Content = new GraphQLObjectType({
-    name: 'Content',
-    description: 'This represents a Content',
+const SubSubContent = new GraphQLObjectType({
+    name: 'SubSubContent',
+    description: 'This represents a SubSubContent',
     fields: () => {
         return {
             id: {
@@ -68,15 +67,9 @@ const Content = new GraphQLObjectType({
                 resolve(content) {
                     return content.collage;
                 }
-            },
-            subparagraphs: {
-                type: new GraphQLList(SubParagraph),
-                resolve(content) {
-                    return content.subparagraphs;
-                }
             }
         };
     }
 });
 
-export default Content;
+export default SubSubContent;

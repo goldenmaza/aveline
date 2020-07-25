@@ -1,10 +1,14 @@
 import {
     GraphQLBoolean,
     GraphQLInt,
+    GraphQLList,
     GraphQLObjectType,
     GraphQLString
 } from 'graphql';
 
+import Paragraph from '../types/content';
+
+// This is the Sequlize model definition (output type) of the Page table...
 const Page = new GraphQLObjectType({
     name: 'Page',
     description: 'This represents a Page',
@@ -52,10 +56,10 @@ const Page = new GraphQLObjectType({
                     return page.layout;
                 }
             },
-            tag: {
+            route: {
                 type: GraphQLString,
                 resolve(page) {
-                    return page.tag;
+                    return page.route;
                 }
             },
             label: {
@@ -80,6 +84,12 @@ const Page = new GraphQLObjectType({
                 type: GraphQLString,
                 resolve(page) {
                     return page.aria;
+                }
+            },
+            paragraphs: {
+                type: new GraphQLList(Paragraph),
+                resolve(page) {
+                    return page.paragraphs;
                 }
             }
         };

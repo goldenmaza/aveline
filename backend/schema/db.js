@@ -45,6 +45,8 @@ db.authenticate().then((val) => {
 // Definitions for Sequelize models (tables)...//TODO: Refactor to index.js under definitions/index.js
 const Page = db.define('page', seqPage);
 const Content = db.define('content', seqContent);
+const SubContent = db.define('content', seqContent);
+const SubSubContent = db.define('content', seqContent);
 const Multimedia = db.define('multimedia', seqMultimedia);
 const Office = db.define('office', seqOffice);
 const Contact = db.define('contact', seqContact);
@@ -52,16 +54,16 @@ const Social = db.define('social', seqSocial);
 const Navigation = db.define('navigation', seqNavigation);
 
 //TODO: Refactor associations to index.js under definitions/index.js
-//// Relationships between Page and Content tables, a Page can have several Content (paragraphs)...
-//Page.hasMany(Content, {
-//    as: "Page's paragraphs",
-//    foreignKey: "page"
-//});
-//Content.belongsTo(Page, {
-//    as: "Paragraph's page",
-//    foreignKey: "page"
-//});
-//
+// Relationships between Page and Content tables, a Page can have several Content (paragraphs)...
+Page.hasMany(Content, {
+    as: "paragraphs",//Page's paragraphs...
+    foreignKey: "page"
+});
+Content.belongsTo(Page, {
+    as: "paragraphs",//Paragraph's page...
+    foreignKey: "page"
+});
+
 //// Relationships between Page and Multimedia tables, a Page can have several Multimedia (logotype, slider etc)...
 //Page.hasMany(Multimedia, {
 //    as: "Page's multimedia",
@@ -71,23 +73,26 @@ const Navigation = db.define('navigation', seqNavigation);
 //    as: "Multimedia thumbnail for Page",
 //    foreignKey: "page"
 //});
-//
-//// Relationships between Content and Multimedia tables, a Content (paragraphs) can have several Multimedia (collage)...
-//Content.hasMany(Multimedia, {
-//    as: "Paragraph's collage",
-//    foreignKey: "content"
-//});
-//Multimedia.belongsTo(Content, {
-//    as: "Collage thumbnail",
-//    foreignKey: "page"
-//});
-//
-//// Relationships between Content and Content rows, a Content (paragraphs) can have several nesting Content (paragraphs)...
-//Content.belongsTo(Content, {
-//    as: "Nesting paragraphs",
-//    foreignKey: "content"
-//});
-//
+
+// Relationships between Content and Multimedia tables, a Content (paragraphs) can have several Multimedia (collage)...
+Content.hasMany(Multimedia, {
+    as: "collage",//Paragraph's collage...
+    foreignKey: "content"
+});
+Multimedia.belongsTo(Content, {
+    as: "collage",//Collage thumbnail's paragraph...
+    foreignKey: "content"
+});
+
+// Relationships between Content and Content rows, a Content (paragraphs) can have several nesting Content (paragraphs)...
+Content.hasMany(SubContent, {
+    as: "subparagraphs",//Paragraph's paragraphs...
+    foreignKey: "content"
+});
+SubContent.hasMany(SubSubContent, {
+    as: "subsubparagraphs",//Paragraph's paragraphs...
+    foreignKey: "content"
+});
 
 // Relationships between Office and Contact tables, an Office can have several Contact (employees)...
 Office.hasMany(Contact, {
@@ -119,13 +124,13 @@ Multimedia.belongsTo(Office, {//the FK will be in the source (Multimedia)...
     foreignKey: "office"
 });
 
-//// Relationships between Contact and Multimedia tables, a Contact can have a single Multimedia (employee thumbnail)...
-Contact.hasOne(Multimedia, {
-    as: "portrait",//Employee's portrait...
+//// Relationships between Contact and Multimedia tables, a Contact can have several Multimedia (employee thumbnail/portraits)...
+Contact.hasMany(Multimedia, {
+    as: "portraits",//Employee's portrait...
     foreignKey: "contact"
 });
 Multimedia.belongsTo(Contact, {
-    as: "portrait",//Multimedia portrait for Contact...
+    as: "portraits",//Multimedia portrait for Contact...
     foreignKey: "contact"
 });
 
@@ -135,7 +140,7 @@ Contact.hasMany(Social, {
     foreignKey: "contact"
 });
 Social.belongsTo(Contact, {
-    as: "profiles",//Social media's for Contact"...
+    as: "profiles",//Social media's for Contact...
     foreignKey: "contact"
 });
 
