@@ -13,50 +13,69 @@ import {
 class Content extends Component {
     constructor(props) {
         super(props);
+
+        this.iterateParagraphs = this.iterateParagraphs.bind(this);
+        this.hasNestingParagraphs = this.hasNestingParagraphs.bind(this);
     }
 
     componentDidMount() {
         this.props.actions.getPageContent();
     }
 
+    iterateParagraphs(level, route, paragraph) {
+        const id = route + 'p' + paragraph.id;
+        const collage = paragraph.collage;
+        const key = this.hasNestingParagraphs(paragraph);
+        const subLevel = level.slice(0, 1) + (parseInt(level.slice(level.length - 1)) + 1);
+
+        return (
+            <div key={id} className='contentContainer'>
+                <Heading level={level} label={paragraph.heading} />
+                <p>{paragraph.text}</p>
+                {collage !== undefined && collage !== null &&
+                    <Collage collection={collage.slice()} />
+                }
+                {paragraph[key] !== undefined &&
+                    paragraph[key].map((p, k) => (this.iterateParagraphs(subLevel, route, p)))
+                }
+            </div>
+        );
+    }
+
+    hasNestingParagraphs(content) {
+        const p = 'paragraph';
+        const keys = Object.keys(content);
+        const key = keys.find(key => key.toLowerCase().includes(p));
+
+        return key;
+    }
+
     render() {
-        const { loading, page, content, multimedia, level, tag, children } = this.props;
+        const { loading, page, level, route, children } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const sections = [];
-            let collection = [];
 
             page.forEach(p => {
-                content.forEach(c => {
-                    if (p.id === c.page && p.tag === tag) {
-                        const id = p.tag + c.id;
-                        multimedia.forEach(m => {
-                            if (m.content !== null && p.id === m.page && c.id === m.content) {
-                                collection.push(m);
-                            }
-                        });
+                if (p.route === route) { // Verify which page, route, the user has chosen to view...
+                    const paragraphs = p.paragraphs;
+                    paragraphs.forEach(c => {
+                        const id = p.route + c.id;
                         sections.push(
                             <section key={id}>
-                                <div id={id} className='contentContainer'>
-                                    <Heading level={level} label={c.heading} />
-                                    <p>
-                                        {c.text}
-                                    </p>
-                                    <Collage collection={collection} />
-                                </div>
+                                { this.iterateParagraphs(level, p.route, c) }
                                 { children }
                             </section>
                         );
-                    }
-                    collection = [];
-                });
+                    });
+                }
             });
 
             if (sections.length === 0) { // Contact page specific
                 page.forEach(p => {
-                    if (p.tag === tag) {
-                        const id = p.tag;
+                    if (p.route === route) {
+                        const id = p.route;
                         sections.push(
                             <section key={id}>
                                 <div id={id} className='contentContainer'>
@@ -80,8 +99,6 @@ class Content extends Component {
 const mapStateToProps = state => ({
     loading: state.contentComponent.loading,
     page: state.contentComponent.page,
-    content: state.contentComponent.content,
-    multimedia: state.contentComponent.multimedia,
     level: state.contentComponent.level
 });
 

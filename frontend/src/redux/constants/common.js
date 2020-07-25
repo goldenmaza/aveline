@@ -6,8 +6,6 @@ export const selectorState = {
 export const contentState = {
     loading: true,
     page: null,
-    content: null,
-    multimedia: null,
     level: process.env.REACT_APP_DOC_CONTENT_LEVEL
 };
 
