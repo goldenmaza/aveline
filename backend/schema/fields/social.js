@@ -35,8 +35,8 @@ const socialFields = {
             type: GraphQLBoolean
         }
     },
-    resolve(root, args) {
-        return db.models.social.findAll({
+    async resolve(root, args) {
+        return await db.models.social.findAll({
             where: args
         });
     }

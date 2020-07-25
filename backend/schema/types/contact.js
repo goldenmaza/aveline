@@ -93,19 +93,15 @@ const Contact = new GraphQLObjectType({
                     return contact.hidden;
                 }
             },
-            portrait: {
-                type: Multimedia,
+            portraits: {
+                type: new GraphQLList(Multimedia),
                 resolve(contact) {
-                    //console.log("typesContact/portrait:");
-                    //console.log(contact.dataValues.portrait);
-                    return contact.dataValues.portrait;
+                    return contact.dataValues.portraits;
                 }
             },
             profiles: {
                 type: new GraphQLList(Social),
                 resolve(contact) {
-                    //console.log("typesContact/profiles:");
-                    //console.log(contact.dataValues.profiles);
                     return contact.dataValues.profiles;
                 }
             }

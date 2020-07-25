@@ -1,8 +1,8 @@
 import {
     GraphQLBoolean,
+    GraphQLInputObjectType,
     GraphQLInt,
-    GraphQLString,
-    GraphQLInputObjectType
+    GraphQLString
 } from 'graphql';
 
 // This is the Sequlize model definition (input type) of the Multimedia table...

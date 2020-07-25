@@ -53,8 +53,8 @@ const contactFields = {
         hidden: {
             type: GraphQLBoolean
         },
-        portrait: {
-            type: RegionalThumbnail
+        portraits: {
+            type: new GraphQLList(RegionalThumbnail)
         },
         profiles: {
             type: new GraphQLList(RegionalSocial)

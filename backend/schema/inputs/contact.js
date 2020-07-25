@@ -1,9 +1,13 @@
 import {
     GraphQLBoolean,
+    GraphQLInputObjectType,
     GraphQLInt,
-    GraphQLString,
-    GraphQLInputObjectType
+    GraphQLList,
+    GraphQLString
 } from 'graphql';
+
+import RegionalThumbnail from '../inputs/multimedia';
+import RegionalSocial from '../inputs/social';
 
 // This is the Sequlize model definition (input type) of the Contact table...
 const RegionalEmployee = new GraphQLInputObjectType({
@@ -49,6 +53,12 @@ const RegionalEmployee = new GraphQLInputObjectType({
             },
             hidden: {
                 type: GraphQLBoolean
+            },
+            portraits: {
+                type: new GraphQLList(RegionalThumbnail)
+            },
+            profiles: {
+                type: new GraphQLList(RegionalSocial)
             }
         };
     }

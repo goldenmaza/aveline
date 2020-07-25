@@ -69,24 +69,18 @@ const Office = new GraphQLObjectType({
             thumbnail: {
                 type: Multimedia,
                 resolve(office) {
-                    //console.log("typesOffice/thumbnail:");
-                    //console.log(office.thumbnail);
                     return office.thumbnail;
                 }
             },
             employees: {
                 type: new GraphQLList(Contact),
                 resolve(office) {
-                    //console.log("typesOffice/employees:");
-                    //console.log(office.employees);
                     return office.employees;
                 }
             },
             socials: {
                 type: new GraphQLList(Social),
                 resolve(office) {
-                    //console.log("typesOffice/socials:");
-                    //console.log(office.socials);
                     return office.socials;
                 }
             }
