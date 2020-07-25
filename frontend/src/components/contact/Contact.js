@@ -31,7 +31,7 @@ class Contact extends Component {
     }
 
     render() {
-        const { loading, office, tag, minimalContact, target } = this.props;
+        const { loading, office, route, minimalContact, target } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
@@ -192,7 +192,7 @@ class Contact extends Component {
                         </>
                     ) : (
                         <>
-                            <Content tag={tag} children={children} />
+                            <Content route={route} children={children} />
                         </>
                     )}
                 </>

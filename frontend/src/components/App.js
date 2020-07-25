@@ -14,15 +14,15 @@ class App extends Component {
 
     render() {
         const { level, label, location } = this.props;
-        const tag = location.pathname.split("/").pop();
+        const route = location.pathname.split("/").pop();
         return (
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <Switch>
-                    <Route exact path='/' render={() => <Selector component={'home'} tag={tag} />} />
-                    <Route exact path='/p/contact/' render={() => <Selector component={'form'} tag={tag} />} />
-                    {tag !== null &&
-                        <Route path='/p/' render={() => <Selector component={'content'} tag={tag} />} />
+                    <Route exact path='/' render={() => <Selector component={'home'} route={route} />} />
+                    <Route exact path='/p/contact/' render={() => <Selector component={'form'} route={route} />} />
+                    {route !== null &&
+                        <Route path='/p/' render={() => <Selector component={'content'} route={route} />} />
                     }
                     <Route component={Prevention} />
                 </Switch>

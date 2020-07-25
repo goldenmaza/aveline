@@ -16,7 +16,7 @@ class Selector extends Component {
     }
 
     render() {
-        const { component, tag, level, label } = this.props;
+        const { component, route, level, label } = this.props;
         const select = component.trim();
         return (
             <>
@@ -24,13 +24,13 @@ class Selector extends Component {
                 <main className={select}>
                     <Heading hidden={true} level={level} label={label} />
                     {select === 'home' &&
-                        <Home tag={tag} />
+                        <Home route={route} />
                     }
                     {select === 'form' &&
-                        <Form tag={tag} />
+                        <Form route={route} />
                     }
                     {select === 'content' &&
-                        <Content tag={tag} />
+                        <Content route={route} />
                     }
                 </main>
                 <Footer />

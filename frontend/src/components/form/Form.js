@@ -85,7 +85,7 @@ class Form extends Component {
     render() {
         const {
             strong, maxLength, remainingLength, title, placeholder, validation, displayHelp, submitDisabled,
-            level, label, minimalForm, minimalContact, tag
+            level, label, minimalForm, minimalContact, route
         } = this.props;
         const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
         const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
@@ -97,7 +97,7 @@ class Form extends Component {
         return (
             <>
                 {!minimalForm &&
-                    <Contact minimalContact={minimalContact} tag={tag} />
+                    <Contact minimalContact={minimalContact} route={route} />
                 }
                 <section>
                     <Heading hidden={true} level={level} label={label} />
