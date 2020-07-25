@@ -8,7 +8,7 @@ import {
 
 import Multimedia from '../types/multimedia';
 
-// This is the Sequlize model definition (output type) of the Content table...
+// This is the Sequlize model definition (output type) of the Content table (sub sub content)...
 const SubSubContent = new GraphQLObjectType({
     name: 'SubSubContent',
     description: 'This represents a SubSubContent',

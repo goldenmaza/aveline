@@ -10,6 +10,7 @@ import PageParagraph from '../inputs/content';
 
 import db from '../db';
 
+// This is the Page's fields for the QueryBundle definition...
 const pageFields = {
     type: new GraphQLList(Page),
     args: {

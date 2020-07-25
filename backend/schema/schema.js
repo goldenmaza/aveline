@@ -18,10 +18,10 @@ const QueryBundle = new GraphQLObjectType({
     description: 'This is the root query',
     fields: () => {
         return {
-            page: pageFields,
+            pages: pageFields,
             content: contentFields,
             multimedia: multimediaFields,
-            office: officeFields,
+            offices: officeFields,
             contact: contactFields,
             social: socialFields,
             navigation: navigationFields,

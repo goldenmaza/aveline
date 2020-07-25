@@ -11,6 +11,7 @@ import RegionalSocial from '../inputs/social';
 
 import db from '../db';
 
+// This is the Contact's fields for the QueryBundle definition...
 const contactFields = {
     type: new GraphQLList(Contact),
     args: {

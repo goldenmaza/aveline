@@ -11,6 +11,7 @@ import PageParagraph from '../inputs/content';
 
 import db from '../db';
 
+// This is the Content's fields for the QueryBundle definition...
 const contentFields = {
     type: new GraphQLList(Content),
     args: {
