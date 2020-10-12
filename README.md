@@ -47,7 +47,7 @@ Work remaining for the Frontend module:
 
 Work remaining for the Backend module:
 - Deploying the module to a webhosting service
-- Improved Sequelize/GraphQL implementation
+- Minor refactoring of source code (GraphQL and Sequelize files)
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.
