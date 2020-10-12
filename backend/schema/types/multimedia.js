@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-// This is the Sequlize model definition (output type) of the Multimedia table...
+// This is the Sequelize model definition (output type) of the Multimedia table...
 const Multimedia = new GraphQLObjectType({
     name: 'Multimedia',
     description: 'This represents a Multimedia',

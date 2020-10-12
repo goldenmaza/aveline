@@ -40,22 +40,24 @@ const contentFields = {
             type: GraphQLBoolean
         },
         collage: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(ParagraphCollage)
         },
         paragraphs: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(PageParagraph)
         }
     },
-    async resolve(root, args) {
+    async resolve(parent, args) {
         return await db.models.content.findAll({
-            include: [{
-                all: true,
-                nested: true
-//                model: [db.models.multimedia, db.models.content],
-//                as: ["collage", "paragraphs"],
-//                required: false,
-//                all: true
-            }],
             where: args
         });
     }

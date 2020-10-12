@@ -6,6 +6,8 @@ import {
     GraphQLString
 } from 'graphql';
 
+import db from '../db';
+
 import Multimedia from '../types/multimedia';
 
 // This is the Sequlize model definition (output type) of the Content table (sub sub content)...
@@ -63,9 +65,19 @@ const SubSubContent = new GraphQLObjectType({
                 }
             },
             collage: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Multimedia),
-                resolve(content) {
-                    return content.collage;
+                async resolve(parent, args) {
+                    return await db.models.multimedia.findAll({
+                        where: {
+                            content: parent.dataValues.id,
+                            hidden: args.hidden
+                        }
+                    });
                 }
             }
         };

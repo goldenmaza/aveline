@@ -6,6 +6,7 @@ import {
 } from 'graphql';
 
 import Page from '../types/page';
+import PageCollage from '../inputs/multimedia';
 import PageParagraph from '../inputs/content';
 
 import db from '../db';
@@ -50,20 +51,28 @@ const pageFields = {
         aria: {
             type: GraphQLString
         },
+        collage: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
+            type: new GraphQLList(PageCollage)
+        },
         paragraphs: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                },
+                box: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(PageParagraph)
         }
     },
-    async resolve(root, args) {
+    async resolve(parent, args) {
         return await db.models.page.findAll({
-            include: [{
-                all: true,
-                nested: true
-//                model: [db.models.content],
-//                as: ["paragraphs"],
-//                required: false,
-//                all: true
-            }],
             where: args
         });
     }

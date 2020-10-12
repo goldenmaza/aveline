@@ -6,9 +6,12 @@ import {
     GraphQLString
 } from 'graphql';
 
+import Multimedia from '../types/multimedia';
 import Paragraph from '../types/content';
 
-// This is the Sequlize model definition (output type) of the Page table...
+import db from '../db';
+
+// This is the Sequelize model definition (output type) of the Page table...
 const Page = new GraphQLObjectType({
     name: 'Page',
     description: 'This represents a Page',
@@ -86,10 +89,54 @@ const Page = new GraphQLObjectType({
                     return page.aria;
                 }
             },
+            collage: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
+                    }
+                },
+                type: new GraphQLList(Multimedia),
+                async resolve(parent, args) {
+                    let where = {
+                        page: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    if (args.box !== undefined) {
+                        where['box'] = args.box;
+                    }
+                    return await db.models.multimedia.findAll({
+                        where
+                    });
+                }
+            },
             paragraphs: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Paragraph),
-                resolve(page) {
-                    return page.paragraphs;
+                async resolve(parent, args) {
+                    let where = {
+                        page: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    if (args.box !== undefined) {
+                        where['box'] = args.box;
+                    }
+                    return await db.models.content.findAll({
+                        where
+                    });
                 }
             }
         };

@@ -6,6 +6,8 @@ import {
     GraphQLString
 } from 'graphql';
 
+import db from '../db';
+
 import Multimedia from '../types/multimedia';
 import SubSubParagraph from '../types/subsubcontent';
 
@@ -64,15 +66,35 @@ const SubContent = new GraphQLObjectType({
                 }
             },
             collage: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Multimedia),
-                resolve(content) {
-                    return content.collage;
+                async resolve(parent, args) {
+                    return await db.models.multimedia.findAll({
+                        where: {
+                            content: parent.dataValues.id,
+                            hidden: args.hidden
+                        }
+                    });
                 }
             },
             subsubparagraphs: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(SubSubParagraph),
-                resolve(content) {
-                    return content.subsubparagraphs;
+                async resolve(parent, args) {
+                    return await db.models.content.findAll({
+                        where: {
+                            content: parent.dataValues.id,
+                            hidden: args.hidden
+                        }
+                    });
                 }
             }
         };

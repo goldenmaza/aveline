@@ -6,10 +6,12 @@ import {
     GraphQLString
 } from 'graphql';
 
+import db from '../db';
+
 import Multimedia from '../types/multimedia';
 import SubParagraph from '../types/subcontent';
 
-// This is the Sequlize model definition (output type) of the Content table (top content)...
+// This is the Sequelize model definition (output type) of the Content table (top content)...
 const Content = new GraphQLObjectType({
     name: 'Content',
     description: 'This represents a Content',
@@ -64,15 +66,53 @@ const Content = new GraphQLObjectType({
                 }
             },
             collage: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Multimedia),
-                resolve(content) {
-                    return content.collage;
+                async resolve(parent, args) {
+                    let where = {
+                        content: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    if (args.box !== undefined) {
+                        where['box'] = args.box;
+                    }
+                    return await db.models.multimedia.findAll({
+                        where
+                    });
                 }
             },
             subparagraphs: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(SubParagraph),
-                resolve(content) {
-                    return content.subparagraphs;
+                async resolve(parent, args) {
+                    let where = {
+                        content: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    if (args.box !== undefined) {
+                        where['box'] = args.box;
+                    }
+                    return await db.models.content.findAll({
+                        where
+                    });
                 }
             }
         };

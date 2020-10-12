@@ -65,14 +65,14 @@ Content.belongsTo(Page, {
 });
 
 //// Relationships between Page and Multimedia tables, a Page can have several Multimedia (logotype, slider etc)...
-//Page.hasMany(Multimedia, {
-//    as: "Page's multimedia",
-//    foreignKey: "page"
-//});
-//Multimedia.belongsTo(Page, {
-//    as: "Multimedia thumbnail for Page",
-//    foreignKey: "page"
-//});
+Page.hasMany(Multimedia, {
+    as: "media",//Page's collage...
+    foreignKey: "page"
+});
+Multimedia.belongsTo(Page, {
+    as: "media",//Collage thumbnail's for home route...
+    foreignKey: "page"
+});
 
 // Relationships between Content and Multimedia tables, a Content (paragraphs) can have several Multimedia (collage)...
 Content.hasMany(Multimedia, {

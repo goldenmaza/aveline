@@ -19,10 +19,9 @@ const QueryBundle = new GraphQLObjectType({
     fields: () => {
         return {
             pages: pageFields,
-            content: contentFields,
-            multimedia: multimediaFields,
+            paragraphs: contentFields,
+            collage: multimediaFields,
             offices: officeFields,
-            contact: contactFields,
             social: socialFields,
             navigation: navigationFields,
         };
