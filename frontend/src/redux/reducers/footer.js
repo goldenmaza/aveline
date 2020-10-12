@@ -17,13 +17,13 @@ export const footerComponent = (state = footerState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                multimedia: null
+                collage: null
             };
         case RCV_FOOTER_LOGO:
             return {
                 ...state,
                 loading: !state.loading,
-                multimedia: action.result.data.multimedia
+                collage: action.result.data.collage
             };
         case ERR_FOOTER_LOGO:
             return {
@@ -40,15 +40,13 @@ export const sitemapComponent = (state = sitemapState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                page: null,
-                content: null
+                pages: null
             };
         case RCV_FOOTER_SITEMAP:
             return {
                 ...state,
                 loading: !state.loading,
-                page: action.result.data.page,
-                content: action.result.data.content
+                pages: action.result.data.pages
             };
         case ERR_FOOTER_SITEMAP:
             return {

@@ -15,7 +15,7 @@ export const getFooterLogo = () => (dispatch: Dispatch) => {//Note: Get logo fro
     const requestBody = {
         query: `
             query {
-                multimedia (hidden: false, logo: true) {
+                collage (hidden: false, logo: true) {
                     src
                     alt
                     title
@@ -52,17 +52,17 @@ export const getFooterSitemap = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                page (hidden: false) {
+                pages (hidden: false) {
                     id
                     main
                     sitemap
                     label
                     title
-                }
-                content (hidden: false) {
-                    id
-                    page
-                    heading
+                    paragraphs (hidden: false) {
+                        id
+                        page
+                        heading
+                    }
                 }
             }
         `

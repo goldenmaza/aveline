@@ -20,15 +20,16 @@ class Sitemap extends Component {
     }
 
     render() {
-        const { loading, page, content, level, label } = this.props;
+        const { loading, pages, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const lists = [];
             let items = [];
 
-            page.forEach(p => {
+            pages.forEach(p => {
                 if (p.sitemap) {
+                    const paragraphs = p.paragraphs;
                     const p_label = p.label.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o');
                     const to = '/p/' + p_label;
                     items.push(
@@ -38,7 +39,7 @@ class Sitemap extends Component {
                             </NavLink>
                         </li>
                     );
-                    content.forEach(c => {
+                    paragraphs.forEach(c => {
                         if (p.id === c.page) {
                             items.push(
                                 <li key={c.id}>
@@ -72,8 +73,7 @@ class Sitemap extends Component {
 
 const mapStateToProps = state => ({
     loading: state.sitemapComponent.loading,
-    page: state.sitemapComponent.page,
-    content: state.sitemapComponent.content,
+    pages: state.sitemapComponent.pages,
     level: state.sitemapComponent.level,
     label: state.sitemapComponent.label
 });

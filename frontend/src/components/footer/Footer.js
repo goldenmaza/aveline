@@ -22,7 +22,7 @@ class Footer extends Component {
     }
 
     render() {
-        const { loading, multimedia, level, label } = this.props;
+        const { loading, collage, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
@@ -31,7 +31,7 @@ class Footer extends Component {
                     <header>
                         <Heading hidden={true} level={level} label={label} />
                         <a href='/'>
-                            <img className='footer_logotype' src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
+                            <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />
                         </a>
                     </header>
                     <div>
@@ -53,7 +53,7 @@ class Footer extends Component {
 
 const mapStateToProps = state => ({
     loading: state.handlerComponent.loading,//Note: Get logo from Handler...
-    multimedia: state.handlerComponent.multimedia,//Note: Get logo from Handler...
+    collage: state.handlerComponent.collage,//Note: Get logo from Handler...
     level: state.footerComponent.level,
     label: state.footerComponent.label
 });

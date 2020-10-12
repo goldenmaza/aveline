@@ -1,14 +1,13 @@
 export const footerState = {
     loading: true,
-    multimedia: null,
+    collage: null,
     level: process.env.REACT_APP_DOC_FOOTER_LEVEL,
     label: process.env.REACT_APP_DOC_FOOTER_LABEL
 };
 
 export const sitemapState = {
     loading: true,
-    page: null,
-    content: null,
+    pages: null,
     level: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LEVEL,
     label: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LABEL
 };

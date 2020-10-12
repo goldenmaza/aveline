@@ -18,7 +18,7 @@ class Copyright extends Component {
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <div className='footer_copyright'>
-                    <strong>&copy; {created} <a href='/'>{name}</a>. All rights reserved.</strong>
+                    <strong>&copy; {copy} <a href='/'>{name}</a>. All rights reserved.</strong>
                 </div>
                 <div className='footer_by'>
                     <span>by <a href={link} target='_blank' rel='noopener noreferrer'>{by}</a></span>
