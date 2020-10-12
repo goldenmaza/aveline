@@ -6,14 +6,13 @@ export const headerState = {
 export const handlerState = {
     loading: true,
     toggled: true,
-    multimedia: null
+    collage: null
 };
 
 export const menuState = {
     loading: true,
     toggled: true,
-    page: null,
-    content: null
+    pages: null
 };
 
 export const REQ_HEADER_LOGO = 'REQ_HEADER_LOGO';

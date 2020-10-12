@@ -26,7 +26,7 @@ class Handler extends Component {
     }
 
     render() {
-        const { loading, toggled, multimedia } = this.props;
+        const { loading, toggled, collage } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
@@ -35,7 +35,7 @@ class Handler extends Component {
                 <>
                     <div className='nav_container'>
                         <a href='/'>
-                            <img className='nav_logotype' src={multimedia[0].src} alt={multimedia[0].alt} title={multimedia[0].title} />
+                            <img className='nav_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />
                         </a>
                         <div className={handlerToggle} onClick={this.toggleBar}>
                             <i></i><i></i><i></i>
@@ -51,7 +51,7 @@ class Handler extends Component {
 const mapStateToProps = state => ({
     loading: state.handlerComponent.loading,
     toggled: state.handlerComponent.toggled,
-    multimedia: state.handlerComponent.multimedia
+    collage: state.handlerComponent.collage
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

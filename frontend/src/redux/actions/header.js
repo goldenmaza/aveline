@@ -17,7 +17,7 @@ export const getHeaderLogo = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                multimedia (hidden: false, logo: true) {
+                collage (hidden: false, logo: true) {
                     src
                     alt
                     title
@@ -54,14 +54,10 @@ export const getHeaderMenu = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                page (hidden: false, main: true) {
+                pages (hidden: false, main: true) {
                     id
                     label
                     title
-                }
-                content (hidden: false) {
-                    id
-                    page
                 }
             }
         `

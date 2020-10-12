@@ -31,13 +31,13 @@ export const handlerComponent = (state = handlerState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                multimedia: null
+                collage: null
             };
         case RCV_HEADER_LOGO:
             return {
                 ...state,
                 loading: !state.loading,
-                multimedia: action.result.data.multimedia
+                collage: action.result.data.collage
             };
         case ERR_HEADER_LOGO:
             return {
@@ -59,15 +59,13 @@ export const menuComponent = (state = menuState, action: AnyAction) => {
             return {
                 ...state,
                 loading: true,
-                page: null,
-                content: null
+                pages: null
             };
         case RCV_HEADER_MENU:
             return {
                 ...state,
                 loading: !state.loading,
-                page: action.result.data.page,
-                content: action.result.data.content
+                pages: action.result.data.pages
             };
         case ERR_HEADER_MENU:
             return {
