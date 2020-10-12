@@ -20,12 +20,12 @@ class Slideshow extends Component {//TODO: Rename to Presenter and modify source
     }
 
     render() {
-        const { loading, multimedia, level, label } = this.props;
+        const { loading, collage, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const sources = [];
-            multimedia.forEach(m => {
+            collage.forEach(m => {
                 sources.push({
                     id: m.id,
                     src: m.src,
@@ -47,7 +47,7 @@ class Slideshow extends Component {//TODO: Rename to Presenter and modify source
 
 const mapStateToProps = state => ({
     loading: state.slideshowComponent.loading,
-    multimedia: state.slideshowComponent.multimedia,
+    collage: state.slideshowComponent.collage,
     level: state.slideshowComponent.level,
     label: state.slideshowComponent.label
 });

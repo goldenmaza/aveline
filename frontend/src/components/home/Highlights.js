@@ -20,52 +20,45 @@ class Highlights extends Component {
     }
 
     render() {
-        const { loading, page, content, multimedia, level, label } = this.props;
+        const { loading, pages, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
             const highlights = [];
 
-            page.forEach(p => {
-                const to = '/p/' + p.tag;
-                multimedia.forEach(m => {
-                    if (p.id === m.page) {
-                        highlights.push(
-                            <li key={p.id + m.id}>
-                                <NavLink to={to} title={p.title}>
-                                    <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
-                                    <div>
-                                        <span>
-                                            {p.title}
-                                        </span>
-                                    </div>
-                                </NavLink>
-                            </li>
-                        );
-                    }
+            pages.forEach(p => {
+                const collage = p.collage;
+                const to = '/p/' + p.route;
+                collage.forEach(m => {
+                    highlights.push(
+                        <li key={p.id + m.id}>
+                            <NavLink to={to} title={p.title}>
+                                <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
+                                <div>
+                                    <span>{p.title}</span>
+                                </div>
+                            </NavLink>
+                        </li>
+                    );
                 });
             });
-            page.forEach(p => {
-                const to = '/p/' + p.tag;
-                content.forEach(c => {
-                    if (p.id === c.page) {
-                        multimedia.forEach(m => {
-                            if (c.id === m.content) {
-                                highlights.push(
-                                    <li key={p.id + c.id + m.id}>
-                                        <HashLink to={to+'#'+p.tag+c.id} title={c.text}>
-                                            <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
-                                            <div>
-                                                <span>
-                                                    {c.heading}
-                                                </span>
-                                            </div>
-                                        </HashLink>
-                                    </li>
-                                );
-                            }
-                        });
-                    }
+            pages.forEach(p => {
+                const paragraphs = p.paragraphs;
+                const to = '/p/' + p.route;
+                paragraphs.forEach(c => {
+                    const collage = c.collage;
+                    collage.forEach(m => {
+                        highlights.push(
+                            <li key={p.id + c.id + m.id}>
+                                <HashLink to={to+'#'+p.route+c.id} title={c.text}>
+                                    <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
+                                    <div>
+                                        <span>{c.heading}</span>
+                                    </div>
+                                </HashLink>
+                            </li>
+                        );
+                    });
                 });
             });
 
@@ -85,9 +78,7 @@ class Highlights extends Component {
 
 const mapStateToProps = state => ({
     loading: state.highlightsComponent.loading,
-    page: state.highlightsComponent.page,
-    content: state.highlightsComponent.content,
-    multimedia: state.highlightsComponent.multimedia,
+    pages: state.highlightsComponent.pages,
     level: state.highlightsComponent.level,
     label: state.highlightsComponent.label
 });

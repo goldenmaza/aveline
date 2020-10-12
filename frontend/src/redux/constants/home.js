@@ -3,7 +3,7 @@ export const homeState = {
 
 export const slideshowState = {
     loading: true,
-    multimedia: null,
+    collage: null,
     level: process.env.REACT_APP_DOC_SLIDESHOW_LEVEL,
     label: process.env.REACT_APP_DOC_SLIDESHOW_LABEL
 };
@@ -21,9 +21,7 @@ export const sliderState = {
 
 export const highlightsState = {
     loading: true,
-    page: null,
-    content: null,
-    multimedia: null,
+    pages: null,
     level: process.env.REACT_APP_DOC_HIGHLIGHTS_LEVEL,
     label: process.env.REACT_APP_DOC_HIGHLIGHTS_LABEL
 };

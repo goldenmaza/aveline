@@ -29,13 +29,13 @@ export const slideshowComponent = (state = slideshowState, action: AnyAction) =>
             return {
                 ...state,
                 loading: true,
-                multimedia: null
+                collage: null
             };
         case RCV_HOME_SLIDESHOW:
             return {
                 ...state,
                 loading: !state.loading,
-                multimedia: action.result.data.multimedia
+                collage: action.result.data.collage
             };
         case ERR_HOME_SLIDESHOW:
             return {
@@ -89,17 +89,13 @@ export const highlightsComponent = (state = highlightsState, action: AnyAction) 
             return {
                 ...state,
                 loading: true,
-                page: null,
-                content: null,
-                multimedia: null
+                pages: null
             };
         case RCV_HOME_HIGHLIGHTS:
             return {
                 ...state,
                 loading: !state.loading,
-                page: action.result.data.page,
-                content: action.result.data.content,
-                multimedia: action.result.data.multimedia
+                pages: action.result.data.pages
             };
         case ERR_HOME_HIGHLIGHTS:
             return {

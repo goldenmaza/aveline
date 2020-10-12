@@ -19,7 +19,7 @@ export const getResources = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                multimedia (hidden: false, slideshow: true) {
+                collage (hidden: false, slideshow: true) {
                     id
                     src
                     alt
@@ -27,7 +27,7 @@ export const getResources = () => (dispatch: Dispatch) => {
                 }
             }
         `
-    };
+    };//collage (hidden: false, slideshow: true)
     //TODO: Refactor to a file with options constants...
     const options = {
         method: 'POST',
@@ -73,29 +73,32 @@ export const getHighlights = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                page (hidden: false, box: true, main: true) {
+                pages (hidden: false, box: true, main: true) {
                     id
-                    tag
+                    route
                     label
                     title
-                }
-                content (hidden: false, box: true) {
-                    id
-                    page
-                    heading
-                    text
-                }
-                multimedia (hidden: false, box: true) {
-                    id
-                    page
-                    content
-                    src
-                    alt
-                    title
+                    paragraphs (hidden: false, box: true) {
+                        id
+                        heading
+                        text
+                        collage (hidden: false, box: true) {
+                            id
+                            src
+                            alt
+                            title
+                        }
+                    }
+                    collage (hidden: false, box: true) {
+                        id
+                        src
+                        alt
+                        title
+                    }
                 }
             }
         `
-    };
+    };//paragraphs (hidden: false, box: true)//collage (hidden: false, box: true)//collage (hidden: false, box: true)
     //TODO: Refactor to a file with options constants...
     const options = {
         method: 'POST',
