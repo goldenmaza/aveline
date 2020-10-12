@@ -12,34 +12,34 @@ export const getPageContent = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                pages {
+                pages (hidden: false) {
                     id
                     route
-                    paragraphs {
+                    paragraphs (hidden: false) {
                         id
                         heading
                         text
-                        collage {
+                        collage (hidden: false) {
                             id
                             src
                             alt
                             title
                         }
-                        subparagraphs {
+                        subparagraphs (hidden: false) {
                             id
                             heading
                             text
-                            collage {
+                            collage (hidden: false) {
                                 id
                                 src
                                 alt
                                 title
                             }
-                            subsubparagraphs {
+                            subsubparagraphs (hidden: false) {
                                 id
                                 heading
                                 text
-                                collage {
+                                collage (hidden: false) {
                                     id
                                     src
                                     alt
