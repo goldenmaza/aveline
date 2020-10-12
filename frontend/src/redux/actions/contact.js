@@ -13,14 +13,14 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
     const requestBody = {
         query: `
             query {
-                offices {
+                offices (hidden: false) {
                     id
                     main
                     region
                     locale
                     label
                     orgnr
-                    thumbnail {
+                    thumbnail (hidden: false) {
                         id
                         office
                         box
@@ -28,7 +28,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                         alt
                         title
                     }
-                    employees {
+                    employees (hidden: false) {
                         id
                         office
                         main
@@ -40,7 +40,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                         country
                         phone
                         email
-                        portraits {
+                        portraits (hidden: false) {
                             id
                             contact
                             office
@@ -49,14 +49,14 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                             alt
                             title
                         }
-                        profiles {
+                        profiles (hidden: false) {
                             id
                             url
                             media
                             label
                         }
                     }
-                    socials {
+                    socials (hidden: false) {
                         id
                         url
                         media

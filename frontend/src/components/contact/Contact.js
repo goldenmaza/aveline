@@ -26,8 +26,8 @@ class Contact extends Component {
     toggleOffice(event) {
         event.preventDefault();
 
-        const value = this.props.target === null ? Number(event.currentTarget.dataset.id) : null;
-        this.props.actions.toggleContactOffice(value);
+        const id = event.currentTarget.dataset.none === '' ? Number(event.currentTarget.dataset.id) : null;
+        this.props.actions.toggleContactOffice(id);
     }
 
     render() {
@@ -83,8 +83,9 @@ class Contact extends Component {
                     }
                 });
                 if (thumbnail.box) {//TODO: Remove box and place condition with the query?
+                    const classValue = employees.some(e => e.office === o.id) ? '' : 'none';
                     regionalOffices.push(
-                        <li key={o.id} className={employees.some(e => e.office === o.id) ? '' : 'none'} data-id={o.id} onClick={this.toggleOffice}>
+                        <li key={o.id} className={classValue} data-none={classValue} data-id={o.id} onClick={this.toggleOffice}>
                             <a href='#'>
                                 <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
                                 <div>
@@ -105,14 +106,14 @@ class Contact extends Component {
                 });
                 if (o.id === target) {
                     employees.forEach(e => {
-                        const portrait = e.portrait;
+                        const portrait = e.portraits.length > 0 ? e.portraits[0] : null;
                         const profiles = e.profiles;
-                        if (portrait.box) {//TODO: Remove box and place condition with the query?
+                        if (portrait !== null && portrait.box) {//TODO: Remove box and place condition with the query?
                             const mailto = Buffer.from(e.email, "ascii").toString('hex');
                             const media = [];
                             profiles.forEach(p => {
                                 media.push(
-                                    <a href={p.url + p.label} target='_blank' rel='noopener noreferrer'>{p.media}</a>
+                                    <a key={p.id} href={p.url + p.label} target='_blank' rel='noopener noreferrer'>{p.media}</a>
                                 );
                             });
                             officeEmployees.push(
