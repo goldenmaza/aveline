@@ -9,7 +9,7 @@ import {
 import RegionalThumbnail from '../inputs/multimedia';
 import RegionalSocial from '../inputs/social';
 
-// This is the Sequlize model definition (input type) of the Contact table...
+// This is the Sequelize model definition (input type) of the Contact table...
 const RegionalEmployee = new GraphQLInputObjectType({
     name: 'RegionalEmployee',
     description: 'This represents a RegionalEmployee',

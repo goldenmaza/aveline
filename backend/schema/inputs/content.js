@@ -9,7 +9,7 @@ import {
 import RegionalThumbnail from '../inputs/multimedia';
 import SubParagraph from '../inputs/subcontent';
 
-// This is the Sequlize model definition (input type) of the Content table (top content)...
+// This is the Sequelize model definition (input type) of the Content table (top content)...
 const PageParagraph = new GraphQLInputObjectType({
     name: 'PageParagraph',
     description: 'This represents a PageParagraph',

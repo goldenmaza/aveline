@@ -172,7 +172,7 @@ class HelpSection extends Component {
     }
 
     isHyphen(str) {
-      return str.match(/[\-]/i);
+      return str.match(/[-]/i);
     }
 
     generateEmailGroup(arr, word, mapping) {

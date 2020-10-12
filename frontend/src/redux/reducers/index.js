@@ -34,22 +34,29 @@ import {
 } from './footer';
 
 const combinedReducers = combineReducers({
+    // App reducers...
     appComponent,
+    // Header reducers...
     headerComponent,
     handlerComponent,
     menuComponent,
+    // Common reducers...
     selectorComponent,
     contentComponent,
     collageComponent,
     preventionComponent,
+    // Home reducers...
     homeComponent,
     slideshowComponent,
     sliderComponent,
     highlightsComponent,
+    // Contact reducers...
     contactComponent,
     navigationComponent,
+    // Form reducers...
     formComponent,
     helpSectionComponent,
+    // Footer reducers...
     footerComponent,
     sitemapComponent,
     copyrightComponent
