@@ -9,7 +9,9 @@ import {
 import Multimedia from '../types/multimedia';
 import Social from '../types/social';
 
-// This is the Sequlize model definition (output type) of the Contact table...
+import db from '../db';
+
+// This is the Sequelize model definition (output type) of the Contact table...
 const Contact = new GraphQLObjectType({
     name: 'Contact',
     description: 'This represents a Contact',
@@ -94,15 +96,41 @@ const Contact = new GraphQLObjectType({
                 }
             },
             portraits: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Multimedia),
-                resolve(contact) {
-                    return contact.dataValues.portraits;
+                async resolve(parent, args) {
+                    let where = {
+                        contact: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    return await db.models.multimedia.findAll({
+                        where
+                    });
                 }
             },
             profiles: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Social),
-                resolve(contact) {
-                    return contact.dataValues.profiles;
+                async resolve(parent, args) {
+                    let where = {
+                        contact: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    return await db.models.social.findAll({
+                        where
+                    });
                 }
             }
         };

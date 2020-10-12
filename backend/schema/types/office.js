@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import { resolver } from 'graphql-sequelize';
-
 import Multimedia from '../types/multimedia';
 import Contact from '../types/contact';
 import Social from '../types/social';
 
-// This is the Sequlize model definition (output type) of the Office table...
+import db from '../db';
+
+// This is the Sequelize model definition (output type) of the Office table...
 const Office = new GraphQLObjectType({
     name: 'Office',
     description: 'This represents an Office',
@@ -67,21 +67,60 @@ const Office = new GraphQLObjectType({
                 }
             },
             thumbnail: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: Multimedia,
-                resolve(office) {
-                    return office.thumbnail;
+                async resolve(parent, args) {
+                    let where = {
+                        office: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    return await db.models.multimedia.findOne({
+                        where
+                    });
                 }
             },
             employees: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Contact),
-                resolve(office) {
-                    return office.employees;
+                async resolve(parent, args) {
+                    let where = {
+                        office: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    return await db.models.contact.findAll({
+                        where
+                    });
                 }
             },
             socials: {
+                args: {
+                    hidden: {
+                        type: GraphQLBoolean
+                    }
+                },
                 type: new GraphQLList(Social),
-                resolve(office) {
-                    return office.socials;
+                async resolve(parent, args) {
+                    let where = {
+                        office: parent.dataValues.id
+                    };
+                    if (args.hidden !== undefined) {
+                        where['hidden'] = args.hidden;
+                    }
+                    return await db.models.social.findAll({
+                        where
+                    });
                 }
             }
         };

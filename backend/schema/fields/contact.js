@@ -55,22 +55,24 @@ const contactFields = {
             type: GraphQLBoolean
         },
         portraits: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(RegionalThumbnail)
         },
         profiles: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(RegionalSocial)
         }
     },
-    async resolve(root, args) {
+    async resolve(parent, args) {
         return await db.models.contact.findAll({
-            include: [{
-                all: true,
-                nested: true
-//                model: [db.models.multimedia, db.models.social],
-//                as: ["portraits", "profiles"],
-//                required: false,
-//                all: true
-            }],
             where: args
         });
     }

@@ -41,25 +41,32 @@ const officeFields = {
             type: GraphQLBoolean
         },
         thumbnail: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: RegionalThumbnail
         },
         employees: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(RegionalEmployee)
         },
         socials: {
+            args: {
+                hidden: {
+                    type: GraphQLBoolean
+                }
+            },
             type: new GraphQLList(RegionalSocial)
         }
     },
     async resolve(root, args) {
         return await db.models.office.findAll({
-            include: [{
-                all: true,
-                nested: true
-//                model: [db.models.multimedia, db.models.contact, db.models.social],
-//                as: ["thumbnail", "employees", "socials"],
-//                required: false,
-//                all: true
-            }],
             where: args
         });
     }
