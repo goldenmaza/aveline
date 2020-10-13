@@ -7,8 +7,6 @@ import {
 
 import Social from '../output/social';
 
-import db from '../../db';
-
 // This is the Social's fields for the QueryBundle definition...
 const socialFields = {
     type: new GraphQLList(Social),
@@ -35,7 +33,7 @@ const socialFields = {
             type: GraphQLBoolean
         }
     },
-    async resolve(root, args) {
+    async resolve(root, args, {db}) {
         return await db.models.social.findAll({
             where: args
         });

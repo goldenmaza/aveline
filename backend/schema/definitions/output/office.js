@@ -10,8 +10,6 @@ import Multimedia from './multimedia';
 import Contact from './contact';
 import Social from './social';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Office table...
 const Office = new GraphQLObjectType({
     name: 'Office',
@@ -73,7 +71,7 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: Multimedia,
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         office: parent.dataValues.id
                     };
@@ -92,7 +90,7 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Contact),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         office: parent.dataValues.id
                     };
@@ -111,7 +109,7 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Social),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         office: parent.dataValues.id
                     };

@@ -7,8 +7,6 @@ import {
 
 import Navigation from '../output/navigation';
 
-import db from '../../db';
-
 // This is the Navigation's fields for the QueryBundle definition...
 const navigationFields = {
     type: new GraphQLList(Navigation),
@@ -32,8 +30,10 @@ const navigationFields = {
             type: GraphQLBoolean
         }
     },
-    resolve(root, args) {
-        return db.models.navigation.findAll({where: args});
+    resolve(root, args, {db}) {
+        return db.models.navigation.findAll({
+            where: args
+        });
     }
 };
 

@@ -9,8 +9,6 @@ import {
 import Multimedia from './multimedia';
 import SubParagraph from './subcontent';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Content table (top content)...
 const Content = new GraphQLObjectType({
     name: 'Content',
@@ -75,7 +73,7 @@ const Content = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         content: parent.dataValues.id
                     };
@@ -100,7 +98,7 @@ const Content = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(SubParagraph),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         content: parent.dataValues.id
                     };

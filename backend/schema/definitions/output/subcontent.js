@@ -9,8 +9,6 @@ import {
 import Multimedia from './multimedia';
 import SubSubParagraph from './subsubcontent';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Content table (sub content)...
 const SubContent = new GraphQLObjectType({
     name: 'SubContent',
@@ -72,7 +70,7 @@ const SubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     return await db.models.multimedia.findAll({
                         where: {
                             content: parent.dataValues.id,
@@ -88,7 +86,7 @@ const SubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(SubSubParagraph),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     return await db.models.content.findAll({
                         where: {
                             content: parent.dataValues.id,

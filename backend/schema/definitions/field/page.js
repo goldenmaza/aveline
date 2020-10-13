@@ -9,8 +9,6 @@ import Page from '../output/page';
 import PageCollage from '../input/multimedia';
 import PageParagraph from '../input/content';
 
-import db from '../../db';
-
 // This is the Page's fields for the QueryBundle definition...
 const pageFields = {
     type: new GraphQLList(Page),
@@ -71,7 +69,7 @@ const pageFields = {
             type: new GraphQLList(PageParagraph)
         }
     },
-    async resolve(parent, args) {
+    async resolve(parent, args, {db}) {
         return await db.models.page.findAll({
             where: args
         });

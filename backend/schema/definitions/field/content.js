@@ -9,8 +9,6 @@ import Content from '../output/content';
 import ParagraphCollage from '../input/multimedia';
 import PageParagraph from '../input/content';
 
-import db from '../../db';
-
 // This is the Content's fields for the QueryBundle definition...
 const contentFields = {
     type: new GraphQLList(Content),
@@ -56,7 +54,7 @@ const contentFields = {
             type: new GraphQLList(PageParagraph)
         }
     },
-    async resolve(parent, args) {
+    async resolve(parent, args, {db}) {
         return await db.models.content.findAll({
             where: args
         });

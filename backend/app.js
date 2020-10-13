@@ -10,6 +10,7 @@ import Graphql from 'express-graphql';
 import Nodemailer from 'nodemailer';
 
 import Schema from './schema/schema';
+import db from './schema/db';
 
 const app = Express();
 
@@ -39,7 +40,10 @@ app.use((req, res, next) => {
 app.use('/api', Graphql({
     schema: Schema,
     pretty: true,
-    graphiql: true
+    graphiql: true,
+    context: {
+        db
+    }
 }));
 
 // Nodemailer configuration...

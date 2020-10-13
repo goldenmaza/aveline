@@ -9,8 +9,6 @@ import {
 import Multimedia from './multimedia';
 import Paragraph from './content';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Page table...
 const Page = new GraphQLObjectType({
     name: 'Page',
@@ -99,7 +97,7 @@ const Page = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         page: parent.dataValues.id
                     };
@@ -124,7 +122,7 @@ const Page = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Paragraph),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         page: parent.dataValues.id
                     };

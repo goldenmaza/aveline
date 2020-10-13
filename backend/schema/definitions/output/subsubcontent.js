@@ -8,8 +8,6 @@ import {
 
 import Multimedia from './multimedia';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Content table (sub sub content)...
 const SubSubContent = new GraphQLObjectType({
     name: 'SubSubContent',
@@ -71,7 +69,7 @@ const SubSubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     return await db.models.multimedia.findAll({
                         where: {
                             content: parent.dataValues.id,

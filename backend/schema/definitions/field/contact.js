@@ -9,8 +9,6 @@ import Contact from '../output/contact';
 import RegionalThumbnail from '../input/multimedia';//TODO: Rename Regional to something more generic...
 import RegionalSocial from '../input/social';
 
-import db from '../../db';
-
 // This is the Contact's fields for the QueryBundle definition...
 const contactFields = {
     type: new GraphQLList(Contact),
@@ -71,7 +69,7 @@ const contactFields = {
             type: new GraphQLList(RegionalSocial)
         }
     },
-    async resolve(parent, args) {
+    async resolve(parent, args, {db}) {
         return await db.models.contact.findAll({
             where: args
         });

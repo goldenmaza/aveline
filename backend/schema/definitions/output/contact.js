@@ -9,8 +9,6 @@ import {
 import Multimedia from './multimedia';
 import Social from './social';
 
-import db from '../../db';
-
 // This is the Sequelize model definition (output type) of the Contact table...
 const Contact = new GraphQLObjectType({
     name: 'Contact',
@@ -102,7 +100,7 @@ const Contact = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         contact: parent.dataValues.id
                     };
@@ -121,7 +119,7 @@ const Contact = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Social),
-                async resolve(parent, args) {
+                async resolve(parent, args, {db}) {
                     let where = {
                         contact: parent.dataValues.id
                     };

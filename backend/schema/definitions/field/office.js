@@ -10,8 +10,6 @@ import RegionalThumbnail from '../input/multimedia';//TODO: Rename Regional to s
 import RegionalEmployee from '../input/contact';
 import RegionalSocial from '../input/social';
 
-import db from '../../db';
-
 // This is the Office's fields for the QueryBundle definition...
 const officeFields = {
     type: new GraphQLList(Office),
@@ -65,7 +63,7 @@ const officeFields = {
             type: new GraphQLList(RegionalSocial)
         }
     },
-    async resolve(root, args) {
+    async resolve(root, args, {db}) {
         return await db.models.office.findAll({
             where: args
         });
