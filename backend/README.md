@@ -20,6 +20,7 @@ Backend module contains/will contain:
 - Dotenv
 - Helmet
 - Compression
+- Dataloader
 
 The basic flow is that the build output from the Frontend module should be placed on a server
 to host the React application. This application in turn calls the Backend application via REST
@@ -32,7 +33,9 @@ generate a website with content.
 
 Work remaining for the Backend module:
 - Deploying the module to a webhosting service
-- Minor refactoring of source code (GraphQL and Sequelize files)
+- Adding Dataloader for decreasing database calls
+- Adding EventEmitter for event handling
+- Adding Streams for logging purposes
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.
