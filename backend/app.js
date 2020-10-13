@@ -11,6 +11,7 @@ import Nodemailer from 'nodemailer';
 
 import Schema from './schema/schema';
 import db from './schema/db';
+import _ from './schema/definitions/associations';
 
 const app = Express();
 
@@ -45,6 +46,13 @@ app.use('/api', Graphql({
         db
     }
 }));
+
+// Validate the Sequelize connection...
+db.authenticate().then((val) => {
+    console.log("Connection has been established successfully...");
+}).catch((err) => {
+    console.error("Unable to connect to the database: ", err);
+});
 
 // Nodemailer configuration...
 const protocol = {
