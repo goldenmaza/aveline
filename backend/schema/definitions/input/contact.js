@@ -6,8 +6,8 @@ import {
     GraphQLString
 } from 'graphql';
 
-import RegionalThumbnail from '../inputs/multimedia';
-import RegionalSocial from '../inputs/social';
+import RegionalThumbnail from './multimedia';//TODO: Rename Regional to something more generic...
+import RegionalSocial from './social';
 
 // This is the Sequelize model definition (input type) of the Contact table...
 const RegionalEmployee = new GraphQLInputObjectType({

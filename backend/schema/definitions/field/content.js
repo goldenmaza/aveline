@@ -5,15 +5,15 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Page from '../types/page';
-import PageCollage from '../inputs/multimedia';
-import PageParagraph from '../inputs/content';
+import Content from '../output/content';
+import ParagraphCollage from '../input/multimedia';
+import PageParagraph from '../input/content';
 
-import db from '../db';
+import db from '../../db';
 
-// This is the Page's fields for the QueryBundle definition...
-const pageFields = {
-    type: new GraphQLList(Page),
+// This is the Content's fields for the QueryBundle definition...
+const contentFields = {
+    type: new GraphQLList(Content),
     args: {
         id: {
             type: GraphQLInt
@@ -21,35 +21,23 @@ const pageFields = {
         page: {
             type: GraphQLInt
         },
-        ordering: {
+        content: {
             type: GraphQLInt
         },
-        main: {
-            type: GraphQLBoolean
+        ordering: {
+            type: GraphQLInt
         },
         box: {
             type: GraphQLBoolean
         },
-        sitemap: {
-            type: GraphQLBoolean
-        },
-        layout: {
-            type: GraphQLInt
-        },
-        route: {
+        heading: {
             type: GraphQLString
         },
-        label: {
+        text: {
             type: GraphQLString
         },
         hidden: {
             type: GraphQLBoolean
-        },
-        title: {
-            type: GraphQLString
-        },
-        aria: {
-            type: GraphQLString
         },
         collage: {
             args: {
@@ -57,14 +45,11 @@ const pageFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: new GraphQLList(PageCollage)
+            type: new GraphQLList(ParagraphCollage)
         },
         paragraphs: {
             args: {
                 hidden: {
-                    type: GraphQLBoolean
-                },
-                box: {
                     type: GraphQLBoolean
                 }
             },
@@ -72,10 +57,10 @@ const pageFields = {
         }
     },
     async resolve(parent, args) {
-        return await db.models.page.findAll({
+        return await db.models.content.findAll({
             where: args
         });
     }
 };
 
-export default pageFields;
+export default contentFields;

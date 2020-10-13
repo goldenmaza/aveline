@@ -6,8 +6,8 @@ import {
     GraphQLString
 } from 'graphql';
 
-import PageThumbnail from '../inputs/multimedia';
-import Paragraph from '../inputs/content';
+import PageThumbnail from './multimedia';
+import Paragraph from './content';
 
 // This is the Sequelize model definition (input type) of the Page table...
 const InputPage = new GraphQLObjectType({

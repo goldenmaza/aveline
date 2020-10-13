@@ -6,15 +6,14 @@ import {
     GraphQLString
 } from 'graphql';
 
-import db from '../db';
+import Multimedia from './multimedia';
 
-import Multimedia from '../types/multimedia';
-import SubSubParagraph from '../types/subsubcontent';
+import db from '../../db';
 
-// This is the Sequlize model definition (output type) of the Content table (sub content)...
-const SubContent = new GraphQLObjectType({
-    name: 'SubContent',
-    description: 'This represents a SubContent',
+// This is the Sequelize model definition (output type) of the Content table (sub sub content)...
+const SubSubContent = new GraphQLObjectType({
+    name: 'SubSubContent',
+    description: 'This represents a SubSubContent',
     fields: () => {
         return {
             id: {
@@ -80,25 +79,9 @@ const SubContent = new GraphQLObjectType({
                         }
                     });
                 }
-            },
-            subsubparagraphs: {
-                args: {
-                    hidden: {
-                        type: GraphQLBoolean
-                    }
-                },
-                type: new GraphQLList(SubSubParagraph),
-                async resolve(parent, args) {
-                    return await db.models.content.findAll({
-                        where: {
-                            content: parent.dataValues.id,
-                            hidden: args.hidden
-                        }
-                    });
-                }
             }
         };
     }
 });
 
-export default SubContent;
+export default SubSubContent;

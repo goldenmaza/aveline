@@ -5,10 +5,11 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Navigation from '../types/navigation';
+import Navigation from '../output/navigation';
 
-import db from '../db';
+import db from '../../db';
 
+// This is the Navigation's fields for the QueryBundle definition...
 const navigationFields = {
     type: new GraphQLList(Navigation),
     args: {

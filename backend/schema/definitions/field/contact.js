@@ -5,11 +5,11 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Contact from '../types/contact';
-import RegionalThumbnail from '../inputs/multimedia';//TODO: Rename Regional to something more generic...
-import RegionalSocial from '../inputs/social';
+import Contact from '../output/contact';
+import RegionalThumbnail from '../input/multimedia';//TODO: Rename Regional to something more generic...
+import RegionalSocial from '../input/social';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Contact's fields for the QueryBundle definition...
 const contactFields = {

@@ -6,11 +6,11 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from '../types/multimedia';
-import Contact from '../types/contact';
-import Social from '../types/social';
+import Multimedia from './multimedia';
+import Contact from './contact';
+import Social from './social';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Sequelize model definition (output type) of the Office table...
 const Office = new GraphQLObjectType({

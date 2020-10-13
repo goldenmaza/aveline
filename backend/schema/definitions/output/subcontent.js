@@ -6,15 +6,15 @@ import {
     GraphQLString
 } from 'graphql';
 
-import db from '../db';
+import Multimedia from './multimedia';
+import SubSubParagraph from './subsubcontent';
 
-import Multimedia from '../types/multimedia';
-import SubParagraph from '../types/subcontent';
+import db from '../../db';
 
-// This is the Sequelize model definition (output type) of the Content table (top content)...
-const Content = new GraphQLObjectType({
-    name: 'Content',
-    description: 'This represents a Content',
+// This is the Sequelize model definition (output type) of the Content table (sub content)...
+const SubContent = new GraphQLObjectType({
+    name: 'SubContent',
+    description: 'This represents a SubContent',
     fields: () => {
         return {
             id: {
@@ -69,49 +69,31 @@ const Content = new GraphQLObjectType({
                 args: {
                     hidden: {
                         type: GraphQLBoolean
-                    },
-                    box: {
-                        type: GraphQLBoolean
                     }
                 },
                 type: new GraphQLList(Multimedia),
                 async resolve(parent, args) {
-                    let where = {
-                        content: parent.dataValues.id
-                    };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
                     return await db.models.multimedia.findAll({
-                        where
+                        where: {
+                            content: parent.dataValues.id,
+                            hidden: args.hidden
+                        }
                     });
                 }
             },
-            subparagraphs: {
+            subsubparagraphs: {
                 args: {
                     hidden: {
                         type: GraphQLBoolean
-                    },
-                    box: {
-                        type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(SubParagraph),
+                type: new GraphQLList(SubSubParagraph),
                 async resolve(parent, args) {
-                    let where = {
-                        content: parent.dataValues.id
-                    };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
                     return await db.models.content.findAll({
-                        where
+                        where: {
+                            content: parent.dataValues.id,
+                            hidden: args.hidden
+                        }
                     });
                 }
             }
@@ -119,4 +101,4 @@ const Content = new GraphQLObjectType({
     }
 });
 
-export default Content;
+export default SubContent;

@@ -5,9 +5,9 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from '../types/multimedia';
+import Multimedia from '../output/multimedia';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Multimedia's fields for the QueryBundle definition...
 const multimediaFields = {

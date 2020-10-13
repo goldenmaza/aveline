@@ -6,10 +6,10 @@ import {
     GraphQLString,
 } from 'graphql';
 
-import Multimedia from '../types/multimedia';
-import Social from '../types/social';
+import Multimedia from './multimedia';
+import Social from './social';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Sequelize model definition (output type) of the Contact table...
 const Contact = new GraphQLObjectType({

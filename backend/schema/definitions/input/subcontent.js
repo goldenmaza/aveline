@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import RegionalThumbnail from '../inputs/multimedia';
-import SubParagraph from '../inputs/subcontent';
+import RegionalThumbnail from './multimedia';
+import SubSubParagraph from './subsubcontent';
 
-// This is the Sequelize model definition (input type) of the Content table (top content)...
-const PageParagraph = new GraphQLInputObjectType({
-    name: 'PageParagraph',
-    description: 'This represents a PageParagraph',
+// This is the Sequelize model definition (input type) of the Content table (sub content)...
+const SubPageParagraph = new GraphQLInputObjectType({
+    name: 'SubPageParagraph',
+    description: 'This represents a SubPageParagraph',
     fields: () => {
         return {
             id: {
@@ -42,11 +42,11 @@ const PageParagraph = new GraphQLInputObjectType({
             collage: {
                 type: new GraphQLList(RegionalThumbnail)
             },
-            paragraphs: {
-                type: new GraphQLList(SubParagraph)
+            subsubparagraphs: {
+                type: new GraphQLList(SubSubParagraph)
             }
         };
     }
 });
 
-export default PageParagraph;
+export default SubPageParagraph;

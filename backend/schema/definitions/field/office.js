@@ -5,12 +5,12 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Office from '../types/office';
-import RegionalThumbnail from '../inputs/multimedia';//TODO: Rename Regional to something more generic...
-import RegionalEmployee from '../inputs/contact';
-import RegionalSocial from '../inputs/social';
+import Office from '../output/office';
+import RegionalThumbnail from '../input/multimedia';//TODO: Rename Regional to something more generic...
+import RegionalEmployee from '../input/contact';
+import RegionalSocial from '../input/social';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Office's fields for the QueryBundle definition...
 const officeFields = {

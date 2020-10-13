@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-// This is the Sequlize model definition (input type) of the Social table...
+// This is the Sequelize model definition (input type) of the Social table...
 const RegionalSocial = new GraphQLInputObjectType({
     name: 'RegionalSocial',
     description: 'This represents a RegionalSocial',

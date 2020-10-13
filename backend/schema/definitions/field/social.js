@@ -5,9 +5,9 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Social from '../types/social';
+import Social from '../output/social';
 
-import db from '../db';
+import db from '../../db';
 
 // This is the Social's fields for the QueryBundle definition...
 const socialFields = {

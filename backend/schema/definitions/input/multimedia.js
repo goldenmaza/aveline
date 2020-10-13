@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-// This is the Sequlize model definition (input type) of the Multimedia table...
+// This is the Sequelize model definition (input type) of the Multimedia table...
 const RegionalThumbnail = new GraphQLInputObjectType({
     name: 'RegionalThumbnail',
     description: 'This represents a RegionalThumbnail',

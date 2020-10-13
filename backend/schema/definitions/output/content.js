@@ -6,87 +6,63 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from '../types/multimedia';
-import Paragraph from '../types/content';
+import Multimedia from './multimedia';
+import SubParagraph from './subcontent';
 
-import db from '../db';
+import db from '../../db';
 
-// This is the Sequelize model definition (output type) of the Page table...
-const Page = new GraphQLObjectType({
-    name: 'Page',
-    description: 'This represents a Page',
+// This is the Sequelize model definition (output type) of the Content table (top content)...
+const Content = new GraphQLObjectType({
+    name: 'Content',
+    description: 'This represents a Content',
     fields: () => {
         return {
             id: {
                 type: GraphQLInt,
-                resolve(page) {
-                    return page.id;
+                resolve(content) {
+                    return content.id;
                 }
             },
             page: {
                 type: GraphQLInt,
-                resolve(page) {
-                    return page.page;
+                resolve(content) {
+                    return content.page;
+                }
+            },
+            content: {
+                type: GraphQLInt,
+                resolve(content) {
+                    return content.content;
                 }
             },
             ordering: {
                 type: GraphQLInt,
-                resolve(page) {
-                    return page.ordering;
-                }
-            },
-            main: {
-                type: GraphQLBoolean,
-                resolve(page) {
-                    return page.main;
+                resolve(content) {
+                    return content.ordering;
                 }
             },
             box: {
                 type: GraphQLBoolean,
-                resolve(page) {
-                    return page.box;
+                resolve(content) {
+                    return content.box;
                 }
             },
-            sitemap: {
-                type: GraphQLBoolean,
-                resolve(page) {
-                    return page.sitemap;
-                }
-            },
-            layout: {
-                type: GraphQLInt,
-                resolve(page) {
-                    return page.layout;
-                }
-            },
-            route: {
+            heading: {
                 type: GraphQLString,
-                resolve(page) {
-                    return page.route;
+                resolve(content) {
+                    return content.heading;
                 }
             },
-            label: {
+            text: {
                 type: GraphQLString,
-                resolve(page) {
-                    return page.label;
+                resolve(content) {
+                    return content.text;
                 }
             },
             hidden: {
                 type: GraphQLBoolean,
-                resolve(page) {
-                    return page.hidden;
-                }
-            },
-            title: {
-                type: GraphQLString,
-                resolve(page) {
-                    return page.title;
-                }
-            },
-            aria: {
-                type: GraphQLString,
-                resolve(page) {
-                    return page.aria;
+                resolve(content) {
+                    return content.hidden;
                 }
             },
             collage: {
@@ -101,7 +77,7 @@ const Page = new GraphQLObjectType({
                 type: new GraphQLList(Multimedia),
                 async resolve(parent, args) {
                     let where = {
-                        page: parent.dataValues.id
+                        content: parent.dataValues.id
                     };
                     if (args.hidden !== undefined) {
                         where['hidden'] = args.hidden;
@@ -114,7 +90,7 @@ const Page = new GraphQLObjectType({
                     });
                 }
             },
-            paragraphs: {
+            subparagraphs: {
                 args: {
                     hidden: {
                         type: GraphQLBoolean
@@ -123,10 +99,10 @@ const Page = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Paragraph),
+                type: new GraphQLList(SubParagraph),
                 async resolve(parent, args) {
                     let where = {
-                        page: parent.dataValues.id
+                        content: parent.dataValues.id
                     };
                     if (args.hidden !== undefined) {
                         where['hidden'] = args.hidden;
@@ -143,4 +119,4 @@ const Page = new GraphQLObjectType({
     }
 });
 
-export default Page;
+export default Content;

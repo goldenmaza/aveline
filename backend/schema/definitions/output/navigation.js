@@ -5,6 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
+// This is the Sequelize model definition (output type) of the Navigation table...
 const Navigation = new GraphQLObjectType({
     name: 'Navigation',
     description: 'This represents a Navigation',

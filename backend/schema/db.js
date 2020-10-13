@@ -3,13 +3,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Sequelize table definitions... //TODO: rename to <tablename>Table
-import { seqPage } from './definitions/page';//TODO: relocate files from "definitions" to "definitions/output"
-import { seqContent } from './definitions/content';
-import { seqMultimedia } from './definitions/multimedia';
-import { seqOffice } from './definitions/office';
-import { seqContact } from './definitions/contact';
-import { seqSocial } from './definitions/social';
-import { seqNavigation } from './definitions/navigation';
+import { seqPage } from './definitions/table/page';
+import { seqContent } from './definitions/table/content';
+import { seqMultimedia } from './definitions/table/multimedia';
+import { seqOffice } from './definitions/table/office';
+import { seqContact } from './definitions/table/contact';
+import { seqSocial } from './definitions/table/social';
+import { seqNavigation } from './definitions/table/navigation';
 
 //TODO: Refector to use for dev, test and prod...
 //const env = process.env.NODE_ENV || 'development';

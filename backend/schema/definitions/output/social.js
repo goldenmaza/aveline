@@ -5,7 +5,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-// This is the Sequlize model definition (output type) of the Social table...
+// This is the Sequelize model definition (output type) of the Social table...
 const Social = new GraphQLObjectType({
     name: 'Social',
     description: 'This represents a Social',

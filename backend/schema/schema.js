@@ -4,13 +4,13 @@ import {
 } from 'graphql';
 
 // Main fields...
-import pageFields from './fields/page';
-import contentFields from './fields/content';
-import multimediaFields from './fields/multimedia';
-import officeFields from './fields/office';
-import contactFields from './fields/contact';
-import socialFields from './fields/social';
-import navigationFields from './fields/navigation';
+import pageFields from './definitions/field/page';
+import contentFields from './definitions/field/content';
+import multimediaFields from './definitions/field/multimedia';
+import officeFields from './definitions/field/office';
+import contactFields from './definitions/field/contact';
+import socialFields from './definitions/field/social';
+import navigationFields from './definitions/field/navigation';
 
 // Declaration of the Query tag for GraphQL...
 const QueryBundle = new GraphQLObjectType({
