@@ -2,14 +2,14 @@ import Sequelize from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// Sequelize table definitions... //TODO: rename to <tablename>Table
-import { seqPage } from './definitions/table/page';
-import { seqContent } from './definitions/table/content';
-import { seqMultimedia } from './definitions/table/multimedia';
-import { seqOffice } from './definitions/table/office';
-import { seqContact } from './definitions/table/contact';
-import { seqSocial } from './definitions/table/social';
-import { seqNavigation } from './definitions/table/navigation';
+// Sequelize table definitions...
+import { pageTable } from './definitions/table/page';
+import { contentTable } from './definitions/table/content';
+import { multimediaTable } from './definitions/table/multimedia';
+import { officeTable } from './definitions/table/office';
+import { contactTable } from './definitions/table/contact';
+import { socialTable } from './definitions/table/social';
+import { navigationTable } from './definitions/table/navigation';
 
 //TODO: Refector to use for dev, test and prod...
 //const env = process.env.NODE_ENV || 'development';
@@ -43,15 +43,15 @@ db.authenticate().then((val) => {
 });
 
 // Definitions for Sequelize models (tables)...//TODO: Refactor to index.js under definitions/index.js
-const Page = db.define('page', seqPage);
-const Content = db.define('content', seqContent);
-const SubContent = db.define('content', seqContent);
-const SubSubContent = db.define('content', seqContent);
-const Multimedia = db.define('multimedia', seqMultimedia);
-const Office = db.define('office', seqOffice);
-const Contact = db.define('contact', seqContact);
-const Social = db.define('social', seqSocial);
-const Navigation = db.define('navigation', seqNavigation);
+const Page = db.define('page', pageTable);
+const Content = db.define('content', contentTable);
+const SubContent = db.define('content', contentTable);
+const SubSubContent = db.define('content', contentTable);
+const Multimedia = db.define('multimedia', multimediaTable);
+const Office = db.define('office', officeTable);
+const Contact = db.define('contact', contactTable);
+const Social = db.define('social', socialTable);
+const Navigation = db.define('navigation', navigationTable);
 
 //TODO: Refactor associations to index.js under definitions/index.js
 // Relationships between Page and Content tables, a Page can have several Content (paragraphs)...

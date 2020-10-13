@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 // This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
-const seqPage = {//TODO: rename to pageTable
+const pageTable = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -60,4 +60,4 @@ const seqPage = {//TODO: rename to pageTable
     }
 };
 
-export { seqPage };
+export { pageTable };

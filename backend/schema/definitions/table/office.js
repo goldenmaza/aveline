@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 // This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
-const seqOffice = {//TODO: rename to officeTable
+const officeTable = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -38,4 +38,4 @@ const seqOffice = {//TODO: rename to officeTable
     }
 };
 
-export { seqOffice };
+export { officeTable };

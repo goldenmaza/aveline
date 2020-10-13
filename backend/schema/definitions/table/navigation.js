@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 // This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
-const seqNavigation = {//TODO: rename to navigationTable
+const navigationTable = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -30,4 +30,4 @@ const seqNavigation = {//TODO: rename to navigationTable
     }
 };
 
-export { seqNavigation };
+export { navigationTable };

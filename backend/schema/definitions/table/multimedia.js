@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 // This definition has to match the SQL table otherwise the GraphiQL tool will state that the column does not exist...
-const seqMultimedia = {//TODO: rename to multimediaTable
+const multimediaTable = {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -86,4 +86,4 @@ const seqMultimedia = {//TODO: rename to multimediaTable
     }
 };
 
-export { seqMultimedia };
+export { multimediaTable };
