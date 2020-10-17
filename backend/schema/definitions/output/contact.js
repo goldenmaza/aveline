@@ -100,16 +100,12 @@ const Contact = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        contact: parent.dataValues.id
+                resolve(parent, args, {contactPortraitsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    return await db.models.multimedia.findAll({
-                        where
-                    });
+                    return contactPortraitsLoader.load(data);
                 }
             },
             profiles: {
@@ -119,16 +115,12 @@ const Contact = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Social),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        contact: parent.dataValues.id
+                resolve(parent, args, {contactProfilesLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    return await db.models.social.findAll({
-                        where
-                    });
+                    return contactProfilesLoader.load(data);
                 }
             }
         };

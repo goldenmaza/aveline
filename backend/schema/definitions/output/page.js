@@ -97,19 +97,12 @@ const Page = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        page: parent.dataValues.id
+                resolve(parent, args, {pagesCollageLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
-                    return await db.models.multimedia.findAll({
-                        where
-                    });
+                    return pagesCollageLoader.load(data);
                 }
             },
             paragraphs: {
@@ -122,19 +115,12 @@ const Page = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Paragraph),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        page: parent.dataValues.id
+                resolve(parent, args, {pagesParagraphsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
-                    return await db.models.content.findAll({
-                        where
-                    });
+                    return pagesParagraphsLoader.load(data);
                 }
             }
         };

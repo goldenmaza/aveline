@@ -69,13 +69,12 @@ const SubSubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args, {db}) {
-                    return await db.models.multimedia.findAll({
-                        where: {
-                            content: parent.dataValues.id,
-                            hidden: args.hidden
-                        }
-                    });
+                resolve(parent, args, {contentParagraphsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
+                    };
+                    return contentParagraphsLoader.load(data);
                 }
             }
         };

@@ -71,16 +71,12 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: Multimedia,
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        office: parent.dataValues.id
+                resolve(parent, args, {officesThumbnailLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    return await db.models.multimedia.findOne({
-                        where
-                    });
+                    return officesThumbnailLoader.load(data);
                 }
             },
             employees: {
@@ -90,16 +86,12 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Contact),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        office: parent.dataValues.id
+                resolve(parent, args, {officesEmployeesLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    return await db.models.contact.findAll({
-                        where
-                    });
+                    return officesEmployeesLoader.load(data);
                 }
             },
             socials: {
@@ -109,16 +101,12 @@ const Office = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Social),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        office: parent.dataValues.id
+                resolve(parent, args, {officesSocialsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    return await db.models.social.findAll({
-                        where
-                    });
+                    return officesSocialsLoader.load(data);
                 }
             }
         };

@@ -73,19 +73,12 @@ const Content = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        content: parent.dataValues.id
+                resolve(parent, args, {contentCollageLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
-                    return await db.models.multimedia.findAll({
-                        where
-                    });
+                    return contentCollageLoader.load(data);
                 }
             },
             subparagraphs: {
@@ -98,19 +91,12 @@ const Content = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(SubParagraph),
-                async resolve(parent, args, {db}) {
-                    let where = {
-                        content: parent.dataValues.id
+                resolve(parent, args, {contentParagraphsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
                     };
-                    if (args.hidden !== undefined) {
-                        where['hidden'] = args.hidden;
-                    }
-                    if (args.box !== undefined) {
-                        where['box'] = args.box;
-                    }
-                    return await db.models.content.findAll({
-                        where
-                    });
+                    return contentParagraphsLoader.load(data);
                 }
             }
         };

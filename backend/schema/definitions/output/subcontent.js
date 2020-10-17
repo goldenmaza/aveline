@@ -70,13 +70,12 @@ const SubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(Multimedia),
-                async resolve(parent, args, {db}) {
-                    return await db.models.multimedia.findAll({
-                        where: {
-                            content: parent.dataValues.id,
-                            hidden: args.hidden
-                        }
-                    });
+                resolve(parent, args, {contentCollageLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
+                    };
+                    return contentCollageLoader.load(data);
                 }
             },
             subsubparagraphs: {
@@ -86,13 +85,12 @@ const SubContent = new GraphQLObjectType({
                     }
                 },
                 type: new GraphQLList(SubSubParagraph),
-                async resolve(parent, args, {db}) {
-                    return await db.models.content.findAll({
-                        where: {
-                            content: parent.dataValues.id,
-                            hidden: args.hidden
-                        }
-                    });
+                resolve(parent, args, {contentParagraphsLoader}, info) {
+                    const data = {
+                        id: parent.id,
+                        args: args
+                    };
+                    return contentParagraphsLoader.load(data);
                 }
             }
         };
