@@ -1,41 +1,30 @@
-import Express from 'express';
+import LoggerUtil from './util/LoggerUtil';
 import dotenv from 'dotenv';
+dotenv.config();
+
+const appLogger = new LoggerUtil(process.env.LOGGER_APP, process.env.SERVER_MODE);
+let appData = {
+    mode: process.env.SERVER_MODE,
+    body: `Running NodeJS script: ${__filename}`
+}
+appLogger.log(appData);
+
+exports.dataloaderLogger = new LoggerUtil(process.env.LOGGER_DATALOADER, process.env.SERVER_MODE);
+exports.sequelizeLogger = new LoggerUtil(process.env.LOGGER_SEQUELIZE, process.env.SERVER_MODE);
+exports.graphqlLogger = new LoggerUtil(process.env.LOGGER_GRAPHQL, process.env.SERVER_MODE);
+exports.mailerLogger = new LoggerUtil(process.env.LOGGER_NODEMAILER, process.env.SERVER_MODE);
+
+import Express from 'express';
 import path from 'path';
 //import Helmet from 'helmet';
 //import Compression from 'compression';
 import Parser from 'body-parser';
-import Cors from 'cors';
-
-import Graphql from 'express-graphql';
-import Nodemailer from 'nodemailer';
-
-import Schema from './schema/schema';
-import db from './schema/db';
-import _ from './schema/definitions/associations';
-
-import DataLoader from 'dataloader';
-import {
-    pagesCollageLoaderHandler,
-    pagesParagraphsLoaderHandler,
-} from './schema/definitions/loader/page';
-import {
-    contentCollageLoaderHandler,
-    contentParagraphsLoaderHandler,
-} from './schema/definitions/loader/content';
-import {
-    officesThumbnailLoaderHandler,
-    officesEmployeesLoaderHandler,
-    officesSocialsLoaderHandler,
-} from './schema/definitions/loader/office';
-import {
-    contactPortraitsLoaderHandler,
-    contactProfilesLoaderHandler
-} from './schema/definitions/loader/contact';
+import cors from 'cors';
 
 const app = Express();
-
-// Default configurations...
-dotenv.config();
+exports.app = app;
+appData.body = 'Express server has been initialized...';
+appLogger.log(appData);
 
 // Set static folder
 app.use(Express.static(path.join(__dirname, 'public')));
@@ -44,7 +33,7 @@ app.use(Express.static(path.join(__dirname, 'public')));
 //app.use(Compression());
 app.use(Parser.json());
 app.use(Parser.urlencoded({ extended: true }));
-app.use(Cors());
+app.use(cors());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -56,75 +45,14 @@ app.use((req, res, next) => {
     next();
 });
 
-// GraphQL API configuration...
-app.use('/api', Graphql({
-    schema: Schema,
-    pretty: true,
-    graphiql: true,
-    context: {
-        db,
-        pagesCollageLoader: new DataLoader(data => pagesCollageLoaderHandler(data, db)),
-        pagesParagraphsLoader: new DataLoader(data => pagesParagraphsLoaderHandler(data, db)),
-        contentCollageLoader: new DataLoader(data => contentCollageLoaderHandler(data, db)),
-        contentParagraphsLoader: new DataLoader(data => contentParagraphsLoaderHandler(data, db)),
-        officesThumbnailLoader: new DataLoader(data => officesThumbnailLoaderHandler(data, db)),
-        officesEmployeesLoader: new DataLoader(data => officesEmployeesLoaderHandler(data, db)),
-        officesSocialsLoader: new DataLoader(data => officesSocialsLoaderHandler(data, db)),
-        contactPortraitsLoader: new DataLoader(data => contactPortraitsLoaderHandler(data, db)),
-        contactProfilesLoader: new DataLoader(data => contactProfilesLoaderHandler(data, db))
-    }
-}));
+require('./api/graphql');
+require('./api/mail');
 
-// Nodemailer configuration...
-const protocol = {
-    host: process.env.PROTOCOL_HOST,
-    port: process.env.PROTOCOL_PORT,
-    auth: {
-        user: process.env.PROTOCOL_USER,
-        pass: process.env.PROTOCOL_PASS
-    }
-}
-
-//const transporter = Nodemailer.createTransport(protocol);
-//
-//transporter.verify((err, suc) => {
-//    if (err) {
-//        console.error(err);
-//    } else {
-//        console.log('Nodemailer\'s transporter has been verified...');
-//    }
-//});
-
-app.use('/mail', (req, res, next) => {
-    const sender = req.body.forename + " " + req.body.surname;
-    const address = req.body.address;
-    const phone = req.body.phone;
-    const email = req.body.email;
-    const purpose = req.body.purpose;
-    const message = req.body.message;
-    const body = `Sender: ${sender}\nAddress: ${address}\nPhone: ${phone}\nE-mail: ${email}\n\nPurpose: ${purpose}\nMessage: ${message} `;
-
-    const mail = {
-        from: `${sender} <${email}>`,
-        to: protocol.auth.user,
-        subject: purpose,
-        text: body
-    }
-
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            res.json({
-                msg: 'Nodemailer\'s transporter failed...'
-            });
-        } else {
-            res.json({
-                msg: 'Nodemailer\'s transporter was successful...'
-            });
-        }
-    });
-});
+appData.body = 'Express server configurations performed...';
+appLogger.log(appData);
 
 const port = process.env.SERVER_PORT;
 app.listen(port, () => {
-    console.log('Application is listening at port: ', port);
+    appData.body = `Application is listening at port: ${port}`
+    appLogger.log(appData);
 });
