@@ -22,7 +22,7 @@ class Footer extends Component {
     }
 
     render() {
-        const { loading, collage, level, label } = this.props;
+        const { loading, collage, tag, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...
         } else {
@@ -36,7 +36,7 @@ class Footer extends Component {
                     </header>
                     <div>
                         <div className='contact_minimal'>
-                            <Contact minimalContact={true} tag={this.props.tag} />
+                            <Contact minimalContact={true} tag={tag} />
                         </div>
                         <div>
                             <Sitemap />

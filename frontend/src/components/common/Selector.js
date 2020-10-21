@@ -27,7 +27,7 @@ class Selector extends Component {
                         <Home route={route} />
                     }
                     {select === 'form' &&
-                        <Form route={route} />
+                        <Form route={route} minimalContact={false} />
                     }
                     {select === 'content' &&
                         <Content route={route} />

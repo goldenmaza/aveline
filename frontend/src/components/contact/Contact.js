@@ -47,7 +47,7 @@ class Contact extends Component {
                 const employees = o.employees;
                 const socials = o.socials;
                 employees.forEach(e => {
-                    if (o.main && e.main) {//TODO: Is it required for both main to be verified?
+                    if (o.main && e.main) {
                         const orgnr = 'https://www.allabolag.se/<ORGNR>/bokslut'.replace('<ORGNR>', o.orgnr);
                         const phone = 'tel:<TEL>'.replace('<TEL>', e.phone);
                         const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(e.email, "ascii").toString('hex'));
@@ -58,7 +58,9 @@ class Contact extends Component {
                             <ul key={0}>
                                 <li>
                                     <strong>{o.label}</strong>
-                                    <p>Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a></p>
+                                    {o.orgnr !== '' &&
+                                        <p>Orgnr: <a href={orgnr} target='_blank' rel='noopener noreferrer'>{o.orgnr}</a></p>
+                                    }
                                 </li>
                                 <li>
                                     <p>{e.street}</p>
@@ -82,7 +84,7 @@ class Contact extends Component {
                         );
                     }
                 });
-                if (thumbnail.box) {//TODO: Remove box and place condition with the query?
+                if (thumbnail !== undefined) {
                     const classValue = employees.some(e => e.office === o.id) ? '' : 'none';
                     regionalOffices.push(
                         <li key={o.id} className={classValue} data-none={classValue} data-id={o.id} onClick={this.toggleOffice}>
@@ -108,7 +110,7 @@ class Contact extends Component {
                     employees.forEach(e => {
                         const portrait = e.portraits.length > 0 ? e.portraits[0] : null;
                         const profiles = e.profiles;
-                        if (portrait !== null && portrait.box) {//TODO: Remove box and place condition with the query?
+                        if (portrait !== null) {
                             const mailto = Buffer.from(e.email, "ascii").toString('hex');
                             const media = [];
                             profiles.forEach(p => {
@@ -158,13 +160,13 @@ class Contact extends Component {
                                 </ul>
                             }
                         </div>
-                        {!minimalContact && addressNavigation.length > 0 &&
+                        {addressNavigation.length > 0 &&
                             <div className='contact_map'>
                                 <Navigation address={addressNavigation} />
                             </div>
                         }
                     </div>
-                    {!minimalContact && regionalOffices.length > 0 &&
+                    {regionalOffices.length > 0 &&
                         <div className='contact_tree'>
                             <ul>
                                 { regionalOffices }

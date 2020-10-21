@@ -20,7 +20,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                     locale
                     label
                     orgnr
-                    thumbnail (hidden: false) {
+                    thumbnail (hidden: false, box: true) {
                         id
                         office
                         box
@@ -40,7 +40,7 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
                         country
                         phone
                         email
-                        portraits (hidden: false) {
+                        portraits (hidden: false, box: true) {
                             id
                             contact
                             office
