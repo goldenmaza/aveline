@@ -16,14 +16,14 @@ import {
     ERR_HOME_HIGHLIGHTS
 } from '../constants/home';
 
-export const homeComponent = (state = homeState, action: AnyAction) => {
+export const homeComponent = (state = homeState, action) => {
     switch (action.type) {
         default:
             return state;
     }
 };
 
-export const slideshowComponent = (state = slideshowState, action: AnyAction) => {
+export const slideshowComponent = (state = slideshowState, action) => {
     switch (action.type) {
         case REQ_HOME_SLIDESHOW:
             return {
@@ -46,7 +46,7 @@ export const slideshowComponent = (state = slideshowState, action: AnyAction) =>
     }
 };
 
-export const sliderComponent = (state = sliderState, action: AnyAction) => {
+export const sliderComponent = (state = sliderState, action) => {
     switch (action.type) {
         case SET_SLIDER_CONFIGURATIONS:
             return {
@@ -83,7 +83,7 @@ export const sliderComponent = (state = sliderState, action: AnyAction) => {
     }
 };
 
-export const highlightsComponent = (state = highlightsState, action: AnyAction) => {
+export const highlightsComponent = (state = highlightsState, action) => {
     switch (action.type) {
         case REQ_HOME_HIGHLIGHTS:
             return {

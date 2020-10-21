@@ -8,7 +8,7 @@ import {
     TOGGLE_CONTACT_OFFICE
 } from '../constants/contact';
 
-export const contactComponent = (state = contactState, action: AnyAction) => {
+export const contactComponent = (state = contactState, action) => {
     switch (action.type) {
         case TOGGLE_CONTACT_OFFICE:
             return {
@@ -37,7 +37,7 @@ export const contactComponent = (state = contactState, action: AnyAction) => {
     }
 };
 
-export const navigationComponent = (state = navigationState, action: AnyAction) => {
+export const navigationComponent = (state = navigationState, action) => {
     switch (action.type) {
         default:
             return state;

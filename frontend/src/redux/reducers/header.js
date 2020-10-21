@@ -13,14 +13,14 @@ import {
     TOGGLE_HEADER_MENU
 } from '../constants/header';
 
-export const headerComponent = (state = headerState, action: AnyAction) => {
+export const headerComponent = (state = headerState, action) => {
     switch (action.type) {
         default:
             return state;
     }
 };
 
-export const handlerComponent = (state = handlerState, action: AnyAction) => {
+export const handlerComponent = (state = handlerState, action) => {
     switch (action.type) {
         case TOGGLE_MENU_HANDLER:
             return {
@@ -48,7 +48,7 @@ export const handlerComponent = (state = handlerState, action: AnyAction) => {
     }
 };
 
-export const menuComponent = (state = menuState, action: AnyAction) => {
+export const menuComponent = (state = menuState, action) => {
     switch (action.type) {
         case TOGGLE_HEADER_MENU:
             return {

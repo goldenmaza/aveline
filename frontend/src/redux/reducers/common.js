@@ -9,14 +9,14 @@ import {
     ERR_PAGE_CONTENT
 } from '../constants/common';
 
-export const selectorComponent = (state = selectorState, action: AnyAction) => {
+export const selectorComponent = (state = selectorState, action) => {
     switch (action.type) {
         default:
             return state;
     }
 };
 
-export const contentComponent = (state = contentState, action: AnyAction) => {
+export const contentComponent = (state = contentState, action) => {
     switch (action.type) {
         case REQ_PAGE_CONTENT:
             return {
@@ -39,7 +39,7 @@ export const contentComponent = (state = contentState, action: AnyAction) => {
     }
 };
 
-export const collageComponent = (state = collageState, action: AnyAction) => {
+export const collageComponent = (state = collageState, action) => {
     switch (action.type) {
         default:
             return state;
@@ -47,7 +47,7 @@ export const collageComponent = (state = collageState, action: AnyAction) => {
 };
 
 
-export const preventionComponent = (state = preventionState, action: AnyAction) => {
+export const preventionComponent = (state = preventionState, action) => {
     switch (action.type) {
         default:
             return state;

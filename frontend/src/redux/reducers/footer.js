@@ -11,7 +11,7 @@ import {
     ERR_FOOTER_SITEMAP
 } from '../constants/footer';
 
-export const footerComponent = (state = footerState, action: AnyAction) => {
+export const footerComponent = (state = footerState, action) => {
     switch (action.type) {
         case REQ_FOOTER_LOGO:
             return {
@@ -34,7 +34,7 @@ export const footerComponent = (state = footerState, action: AnyAction) => {
     }
 };
 
-export const sitemapComponent = (state = sitemapState, action: AnyAction) => {
+export const sitemapComponent = (state = sitemapState, action) => {
     switch (action.type) {
         case REQ_FOOTER_SITEMAP:
             return {
@@ -57,7 +57,7 @@ export const sitemapComponent = (state = sitemapState, action: AnyAction) => {
     }
 };
 
-export const copyrightComponent = (state = copyrightState, action: AnyAction) => {
+export const copyrightComponent = (state = copyrightState, action) => {
     switch (action.type) {
         default:
             return state;

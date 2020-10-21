@@ -13,7 +13,7 @@ import {
     HELP_SECTION_STORE
 } from '../constants/form';
 
-export const formComponent = (state = formState, action: AnyAction) => {
+export const formComponent = (state = formState, action) => {
     switch (action.type) {
         case REQ_FORM_TRANSMIT:
             console.log('Axios is trying to send the e-mail...');
@@ -99,7 +99,7 @@ export const formComponent = (state = formState, action: AnyAction) => {
     }
 };
 
-export const helpSectionComponent = (state = helpSectionState, action: AnyAction) => {
+export const helpSectionComponent = (state = helpSectionState, action) => {
     switch (action.type) {
         case HELP_SECTION_STORE:
             return {
