@@ -1,4 +1,5 @@
 import lodash from 'lodash';
+import global from '../../../app';
 
 // Contact loaders...
 export const contactPortraitsLoaderHandler = async (data, db) => {
@@ -21,6 +22,7 @@ export const contactPortraitsLoaderHandler = async (data, db) => {
         where
     });
     const response = lodash.groupBy(raw, 'contact');
+    loader_logging(__filename + ':5', keys, where, raw, response);
     return keys.map(k => response[k] || []);
 };
 
@@ -41,5 +43,14 @@ export const contactProfilesLoaderHandler = async (data, db) => {
         where
     });
     const response = lodash.groupBy(raw, 'contact');
+    loader_logging(__filename + ':29', keys, where, raw, response);
     return keys.map(k => response[k] || []);
 };
+
+function loader_logging(fun, keys, where, raw, response) {
+    const data = {
+        mode: process.env.SERVER_MODE,
+        body: `ContactHandler (${fun}): ` + '\n' + JSON.stringify(keys) + '\n' + JSON.stringify(where) + '\n' + JSON.stringify(raw) + '\n' + JSON.stringify(response) + '\n'
+    }
+    global.dataloaderLogger.log(data);
+}

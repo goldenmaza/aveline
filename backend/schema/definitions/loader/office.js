@@ -1,4 +1,5 @@
 import lodash from 'lodash';
+import global from '../../../app';
 
 //Office loaders...
 export const officesThumbnailLoaderHandler = async (data, db) => {
@@ -16,9 +17,13 @@ export const officesThumbnailLoaderHandler = async (data, db) => {
     if (args.box !== undefined) {
         where['box'] = args.box;
     }
-    return await db.models.multimedia.findAll({
+    const raw = await db.models.multimedia.findAll({
+        raw: true,
         where
     });
+    const response = '<IGNORE - RAW NOT PROCESSED>';
+    loader_logging(__filename + ':5', keys, where, raw, response);
+    return raw;
 };
 
 export const officesEmployeesLoaderHandler = async (data, db) => {
@@ -38,6 +43,7 @@ export const officesEmployeesLoaderHandler = async (data, db) => {
         where
     });
     const response = lodash.groupBy(raw, 'office');
+    loader_logging(__filename + ':29', keys, where, raw, response);
     return keys.map(k => response[k] || []);
 };
 
@@ -58,5 +64,14 @@ export const officesSocialsLoaderHandler = async (data, db) => {
         where
     });
     const response = lodash.groupBy(raw, 'office');
+    loader_logging(__filename + ':50', keys, where, raw, response);
     return keys.map(k => response[k] || []);
 };
+
+function loader_logging(fun, keys, where, raw, response) {
+    const data = {
+        mode: process.env.SERVER_MODE,
+        body: `OfficeHandler (${fun}): ` + '\n' + JSON.stringify(keys) + '\n' + JSON.stringify(where) + '\n' + JSON.stringify(raw) + '\n' + JSON.stringify(response) + '\n'
+    }
+    global.dataloaderLogger.log(data);
+}
