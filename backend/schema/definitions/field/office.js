@@ -42,6 +42,9 @@ const officeFields = {
             args: {
                 hidden: {
                     type: GraphQLBoolean
+                },
+                box: {
+                    type: GraphQLBoolean
                 }
             },
             type: RegionalThumbnail

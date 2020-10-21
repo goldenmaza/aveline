@@ -56,6 +56,9 @@ const contactFields = {
             args: {
                 hidden: {
                     type: GraphQLBoolean
+                },
+                box: {
+                    type: GraphQLBoolean
                 }
             },
             type: new GraphQLList(RegionalThumbnail)

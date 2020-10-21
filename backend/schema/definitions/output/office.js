@@ -68,6 +68,9 @@ const Office = new GraphQLObjectType({
                 args: {
                     hidden: {
                         type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
                     }
                 },
                 type: Multimedia,

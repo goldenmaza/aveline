@@ -97,6 +97,9 @@ const Contact = new GraphQLObjectType({
                 args: {
                     hidden: {
                         type: GraphQLBoolean
+                    },
+                    box: {
+                        type: GraphQLBoolean
                     }
                 },
                 type: new GraphQLList(Multimedia),
