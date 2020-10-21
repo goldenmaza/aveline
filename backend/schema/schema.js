@@ -2,6 +2,7 @@ import {
     GraphQLObjectType,
     GraphQLSchema,
 } from 'graphql';
+import global from '../app';
 
 // Main fields...
 import pageFields from './definitions/field/page';
@@ -31,5 +32,11 @@ const QueryBundle = new GraphQLObjectType({
 const Schema = new GraphQLSchema({
     query: QueryBundle
 });
+
+const data = {
+    mode: process.env.SERVER_MODE,
+    body: 'GraphQL QueryBundle has been created...'
+}
+global.graphqlLogger.log(data);
 
 export default Schema;

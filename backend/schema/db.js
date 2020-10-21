@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
-import dotenv from 'dotenv';
-dotenv.config();
+import global from '../app';
 
 //TODO: Refector to use for dev, test and prod...
 //const env = process.env.NODE_ENV || 'development';
@@ -25,5 +24,11 @@ const db = new Sequelize(
         }
     }
 );
+
+const data = {
+    mode: process.env.SERVER_MODE,
+    body: 'Sequelize instance has been created...'
+}
+global.sequelizeLogger.log(data);
 
 export default db;

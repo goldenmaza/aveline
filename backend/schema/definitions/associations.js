@@ -1,4 +1,10 @@
 import db from '../db';
+import global from '../../app';
+
+let sequelizeData = {
+    mode: '',
+    body: ''
+}
 
 // Sequelize table definitions...
 import { pageTable } from './table/page';
@@ -19,6 +25,17 @@ const Office = db.define('office', officeTable);
 const Contact = db.define('contact', contactTable);
 const Social = db.define('social', socialTable);
 const Navigation = db.define('navigation', navigationTable);
+
+// Verifying that model definitions were created...
+if (true) { //TODO: verify that model definitions were successful...
+    sequelizeData.mode = process.env.SERVER_MODE;
+    sequelizeData.body = 'Sequelize model definitions have been defined...';
+    global.sequelizeLogger.log(sequelizeData);
+} else {
+    sequelizeData.mode = 'ERROR';
+    sequelizeData.body = 'Sequelize model definitions was NOT defined...';
+    global.sequelizeLogger.log(sequelizeData);
+}
 
 // Relationships between Page and Content tables, a Page can have several Content (paragraphs)...
 Page.hasMany(Content, {
@@ -108,4 +125,26 @@ Contact.hasMany(Social, {
 Social.belongsTo(Contact, {
     as: "profiles",//Social media's for Contact...
     foreignKey: "contact"
+});
+
+// Verify that model associations were created...
+if (true) { //TODO: verify that associations were successful...
+    sequelizeData.mode = process.env.SERVER_MODE;
+    sequelizeData.body = 'Sequelize model associations have been performed...';
+    global.sequelizeLogger.log(sequelizeData);
+} else {
+     sequelizeData.mode = 'ERROR';
+     sequelizeData.body = 'Sequelize model associations was NOT successful...';
+     global.sequelizeLogger.log(sequelizeData);
+ }
+
+// Validate the Sequelize connection...
+db.authenticate().then((val) => {
+    sequelizeData.mode = process.env.SERVER_MODE;
+    sequelizeData.body = 'Database connection has been successfully established...';
+    global.sequelizeLogger.log(sequelizeData);
+}).catch((err) => {
+    sequelizeData.mode = 'ERROR';
+    sequelizeData.body = `Unable to connect to the database: ${err}`;
+    global.sequelizeLogger.log(sequelizeData);
 });
