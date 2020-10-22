@@ -16,8 +16,8 @@ exports.mailerLogger = new LoggerUtil(process.env.LOGGER_NODEMAILER);
 
 import Express from 'express';
 import path from 'path';
-//import Helmet from 'helmet';
-//import Compression from 'compression';
+import helmet from 'helmet';
+import compression from 'compression';
 import Parser from 'body-parser';
 import cors from 'cors';
 
@@ -29,8 +29,8 @@ appLogger.log(appData);
 // Set static folder
 app.use(Express.static(path.join(__dirname, 'public')));
 
-//app.use(Helmet());
-//app.use(Compression());
+app.use(helmet());
+app.use(compression());
 app.use(Parser.json());
 app.use(Parser.urlencoded({ extended: true }));
 app.use(cors());
