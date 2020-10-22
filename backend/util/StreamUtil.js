@@ -6,7 +6,7 @@ class StreamUtil {
         this.directory = `logging/${module}/${mode}/`;
         this.filename = this.generateFilename() + '.txt';
         this.filepath = this.directory + this.filename;
-        this.ensureDirectoryExistence(this.filepath)
+        this.ensureDirectoryExistence(this.filepath);
         this.writeStream = fs.createWriteStream(this.filepath);
         this.queuedItems = [];
         this.queueInterval = setInterval(() => {
@@ -28,7 +28,7 @@ class StreamUtil {
     generateFilename() {
         const date = new Date();
         const year = date.getFullYear();
-        const month = (date.getMonth() < 10 ? '0' : '') + date.getMonth() + 1;
+        const month = ((date.getMonth() + 1) < 10 ? '0' : '') + date.getMonth() + 1;
         const day = (date.getDate() < 10 ? '0' : '') + date.getDate();
         const hours = (date.getHours() < 10 ? '0' : '') + date.getHours();
         const minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
@@ -39,7 +39,7 @@ class StreamUtil {
     generateOutputDate() {
         const date = new Date();
         const year = date.getFullYear();
-        const month = (date.getMonth() < 10 ? '0' : '') + date.getMonth() + 1;
+        const month = ((date.getMonth() + 1) < 10 ? '0' : '') + date.getMonth() + 1;
         const day = (date.getDate() < 10 ? '0' : '') + date.getDate();
         const hours = (date.getHours() < 10 ? '0' : '') + date.getHours();
         const minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
@@ -53,7 +53,7 @@ class StreamUtil {
     }
 
     write(data) {
-        this.writeStream.write('============= ' + this.generateOutputDate() + ' =============' + '\n');
+        this.writeStream.write(`============= ${this.generateOutputDate()} =============\n`);
         this.writeStream.write(data + '\n');
     }
 }

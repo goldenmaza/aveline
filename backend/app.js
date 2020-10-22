@@ -2,17 +2,17 @@ import LoggerUtil from './util/LoggerUtil';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const appLogger = new LoggerUtil(process.env.LOGGER_APP, process.env.SERVER_MODE);
+const appLogger = new LoggerUtil(process.env.LOGGER_APP);
 let appData = {
     mode: process.env.SERVER_MODE,
     body: `Running NodeJS script: ${__filename}`
 }
 appLogger.log(appData);
 
-exports.dataloaderLogger = new LoggerUtil(process.env.LOGGER_DATALOADER, process.env.SERVER_MODE);
-exports.sequelizeLogger = new LoggerUtil(process.env.LOGGER_SEQUELIZE, process.env.SERVER_MODE);
-exports.graphqlLogger = new LoggerUtil(process.env.LOGGER_GRAPHQL, process.env.SERVER_MODE);
-exports.mailerLogger = new LoggerUtil(process.env.LOGGER_NODEMAILER, process.env.SERVER_MODE);
+exports.dataloaderLogger = new LoggerUtil(process.env.LOGGER_DATALOADER);
+exports.sequelizeLogger = new LoggerUtil(process.env.LOGGER_SEQUELIZE);
+exports.graphqlLogger = new LoggerUtil(process.env.LOGGER_GRAPHQL);
+exports.mailerLogger = new LoggerUtil(process.env.LOGGER_NODEMAILER);
 
 import Express from 'express';
 import path from 'path';
