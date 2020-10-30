@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
@@ -11,10 +11,6 @@ import {
 } from '../../redux/actions/footer';
 
 class Sitemap extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.actions.getFooterSitemap();
     }
@@ -78,7 +74,7 @@ const mapStateToProps = state => ({
     label: state.sitemapComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getFooterSitemap
     }, dispatch)

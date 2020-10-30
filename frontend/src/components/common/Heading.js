@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Heading extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const allowedLevels = ['h1', 'h2', 'h3', 'h4', 'h5'];
         const { level, label, hidden } = this.props;

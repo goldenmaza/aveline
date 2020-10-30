@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,10 +11,6 @@ import {
 } from '../../redux/actions/home';
 
 class Highlights extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.actions.getHighlights();
     }
@@ -83,7 +79,7 @@ const mapStateToProps = state => ({
     label: state.highlightsComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getHighlights
     }, dispatch)

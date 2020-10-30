@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,19 +8,7 @@ import Contact from '../contact/Contact';
 import Sitemap from './Sitemap';
 import Copyright from './Copyright';
 
-//import {
-//    getFooterLogo
-//} from '../../redux/actions/footer';
-
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-        //this.props.actions.getFooterLogo();//Note: Get logo from Handler...
-    }
-
     render() {
         const { loading, collage, tag, level, label } = this.props;
         if (loading) {
@@ -58,7 +46,7 @@ const mapStateToProps = state => ({
     label: state.footerComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

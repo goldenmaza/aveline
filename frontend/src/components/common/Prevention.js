@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Heading from './Heading';
 
 class Prevention extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { level, label } = this.props;
         return (
@@ -25,7 +21,7 @@ const mapStateToProps = state => ({
     label: state.preventionComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

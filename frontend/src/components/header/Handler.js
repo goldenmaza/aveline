@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -54,7 +54,7 @@ const mapStateToProps = state => ({
     collage: state.handlerComponent.collage
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getHeaderLogo,
         toggleHandlerMenu

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Heading from '../common/Heading';
 import Content from '../common/Content';
 import Navigation from './Navigation';
 
@@ -88,7 +87,7 @@ class Contact extends Component {
                     const classValue = employees.some(e => e.office === o.id) ? '' : 'none';
                     regionalOffices.push(
                         <li key={o.id} className={classValue} data-none={classValue} data-id={o.id} onClick={this.toggleOffice}>
-                            <a href='#'>
+                            <a href='#'>//TOOD: Change to a button...
                                 <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
                                 <div>
                                     <span>
@@ -210,7 +209,7 @@ const mapStateToProps = state => ({
     target: state.contactComponent.target
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getContactDetails,
         toggleContactOffice

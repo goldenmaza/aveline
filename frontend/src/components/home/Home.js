@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,10 +8,6 @@ import Highlights from './Highlights';
 import Form from '../form/Form';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <>
@@ -26,7 +22,7 @@ class Home extends Component {
 const mapStateToProps = state => ({
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

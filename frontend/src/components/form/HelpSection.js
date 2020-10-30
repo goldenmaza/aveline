@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -34,11 +34,11 @@ class HelpSection extends Component {
         const helpSection = [];
 
         let helpData = {};
-        for (var group in helpMapping) {
+        for (let group in helpMapping) {
             const expression = helpMapping[group];
             helpData[group] = {};
             if (expression instanceof Object) {
-                for (var subgroup in expression) {
+                for (let subgroup in expression) {
                     helpData[group][subgroup] = this.iterateWord(expression[subgroup]);
                 }
             } else {
@@ -48,8 +48,8 @@ class HelpSection extends Component {
         }
 
         let groupSummary = [];
-        for (var group in helpData) {
-            for (var word in helpData[group]) {
+        for (let group in helpData) {
+            for (let word in helpData[group]) {
                 let arr = helpData[group][word];
                 if (group === 'E-mail') {
                     if (groupSummary.length === 0) {
@@ -124,7 +124,7 @@ class HelpSection extends Component {
     iterateWord(word) {
         const grouping = {};
 
-        for (var i = 0; i < word.length; i++) {
+        for (let i = 0; i < word.length; i++) {
             const char = word.charAt(i);
             if (!this.isRegularRange(word, i)) {
                 if (this.isLatinLetter(char)) {
@@ -198,11 +198,11 @@ class HelpSection extends Component {
         arr.reverse();
 
         if (arr.length === 4) {
-            for (var i = 0, j = 1, k = arr.length - 1; j < arr.length; i+=2, j+=2) {
+            for (let i = 0, j = 1, k = arr.length - 1; j < arr.length; i+=2, j+=2) {
                 summary += arr[i] + ' to ' + arr[j] + (j < k ? ', ' : '.');
             }
         } else {
-            for (var i = 0, j = arr.length / 2 - 1, k = arr.length / 2; j < arr.length; i+=k, j+=k) {
+            for (let i = 0, j = arr.length / 2 - 1, k = arr.length / 2; j < arr.length; i+=k, j+=k) {
                 summary += arr[i] + ' to ' + arr[j] + (j < k ? ', ' : '.');
             }
         }
@@ -227,7 +227,7 @@ class HelpSection extends Component {
         arr.sort();
         arr.reverse();
 
-        for (var i = 0, j = arr.length - 1; i < arr.length; i++) {
+        for (let i = 0, j = arr.length - 1; i < arr.length; i++) {
             summary += this.matchSymbol(arr[i]) + (i < j ? ', ' : '.');
         }
 
@@ -268,7 +268,7 @@ const mapStateToProps = state => ({
     label: state.helpSectionComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         storeHelpSection
     }, dispatch)

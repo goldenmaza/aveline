@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Collage extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { collection } = this.props;
         const collage = [];
@@ -36,7 +32,7 @@ class Collage extends Component {
 const mapStateToProps = state => ({
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

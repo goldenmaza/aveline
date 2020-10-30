@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Heading from '../common/Heading';
 
 class Copyright extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { created, level, label, name, link, by } = this.props;
         const year = new Date().getFullYear();
@@ -37,7 +33,7 @@ const mapStateToProps = state => ({
     by: state.copyrightComponent.by
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

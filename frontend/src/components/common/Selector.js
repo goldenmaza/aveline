@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,10 +11,6 @@ import Form from '../form/Form';
 import Footer from '../footer/Footer';
 
 class Selector extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { component, route, level, label } = this.props;
         const select = component.trim();
@@ -44,7 +40,7 @@ const mapStateToProps = state => ({
     label: state.selectorComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

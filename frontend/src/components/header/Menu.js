@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -57,7 +57,7 @@ const mapStateToProps = state => ({
     pages: state.menuComponent.pages
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getHeaderMenu,
         toggleHandlerMenu

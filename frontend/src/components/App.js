@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,10 +8,6 @@ import Selector from './common/Selector';
 import Prevention from './common/Prevention';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { level, label, location } = this.props;
         const route = location.pathname.split("/").pop();
@@ -36,7 +32,7 @@ const mapStateToProps = state => ({
     label: state.appComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
     }, dispatch)
 });

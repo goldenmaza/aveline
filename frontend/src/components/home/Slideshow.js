@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,10 +11,6 @@ import {
 } from '../../redux/actions/home';
 
 class Slideshow extends Component {//TODO: Rename to Presenter and modify source code to be able to play video files...
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.actions.getResources();
     }
@@ -52,7 +48,7 @@ const mapStateToProps = state => ({
     label: state.slideshowComponent.label
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         getResources
     }, dispatch)

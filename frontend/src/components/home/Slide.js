@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Slide extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { current } = this.props;
         if (current != null) {
