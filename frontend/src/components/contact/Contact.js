@@ -83,11 +83,11 @@ class Contact extends Component {
                         );
                     }
                 });
-                if (thumbnail !== undefined) {
+                if (thumbnail !== undefined) {//TOOD: Change a href to a button...
                     const classValue = employees.some(e => e.office === o.id) ? '' : 'none';
                     regionalOffices.push(
                         <li key={o.id} className={classValue} data-none={classValue} data-id={o.id} onClick={this.toggleOffice}>
-                            <a href='#'>//TOOD: Change to a button...
+                            <a href='#'>
                                 <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
                                 <div>
                                     <span>
