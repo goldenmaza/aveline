@@ -1,11 +1,10 @@
-import { Dispatch } from 'redux';
 import {
     REQ_PAGE_CONTENT,
     RCV_PAGE_CONTENT,
     ERR_PAGE_CONTENT
 } from '../constants/common';
 
-export const getPageContent = () => (dispatch: Dispatch) => {
+export const getPageContent = () => (dispatch) => {
     dispatch({ type: REQ_PAGE_CONTENT });
 
     //TODO: Refactor to a file with request constants...

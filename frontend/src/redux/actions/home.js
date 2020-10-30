@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import {
     REQ_HOME_SLIDESHOW,
     RCV_HOME_SLIDESHOW,
@@ -12,7 +11,7 @@ import {
     ERR_HOME_HIGHLIGHTS
 } from '../constants/home';
 
-export const getResources = () => (dispatch: Dispatch) => {
+export const getResources = () => (dispatch) => {
     dispatch({ type: REQ_HOME_SLIDESHOW });
 
     //TODO: Refactor to a file with request constants...
@@ -50,23 +49,23 @@ export const getResources = () => (dispatch: Dispatch) => {
         }));
 };
 
-export const setSliderConfigurations = (values) => (dispatch: Dispatch) => {
+export const setSliderConfigurations = (values) => (dispatch) => {
     dispatch({ values, type: SET_SLIDER_CONFIGURATIONS });
 };
 
-export const setCurrentSlide = (id: Number) => (dispatch: Dispatch) => {
+export const setCurrentSlide = (id) => (dispatch) => {
     dispatch({ id, type: SET_CURRENT_SLIDE });
 };
 
-export const clearIntervalId = () => (dispatch: Dispatch) => {
+export const clearIntervalId = () => (dispatch) => {
     dispatch({ type: CLEAR_SLIDER_INTERVAL });
 };
 
-export const setIntervalId = (id: Number) => (dispatch: Dispatch) => {
+export const setIntervalId = (id) => (dispatch) => {
     dispatch({ id, type: SET_SLIDER_INTERVAL });
 };
 
-export const getHighlights = () => (dispatch: Dispatch) => {
+export const getHighlights = () => (dispatch) => {
     dispatch({ type: REQ_HOME_HIGHLIGHTS });
 
     //TODO: Refactor to a file with request constants...
@@ -98,7 +97,7 @@ export const getHighlights = () => (dispatch: Dispatch) => {
                 }
             }
         `
-    };//paragraphs (hidden: false, box: true)//collage (hidden: false, box: true)//collage (hidden: false, box: true)
+    };
     //TODO: Refactor to a file with options constants...
     const options = {
         method: 'POST',

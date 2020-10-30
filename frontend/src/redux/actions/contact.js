@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import {
     REQ_CONTACT_DETAILS,
     RCV_CONTACT_DETAILS,
@@ -6,7 +5,7 @@ import {
     TOGGLE_CONTACT_OFFICE
 } from '../constants/contact';
 
-export const getContactDetails = () => (dispatch: Dispatch) => {
+export const getContactDetails = () => (dispatch) => {
     dispatch({ type: REQ_CONTACT_DETAILS });
 
     //TODO: Refactor to a file with request constants...
@@ -88,6 +87,6 @@ export const getContactDetails = () => (dispatch: Dispatch) => {
         }));
 };
 
-export const toggleContactOffice = (id: Number) => (dispatch: Dispatch) => {
+export const toggleContactOffice = (id) => (dispatch) => {
     dispatch({ id, type: TOGGLE_CONTACT_OFFICE });
 };

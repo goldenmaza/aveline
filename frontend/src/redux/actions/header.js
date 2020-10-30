@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import {
     REQ_HEADER_LOGO,
     RCV_HEADER_LOGO,
@@ -10,7 +9,7 @@ import {
     TOGGLE_HEADER_MENU
 } from '../constants/header';
 
-export const getHeaderLogo = () => (dispatch: Dispatch) => {
+export const getHeaderLogo = () => (dispatch) => {
     dispatch({ type: REQ_HEADER_LOGO });
 
     //TODO: Refactor to a file with request constants...
@@ -47,7 +46,7 @@ export const getHeaderLogo = () => (dispatch: Dispatch) => {
         }));
 };
 
-export const getHeaderMenu = () => (dispatch: Dispatch) => {
+export const getHeaderMenu = () => (dispatch) => {
     dispatch({ type: REQ_HEADER_MENU });
 
     //TODO: Refactor to a file with request constants...
@@ -84,7 +83,7 @@ export const getHeaderMenu = () => (dispatch: Dispatch) => {
         }));
 };
 
-export const toggleHandlerMenu = () => (dispatch: Dispatch) => {
+export const toggleHandlerMenu = () => (dispatch) => {
     dispatch({ type: TOGGLE_MENU_HANDLER });
     dispatch({ type: TOGGLE_HEADER_MENU });
 };

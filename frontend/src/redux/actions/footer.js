@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import {
     REQ_FOOTER_LOGO,
     RCV_FOOTER_LOGO,
@@ -8,7 +7,7 @@ import {
     ERR_FOOTER_SITEMAP
 } from '../constants/footer';
 
-export const getFooterLogo = () => (dispatch: Dispatch) => {//Note: Get logo from Handler...
+export const getFooterLogo = () => (dispatch) => {//Note: Get logo from Handler...
     dispatch({ type: REQ_FOOTER_LOGO });
 
     //TODO: Refactor to a file with request constants...
@@ -45,7 +44,7 @@ export const getFooterLogo = () => (dispatch: Dispatch) => {//Note: Get logo fro
         }));
 };
 
-export const getFooterSitemap = () => (dispatch: Dispatch) => {
+export const getFooterSitemap = () => (dispatch) => {
     dispatch({ type: REQ_FOOTER_SITEMAP });
 
     //TODO: Refactor to a file with request constants...

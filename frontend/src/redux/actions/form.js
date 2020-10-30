@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import axios from 'axios';
 import {
     REQ_FORM_TRANSMIT,
@@ -12,7 +11,7 @@ import {
     HELP_SECTION_STORE
 } from '../constants/form';
 
-export const processForm = (data) => (dispatch: Dispatch) => {
+export const processForm = (data) => (dispatch) => {
     dispatch({ type: REQ_FORM_TRANSMIT });
 
     const payload = {
@@ -48,26 +47,26 @@ export const processForm = (data) => (dispatch: Dispatch) => {
         }));
 }
 
-export const toggleHelpSection = () => (dispatch: Dispatch) => {
+export const toggleHelpSection = () => (dispatch) => {
     dispatch({ type: TOGGLE_HELP_SECTION });
 };
 
-export const enableSubmitButton = () => (dispatch: Dispatch) => {
+export const enableSubmitButton = () => (dispatch) => {
     dispatch({ type: FORM_ENABLE_SUBMIT });
 };
 
-export const disableSubmitButton = () => (dispatch: Dispatch) => {
+export const disableSubmitButton = () => (dispatch) => {
     dispatch({ type: FORM_DISABLE_SUBMIT });
 };
 
-export const validationChange = (id, value) => (dispatch: Dispatch) => {
+export const validationChange = (id, value) => (dispatch) => {
     dispatch({ id, value, type: FORM_VALIDATION_CHANGE });
 };
 
-export const validationReset = () => (dispatch: Dispatch) => {
+export const validationReset = () => (dispatch) => {
     dispatch({ type: FORM_VALIDATION_RESET });
 };
 
-export const storeHelpSection = (section) => (dispatch: Dispatch) => {
+export const storeHelpSection = (section) => (dispatch) => {
     dispatch({ section, type: HELP_SECTION_STORE });
 };
