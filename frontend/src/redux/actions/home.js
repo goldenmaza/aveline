@@ -10,34 +10,20 @@ import {
     RCV_HOME_HIGHLIGHTS,
     ERR_HOME_HIGHLIGHTS
 } from '../constants/home';
+import {
+    GET_RESOURCES_REQUEST,
+    GET_HIGHLIGHTS_REQUEST
+} from './constants/home';
+import {
+    DEFAULT_POST_OPTIONS
+} from './constants/options';
 
 export const getResources = () => (dispatch) => {
     dispatch({ type: REQ_HOME_SLIDESHOW });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                collage (hidden: false, slideshow: true) {
-                    id
-                    src
-                    alt
-                    title
-                }
-            }
-        `
-    };//collage (hidden: false, slideshow: true)
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_RESOURCES_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -68,47 +54,9 @@ export const setIntervalId = (id) => (dispatch) => {
 export const getHighlights = () => (dispatch) => {
     dispatch({ type: REQ_HOME_HIGHLIGHTS });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                pages (hidden: false, box: true, main: true) {
-                    id
-                    route
-                    label
-                    title
-                    paragraphs (hidden: false, box: true) {
-                        id
-                        heading
-                        text
-                        collage (hidden: false, box: true) {
-                            id
-                            src
-                            alt
-                            title
-                        }
-                    }
-                    collage (hidden: false, box: true) {
-                        id
-                        src
-                        alt
-                        title
-                    }
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HIGHLIGHTS_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

@@ -10,6 +10,9 @@ import {
     FORM_VALIDATION_RESET,
     HELP_SECTION_STORE
 } from '../constants/form';
+import {
+    DEFAULT_NODEMAILER_OPTIONS
+} from './constants/options';
 
 export const processForm = (data) => (dispatch) => {
     dispatch({ type: REQ_FORM_TRANSMIT });
@@ -24,21 +27,17 @@ export const processForm = (data) => (dispatch) => {
         message: data.messageInput
     };
 
-    const options = {
-        url: process.env.REACT_APP_SERVER_MAIL_ADDRESS,
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            'Accept': 'application/json',
-            'From': payload.forename + ' ' + payload.surname + '<' + payload.email + '>',
-            'Return-Path': payload.email,
-            'Sender': payload.email,
-            'Reply-To': payload.email
-        },
-        method: 'POST',
-        data: payload
+    DEFAULT_NODEMAILER_OPTIONS.headers = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
+        'From': payload.forename + ' ' + payload.surname + '<' + payload.email + '>',
+        'Return-Path': payload.email,
+        'Sender': payload.email,
+        'Reply-To': payload.email
     };
+    DEFAULT_NODEMAILER_OPTIONS.data = payload;
 
-    axios(options)
+    axios(DEFAULT_NODEMAILER_OPTIONS)
         .then(res => dispatch({
             res, type: RCV_FORM_TRANSMIT
         }))

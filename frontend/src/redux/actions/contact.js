@@ -4,78 +4,19 @@ import {
     ERR_CONTACT_DETAILS,
     TOGGLE_CONTACT_OFFICE
 } from '../constants/contact';
+import {
+    GET_CONTACT_DETAILS_REQUEST
+} from './constants/contact';
+import {
+    DEFAULT_POST_OPTIONS
+} from './constants/options';
 
 export const getContactDetails = () => (dispatch) => {
     dispatch({ type: REQ_CONTACT_DETAILS });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                offices (hidden: false) {
-                    id
-                    main
-                    region
-                    locale
-                    label
-                    orgnr
-                    thumbnail (hidden: false, box: true) {
-                        id
-                        office
-                        box
-                        src
-                        alt
-                        title
-                    }
-                    employees (hidden: false) {
-                        id
-                        office
-                        main
-                        title
-                        forename
-                        surname
-                        street
-                        postal
-                        country
-                        phone
-                        email
-                        portraits (hidden: false, box: true) {
-                            id
-                            contact
-                            office
-                            box
-                            src
-                            alt
-                            title
-                        }
-                        profiles (hidden: false) {
-                            id
-                            url
-                            media
-                            label
-                        }
-                    }
-                    socials (hidden: false) {
-                        id
-                        url
-                        media
-                        label
-                    }
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_CONTACT_DETAILS_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

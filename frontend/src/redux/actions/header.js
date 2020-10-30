@@ -8,33 +8,20 @@ import {
     TOGGLE_MENU_HANDLER,
     TOGGLE_HEADER_MENU
 } from '../constants/header';
+import {
+    GET_HEADER_LOGO_REQUEST,
+    GET_HEADER_MENU_REQUEST
+} from './constants/header';
+import {
+    DEFAULT_POST_OPTIONS
+} from './constants/options';
 
 export const getHeaderLogo = () => (dispatch) => {
     dispatch({ type: REQ_HEADER_LOGO });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                collage (hidden: false, logo: true) {
-                    src
-                    alt
-                    title
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_LOGO_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -49,29 +36,9 @@ export const getHeaderLogo = () => (dispatch) => {
 export const getHeaderMenu = () => (dispatch) => {
     dispatch({ type: REQ_HEADER_MENU });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                pages (hidden: false, main: true) {
-                    id
-                    label
-                    title
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_MENU_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

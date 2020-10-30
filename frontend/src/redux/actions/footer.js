@@ -6,33 +6,20 @@ import {
     RCV_FOOTER_SITEMAP,
     ERR_FOOTER_SITEMAP
 } from '../constants/footer';
+import {
+    GET_FOOTER_LOGO_REQUEST,
+    GET_FOOTER_SITEMAP_REQUEST
+} from './constants/footer';
+import {
+    DEFAULT_POST_OPTIONS
+} from './constants/options';
 
-export const getFooterLogo = () => (dispatch) => {//Note: Get logo from Handler...
+export const getFooterLogo = () => (dispatch) => {//Note: Not used as it gets the logo from Handler state...
     dispatch({ type: REQ_FOOTER_LOGO });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                collage (hidden: false, logo: true) {
-                    src
-                    alt
-                    title
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_LOGO_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -47,36 +34,9 @@ export const getFooterLogo = () => (dispatch) => {//Note: Get logo from Handler.
 export const getFooterSitemap = () => (dispatch) => {
     dispatch({ type: REQ_FOOTER_SITEMAP });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                pages (hidden: false) {
-                    id
-                    main
-                    sitemap
-                    label
-                    title
-                    paragraphs (hidden: false) {
-                        id
-                        page
-                        heading
-                    }
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_SITEMAP_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

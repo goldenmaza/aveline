@@ -3,65 +3,19 @@ import {
     RCV_PAGE_CONTENT,
     ERR_PAGE_CONTENT
 } from '../constants/common';
+import {
+    GET_PAGE_CONTENT_REQUEST
+} from './constants/common';
+import {
+    DEFAULT_POST_OPTIONS
+} from './constants/options';
 
 export const getPageContent = () => (dispatch) => {
     dispatch({ type: REQ_PAGE_CONTENT });
 
-    //TODO: Refactor to a file with request constants...
-    const requestBody = {
-        query: `
-            query {
-                pages (hidden: false) {
-                    id
-                    route
-                    paragraphs (hidden: false) {
-                        id
-                        heading
-                        text
-                        collage (hidden: false) {
-                            id
-                            src
-                            alt
-                            title
-                        }
-                        subparagraphs (hidden: false) {
-                            id
-                            heading
-                            text
-                            collage (hidden: false) {
-                                id
-                                src
-                                alt
-                                title
-                            }
-                            subsubparagraphs (hidden: false) {
-                                id
-                                heading
-                                text
-                                collage (hidden: false) {
-                                    id
-                                    src
-                                    alt
-                                    title
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        `
-    };
-    //TODO: Refactor to a file with options constants...
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    };
+    DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_PAGE_CONTENT_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, options)
+    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
