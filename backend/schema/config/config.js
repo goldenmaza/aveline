@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 //TODO: Refector to use for dev, test and prod...
 module.exports = {
     'development': {
