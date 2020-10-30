@@ -1,28 +1,20 @@
 import fs from 'fs';
-import path from 'path';
 
 class StreamUtil {
-    constructor(module, mode) {
-        this.directory = `logging/${module}/${mode}/`;
-        this.filename = this.generateFilename() + '.txt';
-        this.filepath = this.directory + this.filename;
-        this.ensureDirectoryExistence(this.filepath);
-        this.writeStream = fs.createWriteStream(this.filepath);
+    constructor(dir, mode) {
+        this.writeStream = null;
+        this.directory = `${dir}/${mode}/`;
         this.queuedItems = [];
         this.queueInterval = setInterval(() => {
             if (this.queuedItems.length > 0) {
+                if (this.writeStream === null) {
+                    this.filename = this.generateFilename() + process.env.SERVER_LOGGING_EXTENSION;
+                    this.filepath = this.directory + this.filename;
+                    this.writeStream = fs.createWriteStream(this.filepath);
+                }
                 this.write(this.queuedItems.shift());
             }
         }, 1000);
-    }
-
-    ensureDirectoryExistence(filepath) {
-        const dirname = path.dirname(filepath);
-        if (fs.existsSync(dirname)) {
-            return true;
-        }
-        this.ensureDirectoryExistence(dirname);
-        fs.mkdirSync(dirname);
     }
 
     generateFilename() {

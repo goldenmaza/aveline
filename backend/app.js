@@ -20,6 +20,7 @@ if (cluster.isMaster) {
     }
     masterLogger.log(masterData);
 
+    let slave = null;
     const desired_cores = parseInt(process.env.SERVER_CORES);
     const available_cores = cpus.length;
     const cluster_processes = desired_cores > available_cores ? available_cores : desired_cores;
@@ -31,12 +32,27 @@ if (cluster.isMaster) {
     masterLogger.log(masterData);
 
     for (let i = 0; i < cluster_processes; i++) {
-        masterData.body = `Starting cluster process: ${i}`;
+        slave = cluster.fork();
+        masterData.body = `Starting a cluster process: ${slave.process.pid}`;
         masterLogger.log(masterData);
-        cluster.fork();
     }
     masterData.body = `Cluster containing: ${cluster_processes} processes`;
     masterLogger.log(masterData);
+
+    cluster.on('exit', (slave, code, signal) => {
+        masterData.body = `Slave exit: ${slave.process.pid}, code: ${code}, signal: ${signal}`;
+        masterLogger.log(masterData);
+        if (process.env.SERVER_AUTOSTART) {
+            slave = cluster.fork();
+            masterData.body = `Starting a cluster process: ${slave.process.pid}`;
+            masterLogger.log(masterData);
+            masterData.body = `Cluster containing: ${Object.keys(cluster.workers).length} processes`;
+            masterLogger.log(masterData);
+        } else {
+            masterData.body = 'Server autostart is set to TRUE, no new slaves will be created...';
+            masterLogger.log(masterData);
+        }
+    });
 } else {
     const slaveLogger = new LoggerUtil(process.env.LOGGER_SLAVE, process.pid);
     let slaveData = {
