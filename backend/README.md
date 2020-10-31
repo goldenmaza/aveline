@@ -24,6 +24,7 @@ Backend module contains/will contain:
 - Lodash
 - EventEmitter
 - Streams
+- Cluster / Multithreading
 
 The basic flow is that the build output from the Frontend module should be placed on a server
 to host the React application. This application in turn calls the Backend application via REST
