@@ -49,7 +49,7 @@ if (cluster.isMaster) {
             masterData.body = `Cluster containing: ${Object.keys(cluster.workers).length} processes`;
             masterLogger.log(masterData);
         } else {
-            masterData.body = 'Server autostart is set to TRUE, no new slaves will be created...';
+            masterData.body = 'Server autostart is set to FALSE, no new slaves will be created...';
             masterLogger.log(masterData);
         }
     });
