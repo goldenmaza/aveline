@@ -4,7 +4,7 @@ import global from '../../app';
 let sequelizeData = {
     mode: '',
     body: ''
-}
+};
 
 // Sequelize table definitions...
 import { pageTable } from './table/page';

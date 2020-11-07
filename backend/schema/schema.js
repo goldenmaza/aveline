@@ -36,7 +36,7 @@ const Schema = new GraphQLSchema({
 const data = {
     mode: process.env.SERVER_MODE,
     body: 'GraphQL QueryBundle has been created...'
-}
+};
 global.graphqlLogger.log(data);
 
 export default Schema;

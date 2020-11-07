@@ -28,7 +28,7 @@ const db = new Sequelize(
 const data = {
     mode: process.env.SERVER_MODE,
     body: 'Sequelize instance has been created...'
-}
+};
 global.sequelizeLogger.log(data);
 
 export default db;
