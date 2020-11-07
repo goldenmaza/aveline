@@ -12,16 +12,15 @@ export const prepareKeys = (data) => {
 
 export const prepareWhere = (fk, keys, args) => {
     let where = {}
+    const allowedArgs = process.env.ARGS_TYPES.split(',');
     where[fk] = keys;
 
-    if (args.hidden !== undefined) {
-        where['hidden'] = args.hidden;
-    }
-    if (args.box !== undefined) {
-        where['box'] = args.box;
-    }
-    if (args.main !== undefined) {
-        where['main'] = args.main;
+    for (let key in args) {
+        if (args.hasOwnProperty(key)) {
+            if (allowedArgs.includes(key)) {
+                where[key] = args[key];
+            }
+        }
     }
 
     return where;
