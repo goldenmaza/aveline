@@ -1,20 +1,12 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:6969",
+  "version": "1.0.0",
+  "description": "The Frontend uses GraphQL queries to call the Backend APIs for processing...",
   "author": "Mats Richard Hellstrand",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.1.2",
-    "react-router-hash-link": "^1.2.2",
-    "react-scripts": "^3.4.3",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
-  },
+  "main": "index.js",
+  "proxy": "http://localhost:6969",
+  "license": "ISC",
+  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,6 +27,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-router-hash-link": "^1.2.2",
+    "react-scripts": "^3.4.3",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
