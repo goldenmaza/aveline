@@ -4,7 +4,7 @@ import global from '../app';
 let mailerData = {
     mode: '',
     body: ''
-}
+};
 
 // Protocol configuration...
 const protocol = {
@@ -14,7 +14,7 @@ const protocol = {
         user: process.env.PROTOCOL_USER,
         pass: process.env.PROTOCOL_PASS
     }
-}
+};
 const transporter = Nodemailer.createTransport(protocol);
 
 // Verify transporter (SMTP) connection...
@@ -31,7 +31,7 @@ transporter.verify((err, suc) => {
 });
 
 // Nodemailer API configuration...
-global.app.use('/mail', (req, res, next) => {
+global.app.use(process.env.API_MAIL, (req, res, next) => {
     const sender = req.body.forename + " " + req.body.surname;
     const address = req.body.address;
     const phone = req.body.phone;
@@ -45,7 +45,7 @@ global.app.use('/mail', (req, res, next) => {
         to: protocol.auth.user,
         subject: purpose,
         text: body
-    }
+    };
 
     transporter.sendMail(mail, (err, data) => {
         if (err) {

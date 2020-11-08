@@ -25,7 +25,7 @@ import {
 import global from '../app';
 
 // GraphQL API configuration...
-global.app.use('/api', Graphql({
+global.app.use(process.env.API_GRAPHQL, Graphql({
     schema: Schema,
     pretty: true,
     graphiql: true,
@@ -46,5 +46,5 @@ global.app.use('/api', Graphql({
 const graphqlData = {
     mode: process.env.SERVER_MODE,
     body: 'GraphQL API up and running...'
-}
+};
 global.graphqlLogger.log(graphqlData);
