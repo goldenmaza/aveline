@@ -42,12 +42,12 @@ class LoggerUtil extends EventEmitter {
         this.emit(data.mode, data.body); // this will call either info, debug etc...
     }
 
-    createDirectory(directory, mode) {
-        fs.mkdir(directory + mode, { recursive: true }, (error) => {
+    async createDirectory(directory, mode) {
+        await fs.mkdir(directory + mode, { recursive: true }, (error) => {
             let createDirectoryData = {
                 mode: process.env.SERVER_MODE,
                 body: `Directory was successfully created: ${directory + mode}`
-            }
+            };
             if (error === null) {
                 this.log(createDirectoryData);
             } else {

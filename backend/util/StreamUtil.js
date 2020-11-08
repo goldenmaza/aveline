@@ -14,7 +14,7 @@ class StreamUtil {
                 }
                 this.write(this.queuedItems.shift());
             }
-        }, 1000);
+        }, 2000);
     }
 
     generateFilename() {
