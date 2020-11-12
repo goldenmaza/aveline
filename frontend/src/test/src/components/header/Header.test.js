@@ -8,7 +8,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import {} from '@testing-library/jest-dom';
 
-import Header from '../../../../components/header/header';
+import Header from '../../../../components/header/Header';
 import store from '../../../../redux/store';
 
 configure({adapter: new Adapter()});
@@ -47,19 +47,21 @@ describe('validates the Header component', () => {
         const parentNode = container.querySelector('header');
         expect(parentNode).not.toBeNull();
 
-        const navChild = parentNode.querySelector('nav');
-        expect(navChild).not.toBeNull();
+        const navNode = parentNode.querySelector('nav');
+        expect(navNode).not.toBeNull();
 
-        const headingSubChild = navChild.children[0];
-        const handlerSubChild = navChild.children[1];
-        expect(headingSubChild).not.toBeNull();
-        expect(handlerSubChild).not.toBeNull();
+        const headingNode = navNode.children[0];
+        const handlerNode = navNode.children[1];
+        expect(headingNode).not.toBeNull();
+        expect(handlerNode).not.toBeNull();
 
-        const headingTag = headingSubChild.tagName.toLowerCase();
-        const headingLabel = getNodeText(headingSubChild);//.innerHTML;
-        expect(headingTag).not.toBeNull();
+        const headingLevel = headingNode.tagName.toLowerCase();
+        const headingLabel = getNodeText(headingNode);
+        expect(headingLevel).not.toBeNull();
         expect(headingLabel).not.toBeNull();
-        expect(headingTag).toBe(stateLevel);
+        expect(headingLevel).toBe(stateLevel);
         expect(headingLabel).toBe(stateLabel);
+
+        // Handler component not part of this test...
     });
 });
