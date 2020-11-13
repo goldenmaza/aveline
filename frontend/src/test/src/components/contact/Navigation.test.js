@@ -25,7 +25,7 @@ describe('validates the Navigation component', () => {
         const { asFragment } = render(
             <Provider store={store}>
                 <BrowserRouter>
-                    <Navigation />
+                    <Navigation address={'invalid'} />
                 </BrowserRouter>
             </Provider>
         );
@@ -36,7 +36,7 @@ describe('validates the Navigation component', () => {
         const { debug, container } = render(
             <Provider store={store}>
                 <BrowserRouter>
-                    <Navigation />
+                    <Navigation address={'invalid'} />
                 </BrowserRouter>
             </Provider>
         );
