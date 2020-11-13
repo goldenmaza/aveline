@@ -6,26 +6,30 @@ import { connect } from 'react-redux';
 class Collage extends Component {
     render() {
         const { collection } = this.props;
-        const collage = [];
+        if (!collection) {
+            return (<div></div>); // Refactor to display loading animation...
+        } else {
+            const collage = [];
 
-        collection.forEach(c => {
-            collage.push(
-                <a key={c.id} href={c.src} target='_blank' rel='noopener noreferrer'>
-                    <img src={c.src} alt={c.alt} title={c.title} />
-                    <div>
-                        <span>
-                            View source...
-                        </span>
-                    </div>
-                </a>
+            collection.forEach(c => {
+                collage.push(
+                    <a key={c.id} href={c.src} target='_blank' rel='noopener noreferrer'>
+                        <img src={c.src} alt={c.alt} title={c.title} />
+                        <div>
+                            <span>
+                                View source...
+                            </span>
+                        </div>
+                    </a>
+                );
+            });
+
+            return (
+                <div className='collageContainer'>
+                    { collage }
+                </div>
             );
-        });
-
-        return (
-            <div className='collageContainer'>
-                { collage }
-            </div>
-        );
+        }
     }
 }
 

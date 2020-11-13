@@ -10,7 +10,7 @@ class Copyright extends Component {
         const { created, level, label, name, link, by } = this.props;
         const year = new Date().getFullYear();
         const copy = year > created ? created + ' - ' + year : year;
-        return (
+        return (// TODO: Refactor '/' && 'noopener noreferrer' to env???
             <>
                 <Heading hidden={true} level={level} label={label} />
                 <div className='footer_copyright'>

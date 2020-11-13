@@ -13,25 +13,29 @@ import Footer from '../footer/Footer';
 class Selector extends Component {
     render() {
         const { component, route, level, label } = this.props;
-        const select = component.trim();
-        return (
-            <>
-                <Header />
-                <main className={select}>
-                    <Heading hidden={true} level={level} label={label} />
-                    {select === 'home' &&
-                        <Home route={route} />
-                    }
-                    {select === 'form' &&
-                        <Form route={route} minimalContact={false} />
-                    }
-                    {select === 'content' &&
-                        <Content route={route} />
-                    }
-                </main>
-                <Footer />
-            </>
-        );
+        if (!component) {
+            return (<div></div>); // Refactor to display loading animation...
+        } else {
+            const select = component.trim();
+            return (
+                <>
+                    <Header />
+                    <main className={select}>
+                        <Heading hidden={true} level={level} label={label} />
+                        {select === 'home' &&
+                            <Home route={route} />
+                        }
+                        {select === 'form' &&
+                            <Form route={route} minimalContact={false} />
+                        }
+                        {select === 'content' &&
+                            <Content route={route} />
+                        }
+                    </main>
+                    <Footer />
+                </>
+            );
+        }
     }
 }
 
