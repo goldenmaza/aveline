@@ -5,14 +5,14 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Office from '../output/office';
-import RegionalThumbnail from '../input/multimedia';//TODO: Rename Regional to something more generic...
-import RegionalEmployee from '../input/contact';
-import RegionalSocial from '../input/social';
+import CompanyOfficeOutput from '../output/office';
+import MultimediaResourceInput from '../input/multimedia';
+import OfficeContactInput from '../input/contact';
+import ContactSocialInput from '../input/social';
 
 // This is the Office's fields for the QueryBundle definition...
 const officeFields = {
-    type: new GraphQLList(Office),
+    type: new GraphQLList(CompanyOfficeOutput),
     args: {
         id: {
             type: GraphQLInt
@@ -47,7 +47,7 @@ const officeFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: RegionalThumbnail
+            type: MultimediaResourceInput
         },
         employees: {
             args: {
@@ -55,7 +55,7 @@ const officeFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: new GraphQLList(RegionalEmployee)
+            type: new GraphQLList(OfficeContactInput)
         },
         socials: {
             args: {
@@ -63,7 +63,7 @@ const officeFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: new GraphQLList(RegionalSocial)
+            type: new GraphQLList(ContactSocialInput)
         }
     },
     async resolve(root, args, {db}) {

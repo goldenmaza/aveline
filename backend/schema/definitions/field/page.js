@@ -5,13 +5,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Page from '../output/page';
-import PageCollage from '../input/multimedia';
-import PageParagraph from '../input/content';
+import CompanyPageOutput from '../output/page';
+import MultimediaResourceInput from '../input/multimedia';
+import PageContentInput from '../input/content';
 
 // This is the Page's fields for the QueryBundle definition...
 const pageFields = {
-    type: new GraphQLList(Page),
+    type: new GraphQLList(CompanyPageOutput),
     args: {
         id: {
             type: GraphQLInt
@@ -55,7 +55,7 @@ const pageFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: new GraphQLList(PageCollage)
+            type: new GraphQLList(MultimediaResourceInput)
         },
         paragraphs: {
             args: {
@@ -66,7 +66,7 @@ const pageFields = {
                     type: GraphQLBoolean
                 }
             },
-            type: new GraphQLList(PageParagraph)
+            type: new GraphQLList(PageContentInput)
         }
     },
     async resolve(parent, args, {db}) {

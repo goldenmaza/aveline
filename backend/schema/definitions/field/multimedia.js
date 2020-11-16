@@ -5,11 +5,11 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from '../output/multimedia';
+import MultimediaResourceOutput from '../output/multimedia';
 
 // This is the Multimedia's fields for the QueryBundle definition...
 const multimediaFields = {
-    type: new GraphQLList(Multimedia),
+    type: new GraphQLList(MultimediaResourceOutput),
     args: {
         id: {
             type: GraphQLInt
