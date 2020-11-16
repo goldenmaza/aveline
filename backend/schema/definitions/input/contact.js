@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import RegionalThumbnail from './multimedia';//TODO: Rename Regional to something more generic...
-import RegionalSocial from './social';
+import ContactThumbnailInput from './multimedia';
+import ContactSocialInput from './social';
 
 // This is the Sequelize model definition (input type) of the Contact table...
-const RegionalEmployee = new GraphQLInputObjectType({
-    name: 'RegionalEmployee',
-    description: 'This represents a RegionalEmployee',
+const OfficeContactInput = new GraphQLInputObjectType({
+    name: 'OfficeContactInput',
+    description: 'This represents an OfficeContactInput',
     fields: () => {
         return {
             id: {
@@ -55,13 +55,13 @@ const RegionalEmployee = new GraphQLInputObjectType({
                 type: GraphQLBoolean
             },
             portraits: {
-                type: new GraphQLList(RegionalThumbnail)
+                type: new GraphQLList(ContactThumbnailInput)
             },
             profiles: {
-                type: new GraphQLList(RegionalSocial)
+                type: new GraphQLList(ContactSocialInput)
             }
         };
     }
 });
 
-export default RegionalEmployee;
+export default OfficeContactInput;

@@ -6,9 +6,9 @@ import {
 } from 'graphql';
 
 // This is the Sequelize model definition (input type) of the Social table...
-const RegionalSocial = new GraphQLInputObjectType({
-    name: 'RegionalSocial',
-    description: 'This represents a RegionalSocial',
+const ContactSocialInput = new GraphQLInputObjectType({
+    name: 'ContactSocialInput',
+    description: 'This represents a ContactSocialInput',
     fields: () => {
         return {
             id: {
@@ -36,4 +36,4 @@ const RegionalSocial = new GraphQLInputObjectType({
     }
 });
 
-export default RegionalSocial;
+export default ContactSocialInput;

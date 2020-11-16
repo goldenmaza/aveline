@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import PageThumbnail from './multimedia';
-import Paragraph from './content';
+import PageThumbnailInput from './multimedia';
+import PageParagraphInput from './content';
 
 // This is the Sequelize model definition (input type) of the Page table...
-const InputPage = new GraphQLObjectType({
-    name: 'InputPage',
-    description: 'This represents an InputPage',
+const CompanyPageInput = new GraphQLObjectType({
+    name: 'CompanyPageInput',
+    description: 'This represents a CompanyPageInput',
     fields: () => {
         return {
             id: {
@@ -52,13 +52,13 @@ const InputPage = new GraphQLObjectType({
                 type: GraphQLString
             },
             collage: {
-                type: new GraphQLList(PageThumbnail)
+                type: new GraphQLList(PageThumbnailInput)
             },
             paragraphs: {
-                type: new GraphQLList(Paragraph)
+                type: new GraphQLList(PageParagraphInput)
             }
         };
     }
 });
 
-export default InputPage;
+export default CompanyPageInput;

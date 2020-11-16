@@ -6,9 +6,9 @@ import {
 } from 'graphql';
 
 // This is the Sequelize model definition (input type) of the Multimedia table...
-const RegionalThumbnail = new GraphQLInputObjectType({
-    name: 'RegionalThumbnail',
-    description: 'This represents a RegionalThumbnail',
+const MultimediaResourceInput = new GraphQLInputObjectType({
+    name: 'MultimediaResourceInput',
+    description: 'This represents a MultimediaResourceInput',
     fields: () => {
         return {
             id: {
@@ -57,4 +57,4 @@ const RegionalThumbnail = new GraphQLInputObjectType({
     }
 });
 
-export default RegionalThumbnail;
+export default MultimediaResourceInput;

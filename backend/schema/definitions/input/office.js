@@ -6,14 +6,14 @@ import {
     GraphQLString
 } from 'graphql';
 
-import RegionalThumbnail from './multimedia';//TODO: Rename Regional to something more generic...
-import RegionalEmployee from './contact';
-import RegionalSocial from './social';
+import OfficeThumbnailInput from './multimedia';
+import OfficeEmployeeInput from './contact';
+import OfficeSocialInput from './social';
 
 // This is the Sequelize model definition (input type) of the Office table...
-const InputOffice = new GraphQLObjectType({
-    name: 'InputOffice',
-    description: 'This represents an InputOffice',
+const CompanyOfficeInput = new GraphQLObjectType({
+    name: 'CompanyOfficeInput',
+    description: 'This represents a CompanyOfficeInput',
     fields: () => {
         return {
             id: {
@@ -41,16 +41,16 @@ const InputOffice = new GraphQLObjectType({
                 type: GraphQLBoolean
             },
             thumbnail: {
-                type: RegionalThumbnail
+                type: OfficeThumbnailInput
             },
             employees: {
-                type: new GraphQLList(RegionalEmployee)
+                type: new GraphQLList(OfficeEmployeeInput)
             },
             socials: {
-                type: new GraphQLList(RegionalSocial)
+                type: new GraphQLList(OfficeSocialInput)
             }
         };
     }
 });
 
-export default InputOffice;
+export default CompanyOfficeInput;
