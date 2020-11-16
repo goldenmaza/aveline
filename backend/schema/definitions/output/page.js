@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from './multimedia';
-import Paragraph from './content';
+import PageThumbnailOutput from './multimedia';
+import PageParagraphOutput from './content';
 
 // This is the Sequelize model definition (output type) of the Page table...
-const Page = new GraphQLObjectType({
-    name: 'Page',
-    description: 'This represents a Page',
+const CompanyPageOutput = new GraphQLObjectType({
+    name: 'CompanyPageOutput',
+    description: 'This represents a CompanyPageOutput',
     fields: () => {
         return {
             id: {
@@ -96,7 +96,7 @@ const Page = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Multimedia),
+                type: new GraphQLList(PageThumbnailOutput),
                 resolve(parent, args, {pagesCollageLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -114,7 +114,7 @@ const Page = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Paragraph),
+                type: new GraphQLList(PageParagraphOutput),
                 resolve(parent, args, {pagesParagraphsLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -127,4 +127,4 @@ const Page = new GraphQLObjectType({
     }
 });
 
-export default Page;
+export default CompanyPageOutput;

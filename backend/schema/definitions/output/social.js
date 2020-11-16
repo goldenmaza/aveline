@@ -6,9 +6,9 @@ import {
 } from 'graphql';
 
 // This is the Sequelize model definition (output type) of the Social table...
-const Social = new GraphQLObjectType({
-    name: 'Social',
-    description: 'This represents a Social',
+const ContactSocialOutput = new GraphQLObjectType({
+    name: 'ContactSocialOutput',
+    description: 'This represents a ContactSocialOutput',
     fields: () => {
         return {
             id: {
@@ -57,4 +57,4 @@ const Social = new GraphQLObjectType({
     }
 });
 
-export default Social;
+export default ContactSocialOutput;

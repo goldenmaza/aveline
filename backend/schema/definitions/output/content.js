@@ -6,13 +6,13 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from './multimedia';
-import SubParagraph from './subcontent';
+import ParagraphImageOutput from './multimedia';
+import SubParagraphOutput from './subcontent';
 
 // This is the Sequelize model definition (output type) of the Content table (top content)...
-const Content = new GraphQLObjectType({
-    name: 'Content',
-    description: 'This represents a Content',
+const PageContentOutput = new GraphQLObjectType({
+    name: 'PageContentOutput',
+    description: 'This represents a PageContentOutput',
     fields: () => {
         return {
             id: {
@@ -72,7 +72,7 @@ const Content = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Multimedia),
+                type: new GraphQLList(ParagraphImageOutput),
                 resolve(parent, args, {contentCollageLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -90,7 +90,7 @@ const Content = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(SubParagraph),
+                type: new GraphQLList(SubParagraphOutput),
                 resolve(parent, args, {contentParagraphsLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -103,4 +103,4 @@ const Content = new GraphQLObjectType({
     }
 });
 
-export default Content;
+export default PageContentOutput;

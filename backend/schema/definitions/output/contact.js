@@ -6,13 +6,13 @@ import {
     GraphQLString,
 } from 'graphql';
 
-import Multimedia from './multimedia';
-import Social from './social';
+import ContactMultimediaOutput from './multimedia';
+import ContactSocialOutput from './social';
 
 // This is the Sequelize model definition (output type) of the Contact table...
-const Contact = new GraphQLObjectType({
-    name: 'Contact',
-    description: 'This represents a Contact',
+const OfficeContactOutput = new GraphQLObjectType({
+    name: 'OfficeContactOutput',
+    description: 'This represents an OfficeContactOutput',
     fields: () => {
         return {
             id: {
@@ -102,7 +102,7 @@ const Contact = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Multimedia),
+                type: new GraphQLList(ContactMultimediaOutput),
                 resolve(parent, args, {contactPortraitsLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -117,7 +117,7 @@ const Contact = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Social),
+                type: new GraphQLList(ContactSocialOutput),
                 resolve(parent, args, {contactProfilesLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -130,4 +130,4 @@ const Contact = new GraphQLObjectType({
     }
 });
 
-export default Contact;
+export default OfficeContactOutput;

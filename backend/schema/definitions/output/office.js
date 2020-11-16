@@ -6,14 +6,14 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from './multimedia';
-import Contact from './contact';
-import Social from './social';
+import OfficeThumbnailOutput from './multimedia';
+import OfficeEmployeeOutput from './contact';
+import OfficeSocialOutput from './social';
 
 // This is the Sequelize model definition (output type) of the Office table...
-const Office = new GraphQLObjectType({
-    name: 'Office',
-    description: 'This represents an Office',
+const CompanyOfficeOutput = new GraphQLObjectType({
+    name: 'CompanyOfficeOutput',
+    description: 'This represents a CompanyOfficeOutput',
     fields: () => {
         return {
             id: {
@@ -73,7 +73,7 @@ const Office = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: Multimedia,
+                type: OfficeThumbnailOutput,
                 resolve(parent, args, {officesThumbnailLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -88,7 +88,7 @@ const Office = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Contact),
+                type: new GraphQLList(OfficeEmployeeOutput),
                 resolve(parent, args, {officesEmployeesLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -103,7 +103,7 @@ const Office = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Social),
+                type: new GraphQLList(OfficeSocialOutput),
                 resolve(parent, args, {officesSocialsLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -116,4 +116,4 @@ const Office = new GraphQLObjectType({
     }
 });
 
-export default Office;
+export default CompanyOfficeOutput;

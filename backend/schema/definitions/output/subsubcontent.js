@@ -6,12 +6,12 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Multimedia from './multimedia';
+import ParagraphImageOutput from './multimedia';
 
 // This is the Sequelize model definition (output type) of the Content table (sub sub content)...
-const SubSubContent = new GraphQLObjectType({
-    name: 'SubSubContent',
-    description: 'This represents a SubSubContent',
+const SubSubPageContentOutput = new GraphQLObjectType({
+    name: 'SubSubPageContentOutput',
+    description: 'This represents a SubSubPageContentOutput',
     fields: () => {
         return {
             id: {
@@ -68,7 +68,7 @@ const SubSubContent = new GraphQLObjectType({
                         type: GraphQLBoolean
                     }
                 },
-                type: new GraphQLList(Multimedia),
+                type: new GraphQLList(ParagraphImageOutput),
                 resolve(parent, args, {contentParagraphsLoader}, info) {
                     const data = {
                         id: parent.id,
@@ -81,4 +81,4 @@ const SubSubContent = new GraphQLObjectType({
     }
 });
 
-export default SubSubContent;
+export default SubSubPageContentOutput;

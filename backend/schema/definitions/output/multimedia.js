@@ -6,9 +6,9 @@ import {
 } from 'graphql';
 
 // This is the Sequelize model definition (output type) of the Multimedia table...
-const Multimedia = new GraphQLObjectType({
-    name: 'Multimedia',
-    description: 'This represents a Multimedia',
+const MultimediaResourceOutput = new GraphQLObjectType({
+    name: 'MultimediaResourceOutput',
+    description: 'This represents a MultimediaResourceOutput',
     fields: () => {
         return {
             id: {
@@ -99,4 +99,4 @@ const Multimedia = new GraphQLObjectType({
     }
 });
 
-export default Multimedia;
+export default MultimediaResourceOutput;
