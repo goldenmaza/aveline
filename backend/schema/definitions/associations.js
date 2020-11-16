@@ -13,7 +13,6 @@ import { multimediaTable } from './table/multimedia';
 import { officeTable } from './table/office';
 import { contactTable } from './table/contact';
 import { socialTable } from './table/social';
-import { navigationTable } from './table/navigation';
 
 // Definitions for Sequelize models (tables)...
 const Page = db.define('page', pageTable);
@@ -24,7 +23,6 @@ const Multimedia = db.define('multimedia', multimediaTable);
 const Office = db.define('office', officeTable);
 const Contact = db.define('contact', contactTable);
 const Social = db.define('social', socialTable);
-const Navigation = db.define('navigation', navigationTable);
 
 // Verifying that model definitions were created...
 if (true) { //TODO: verify that model definitions were successful...
