@@ -1,12 +1,14 @@
 import LoggerUtil from './util/LoggerUtil';
 import Express from 'express';
-import path from 'path';
 import helmet from 'helmet';
 import compression from 'compression';
 import { json, urlencoded } from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 import dotenv from 'dotenv';
-dotenv.config();
+
+const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
+dotenv.config({ path: path.join(__dirname, `.env.${environment}`) });
 
 const slaveLogger = new LoggerUtil(process.env.LOGGER_SLAVE, process.pid);
 let slaveData = {

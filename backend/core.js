@@ -1,12 +1,11 @@
 import LoggerUtil from './util/LoggerUtil';
+import { parseBool } from './util/helpers';
 import cluster from 'cluster';
 import os from 'os';
-import dotenv from 'dotenv';
-dotenv.config();
 
 import global from './app';
 
-if (cluster.isMaster) {
+if (parseBool(process.env.SERVER_NODE_LIVE) && cluster.isMaster) {
     const cpus = os.cpus();
     const masterLogger = new LoggerUtil(process.env.LOGGER_MASTER, process.pid);
     let masterData = {
@@ -49,7 +48,7 @@ if (cluster.isMaster) {
         }
     });
 } else {
-    const port = process.env.SERVER_PORT;
+    const port = parseInt(process.env.SERVER_PORT, 10);
     let slaveData = {
         mode: process.env.SERVER_MODE,
         body: ''
