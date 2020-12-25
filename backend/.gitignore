@@ -12,7 +12,8 @@
 /logging
 /build
 .babelrc
-.env
+.env.dev
+.env.prod
 webpack.config.js
 
 # misc

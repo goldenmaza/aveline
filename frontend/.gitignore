@@ -13,6 +13,7 @@ __snapshots__/
 /build
 .babelrc
 .env
+.env.development
 webpack.config.js
 
 # misc
