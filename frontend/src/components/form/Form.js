@@ -51,6 +51,8 @@ class Form extends Component {
         event.preventDefault();
 
         this.props.actions.processForm(this.props);
+
+        this.resetForm();
     }
 
     onChange() {
