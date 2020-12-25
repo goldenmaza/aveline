@@ -46,6 +46,8 @@ global.app.use(process.env.API_MAIL, (req, res, next) => {
         subject: purpose,
         text: body
     };
+    mailerData.body = mail;
+    global.mailerLogger.log(mailerData);
 
     transporter.sendMail(mail, (err, data) => {
         if (err) {
