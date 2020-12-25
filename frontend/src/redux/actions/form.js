@@ -18,26 +18,21 @@ export const processForm = (data) => (dispatch) => {
     dispatch({ type: REQ_FORM_TRANSMIT });
 
     const payload = {
-        forename: data.forenameInput,
-        surname: data.surnameInput,
-        address: data.addressInput,
-        phone: data.phoneInput,
-        email: data.emailInput,
-        purpose: data.purposeInput,
-        message: data.messageInput
+        forename: data.input.forenameInput,
+        surname: data.input.surnameInput,
+        address: data.input.addressInput,
+        phone: data.input.phoneInput,
+        email: data.input.emailInput,
+        purpose: data.input.purposeInput,
+        message: data.input.messageInput
     };
 
-    DEFAULT_NODEMAILER_OPTIONS.headers = {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Accept': 'application/json',
-        'From': payload.forename + ' ' + payload.surname + '<' + payload.email + '>',
-        'Return-Path': payload.email,
-        'Sender': payload.email,
-        'Reply-To': payload.email
-    };
-    DEFAULT_NODEMAILER_OPTIONS.data = payload;
+//    DEFAULT_NODEMAILER_OPTIONS.headers = {
+//        'Content-Type': 'application/x-www-form-urlencoded',
+//        'Accept': 'application/json'
+//    };
 
-    axios(DEFAULT_NODEMAILER_OPTIONS)
+    axios.post(process.env.REACT_APP_SERVER_MAIL_ADDRESS, payload)
         .then(res => dispatch({
             res, type: RCV_FORM_TRANSMIT
         }))
