@@ -1,11 +1,6 @@
 import Sequelize from 'sequelize';
 import global from '../app';
 
-//TODO: Refector to use for dev, test and prod...
-//const env = process.env.NODE_ENV || 'development';
-//const config = require('./../config/config.js')[env];
-//config.database (same as process.env.SEQUELIZE_DATABASE) etc
-
 // Create a new Sequelize instance to setup the connection with a database (localhost)...
 const db = new Sequelize(
     process.env.SEQUELIZE_DATABASE,
