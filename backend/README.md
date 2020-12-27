@@ -37,8 +37,7 @@ a specific address. The GraphQL API is used by many components to prepare the da
 generate a website with content.
 
 Work remaining for the Backend module:
-- Deploying the module to a webhosting service
-- Implement testing with Jest (JUnit and Integration testing)
+- TBD
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.

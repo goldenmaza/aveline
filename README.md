@@ -52,8 +52,7 @@ Work remaining for the Frontend module:
 - SCSS implementation
 
 Work remaining for the Backend module:
-- Deploying the module to a webhosting service
-- Implement testing with Jest (JUnit and Integration testing)
+- TBD
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.
