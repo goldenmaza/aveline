@@ -5,7 +5,7 @@ class StreamUtil {
         this.writeStream = null;
         this.directory = `${dir}/${mode}/`;
         this.queuedItems = [];
-        this.queueInterval = setInterval(() => {// TOOD: Find a way to clear the setInterval values at exit...
+        this.queueInterval = setInterval(() => {// TODO: Find a way to clear the setInterval values at exit...
             if (this.queuedItems.length > 0) {
                 if (this.writeStream === null) {
                     this.filename = this.generateFilename() + process.env.SERVER_LOGGING_EXTENSION;

@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
 import StreamUtil from './StreamUtil';
 import fs from 'fs';
-import { parseBool } from './util/helpers';
+import { parseBool } from './helpers';
 
 class LoggerUtil extends EventEmitter {
     constructor(module, pid) {
