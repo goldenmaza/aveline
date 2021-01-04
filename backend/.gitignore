@@ -15,6 +15,7 @@
 .env.dev
 .env.prod
 webpack.config.js
+package-lock.json
 
 # misc
 .DS_Store

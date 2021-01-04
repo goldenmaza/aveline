@@ -11,10 +11,12 @@ __snapshots__/
 
 # production
 /build
+/public
 .babelrc
 .env
 .env.development
 webpack.config.js
+package-lock.json
 
 # misc
 .DS_Store
