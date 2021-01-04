@@ -10,7 +10,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "scss": "node-sass src/scss -o public/css/",
+    "scss": "node-sass src/scss -wo public/css/",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
