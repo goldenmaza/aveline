@@ -1,0 +1,77 @@
+/*
+ * HelpSection styling elements...
+ */
+
+#root {
+    .helpSection {
+        display: flex;
+        flex-direction: column;
+        > header {
+            padding: 1em;
+            background-color: #FFF;
+            > * {
+                background-color: #333;
+            }
+        }
+        > .helpRow {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: inherit;
+            padding: 0em 1em 1em 1em;
+            background-color: #FFF;
+            > .rowLabel {
+                &:first-child {
+                    flex: 0 0 20%;
+                    padding: 0.5em;
+                    background-color: #333;
+                }
+                &:last-child {
+                    flex: 0 0 75%;
+                    background-color: #333;
+                }
+            }
+            > .rowContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex: 0 0 75%;
+                padding: 0.5em;
+                background-color: #333;
+                > div {
+                    &:first-child {
+                        margin-bottom: 1em;
+                    }
+                    > p {
+                        > strong {
+                            margin-right: 1em;
+                        }
+                    }
+                }
+                > p {
+                    > strong {
+                        margin-right: 1em;
+                    }
+                }
+            }
+            > p {
+                &:first-child {
+                    flex: 0 0 20%;
+                    padding: 0.5em;
+                    background-color: #333;
+                }
+                &:last-child {
+                    flex: 0 0 75%;
+                    background-color: #333;
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            > .helpRow {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+/*
+ * Form styling elements...
+ */
+
+#root {
+    #contactForm {
+        > .formBody {
+            display: flex;
+            flex-direction: column;
+            background-color: #444;
+            > .formGroup {
+                padding: 1em;
+                background-color: #FFF;
+                &:first-child {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .formRow {
+                        .formElement {
+                            width: 100%;
+                            padding-top: 1em;
+                        }
+                    }
+                }
+                @media (min-width: 1024px) {
+                    &:first-child {
+                        flex-direction: row;
+                        border-radius: 4px;
+                    }
+                }
+                &:last-child {
+                    display: flex;
+                    flex-direction: row;
+                    .formRow {
+                        &:last-child {
+                            width: 100%;
+                        }
+                        @media (min-width: 480px) {
+                            &:last-child {
+                                width: auto;
+                                justify-content: space-evenly;
+                            }
+                        }
+                        @media (min-width: 1024px) {
+                            &:last-child {
+                                justify-content: flex-end;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 480px) {
+                    &:last-child {
+                        flex-direction: column;
+                    }
+                }
+                > .formGroup {
+                    &:first-child {
+                        flex: 1 1 30%;
+                    }
+                    &:last-child {
+                        flex: 1 1 60%;
+                    }
+                    @media (min-width: 1024px) {
+                        &:first-child {
+                            flex-direction: row;
+                            flex: 1 1 40%;
+                        }
+                        &:last-child {
+                            flex: 1 1 55%;
+                        }
+                    }
+                }
+                > .formGroup:first-child {
+                    > .formRow:first-child {
+                        > .formElement {
+                            @media (min-width: 768px) {
+                                &:first-child {
+                                    input {
+                                        border-radius: 4px 0 0 4px;
+                                    }
+                                }
+                                &:last-child {
+                                    input {
+                                        border-radius: 0 4px 4px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > .formGroup:last-child {
+                    .formRow {
+                        .formElement {
+                            margin: 0em 1em;
+                        }
+                    }
+                }
+            }
+            .formGroup {
+                .formRow {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 1em 0 1em;
+                    background-color: #333;
+                    &:last-child {
+                        padding-bottom: 1em;
+                    }
+                    .formElement {
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            span {
+                                &:last-child {
+                                    align-self: flex-end;
+                                    position: relative;
+                                    bottom: 2em;
+                                    right: 1em;
+                                    color: #aaa;
+                                }
+                            }
+                        }
+                        input {
+                            height: unset;
+                            padding: 1em;
+                            border: 2px solid #e5e5e5;
+                            border-radius: 4px;
+                            box-shadow: 0 0 0 0 transparent;
+                            &.invalid {
+                                background-color: #a66;
+                                &::placeholder {
+                                    color: #FFF;
+                                }
+                            }
+                            &:focus {
+                                border: 2px solid #ffcc00;
+                                background-color: #000;
+                                color: #FFF;
+                            }
+                        }
+                        textarea {
+                            min-height: 27vh;
+                            padding: 1em;
+                            border: 2px solid #e5e5e5;
+                            border-radius: 4px;
+                            resize: none;
+                            overflow: auto;
+                            &.invalid {
+                                background-color: #a66;
+                                &::placeholder {
+                                    color: #FFF;
+                                }
+                            }
+                            &:focus {
+                                border: 2px solid #ffcc00;
+                                background-color: #000;
+                                color: #FFF;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 768px) {
+                    .formRow {
+                        flex-direction: row;
+                    }
+                }
+                &:first-child {
+                    .formRow:last-child {
+                        padding-bottom: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
