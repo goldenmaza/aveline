@@ -108,9 +108,9 @@ class HelpSection extends Component {
                 }
             }
             helpSection.push(
-                <div key={group}>
-                    <strong>{group}</strong>
-                    <div >
+                <div key={group} className='helpRow'>
+                    <strong className='rowLabel'>{group}</strong>
+                    <div className='rowContent'>
                         { groupSummary }
                     </div>
                 </div>
