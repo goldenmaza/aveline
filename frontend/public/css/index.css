@@ -148,12 +148,12 @@ textarea:focus {
     color: #000;
     cursor: pointer; }
     .nav_container .handler_toggle i {
+      content: '';
       height: 2px;
       width: 25px;
       display: block;
       margin: 3px 0px;
-      background-color: #FFF;
-      content: ''; }
+      background-color: #FFF; }
     @media (min-width: 480px) {
       .nav_container .handler_toggle i {
         width: 25px; } }
