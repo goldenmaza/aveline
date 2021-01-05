@@ -3,23 +3,23 @@
  */
 
 .handler_navigation {
-    flex					:	0 0 70%;
-    max-height				:	0;
-    width					:	100%;
-    list-style				:	none;
-    padding					:	0px;
-    border			        :	2px solid transparent;
-    text-align				:	center;
-    overflow				:	hidden;
-    transition				:	max-height 2s, padding 2s, border-bottom 2s;
+    flex: 0 0 70%;
+    max-height: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0px;
+    border: 2px solid transparent;
+    text-align: center;
+    overflow: hidden;
+    transition: max-height 2s, padding 2s, border-bottom 2s;
     &.active {
-        max-height				:	750px;
-        border-bottom			:	2px solid #F90;
-        transition				:	max-height 4s, padding 1s, border-bottom 4s;
+        max-height: 750px;
+        border-bottom: 2px solid #F90;
+        transition: max-height 4s, padding 1s, border-bottom 4s;
     }
     li {
-        display					:	flex;
-        flex					:	0 0 auto;
+        display: flex;
+        flex: 0 0 auto;
         align-items: center;
         background-color: #444;
         a {
@@ -33,7 +33,7 @@
             color: #F90;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition							:	color .4s ease;
+            transition: color .4s ease;
             &:after {
                 content: '';
                 display: block;
@@ -68,8 +68,8 @@
         display: flex;
         justify-content: space-evenly;
         &.active {
-            border-top			    :	2px solid transparent;
-            border-bottom			:	2px solid transparent;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
         }
     }
 }
