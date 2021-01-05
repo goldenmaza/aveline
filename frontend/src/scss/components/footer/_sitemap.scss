@@ -6,13 +6,13 @@
     .sitemap_navigation {
         display: flex;
         flex-direction: column;
-        > ul {
+        ul {
             display: flex;
             flex-direction: column;
             width: 100%;
             margin-left: 0;
             background-color: #333;
-            > li {
+            li {
                 margin: 10px;
                 &.bold {
                     font-weight: 900;
@@ -20,7 +20,7 @@
             }
         }
         @media (min-width: 768px) {
-            > ul {
+            ul {
                 margin-left: 10px;
             }
         }

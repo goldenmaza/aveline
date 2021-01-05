@@ -11,11 +11,11 @@
         justify-content: space-between;
         background-color: #333;
         padding: 25px;
-        > header {
+        header {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            > a {
+            a {
                 display: block;
                 width: 75%;
                 .footer_logotype {
@@ -25,7 +25,7 @@
                 }
             }
         }
-        > section {
+        section {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -36,7 +36,7 @@
             .contact_minimal {
                 margin-bottom: 1px;
                 overflow: hidden;
-                > ul {
+                ul {
                     display: flex;
                     flex-direction: column;
                     margin-bottom: 10px;
@@ -65,7 +65,7 @@
             }
         }
         @media (min-width: 768px) {
-            > section {
+            section {
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
@@ -74,7 +74,7 @@
                 padding: 10px;
             }
         }
-        > footer {
+        footer {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -84,7 +84,7 @@
             padding: 10px;
         }
         @media (min-width: 768px) {
-            > footer {
+            footer {
                 flex-direction: row;
             }
         }

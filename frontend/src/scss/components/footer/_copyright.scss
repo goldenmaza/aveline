@@ -4,26 +4,26 @@
 
 #root {
     > footer {
-        > footer {
-            > div {
+        footer {
+            div {
                 background-color: #333;
             }
-            > .footer_copyright {
+            .footer_copyright {
                 margin-bottom: 1em;
                 font-size: 90%;
-                > strong {
+                strong {
                     display: block;
                     margin: 1em;
                 }
             }
             @media (min-width: 768px) {
-                > .footer_copyright {
+                .footer_copyright {
                     margin-bottom: 0em;
                 }
             }
             .footer_by {
                 font-size: 75%;
-                > span {
+                span {
                     display: block;
                     margin: 1em;
                 }
