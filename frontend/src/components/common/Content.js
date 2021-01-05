@@ -63,10 +63,12 @@ class Content extends Component {
                     paragraphs.forEach(c => {
                         const id = p.route + c.id;
                         sections.push(
-                            <section key={id}>
-                                { this.iterateParagraphs(level, p.route, c) }
+                            <>
+                                <section key={id}>
+                                    { this.iterateParagraphs(level, p.route, c) }
+                                </section>
                                 { children }
-                            </section>
+                            </>
                         );
                     });
                 }
@@ -77,11 +79,13 @@ class Content extends Component {
                     if (p.route === route) {
                         const id = p.route;
                         sections.push(
-                            <section key={id}>
-                                <div id={id} className='contentContainer'>
-                                </div>
+                            <>
+                                <section key={id}>
+                                    <div id={id} className='contentContainer'>
+                                    </div>
+                                </section>
                                 { children }
-                            </section>
+                            </>
                         );
                     }
                 });
