@@ -11,7 +11,10 @@ __snapshots__/
 
 # production
 /build
-/public
+/public/multimedia/image/*
+/public/logo*
+/public/manifest.json
+/public/robots.txt
 .babelrc
 .env
 .env.development

@@ -1,0 +1,901 @@
+/*
+ * Global styling elements...
+ */
+/*
+ * Global variables used for all scss files...
+ */
+html, body, header, section, div, span, img, h1, h2, h3, h4,
+p, a, q, strong, ul, li, iframe, video, audio, footer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline; }
+
+h1 {
+  margin: 0;
+  font-size: 2.6em; }
+
+h2 {
+  margin: 0;
+  font-size: 2.4em; }
+
+h3 {
+  margin: 0;
+  font-size: 2.2em; }
+
+h4 {
+  margin: 0;
+  font-size: 2em; }
+
+h5 {
+  margin: 0;
+  font-size: 1.8em; }
+
+.hidden {
+  display: none !important; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #F90;
+  /*TODO: 000*/ }
+
+a:hover, a:focus {
+  color: #FFCD00;
+  /*TODO: CCC*/ }
+
+input:focus, textarea:focus, select:focus {
+  outline: none; }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #FFF;
+  color: #CCC;
+  /*TODO: 000*/ }
+
+/*
+ * Header styling elements...
+ */
+#root > header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: #000; }
+  #root > header > nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 768px;
+    position: relative; }
+    #root > header > nav > .nav_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex: 0 0 20%;
+      padding: 0.75em 0.75em; }
+      #root > header > nav > .nav_container > a {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; }
+        #root > header > nav > .nav_container > a > .nav_logotype {
+          display: block;
+          width: 75%;
+          background-color: #fff; }
+      @media (min-width: 768px) {
+        #root > header > nav > .nav_container > a {
+          flex-direction: column; }
+          #root > header > nav > .nav_container > a > .nav_logotype {
+            width: 100%; } }
+      #root > header > nav > .nav_container > .handler_toggle {
+        padding: 0.5em;
+        background-color: #444;
+        color: #000;
+        cursor: pointer; }
+        #root > header > nav > .nav_container > .handler_toggle > i {
+          height: 2px;
+          width: 25px;
+          display: block;
+          margin: 3px 0px;
+          background-color: #FFF;
+          content: ''; }
+        @media (min-width: 480px) {
+          #root > header > nav > .nav_container > .handler_toggle > i {
+            width: 25px; } }
+      @media (min-width: 768px) {
+        #root > header > nav > .nav_container > .handler_toggle {
+          display: none; } }
+    #root > header > nav > .handler_navigation {
+      flex: 0 0 70%;
+      max-height: 0;
+      width: 100%;
+      list-style: none;
+      padding: 0px;
+      border: 2px solid transparent;
+      text-align: center;
+      overflow: hidden;
+      transition: max-height 2s, padding 2s, border-bottom 2s; }
+      #root > header > nav > .handler_navigation.active {
+        max-height: 750px;
+        border-bottom: 2px solid #F90;
+        transition: max-height 4s, padding 1s, border-bottom 4s; }
+      #root > header > nav > .handler_navigation > li {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        background-color: #444; }
+        #root > header > nav > .handler_navigation > li > a {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: auto;
+          padding: 0.5em 1.5em;
+          font-size: 14px;
+          background-color: #000;
+          color: #F90;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          transition: color .4s ease; }
+          #root > header > nav > .handler_navigation > li > a:after {
+            content: '';
+            display: block;
+            height: 0.2em;
+            width: 0;
+            position: relative;
+            left: 50%;
+            margin-top: 0.25em;
+            background-color: #FFF;
+            transition-property: left,width,background-color,color;
+            transition-duration: .7s;
+            transition-timing-function: ease; }
+          #root > header > nav > .handler_navigation > li > a:focus:after {
+            width: 100%;
+            left: 0;
+            background-color: #ffcd00; }
+        #root > header > nav > .handler_navigation > li:hover > a:after {
+          width: 100%;
+          left: 0;
+          background-color: #ffcd00; }
+    @media (min-width: 768px) {
+      #root > header > nav > .handler_navigation {
+        max-height: 100%;
+        display: flex;
+        justify-content: space-evenly; }
+        #root > header > nav > .handler_navigation.active {
+          border-top: 2px solid transparent;
+          border-bottom: 2px solid transparent; } }
+  @media (min-width: 768px) {
+    #root > header > nav {
+      flex-direction: row;
+      justify-content: space-around;
+      max-width: 100%;
+      padding: 1em 0em; }
+      #root > header > nav > .nav_container {
+        padding: 0em; }
+      #root > header > nav > * {
+        background-color: #FFF; } }
+
+/*
+ * Form styling elements...
+ */
+#root #contactForm > .formBody {
+  display: flex;
+  flex-direction: column;
+  background-color: #444; }
+  #root #contactForm > .formBody > .formGroup {
+    padding: 1em;
+    background-color: #FFF; }
+    #root #contactForm > .formBody > .formGroup:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      #root #contactForm > .formBody > .formGroup:first-child .formRow .formElement {
+        width: 100%;
+        padding-top: 1em; }
+    @media (min-width: 1024px) {
+      #root #contactForm > .formBody > .formGroup:first-child {
+        flex-direction: row; } }
+    #root #contactForm > .formBody > .formGroup:last-child {
+      display: flex;
+      flex-direction: row; }
+      #root #contactForm > .formBody > .formGroup:last-child .formRow:last-child {
+        width: 100%; }
+      @media (min-width: 480px) {
+        #root #contactForm > .formBody > .formGroup:last-child .formRow:last-child {
+          width: auto;
+          justify-content: space-evenly; } }
+      @media (min-width: 1024px) {
+        #root #contactForm > .formBody > .formGroup:last-child .formRow:last-child {
+          justify-content: flex-end; } }
+    @media (min-width: 480px) {
+      #root #contactForm > .formBody > .formGroup:last-child {
+        flex-direction: column; } }
+    #root #contactForm > .formBody > .formGroup > .formGroup:first-child {
+      flex: 1 1 30%; }
+    #root #contactForm > .formBody > .formGroup > .formGroup:last-child {
+      flex: 1 1 60%; }
+    @media (min-width: 1024px) {
+      #root #contactForm > .formBody > .formGroup > .formGroup:first-child {
+        flex-direction: row;
+        flex: 1 1 40%; }
+      #root #contactForm > .formBody > .formGroup > .formGroup:last-child {
+        flex: 1 1 55%; } }
+    @media (min-width: 768px) {
+      #root #contactForm > .formBody > .formGroup > .formGroup:first-child > .formRow:first-child > .formElement:first-child input {
+        border-radius: 4px 0 0 4px; }
+      #root #contactForm > .formBody > .formGroup > .formGroup:first-child > .formRow:first-child > .formElement:last-child input {
+        border-radius: 0 4px 4px 0; } }
+  #root #contactForm > .formBody > .formGroup:last-child .formRow .formElement {
+    margin: 0em 1em; }
+  #root #contactForm > .formBody .formGroup .formRow {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em 0 1em;
+    background-color: #333; }
+    #root #contactForm > .formBody .formGroup .formRow:last-child {
+      padding-bottom: 1em; }
+    #root #contactForm > .formBody .formGroup .formRow .formElement label {
+      display: flex;
+      flex-direction: column; }
+      #root #contactForm > .formBody .formGroup .formRow .formElement label span:last-child {
+        align-self: flex-end;
+        position: relative;
+        bottom: 2em;
+        right: 1em;
+        color: #aaa; }
+    #root #contactForm > .formBody .formGroup .formRow .formElement input {
+      height: unset;
+      padding: 1em;
+      border: 2px solid #e5e5e5;
+      border-radius: 4px;
+      box-shadow: 0 0 0 0 transparent; }
+      #root #contactForm > .formBody .formGroup .formRow .formElement input.invalid {
+        background-color: #a66; }
+        #root #contactForm > .formBody .formGroup .formRow .formElement input.invalid::placeholder {
+          color: #FFF; }
+      #root #contactForm > .formBody .formGroup .formRow .formElement input:focus {
+        border: 2px solid #ffcc00;
+        background-color: #000;
+        color: #FFF; }
+    #root #contactForm > .formBody .formGroup .formRow .formElement textarea {
+      min-height: 27vh;
+      padding: 1em;
+      border: 2px solid #e5e5e5;
+      border-radius: 4px;
+      resize: none;
+      overflow: auto; }
+      #root #contactForm > .formBody .formGroup .formRow .formElement textarea.invalid {
+        background-color: #a66; }
+        #root #contactForm > .formBody .formGroup .formRow .formElement textarea.invalid::placeholder {
+          color: #FFF; }
+      #root #contactForm > .formBody .formGroup .formRow .formElement textarea:focus {
+        border: 2px solid #ffcc00;
+        background-color: #000;
+        color: #FFF; }
+  @media (min-width: 768px) {
+    #root #contactForm > .formBody .formGroup .formRow {
+      flex-direction: row; } }
+  #root #contactForm > .formBody .formGroup:first-child .formRow:last-child {
+    padding-bottom: 1em; }
+
+/*
+ * HelpSection styling elements...
+ */
+#root .helpSection {
+  display: flex;
+  flex-direction: column; }
+  #root .helpSection > header {
+    padding: 1em;
+    background-color: #FFF; }
+    #root .helpSection > header > * {
+      background-color: #333; }
+  #root .helpSection > .helpRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: inherit;
+    padding: 0em 1em 1em 1em;
+    background-color: #FFF; }
+    #root .helpSection > .helpRow > .rowLabel:first-child {
+      flex: 0 0 20%;
+      padding: 0.5em;
+      background-color: #333; }
+    #root .helpSection > .helpRow > .rowLabel:last-child {
+      flex: 0 0 75%;
+      background-color: #333; }
+    #root .helpSection > .helpRow > .rowContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex: 0 0 75%;
+      padding: 0.5em;
+      background-color: #333; }
+      #root .helpSection > .helpRow > .rowContent > div:first-child {
+        margin-bottom: 1em; }
+      #root .helpSection > .helpRow > .rowContent > div > p > strong {
+        margin-right: 1em; }
+      #root .helpSection > .helpRow > .rowContent > p > strong {
+        margin-right: 1em; }
+    #root .helpSection > .helpRow > p:first-child {
+      flex: 0 0 20%;
+      padding: 0.5em;
+      background-color: #333; }
+    #root .helpSection > .helpRow > p:last-child {
+      flex: 0 0 75%;
+      background-color: #333; }
+  @media (min-width: 768px) {
+    #root .helpSection > .helpRow {
+      flex-direction: row;
+      align-items: center; } }
+
+/*
+ * Footer styling elements...
+ */
+#root > footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 25px; }
+  #root > footer > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    #root > footer > header > a {
+      display: block;
+      width: 75%; }
+      #root > footer > header > a .footer_logotype {
+        display: block;
+        width: 100%;
+        background-color: #fff; }
+  #root > footer > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 75%;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    background-color: #FFF; }
+    #root > footer > section .contact_minimal {
+      margin-bottom: 1px;
+      overflow: hidden; }
+      #root > footer > section .contact_minimal > ul {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        padding: 0em 0.5em 1em 0.5em;
+        background-color: #333; }
+        #root > footer > section .contact_minimal > ul:first-child li:last-child {
+          margin-top: 25px; }
+        #root > footer > section .contact_minimal > ul li {
+          margin-left: 0px;
+          margin-right: 0px; }
+          #root > footer > section .contact_minimal > ul li:first-child {
+            margin-top: 10px;
+            margin-bottom: 10px; }
+          #root > footer > section .contact_minimal > ul li:nth-child(5) {
+            margin-top: 0px; }
+          #root > footer > section .contact_minimal > ul li a {
+            text-transform: uppercase; }
+  @media (min-width: 768px) {
+    #root > footer > section {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 75%;
+      margin: 10px 0px 10px 0px;
+      padding: 10px; } }
+  #root > footer > footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    background-color: #FFF;
+    padding: 10px; }
+  @media (min-width: 768px) {
+    #root > footer > footer {
+      flex-direction: row; } }
+
+/*
+ * Sitemap styling elements...
+ */
+#root .sitemap_navigation {
+  display: flex;
+  flex-direction: column; }
+  #root .sitemap_navigation > ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    background-color: #333; }
+    #root .sitemap_navigation > ul > li {
+      margin: 10px; }
+      #root .sitemap_navigation > ul > li.bold {
+        font-weight: 900; }
+  @media (min-width: 768px) {
+    #root .sitemap_navigation > ul {
+      margin-left: 10px; } }
+
+/*
+ * Copyright styling elements...
+ */
+#root > footer > footer > div {
+  background-color: #333; }
+
+#root > footer > footer > .footer_copyright {
+  margin-bottom: 1em;
+  font-size: 90%; }
+  #root > footer > footer > .footer_copyright > strong {
+    display: block;
+    margin: 1em; }
+
+@media (min-width: 768px) {
+  #root > footer > footer > .footer_copyright {
+    margin-bottom: 0em; } }
+
+#root > footer > footer .footer_by {
+  font-size: 75%; }
+  #root > footer > footer .footer_by > span {
+    display: block;
+    margin: 1em; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+  background-color: #444; }
+
+main > div > * {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+main > section {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 2em 0em 2em;
+  text-align: justify;
+  overflow: hidden; }
+
+main.home > section:nth-child(2) {
+  margin: 0em; }
+
+/*@media (min-width: 1024px) {
+    main:not(.home) > section {
+        margin: 3em 5em 2em 5em;
+    }
+}*/
+@media (min-width: 1366px) {
+  main:not(.home) > section {
+    margin: 5em 7em 3em 7em; } }
+
+main.home > section > nav {
+  background-color: #FFF; }
+
+main.content > section > * {
+  /*margin-bottom: 1em;*/
+  padding: 1em;
+  background-color: #FFF;
+  color: #000; }
+
+main > section > p {
+  font-size: 1.25em; }
+
+main.content > section > .contentContainer {
+  padding: 1em; }
+
+main.content > section > .contentContainer .collageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap; }
+
+@media (min-width: 768px) {
+  main.content > section > .contentContainer .collageContainer {
+    flex-direction: row; } }
+
+main.content > section > .contentContainer .collageContainer > a {
+  /*width: 75%;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em; }
+
+/*@media (min-width: 480px) {
+    main.content > section > .contentContainer .collageContainer > a {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    main.content > section > .contentContainer .collageContainer > a {
+        width: 25%;
+    }
+}*/
+main.content > section > .contentContainer .collageContainer > a > img {
+  display: block;
+  width: 100%; }
+
+main.content > section > .contentContainer .collageContainer > a > div {
+  position: absolute;
+  padding: 1em;
+  background-color: #000;
+  opacity: 0; }
+
+main.content > section > .contentContainer .collageContainer > a:focus > div {
+  opacity: 1; }
+
+main.form > section > .contentContainer {
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #FFF;
+  color: #000; }
+
+main.form > section > .childrenContainer {
+  display: flex;
+  flex-direction: column; }
+
+/*main.form > section > div:not(:nth-child(4)) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}*/
+.highlights_navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1em; }
+
+@media (min-width: 768px) {
+  .highlights_navigation {
+    flex-direction: row; } }
+
+.highlights_navigation > li {
+  flex: 0 1 100%;
+  position: relative;
+  max-height: 25vh;
+  width: 75%;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #333; }
+
+@media (min-width: 768px) {
+  .highlights_navigation > li {
+    flex: 0 1 40%; } }
+
+@media (min-width: 1366px) {
+  .highlights_navigation > li {
+    flex: 0 1 25%; } }
+
+.highlights_navigation > li > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  color: #F90;
+  /*Same as for a tags*/ }
+
+.highlights_navigation > li > a > div {
+  position: absolute;
+  /*    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    left: 0;*/ }
+
+.highlights_navigation > li > a > div > span {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 0.5em 1.5em;
+  background-color: #000;
+  font-size: 14px; }
+
+.highlights_navigation > li > a > div > span:after {
+  -webkit-transition-property: width,background-color,left;
+  -moz-transition-property: width,background-color,left;
+  -ms-transition-property: width,background-color,left;
+  -o-transition-property: width,background-color,left;
+  transition-property: width,background-color,left;
+  -webkit-transition-duration: .7s;
+  -moz-transition-duration: .7s;
+  -ms-transition-duration: .7s;
+  -o-transition-duration: .7s;
+  transition-duration: .7s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.highlights_navigation > li > a > div > span:after {
+  content: '';
+  display: block;
+  height: 0.2em;
+  width: 0;
+  position: relative;
+  left: 50%;
+  margin-top: 0.25em;
+  background-color: #FFF; }
+
+.highlights_navigation > li > a > div > span:after {
+  width: 100%;
+  left: 0;
+  background-color: #ffcd00; }
+
+.highlights_navigation > li > a > div > span:after {
+  content: '';
+  display: block;
+  height: 0.2em;
+  width: 0;
+  position: relative;
+  left: 50%;
+  margin-top: 0.25em;
+  background-color: #FFF; }
+
+.highlights_navigation > li:hover > a > div > span:after, .highlights_navigation > li > a:focus > div > span:after {
+  width: 100%;
+  left: 0;
+  background-color: #ffcd00; }
+
+.highlights_image {
+  display: block;
+  width: 100%;
+  height: 25vh; }
+
+.contact_summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1em; }
+
+@media (min-width: 768px) {
+  .contact_summary {
+    flex-direction: row; } }
+
+.contact_full {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0em;
+  padding: 1em;
+  background-color: #333; }
+
+@media (min-width: 768px) {
+  .contact_full {
+    flex: 1 0 30%; } }
+
+@media (min-width: 1366px) {
+  .contact_full {
+    flex: 1 0 25%; } }
+
+.contact_full > ul {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-bottom: 1em;
+  background-color: #333;
+  /*TODO: FFF*/ }
+
+.contact_full > ul > li {
+  margin-left: 0px;
+  margin-right: 0px; }
+
+.contact_full > ul > li:first-child {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.contact_full > ul > li:nth-child(5) {
+  margin-top: 0px; }
+
+.contact_full > ul:first-child > li:last-child {
+  margin-top: 25px;
+  /*margin-bottom: 25px;*/ }
+
+.contact_full > ul > li > a {
+  text-transform: uppercase; }
+
+.contact_map {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 60%;
+  padding: 1em;
+  background-color: #333; }
+
+.contact_map > iframe {
+  width: 100%;
+  min-height: 50vh; }
+
+@media (min-width: 1366px) {
+  .contact_map > iframe {
+    min-height: 75vh; } }
+
+.contact_tree {
+  display: flex;
+  flex-direction: column; }
+
+.contact_tree > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
+  background-color: #FFF; }
+
+@media (min-width: 768px) {
+  .contact_tree > ul {
+    flex-direction: row;
+    flex-wrap: wrap; } }
+
+.contact_tree > ul:first-child > li, .contact_tree > ul:last-child > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /*flex: 0 1 100%;*/
+  position: relative;
+  width: 75%;
+  max-height: 35vh;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #333; }
+
+.contact_tree > ul > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /*flex: 0 1 100%;*/
+  position: relative;
+  width: 75%;
+  max-height: 35vh;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #333; }
+
+@media (min-width: 768px) {
+  .contact_tree > ul:first-child > li {
+    flex: 0 1 40%; }
+  .contact_tree > ul:last-child > li {
+    flex: 0 1 25%; } }
+
+@media (min-width: 1366px) {
+  .contact_tree > ul:first-child > li, .contact_tree > ul:last-child > li {
+    flex: 0 1 25%; } }
+
+.contact_tree > ul > li > a, .contact_tree > ul > li > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+
+.contact_tree > ul > li.none > a {
+  cursor: not-allowed; }
+
+.contact_tree > ul:first-child > li > a > img {
+  display: block;
+  width: 100%;
+  height: 15vh; }
+
+@media (min-width: 480px) {
+  .contact_tree > ul:first-child > li > a > img {
+    height: 25vh; } }
+
+.contact_tree > ul:last-child > li > div > img {
+  display: block;
+  width: 100%;
+  height: 35vh; }
+
+.contact_tree > ul:first-child > li > a > div {
+  flex-direction: column;
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center; }
+
+.contact_tree > ul:last-child > li > div > div {
+  flex-direction: column;
+  position: absolute;
+  width: 110%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center; }
+
+.contact_tree > ul:first-child > li > a > div {
+  top: 50%; }
+
+.contact_tree > ul:last-child > li > div > div {
+  bottom: -10%; }
+
+.contact_tree > ul:last-child > li > div > div {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background .7s; }
+
+.contact_tree > ul:last-child > li > div > div:hover {
+  background: black; }
+
+.contact_tree > ul > li > a > div > span, .contact_tree > ul > li > div > div > span {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 0.5em 1.5em;
+  font-size: 14px; }
+
+.contact_tree > ul:first-child > li > a > div > span {
+  background-color: #000; }
+
+.contact_tree > ul:first-child > li:not(.none) > a > div > span:after,
+.contact_tree > ul:first-child > li.none > a > div > span:after {
+  -webkit-transition-property: width,background-color,left;
+  -moz-transition-property: width,background-color,left;
+  -ms-transition-property: width,background-color,left;
+  -o-transition-property: width,background-color,left;
+  transition-property: width,background-color,left;
+  -webkit-transition-duration: .7s;
+  -moz-transition-duration: .7s;
+  -ms-transition-duration: .7s;
+  -o-transition-duration: .7s;
+  transition-duration: .7s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.contact_tree > ul:first-child > li:not(.none) > a > div > span:after {
+  content: '';
+  display: block;
+  height: 0.2em;
+  width: 0;
+  position: relative;
+  left: 50%;
+  margin-top: 0.25em;
+  background-color: #FFF; }
+
+.contact_tree > ul:first-child > li:not(.none):hover > a > div > span:after,
+.contact_tree > ul:first-child > li:not(.none) > a:focus > div > span:after {
+  width: 100%;
+  left: 0;
+  background-color: #ffcd00; }
+
+.contact_tree > ul:first-child > li.none > a > div > span:after {
+  content: '';
+  display: block;
+  height: 0.2em;
+  width: 0;
+  position: relative;
+  left: 50%;
+  margin-top: 0.25em;
+  background-color: #FFF; }
+
+.contact_tree > ul:first-child > li.none:hover > a > div > span:after,
+.contact_tree > ul:first-child > li.none > a:focus > div > span:after {
+  width: 100%;
+  left: 0;
+  background-color: #F00; }
