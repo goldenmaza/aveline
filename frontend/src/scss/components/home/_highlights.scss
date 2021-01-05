@@ -1,0 +1,100 @@
+/*
+ * Highlights styling elements...
+ */
+
+#root {
+    .highlights_navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 1em;
+        li {
+            flex: 0 1 100%;
+            position: relative;
+            max-height: 25vh;
+            width: 75%;
+            margin-bottom: 1em;
+            padding: 1em;
+            background-color: #333;
+            &:hover {
+                a {
+                    div {
+                        span {
+                            &:after {
+                                width: 100%;
+                                left: 0;
+                                background-color: #ffcd00;
+                            }
+                        }
+                    }
+                }
+            }
+            a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                justify-items: center;
+                align-content: center;
+                align-items: center;
+                color: #F90;
+                &:focus {
+                    > div {
+                        > span {
+                            &:after {
+                                width: 100%;
+                                left: 0;
+                                background-color: #ffcd00;
+                            }
+                        }
+                    }
+                }
+                .highlights_image {
+                    display: block;
+                    width: 100%;
+                    height: 25vh;
+                }
+                div {
+                    position: absolute;
+                    span {
+                        display: flex;
+                        flex-direction: column;
+                        width: auto;
+                        padding: 0.5em 1.5em;
+                        background-color: #000;
+                        font-size: 14px;
+                        &:after {
+                            content: '';
+                            display: block;
+                            height: 0.2em;
+                            width: 0;
+                            position: relative;
+                            left: 50%;
+                            margin-top: 0.25em;
+                            background-color: #FFF;
+                            transition-property: width,background-color,left;
+                            transition-duration: .7s;
+                            transition-timing-function: ease;
+                        }
+                    }
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            li {
+                flex: 0 1 40%;
+            }
+        }
+        @media (min-width: 1366px) {
+            li {
+                flex: 0 1 25%;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        .highlights_navigation {
+            flex-direction: row;
+        }
+    }
+}
