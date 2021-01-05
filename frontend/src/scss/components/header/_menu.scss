@@ -1,0 +1,75 @@
+/*
+ * Menu styling elements...
+ */
+
+.handler_navigation {
+    flex					:	0 0 70%;
+    max-height				:	0;
+    width					:	100%;
+    list-style				:	none;
+    padding					:	0px;
+    border			        :	2px solid transparent;
+    text-align				:	center;
+    overflow				:	hidden;
+    transition				:	max-height 2s, padding 2s, border-bottom 2s;
+    &.active {
+        max-height				:	750px;
+        border-bottom			:	2px solid #F90;
+        transition				:	max-height 4s, padding 1s, border-bottom 4s;
+    }
+    li {
+        display					:	flex;
+        flex					:	0 0 auto;
+        align-items: center;
+        background-color: #444;
+        a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            padding: 0.5em 1.5em;
+            font-size: 14px;
+            background-color: #000;
+            color: #F90;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition							:	color .4s ease;
+            &:after {
+                content: '';
+                display: block;
+                height: 0.2em;
+                width: 0;
+                position: relative;
+                left: 50%;
+                margin-top: 0.25em;
+                background-color: #FFF;
+                transition-property: left,width,background-color,color;
+                transition-duration: .7s;
+                transition-timing-function: ease;
+            }
+            &:focus:after {
+                width: 100%;
+                left: 0;
+                background-color: #ffcd00;
+            }
+        }
+        &:hover {
+            a:after {
+                width: 100%;
+                left: 0;
+                background-color: #ffcd00;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .handler_navigation {
+        max-height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        &.active {
+            border-top			    :	2px solid transparent;
+            border-bottom			:	2px solid transparent;
+        }
+    }
+}
