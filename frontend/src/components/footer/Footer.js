@@ -22,14 +22,12 @@ class Footer extends Component {
                             <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />
                         </a>
                     </header>
-                    <div>
+                    <section>
                         <div className='contact_minimal'>
                             <Contact minimalContact={true} tag={tag} />
                         </div>
-                        <div>
-                            <Sitemap />
-                        </div>
-                    </div>
+                        <Sitemap />
+                    </section>
                     <footer>
                         <Copyright />
                     </footer>
