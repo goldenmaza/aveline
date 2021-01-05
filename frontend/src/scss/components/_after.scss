@@ -250,58 +250,6 @@ main.form > section > .childrenContainer {
     height: 25vh;
 }
 
-#root > footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-between;
-    justify-content: space-between;
-    background-color: #333;/*TODO: FFF*/
-    padding: 25px;
-}
-
-#root > footer > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 75%;
-    margin: 10px 0px 10px 0px;
-    padding: 10px;
-    background-color: #FFF;
-}
-
-@media (min-width: 768px) {
-    #root > footer > div {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        width: 75%;
-        margin: 10px 0px 10px 0px;
-        padding: 10px;
-    }
-}
-
-#root > footer > header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#root > footer > header > a {
-    display: block;
-    width: 75%;
-}
-
-#root > footer > header .footer_logotype {
-    display: block;
-    width: 100%;
-    background-color: #fff;
-}
-
-.contact_minimal {
-    margin-bottom: 1px;
-    overflow: hidden;
-}
 
 .contact_summary {
     display: flex;
@@ -337,7 +285,7 @@ main.form > section > .childrenContainer {
     }
 }
 
-.contact_minimal > ul, .contact_full > ul {
+.contact_full > ul {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -345,35 +293,26 @@ main.form > section > .childrenContainer {
     background-color: #333;/*TODO: FFF*/
 }
 
-.contact_minimal > ul {
-     padding: 0em 0.5em 1em 0.5em;
- }
-
-.contact_minimal > ul > li {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
 .contact_full > ul > li {
     margin-left: 0px;
     margin-right: 0px;
 }
 
-.contact_minimal > ul > li:first-child, .contact_full > ul > li:first-child {
+.contact_full > ul > li:first-child {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.contact_minimal > ul > li:nth-child(5), .contact_full > ul > li:nth-child(5) {
+.contact_full > ul > li:nth-child(5) {
     margin-top: 0px;
 }
 
-.contact_minimal > ul:first-child > li:last-child, .contact_full > ul:first-child > li:last-child {
+.contact_full > ul:first-child > li:last-child {
     margin-top: 25px;
     /*margin-bottom: 25px;*/
 }
 
-.contact_minimal > ul > li > a, .contact_full > ul > li > a {
+.contact_full > ul > li > a {
     text-transform: uppercase;
 }
 
@@ -597,97 +536,4 @@ main.form > section > .childrenContainer {
     width: 100%;
     left: 0;
     background-color: #F00;
-}
-
-.sitemap_navigation {
-    display: flex;
-    flex-direction: column;
-}
-
-.sitemap_navigation > ul {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 0;
-    background-color: #333;/*TODO: FFF*/
-}
-
-@media (min-width: 480px) {
-    .sitemap_navigation {
-        flex-direction: row;
-    }
-}
-
-@media (min-width: 768px) {
-    .sitemap_navigation > ul {
-        margin-left: 10px;
-    }
-}
-
-.sitemap_navigation > ul > li {
-    margin: 10px;
-}
-
-.sitemap_navigation > ul > li.bold {
-    font-weight: 900;
-}
-
-/*@media (min-width: 1366px) {
-    #root > footer section .footer_logotype {
-        width: 10%;
-    }
-}
-
-@media (min-width: 768px) {
-    #root > footer section .footer_logotype {
-        width: 10%;
-    }
-}
-
-@media (min-width: 480px) {
-    #root > footer section .footer_logotype {
-        width: 10%;
-    }
-}*/
-
-#root > footer > footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 75%;
-    background-color: #FFF;
-    padding: 10px;
-}
-
-@media (min-width: 768px) {
-    #root > footer > footer {
-        flex-direction: row;
-    }
-}
-
-#root > footer > footer > div {
-    background-color: #333;
-}
-
-.footer_copyright {
-    margin-bottom: 1em;
-    font-size: 90%;
-    /*color: #000;*/
-}
-
-@media (min-width: 768px) {
-    .footer_copyright {
-        margin-bottom: 0em;
-    }
-}
-
-.footer_by {
-    font-size: 75%;
-    /*color: #000;*/
-}
-
-.footer_copyright > strong, .footer_by > span {
-    display: block;
-    margin: 1em;
 }
