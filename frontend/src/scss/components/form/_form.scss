@@ -25,7 +25,6 @@
                 @media (min-width: 1024px) {
                     &:first-child {
                         flex-direction: row;
-                        border-radius: 4px;
                     }
                 }
                 &:last-child {
@@ -88,11 +87,11 @@
                         }
                     }
                 }
-                > .formGroup:last-child {
-                    .formRow {
-                        .formElement {
-                            margin: 0em 1em;
-                        }
+            }
+            > .formGroup:last-child {
+                .formRow {
+                    .formElement {
+                        margin: 0em 1em;
                     }
                 }
             }
