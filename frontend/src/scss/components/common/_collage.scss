@@ -1,0 +1,40 @@
+/*
+ * Collage styling elements...
+ */
+
+#root {
+    .collageContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            &:focus {
+                div {
+                    opacity: 1;
+                }
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+            div {
+                position: absolute;
+                padding: 1em;
+                background-color: #000;
+                opacity: 0;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        .collageContainer {
+            flex-direction: row;
+        }
+    }
+}
