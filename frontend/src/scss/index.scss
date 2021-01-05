@@ -1,6 +1,8 @@
 @import './components/global';
-@import './components/before';// Note: work incomplete...
+@import './components/root';
 @import './components/header/header';
+@import './components/header/handler';
+@import './components/header/menu';
 @import './components/home/highlights';
 @import './components/common/collage';
 @import './components/contact/contact';
@@ -9,4 +11,3 @@
 @import './components/footer/footer';
 @import './components/footer/sitemap';
 @import './components/footer/copyright';
-@import './components/after';// Note: work incomplete...
