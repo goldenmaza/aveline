@@ -4,8 +4,7 @@
 
 #root {
     .helpSection {
-        display: flex;
-        flex-direction: column;
+        @include flexLayoutColumnDefault;
         header {
             padding: 1em;
             background-color: #FFF;
@@ -14,8 +13,7 @@
             }
         }
         .helpRow {
-            display: flex;
-            flex-direction: column;
+            @include flexLayoutColumnDefault;
             justify-content: space-between;
             align-items: inherit;
             padding: 0em 1em 1em 1em;
@@ -32,8 +30,7 @@
                 }
             }
             .rowContent {
-                display: flex;
-                flex-direction: column;
+                @include flexLayoutColumnDefault;
                 justify-content: space-between;
                 align-items: flex-start;
                 flex: 0 0 75%;

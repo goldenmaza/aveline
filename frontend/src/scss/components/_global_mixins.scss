@@ -1,0 +1,17 @@
+/*
+ * Global mixins used for all scss files...
+ */
+
+@mixin flexLayoutDefault {
+    display: flex;
+}
+
+@mixin flexLayoutColumnDefault {
+    @include flexLayoutDefault;
+    flex-direction: column;
+}
+
+@mixin flexLayoutRowDefault {
+    @include flexLayoutDefault;
+    flex-direction: row;
+}

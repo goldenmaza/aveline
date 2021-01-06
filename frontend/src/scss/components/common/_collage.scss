@@ -4,14 +4,12 @@
 
 #root {
     .collageContainer {
-        display: flex;
-        flex-direction: column;
+        @include flexLayoutColumnDefault;
         justify-content: center;
         align-content: center;
         flex-wrap: wrap;
         a {
-            display: flex;
-            flex-direction: column;
+            @include flexLayoutColumnDefault;
             justify-content: center;
             align-items: center;
             padding: 1em;

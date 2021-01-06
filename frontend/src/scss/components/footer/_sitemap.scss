@@ -4,11 +4,9 @@
 
 #root {
     .sitemap_navigation {
-        display: flex;
-        flex-direction: column;
+        @include flexLayoutColumnDefault;
         ul {
-            display: flex;
-            flex-direction: column;
+            @include flexLayoutColumnDefault;
             width: 100%;
             margin-left: 0;
             background-color: #333;

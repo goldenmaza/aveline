@@ -5,15 +5,13 @@
 #root {
     #contactForm {
         > .formBody {
-            display: flex;
-            flex-direction: column;
+            @include flexLayoutColumnDefault;
             background-color: #444;
             > .formGroup {
                 padding: 1em;
                 background-color: #FFF;
                 &:first-child {
-                    display: flex;
-                    flex-direction: column;
+                    @include flexLayoutColumnDefault;
                     justify-content: space-between;
                     .formRow {
                         .formElement {
@@ -28,8 +26,7 @@
                     }
                 }
                 &:last-child {
-                    display: flex;
-                    flex-direction: row;
+                    @include flexLayoutRowDefault;
                     .formRow {
                         &:last-child {
                             width: 100%;
@@ -97,8 +94,7 @@
             }
             .formGroup {
                 .formRow {
-                    display: flex;
-                    flex-direction: column;
+                    @include flexLayoutColumnDefault;
                     padding: 0 1em 0 1em;
                     background-color: #333;
                     &:last-child {
@@ -106,8 +102,7 @@
                     }
                     .formElement {
                         label {
-                            display: flex;
-                            flex-direction: column;
+                            @include flexLayoutColumnDefault;
                             span {
                                 &:last-child {
                                     align-self: flex-end;

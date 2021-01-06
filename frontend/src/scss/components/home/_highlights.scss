@@ -4,8 +4,7 @@
 
 #root {
     .highlights_navigation {
-        display: flex;
-        flex-direction: column;
+        @include flexLayoutColumnDefault;
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
@@ -32,8 +31,7 @@
                 }
             }
             a {
-                display: flex;
-                flex-direction: column;
+                @include flexLayoutColumnDefault;
                 justify-content: center;
                 justify-items: center;
                 align-content: center;
@@ -58,8 +56,7 @@
                 div {
                     position: absolute;
                     span {
-                        display: flex;
-                        flex-direction: column;
+                        @include flexLayoutColumnDefault;
                         width: auto;
                         padding: 0.5em 1.5em;
                         background-color: #000;

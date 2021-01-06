@@ -7,15 +7,13 @@
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
+    @include flexLayoutColumnDefault;
     min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     background-color: #FFF;
     color: #CCC;
     > main {
-        display: flex;
-        flex-direction: column;
+        @include flexLayoutColumnDefault;
         padding-bottom: 2em;
         background-color: #444;
         &.home {
@@ -61,8 +59,7 @@
             }
         }
         > section {
-            display: flex;
-            flex-direction: column;
+            @include flexLayoutColumnDefault;
             margin: 2em 2em 0em 2em;
             text-align: justify;
             overflow: hidden;
