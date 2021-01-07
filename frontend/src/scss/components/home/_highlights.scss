@@ -16,7 +16,8 @@
             width: 75%;
             margin-bottom: 1em;
             padding: 1em;
-            background-color: #333;
+            background-color: $background-color-primary;
+            color: $font-color-primary;
             &:hover {
                 a {
                     div {
@@ -32,10 +33,7 @@
             }
             a {
                 @include flexLayoutColumnDefault;
-                justify-content: center;
-                justify-items: center;
-                align-content: center;
-                align-items: center;
+                @include flexLayoutCenterDefault;
                 color: #F90;
                 &:focus {
                     > div {
@@ -59,7 +57,8 @@
                         @include flexLayoutColumnDefault;
                         width: auto;
                         padding: 0.5em 1.5em;
-                        background-color: #000;
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
                         font-size: 14px;
                         &:after {
                             content: '';
@@ -69,7 +68,8 @@
                             position: relative;
                             left: 50%;
                             margin-top: 0.25em;
-                            background-color: #FFF;
+                            background-color: $background-color-secondary;
+                            color: $font-color-secondary;
                             transition-property: width,background-color,left;
                             transition-duration: .7s;
                             transition-timing-function: ease;

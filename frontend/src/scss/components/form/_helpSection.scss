@@ -7,9 +7,11 @@
         @include flexLayoutColumnDefault;
         header {
             padding: 1em;
-            background-color: #FFF;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
             * {
-                background-color: #333;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
             }
         }
         .helpRow {
@@ -17,16 +19,19 @@
             justify-content: space-between;
             align-items: inherit;
             padding: 0em 1em 1em 1em;
-            background-color: #FFF;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
             .rowLabel {
                 &:first-child {
                     flex: 0 0 20%;
                     padding: 0.5em;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                 }
                 &:last-child {
                     flex: 0 0 75%;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                 }
             }
             .rowContent {
@@ -35,7 +40,8 @@
                 align-items: flex-start;
                 flex: 0 0 75%;
                 padding: 0.5em;
-                background-color: #333;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
                 div {
                     &:first-child {
                         margin-bottom: 1em;
@@ -56,11 +62,13 @@
                 &:first-child {
                     flex: 0 0 20%;
                     padding: 0.5em;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                 }
                 &:last-child {
                     flex: 0 0 75%;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                 }
             }
         }

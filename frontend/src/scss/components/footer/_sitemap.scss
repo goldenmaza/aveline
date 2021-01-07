@@ -9,11 +9,16 @@
             @include flexLayoutColumnDefault;
             width: 100%;
             margin-left: 0;
-            background-color: #333;
+            background-color: $background-color-primary;
+            color: $font-color-primary;
             li {
                 margin: 10px;
                 &.bold {
                     font-weight: 900;
+                }
+                a {
+                    background-color: $background-color-tertiary;
+                    color: $font-color-tertiary;
                 }
             }
         }

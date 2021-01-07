@@ -15,7 +15,8 @@
         .nav_logotype {
             display: block;
             width: 75%;
-            background-color: #fff;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
         }
     }
     @media (min-width: 768px) {
@@ -28,8 +29,8 @@
     }
     .handler_toggle {
         padding: 0.5em;
-        background-color: #444;
-        color: #000;
+        background-color: $background-color-primary;
+        color: $font-color-primary;
         cursor: pointer;
         i {
             content: '';
@@ -37,7 +38,8 @@
             width: 25px;
             display: block;
             margin: 3px 0px;
-            background-color: #FFF;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
         }
         @media (min-width: 480px) {
             i {

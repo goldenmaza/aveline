@@ -10,41 +10,35 @@
     @include flexLayoutColumnDefault;
     min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    background-color: #FFF;
-    color: #CCC;
+    background-color: $background-color-primary;
+    color: $font-color-primary;
     > main {
         @include flexLayoutColumnDefault;
         padding-bottom: 2em;
-        background-color: #444;
+        background-color: $background-color-tertiary;
+        color: $font-color-tertiary;
         &.home {
             > section {
                 &:nth-child(2) {
                     margin: 0em;
                 }
                 > nav {
-                    background-color: #FFF;
-                }
-            }
-        }
-        @media (min-width: 1366px) {
-            &:not(.home) {
-                > section {
-                    margin: 0em 7em 0em 7em;
-                    &:nth-child(2) {
-                        margin: 5em 7em 0em 7em;
-                    }
+                    background-color: $background-color-secondary;
+                    color: $font-color-secondary;
                 }
             }
         }
         &.content {
             > section {
-                * {
+                > * {
                     padding: 1em;
-                    background-color: #FFF;
-                    color: #000;
                 }
                 > .contentContainer {
                     padding: 1em;
+                    > * {
+                        background-color: $background-color-primary;
+                        color: $font-color-primary;
+                    }
                 }
             }
         }
@@ -53,14 +47,30 @@
                 > .contentContainer {
                     margin-bottom: 1em;
                     padding: 1em;
-                    background-color: #FFF;
-                    color: #000;
+                    background-color: $background-color-secondary;
+                    color: $font-color-secondary;
+                    > * {
+                        background-color: $background-color-primary;
+                        color: $font-color-primary;
+                    }
+                }
+            }
+        }
+        @media (min-width: 1366px) {
+            &:not(.home) {
+                > section {
+                    margin: 1em 7em 0em 7em;
+                    &:nth-child(2) {
+                        margin: 5em 7em 0em 7em;
+                    }
                 }
             }
         }
         > section {
             @include flexLayoutColumnDefault;
             margin: 2em 2em 0em 2em;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
             text-align: justify;
             overflow: hidden;
         }

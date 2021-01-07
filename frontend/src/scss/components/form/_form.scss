@@ -9,7 +9,8 @@
             background-color: #444;
             > .formGroup {
                 padding: 1em;
-                background-color: #FFF;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
                 &:first-child {
                     @include flexLayoutColumnDefault;
                     justify-content: space-between;
@@ -96,7 +97,8 @@
                 .formRow {
                     @include flexLayoutColumnDefault;
                     padding: 0 1em 0 1em;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                     &:last-child {
                         padding-bottom: 1em;
                     }
@@ -125,10 +127,15 @@
                                     color: #FFF;
                                 }
                             }
+                            &:hover {
+                                border: 2px solid #ffcc00;
+                                background-color: $background-color-primary;
+                                color: $font-color-primary;
+                            }
                             &:focus {
                                 border: 2px solid #ffcc00;
-                                background-color: #000;
-                                color: #FFF;
+                                background-color: $background-color-primary;
+                                color: $font-color-primary;
                             }
                         }
                         textarea {
@@ -144,10 +151,15 @@
                                     color: #FFF;
                                 }
                             }
+                            &:hover {
+                                border: 2px solid #ffcc00;
+                                background-color: $background-color-primary;
+                                color: $font-color-primary;
+                            }
                             &:focus {
                                 border: 2px solid #ffcc00;
-                                background-color: #000;
-                                color: #FFF;
+                                background-color: $background-color-primary;
+                                color: $font-color-primary;
                             }
                         }
                     }

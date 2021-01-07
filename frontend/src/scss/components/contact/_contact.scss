@@ -14,12 +14,14 @@
                 flex: 1;
                 margin: 0em;
                 padding: 1em;
-                background-color: #333;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
                 ul {
                     @include flexLayoutColumnDefault;
                     margin-bottom: 10px;
                     padding-bottom: 1em;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                     &:first-child {
                         li {
                             &:last-child {
@@ -39,6 +41,10 @@
                             margin-top: 10px;
                             margin-bottom: 10px;
                         }
+                        a {
+                            background-color: $background-color-tertiary;
+                            color: $font-color-tertiary;
+                        }
                     }
                 }
             }
@@ -56,7 +62,8 @@
                 @include flexLayoutRowDefault;
                 flex: 1 0 60%;
                 padding: 1em;
-                background-color: #333;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
                 iframe {
                     width: 100%;
                     min-height: 50vh;
@@ -82,7 +89,8 @@
                 flex-wrap: wrap;
                 padding-bottom: 2em;
                 margin-bottom: 1em;
-                background-color: #FFF;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
                 li {
                     @include flexLayoutColumnDefault;
                     justify-content: space-evenly;
@@ -92,7 +100,8 @@
                     max-height: 35vh;
                     margin-top: 2em;
                     padding: 1em;
-                    background-color: #333;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
                     &.none {
                         &:hover {
                             a {
@@ -130,7 +139,8 @@
                                         position: relative;
                                         left: 50%;
                                         margin-top: 0.25em;
-                                        background-color: #FFF;
+                                        background-color: $background-color-secondary;
+                                        color: $font-color-secondary;
                                         transition-property: width,background-color,left;
                                         transition-duration: .7s;
                                         transition-timing-function: ease;
@@ -175,7 +185,8 @@
                                         position: relative;
                                         left: 50%;
                                         margin-top: 0.25em;
-                                        background-color: #FFF;
+                                        background-color: $background-color-secondary;
+                                        color: $font-color-secondary;
                                         transition-property: width,background-color,left;
                                         transition-duration: .7s;
                                         transition-timing-function: ease;
@@ -188,6 +199,8 @@
                         @include flexLayoutColumnDefault;
                         align-items: center;
                         width: 100%;
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
                         .office_image {
                             display: block;
                             width: 100%;
@@ -210,7 +223,8 @@
                                 @include flexLayoutColumnDefault;
                                 width: auto;
                                 padding: 0.5em 1.5em;
-                                background-color: #000;
+                                background-color: $background-color-tertiary;
+                                color: $font-color-tertiary;
                                 font-size: 14px;
                             }
                         }

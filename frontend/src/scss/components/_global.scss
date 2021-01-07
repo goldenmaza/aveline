@@ -3,10 +3,11 @@
  */
 
 @import './global_variables';
+@import './global_themes';
 @import './global_mixins';
 
-html, body, header, section, div, span, img, h1, h2, h3, h4,
-p, a, q, strong, ul, li, iframe, video, audio, footer {
+html, body, header, footer, section, div, span, img, h1, h2, h3, h4,
+p, a, q, strong, ul, li, iframe, video, audio, input, textarea {
     margin: 0;
     padding: 0;
     border: 0;
@@ -44,23 +45,4 @@ ul {
 
 a {
     text-decoration: none;
-    color: #F90;
-    &:hover {
-        color: #FFCD00;
-    }
-    &:focus {
-        color: #FFCD00;
-    }
-}
-
-input {
-    &:focus {
-        outline: none;
-    }
-}
-
-textarea {
-    &:focus {
-        outline: none;
-    }
 }

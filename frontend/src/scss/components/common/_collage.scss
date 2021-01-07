@@ -5,14 +5,17 @@
 #root {
     .collageContainer {
         @include flexLayoutColumnDefault;
-        justify-content: center;
-        align-content: center;
+        @include flexLayoutCenterDefault;
         flex-wrap: wrap;
         a {
             @include flexLayoutColumnDefault;
-            justify-content: center;
-            align-items: center;
+            @include flexLayoutCenterDefault;
             padding: 1em;
+            &:hover {
+                div {
+                    opacity: 1;
+                }
+            }
             &:focus {
                 div {
                     opacity: 1;
@@ -25,7 +28,8 @@
             div {
                 position: absolute;
                 padding: 1em;
-                background-color: #000;
+                background-color: $background-color-tertiary;
+                color: $font-color-tertiary;
                 opacity: 0;
             }
         }

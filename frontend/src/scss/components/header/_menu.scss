@@ -22,15 +22,14 @@
         @include flexLayoutColumnDefault;
         flex: 0 0 auto;
         align-items: center;
-        background-color: #444;
         a {
             @include flexLayoutColumnDefault;
             width: 100%;
             height: auto;
             padding: 0.5em 1.5em;
             font-size: 14px;
-            background-color: #000;
-            color: #F90;
+            background-color: $background-color-tertiary;
+            color: $font-color-tertiary;
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color .4s ease;

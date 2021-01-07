@@ -6,7 +6,8 @@
     > footer {
         footer {
             div {
-                background-color: #333;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
             }
             .footer_copyright {
                 margin-bottom: 1em;
@@ -14,6 +15,10 @@
                 strong {
                     display: block;
                     margin: 1em;
+                    a {
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
+                    }
                 }
             }
             @media (min-width: 768px) {
@@ -26,6 +31,10 @@
                 span {
                     display: block;
                     margin: 1em;
+                    a {
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
+                    }
                 }
             }
         }
