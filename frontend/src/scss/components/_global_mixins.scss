@@ -15,3 +15,10 @@
     @include flexLayoutDefault;
     flex-direction: row;
 }
+
+@mixin flexLayoutCenterDefault {
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
