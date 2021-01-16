@@ -22,3 +22,52 @@
     justify-content: center;
     justify-items: center;
 }
+
+@mixin flexLayoutResponsive {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+@mixin flexLayoutBasisAuto {
+    flex-basis: auto;
+}
+
+@mixin flexLayoutBasisTwenty {
+    flex-basis: 20%;
+}
+
+@mixin flexLayoutBasisTwentyFive {
+    flex-basis: 25%;
+}
+
+@mixin flexLayoutBasisThirty {
+    flex-basis: 30%;
+}
+
+@mixin flexLayoutBasisForty {
+    flex-basis: 40%;
+}
+
+@mixin flexLayoutBasisFifty {
+    flex-basis: 50%;
+}
+
+@mixin flexLayoutBasisFiftyFive {
+    flex-basis: 55%;
+}
+
+@mixin flexLayoutBasisSixty {
+    flex-basis: 60%;
+}
+
+@mixin flexLayoutBasisSeventy {
+    flex-basis: 70%;
+}
+
+@mixin flexLayoutBasisSeventyFive {
+    flex-basis: 75%;
+}
+
+@mixin flexLayoutBasisMax {
+    flex-basis: 100%;
+}
