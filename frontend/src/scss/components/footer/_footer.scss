@@ -62,7 +62,7 @@
                 }
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: $resolution-large-mobile) {
             section {
                 @include flexLayoutRowDefault;
                 justify-content: flex-start;
@@ -80,7 +80,7 @@
             color: $font-color-secondary;
             padding: $padding-all;
         }
-        @media (min-width: 768px) {
+        @media (min-width: $resolution-large-mobile) {
             footer {
                 flex-direction: row;
             }

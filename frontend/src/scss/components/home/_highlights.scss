@@ -34,7 +34,8 @@
             a {
                 @include flexLayoutColumnDefault;
                 @include flexLayoutCenterDefault;
-                color: #F90;
+                background-color: $background-color-tertiary;
+                color: $font-color-tertiary;
                 &:focus {
                     > div {
                         > span {
@@ -56,10 +57,10 @@
                     span {
                         @include flexLayoutColumnDefault;
                         width: auto;
-                        padding: $padding-tb-lr;
+                        padding: $padding-rl-tb;
                         background-color: $background-color-tertiary;
                         color: $font-color-tertiary;
-                        font-size: 14px;
+                        font-size: $font-size-small;
                         &:after {
                             content: '';
                             display: block;
@@ -78,18 +79,18 @@
                 }
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: $resolution-large-mobile) {
             li {
                 @include flexLayoutBasisForty;
             }
         }
-        @media (min-width: 1366px) {
+        @media (min-width: $resolution-small-monitor) {
             li {
                 @include flexLayoutBasisTwentyFive;
             }
         }
     }
-    @media (min-width: 768px) {
+    @media (min-width: $resolution-large-mobile) {
         .highlights_navigation {
             flex-direction: row;
         }

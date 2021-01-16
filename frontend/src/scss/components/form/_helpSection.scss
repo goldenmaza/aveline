@@ -72,7 +72,7 @@
                 }
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: $resolution-large-mobile) {
             .helpRow {
                 flex-direction: row;
                 align-items: center;

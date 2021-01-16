@@ -56,7 +56,7 @@
                 }
             }
         }
-        @media (min-width: 1366px) {
+        @media (min-width: $resolution-small-monitor) {
             &:not(.home) {
                 > section {
                     margin: $margin-custom-section-large;

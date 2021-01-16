@@ -11,7 +11,7 @@
             }
             .footer_copyright {
                 margin: $margin-bottom;
-                font-size: 90%;
+                font-size: $font-size-small;
                 strong {
                     display: block;
                     margin: $margin-all;
@@ -21,13 +21,13 @@
                     }
                 }
             }
-            @media (min-width: 768px) {
+            @media (min-width: $resolution-large-mobile) {
                 .footer_copyright {
                     margin: $margin-none;
                 }
             }
             .footer_by {
-                font-size: 75%;
+                font-size: $font-size-small;
                 span {
                     display: block;
                     margin: $margin-all;

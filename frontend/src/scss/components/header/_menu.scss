@@ -27,7 +27,7 @@
             width: 100%;
             height: auto;
             padding: $padding-rl-tb;
-            font-size: 14px;
+            font-size: $font-size-small;
             background-color: $background-color-tertiary;
             color: $font-color-tertiary;
             letter-spacing: 1px;
@@ -41,7 +41,8 @@
                 position: relative;
                 left: 50%;
                 margin: $margin-top-half;
-                background-color: #FFF;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
                 transition-property: left,width,background-color,color;
                 transition-duration: .7s;
                 transition-timing-function: ease;
@@ -61,7 +62,7 @@
         }
     }
 }
-@media (min-width: 768px) {
+@media (min-width: $resolution-large-mobile) {
     .handler_navigation {
         @include flexLayoutRowDefault;
         max-height: 100%;

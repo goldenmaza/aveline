@@ -43,13 +43,13 @@
                     }
                 }
             }
-            @media (min-width: 768px) {
+            @media (min-width: $resolution-large-mobile) {
                 .contact_full {
                     @include flexLayoutBasisThirty;
                     @include flexLayoutResponsive;
                 }
             }
-            @media (min-width: 1366px) {
+            @media (min-width: $resolution-small-monitor) {
                 .contact_full {
                     @include flexLayoutBasisTwentyFive;
                     @include flexLayoutResponsive;
@@ -66,14 +66,14 @@
                     width: 100%;
                     min-height: 50vh;
                 }
-                @media (min-width: 1366px) {
+                @media (min-width: $resolution-small-monitor) {
                     iframe {
                         min-height: 75vh;
                     }
                 }
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: $resolution-large-mobile) {
             .contact_summary {
                 flex-direction: row;
             }
@@ -223,7 +223,7 @@
                                 padding: $padding-rl-tb;
                                 background-color: $background-color-tertiary;
                                 color: $font-color-tertiary;
-                                font-size: 14px;
+                                font-size: $font-size-small;
                             }
                         }
                     }
@@ -253,7 +253,7 @@
                                 flex-direction: column;
                                 width: auto;
                                 padding: $padding-rl-tb;
-                                font-size: 14px;
+                                font-size: $font-size-small;
                                 &:last-child {
                                     a {
                                         text-transform: uppercase;
@@ -264,7 +264,7 @@
                     }
                 }
             }
-            @media (min-width: 768px) {
+            @media (min-width: $resolution-large-mobile) {
                 ul {
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -280,7 +280,7 @@
                     }
                 }
             }
-            @media (min-width: 1366px) {
+            @media (min-width: $resolution-small-monitor) {
                 ul {
                     &:first-child {
                         li {
