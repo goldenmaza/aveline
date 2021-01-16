@@ -7,3 +7,41 @@ $color-white: #FFF;
 $color-grey: #CCC;
 $color-grey-dark: #333;
 $color-orange: #F90;
+
+// Margin variables...
+$margin-none: 0;
+$margin-auto: 0 auto;
+$margin-all: 1rem;
+$margin-all-half: 0.5rem;
+$margin-rl-tb: 0 1rem 0 1rem;
+$margin-tb-lr: 1rem 0 1rem 0;
+$margin-top: 1rem 0 0 0;
+$margin-top-double: 2rem 0 0 0;
+$margin-top-half: 0.5rem 0 0 0;
+$margin-right: 0 1rem 0 0;
+$margin-right-half: 0 0.5rem 0 0;
+$margin-bottom: 0 0 1rem 0;
+$margin-bottom-half: 0 0 0.5rem 0;
+$margin-left: 0 0 0 1rem;
+$margin-left-half: 0 0 0 0.5rem;
+$margin-custom-i: 3px 0px;
+$margin-custom-section-large: 1rem 7rem 0rem 7rem;
+$margin-custom-section-larger: 5rem 7rem 0rem 7rem;
+
+// Padding variables...
+$padding-none: 0;
+$padding-all: 1rem;
+$padding-all-half: 0.5rem;
+$padding-rl-tb: 0.5rem 1.5rem 0.5rem 1.5rem;
+$padding-tb-lr: 1.5rem 0.5rem 1.5rem 0.5rem;
+$padding-top: 1rem 0 0 0;
+$padding-top-half: 0.5rem 0 0 0;
+$padding-right: 0 1rem 0 0;
+$padding-right-half: 0 0.5rem 0 0;
+$padding-bottom: 0 0 1rem 0;
+$padding-bottom-double: 0 0 2rem 0;
+$padding-bottom-half: 0 0 0.5rem 0;
+$padding-left: 0 0 0 1rem;
+$padding-left-half: 0 0 0 0.5rem;
+$padding-custom-formRow: 0rem 1.5rem;
+$padding-custom-ul: 0rem 0.5rem 1rem 0.5rem;
