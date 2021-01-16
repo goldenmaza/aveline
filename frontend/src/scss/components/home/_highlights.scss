@@ -8,14 +8,14 @@
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
-        margin-top: 1em;
+        margin: $margin-top;
         li {
-            flex: 0 1 100%;
+            @include flexLayoutBasisMax;
             position: relative;
             max-height: 25vh;
             width: 75%;
-            margin-bottom: 1em;
-            padding: 1em;
+            margin: $margin-bottom;
+            padding: $padding-all;
             background-color: $background-color-primary;
             color: $font-color-primary;
             &:hover {
@@ -56,7 +56,7 @@
                     span {
                         @include flexLayoutColumnDefault;
                         width: auto;
-                        padding: 0.5em 1.5em;
+                        padding: $padding-tb-lr;
                         background-color: $background-color-tertiary;
                         color: $font-color-tertiary;
                         font-size: 14px;
@@ -67,7 +67,7 @@
                             width: 0;
                             position: relative;
                             left: 50%;
-                            margin-top: 0.25em;
+                            margin: $margin-top-half;
                             background-color: $background-color-secondary;
                             color: $font-color-secondary;
                             transition-property: width,background-color,left;
@@ -80,12 +80,12 @@
         }
         @media (min-width: 768px) {
             li {
-                flex: 0 1 40%;
+                @include flexLayoutBasisForty;
             }
         }
         @media (min-width: 1366px) {
             li {
-                flex: 0 1 25%;
+                @include flexLayoutBasisTwentyFive;
             }
         }
     }

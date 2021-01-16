@@ -4,11 +4,11 @@
 
 .handler_navigation {
     @include flexLayoutColumnDefault;
-    flex: 0 0 70%;
+    @include flexLayoutBasisSeventy;
     max-height: 0;
     width: 100%;
     list-style: none;
-    padding: 0px;
+    padding: $padding-none;
     border: 2px solid transparent;
     text-align: center;
     overflow: hidden;
@@ -20,13 +20,13 @@
     }
     li {
         @include flexLayoutColumnDefault;
-        flex: 0 0 auto;
+        @include flexLayoutBasisAuto;
         align-items: center;
         a {
             @include flexLayoutColumnDefault;
             width: 100%;
             height: auto;
-            padding: 0.5em 1.5em;
+            padding: $padding-rl-tb;
             font-size: 14px;
             background-color: $background-color-tertiary;
             color: $font-color-tertiary;
@@ -40,7 +40,7 @@
                 width: 0;
                 position: relative;
                 left: 50%;
-                margin-top: 0.25em;
+                margin: $margin-top-half;
                 background-color: #FFF;
                 transition-property: left,width,background-color,color;
                 transition-duration: .7s;

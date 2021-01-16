@@ -14,13 +14,13 @@
     color: $font-color-primary;
     > main {
         @include flexLayoutColumnDefault;
-        padding-bottom: 2em;
+        padding: $padding-bottom-double;
         background-color: $background-color-tertiary;
         color: $font-color-tertiary;
         &.home {
             > section {
                 &:nth-child(2) {
-                    margin: 0em;
+                    margin: $margin-none;
                 }
                 > nav {
                     background-color: $background-color-secondary;
@@ -31,10 +31,10 @@
         &.content {
             > section {
                 > * {
-                    padding: 1em;
+                    padding: $padding-all;
                 }
                 > .contentContainer {
-                    padding: 1em;
+                    padding: $padding-all;
                     > * {
                         background-color: $background-color-primary;
                         color: $font-color-primary;
@@ -45,13 +45,13 @@
         &.form {
             > section {
                 > .contentContainer {
-                    margin-bottom: 1em;
-                    padding: 1em;
+                    padding: $padding-all;
                     background-color: $background-color-secondary;
                     color: $font-color-secondary;
                     > * {
                         background-color: $background-color-primary;
                         color: $font-color-primary;
+                        padding: $padding-all;
                     }
                 }
             }
@@ -59,16 +59,16 @@
         @media (min-width: 1366px) {
             &:not(.home) {
                 > section {
-                    margin: 1em 7em 0em 7em;
+                    margin: $margin-custom-section-large;
                     &:nth-child(2) {
-                        margin: 5em 7em 0em 7em;
+                        margin: $margin-custom-section-larger;
                     }
                 }
             }
         }
         > section {
             @include flexLayoutColumnDefault;
-            margin: 2em 2em 0em 2em;
+            margin: $margin-all;
             background-color: $background-color-secondary;
             color: $font-color-secondary;
             text-align: justify;

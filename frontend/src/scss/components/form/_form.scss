@@ -8,7 +8,7 @@
             @include flexLayoutColumnDefault;
             background-color: #444;
             > .formGroup {
-                padding: 1em;
+                padding: $padding-all;
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;
                 &:first-child {
@@ -17,7 +17,7 @@
                     .formRow {
                         .formElement {
                             width: 100%;
-                            padding-top: 1em;
+                            padding: $padding-top;
                         }
                     }
                 }
@@ -52,19 +52,12 @@
                 }
                 > .formGroup {
                     &:first-child {
-                        flex: 1 1 30%;
+                        @include flexLayoutBasisThirty;
+                        @include flexLayoutResponsive;
                     }
                     &:last-child {
-                        flex: 1 1 60%;
-                    }
-                    @media (min-width: 1024px) {
-                        &:first-child {
-                            flex-direction: row;
-                            flex: 1 1 40%;
-                        }
-                        &:last-child {
-                            flex: 1 1 55%;
-                        }
+                        @include flexLayoutBasisSixty;
+                        @include flexLayoutResponsive;
                     }
                 }
                 > .formGroup:first-child {
@@ -88,20 +81,20 @@
             }
             > .formGroup:last-child {
                 .formRow {
+                    &:last-child {
+                        padding: $padding-bottom;
+                    }
                     .formElement {
-                        margin: 0em 1em;
+                        margin: $margin-rl-tb;
                     }
                 }
             }
             .formGroup {
                 .formRow {
                     @include flexLayoutColumnDefault;
-                    padding: 0 1em 0 1em;
+                    padding: $padding-custom-formRow;
                     background-color: $background-color-primary;
                     color: $font-color-primary;
-                    &:last-child {
-                        padding-bottom: 1em;
-                    }
                     .formElement {
                         label {
                             @include flexLayoutColumnDefault;
@@ -117,7 +110,7 @@
                         }
                         input {
                             height: unset;
-                            padding: 1em;
+                            padding: $padding-all;
                             border: 2px solid #e5e5e5;
                             border-radius: 4px;
                             box-shadow: 0 0 0 0 transparent;
@@ -140,7 +133,7 @@
                         }
                         textarea {
                             min-height: 27vh;
-                            padding: 1em;
+                            padding: $padding-all;
                             border: 2px solid #e5e5e5;
                             border-radius: 4px;
                             resize: none;
@@ -167,11 +160,6 @@
                 @media (min-width: 768px) {
                     .formRow {
                         flex-direction: row;
-                    }
-                }
-                &:first-child {
-                    .formRow:last-child {
-                        padding-bottom: 1em;
                     }
                 }
             }

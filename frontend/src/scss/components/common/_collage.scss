@@ -10,7 +10,7 @@
         a {
             @include flexLayoutColumnDefault;
             @include flexLayoutCenterDefault;
-            padding: 1em;
+            padding: $padding-all;
             &:hover {
                 div {
                     opacity: 1;
@@ -27,7 +27,7 @@
             }
             div {
                 position: absolute;
-                padding: 1em;
+                padding: $padding-all;
                 background-color: $background-color-tertiary;
                 color: $font-color-tertiary;
                 opacity: 0;

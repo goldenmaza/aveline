@@ -6,7 +6,7 @@
     .helpSection {
         @include flexLayoutColumnDefault;
         header {
-            padding: 1em;
+            padding: $padding-all;
             background-color: $background-color-secondary;
             color: $font-color-secondary;
             * {
@@ -18,55 +18,55 @@
             @include flexLayoutColumnDefault;
             justify-content: space-between;
             align-items: inherit;
-            padding: 0em 1em 1em 1em;
+            padding: $padding-all;
             background-color: $background-color-secondary;
             color: $font-color-secondary;
             .rowLabel {
                 &:first-child {
-                    flex: 0 0 20%;
-                    padding: 0.5em;
+                    @include flexLayoutBasisTwenty;
+                    padding: $padding-all-half;
                     background-color: $background-color-primary;
                     color: $font-color-primary;
                 }
                 &:last-child {
-                    flex: 0 0 75%;
+                    @include flexLayoutBasisSeventyFive;
                     background-color: $background-color-primary;
                     color: $font-color-primary;
                 }
             }
             .rowContent {
                 @include flexLayoutColumnDefault;
+                @include flexLayoutBasisSeventyFive;
                 justify-content: space-between;
                 align-items: flex-start;
-                flex: 0 0 75%;
-                padding: 0.5em;
+                padding: $padding-all-half;
                 background-color: $background-color-primary;
                 color: $font-color-primary;
                 div {
                     &:first-child {
-                        margin-bottom: 1em;
+                        margin: $margin-bottom;
                     }
                     p {
                         strong {
-                            margin-right: 1em;
+                            margin: $margin-right;
                         }
                     }
                 }
                 p {
                     strong {
-                        margin-right: 1em;
+                        margin: $margin-right;
                     }
                 }
             }
             > p {
                 &:first-child {
-                    flex: 0 0 20%;
-                    padding: 0.5em;
+                    @include flexLayoutBasisTwenty;
+                    padding: $padding-all-half;
                     background-color: $background-color-primary;
                     color: $font-color-primary;
                 }
                 &:last-child {
-                    flex: 0 0 75%;
+                    @include flexLayoutBasisSeventyFive;
                     background-color: $background-color-primary;
                     color: $font-color-primary;
                 }
