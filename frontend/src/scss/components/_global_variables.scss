@@ -2,11 +2,22 @@
  * Global variables used for all scss files...
  */
 
+// Colours used for background, text and borders...
 $color-black: #000;
 $color-white: #FFF;
 $color-grey: #CCC;
 $color-grey-dark: #333;
 $color-orange: #F90;
+
+// Font sizes...
+$font-size: 1em;
+$font-size-h1: $font-size * 2.50;
+$font-size-h2: $font-size * 2.25;
+$font-size-h3: $font-size * 2.00;
+$font-size-h4: $font-size * 1.75;
+$font-size-h5: $font-size * 1.50;
+$font-size-small: $font-size * 0.90;
+$font-size-smaller: $font-size * 0.75;
 
 // Margin variables...
 $margin-none: 0;
@@ -45,3 +56,10 @@ $padding-left: 0 0 0 1rem;
 $padding-left-half: 0 0 0 0.5rem;
 $padding-custom-formRow: 0rem 1.5rem;
 $padding-custom-ul: 0rem 0.5rem 1rem 0.5rem;
+
+// Resolutions variables...
+$resolution-small-mobile: 480px;
+$resolution-large-mobile: 768px;
+$resolution-large-tablet: 1024px;
+$resolution-small-monitor: 1366px;
+$resolution-large-monitor: 1600px;
