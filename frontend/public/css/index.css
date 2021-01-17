@@ -9,6 +9,9 @@ p, a, q, strong, ul, li, iframe, video, audio, input, textarea {
   outline: 0;
   vertical-align: baseline; }
 
+html {
+  font-family: CUSTOM, "Segoe UI", Arial, sans-serif, -apple-system, BlinkMacSystemFont, Helvetica, Ubuntu, Roboto, "Droid Sans", Oxygen-Sans, Cantarell; }
+
 h1 {
   font-size: 2.5em; }
 
@@ -43,7 +46,6 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   background-color: #333;
   color: #CCC; }
   #root > main {
@@ -160,7 +162,7 @@ a {
   display: flex;
   flex-direction: column;
   flex-basis: 70%;
-  max-height: 0;
+  max-height: 0vh;
   width: 100%;
   list-style: none;
   padding: 0;
@@ -193,7 +195,7 @@ a {
         content: '';
         display: block;
         height: 0.2em;
-        width: 0;
+        width: 0%;
         position: relative;
         left: 50%;
         margin: 0.5rem 0 0 0;
@@ -204,11 +206,11 @@ a {
         transition-timing-function: ease; }
       #root .handler_navigation li a:focus:after {
         width: 100%;
-        left: 0;
+        left: 0%;
         background-color: #ffcd00; }
     #root .handler_navigation li:hover a:after {
       width: 100%;
-      left: 0;
+      left: 0%;
       background-color: #ffcd00; }
 
 @media (min-width: 768px) {
@@ -273,7 +275,7 @@ a {
             content: '';
             display: block;
             height: 0.2em;
-            width: 0;
+            width: 0%;
             position: relative;
             left: 50%;
             margin: 0.5rem 0 0 0;
@@ -424,7 +426,7 @@ a {
             content: '';
             display: block;
             height: 0.2em;
-            width: 0;
+            width: 0%;
             position: relative;
             left: 50%;
             margin: 0.5rem 0 0 0;
@@ -445,7 +447,7 @@ a {
           content: '';
           display: block;
           height: 0.2em;
-          width: 0;
+          width: 0%;
           position: relative;
           left: 50%;
           margin: 0.5rem 0 0 0;
