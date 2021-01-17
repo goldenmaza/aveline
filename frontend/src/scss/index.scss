@@ -1,13 +1,15 @@
 @import './components/global';
 @import './components/root';
-@import './components/header/header';
-@import './components/header/handler';
-@import './components/header/menu';
-@import './components/home/highlights';
-@import './components/common/collage';
-@import './components/contact/contact';
-@import './components/form/form';
-@import './components/form/helpSection';
-@import './components/footer/footer';
-@import './components/footer/sitemap';
-@import './components/footer/copyright';
+#root {
+    @import './components/header/header';
+    @import './components/header/handler';
+    @import './components/header/menu';
+    @import './components/home/highlights';
+    @import './components/common/collage';
+    @import './components/contact/contact';
+    @import './components/form/form';
+    @import './components/form/helpSection';
+    @import './components/footer/footer';
+    @import './components/footer/sitemap';
+    @import './components/footer/copyright';
+}

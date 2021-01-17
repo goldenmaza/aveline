@@ -1,31 +1,27 @@
-/*
- * Sitemap styling elements...
- */
+// Sitemap styling elements...
 
-#root {
-    .sitemap_navigation {
+.sitemap_navigation {
+    @include flexLayoutColumnDefault;
+    ul {
         @include flexLayoutColumnDefault;
-        ul {
-            @include flexLayoutColumnDefault;
-            width: 100%;
-            margin-left: $margin-none;
-            background-color: $background-color-primary;
-            color: $font-color-primary;
-            li {
-                margin: $margin-all-half;
-                &.bold {
-                    font-weight: 900;
-                }
-                a {
-                    background-color: $background-color-tertiary;
-                    color: $font-color-tertiary;
-                }
+        width: 100%;
+        margin-left: $margin-none;
+        background-color: $background-color-primary;
+        color: $font-color-primary;
+        li {
+            margin: $margin-all-half;
+            &.bold {
+                font-weight: 900;
+            }
+            a {
+                background-color: $background-color-tertiary;
+                color: $font-color-tertiary;
             }
         }
-        @media (min-width: $resolution-large-mobile) {
-            ul {
-                margin-left: $margin-all-half;
-            }
+    }
+    @media (min-width: $resolution-large-mobile) {
+        ul {
+            margin-left: $margin-all-half;
         }
     }
 }

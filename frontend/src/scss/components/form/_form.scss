@@ -1,167 +1,163 @@
-/*
- * Form styling elements...
- */
+// Form styling elements...
 
-#root {
-    #contactForm {
-        > .formBody {
-            @include flexLayoutColumnDefault;
-            background-color: $background-color-primary;
-            color: $font-color-primary;
-            > .formGroup {
-                padding: $padding-all;
-                background-color: $background-color-secondary;
-                color: $font-color-secondary;
+#contactForm {
+    > .formBody {
+        @include flexLayoutColumnDefault;
+        background-color: $background-color-primary;
+        color: $font-color-primary;
+        > .formGroup {
+            padding: $padding-all;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
+            &:first-child {
+                @include flexLayoutColumnDefault;
+                justify-content: space-between;
+                .formRow {
+                    .formElement {
+                        width: 100%;
+                        padding: $padding-top;
+                    }
+                }
+            }
+            @media (min-width: $resolution-large-tablet) {
                 &:first-child {
-                    @include flexLayoutColumnDefault;
-                    justify-content: space-between;
-                    .formRow {
-                        .formElement {
-                            width: 100%;
-                            padding: $padding-top;
+                    flex-direction: row;
+                }
+            }
+            &:last-child {
+                @include flexLayoutRowDefault;
+                .formRow {
+                    &:last-child {
+                        width: 100%;
+                    }
+                    @media (min-width: $resolution-small-mobile) {
+                        &:last-child {
+                            width: auto;
+                            justify-content: space-evenly;
+                        }
+                    }
+                    @media (min-width: $resolution-large-tablet) {
+                        &:last-child {
+                            justify-content: flex-end;
                         }
                     }
                 }
-                @media (min-width: $resolution-large-tablet) {
-                    &:first-child {
-                        flex-direction: row;
-                    }
+            }
+            @media (min-width: $resolution-small-mobile) {
+                &:last-child {
+                    flex-direction: column;
+                }
+            }
+            > .formGroup {
+                &:first-child {
+                    @include flexLayoutBasisThirty;
+                    @include flexLayoutResponsive;
                 }
                 &:last-child {
-                    @include flexLayoutRowDefault;
-                    .formRow {
-                        &:last-child {
-                            width: 100%;
-                        }
-                        @media (min-width: $resolution-small-mobile) {
-                            &:last-child {
-                                width: auto;
-                                justify-content: space-evenly;
-                            }
-                        }
-                        @media (min-width: $resolution-large-tablet) {
-                            &:last-child {
-                                justify-content: flex-end;
-                            }
-                        }
-                    }
+                    @include flexLayoutBasisSixty;
+                    @include flexLayoutResponsive;
                 }
-                @media (min-width: $resolution-small-mobile) {
-                    &:last-child {
-                        flex-direction: column;
-                    }
-                }
-                > .formGroup {
-                    &:first-child {
-                        @include flexLayoutBasisThirty;
-                        @include flexLayoutResponsive;
-                    }
-                    &:last-child {
-                        @include flexLayoutBasisSixty;
-                        @include flexLayoutResponsive;
-                    }
-                }
-                > .formGroup:first-child {
-                    > .formRow:first-child {
-                        > .formElement {
-                            @media (min-width: $resolution-large-mobile) {
-                                &:first-child {
-                                    input {
-                                        border-radius: 4px 0 0 4px;
-                                    }
+            }
+            > .formGroup:first-child {
+                > .formRow:first-child {
+                    > .formElement {
+                        @media (min-width: $resolution-large-mobile) {
+                            &:first-child {
+                                input {
+                                    border-radius: 4px 0 0 4px;
                                 }
-                                &:last-child {
-                                    input {
-                                        border-radius: 0 4px 4px 0;
-                                    }
+                            }
+                            &:last-child {
+                                input {
+                                    border-radius: 0 4px 4px 0;
                                 }
                             }
                         }
                     }
                 }
             }
-            > .formGroup:last-child {
-                .formRow {
-                    &:last-child {
-                        padding: $padding-bottom;
+        }
+        > .formGroup:last-child {
+            .formRow {
+                &:last-child {
+                    padding: $padding-bottom;
+                }
+                .formElement {
+                    margin: $margin-rl-tb;
+                }
+            }
+        }
+        .formGroup {
+            .formRow {
+                @include flexLayoutColumnDefault;
+                padding: $padding-custom-formRow;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+                .formElement {
+                    label {
+                        @include flexLayoutColumnDefault;
+                        span {
+                            &:last-child {
+                                align-self: flex-end;
+                                position: relative;
+                                bottom: 2.25em;
+                                right: 1em;
+                                color: #aaa;
+                            }
+                        }
                     }
-                    .formElement {
-                        margin: $margin-rl-tb;
+                    input {
+                        height: unset;
+                        padding: $padding-all;
+                        border: 2px solid #e5e5e5;
+                        border-radius: 4px;
+                        box-shadow: 0 0 0 0 transparent;
+                        &.invalid {
+                            background-color: #a66;
+                            &::placeholder {
+                                color: #FFF;
+                            }
+                        }
+                        &:hover {
+                            border: 2px solid #ffcc00;
+                            background-color: $background-color-primary;
+                            color: $font-color-primary;
+                        }
+                        &:focus {
+                            border: 2px solid #ffcc00;
+                            background-color: $background-color-primary;
+                            color: $font-color-primary;
+                        }
+                    }
+                    textarea {
+                        min-height: 27vh;
+                        padding: $padding-all;
+                        border: 2px solid #e5e5e5;
+                        border-radius: 4px;
+                        resize: none;
+                        overflow: auto;
+                        &.invalid {
+                            background-color: #a66;
+                            &::placeholder {
+                                color: #FFF;
+                            }
+                        }
+                        &:hover {
+                            border: 2px solid #ffcc00;
+                            background-color: $background-color-primary;
+                            color: $font-color-primary;
+                        }
+                        &:focus {
+                            border: 2px solid #ffcc00;
+                            background-color: $background-color-primary;
+                            color: $font-color-primary;
+                        }
                     }
                 }
             }
-            .formGroup {
+            @media (min-width: $resolution-large-mobile) {
                 .formRow {
-                    @include flexLayoutColumnDefault;
-                    padding: $padding-custom-formRow;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                    .formElement {
-                        label {
-                            @include flexLayoutColumnDefault;
-                            span {
-                                &:last-child {
-                                    align-self: flex-end;
-                                    position: relative;
-                                    bottom: 2.25em;
-                                    right: 1em;
-                                    color: #aaa;
-                                }
-                            }
-                        }
-                        input {
-                            height: unset;
-                            padding: $padding-all;
-                            border: 2px solid #e5e5e5;
-                            border-radius: 4px;
-                            box-shadow: 0 0 0 0 transparent;
-                            &.invalid {
-                                background-color: #a66;
-                                &::placeholder {
-                                    color: #FFF;
-                                }
-                            }
-                            &:hover {
-                                border: 2px solid #ffcc00;
-                                background-color: $background-color-primary;
-                                color: $font-color-primary;
-                            }
-                            &:focus {
-                                border: 2px solid #ffcc00;
-                                background-color: $background-color-primary;
-                                color: $font-color-primary;
-                            }
-                        }
-                        textarea {
-                            min-height: 27vh;
-                            padding: $padding-all;
-                            border: 2px solid #e5e5e5;
-                            border-radius: 4px;
-                            resize: none;
-                            overflow: auto;
-                            &.invalid {
-                                background-color: #a66;
-                                &::placeholder {
-                                    color: #FFF;
-                                }
-                            }
-                            &:hover {
-                                border: 2px solid #ffcc00;
-                                background-color: $background-color-primary;
-                                color: $font-color-primary;
-                            }
-                            &:focus {
-                                border: 2px solid #ffcc00;
-                                background-color: $background-color-primary;
-                                color: $font-color-primary;
-                            }
-                        }
-                    }
-                }
-                @media (min-width: $resolution-large-mobile) {
-                    .formRow {
-                        flex-direction: row;
-                    }
+                    flex-direction: row;
                 }
             }
         }

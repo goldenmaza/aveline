@@ -1,89 +1,85 @@
-/*
- * Footer styling elements...
- */
+// Footer styling elements...
 
-#root {
-    > footer {
-        @include flexLayoutColumnDefault;
-        align-items: center;
-        align-content: space-between;
-        justify-content: space-between;
-        background-color: $background-color-primary;
-        color: $font-color-primary;
-        padding: $padding-all;
-        header {
-            @include flexLayoutRowDefault;
-            justify-content: center;
-            a {
+> footer {
+    @include flexLayoutColumnDefault;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-between;
+    background-color: $background-color-primary;
+    color: $font-color-primary;
+    padding: $padding-all;
+    header {
+        @include flexLayoutRowDefault;
+        justify-content: center;
+        a {
+            display: block;
+            width: 75%;
+            .footer_logotype {
                 display: block;
-                width: 75%;
-                .footer_logotype {
-                    display: block;
-                    width: 100%;
-                    background-color: $background-color-secondary;
-                    color: $font-color-secondary;
+                width: 100%;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
+            }
+        }
+    }
+    section {
+        @include flexLayoutColumnDefault;
+        justify-content: flex-start;
+        width: 75%;
+        margin: $margin-tb-lr;
+        padding: $padding-all;
+        background-color: $background-color-secondary;
+        color: $font-color-secondary;
+        .contact_minimal {
+            overflow: hidden;
+            ul {
+                @include flexLayoutColumnDefault;
+                margin: $margin-bottom-half;
+                padding: $padding-custom-ul;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+                &:first-child {
+                    li:last-child {
+                        margin: $margin-top;
+                    }
+                }
+                li {
+                    &:first-child {
+                        margin: $margin-tb-lr;
+                    }
+                    &:last-child {
+                        margin: $margin-none;
+                    }
+                    a {
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
+                        text-transform: uppercase;
+                    }
                 }
             }
         }
+    }
+    @media (min-width: $resolution-large-mobile) {
         section {
-            @include flexLayoutColumnDefault;
+            @include flexLayoutRowDefault;
             justify-content: flex-start;
             width: 75%;
             margin: $margin-tb-lr;
             padding: $padding-all;
-            background-color: $background-color-secondary;
-            color: $font-color-secondary;
-            .contact_minimal {
-                overflow: hidden;
-                ul {
-                    @include flexLayoutColumnDefault;
-                    margin: $margin-bottom-half;
-                    padding: $padding-custom-ul;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                    &:first-child {
-                        li:last-child {
-                            margin: $margin-top;
-                        }
-                    }
-                    li {
-                        &:first-child {
-                            margin: $margin-tb-lr;
-                        }
-                        &:last-child {
-                            margin: $margin-none;
-                        }
-                        a {
-                            background-color: $background-color-tertiary;
-                            color: $font-color-tertiary;
-                            text-transform: uppercase;
-                        }
-                    }
-                }
-            }
         }
-        @media (min-width: $resolution-large-mobile) {
-            section {
-                @include flexLayoutRowDefault;
-                justify-content: flex-start;
-                width: 75%;
-                margin: $margin-tb-lr;
-                padding: $padding-all;
-            }
-        }
+    }
+    footer {
+        @include flexLayoutColumnDefault;
+        justify-content: space-between;
+        align-items: center;
+        width: 75%;
+        background-color: $background-color-secondary;
+        color: $font-color-secondary;
+        padding: $padding-all;
+    }
+    @media (min-width: $resolution-large-mobile) {
         footer {
-            @include flexLayoutColumnDefault;
-            justify-content: space-between;
-            align-items: center;
-            width: 75%;
-            background-color: $background-color-secondary;
-            color: $font-color-secondary;
-            padding: $padding-all;
-        }
-        @media (min-width: $resolution-large-mobile) {
-            footer {
-                flex-direction: row;
-            }
+            flex-direction: row;
         }
     }
 }

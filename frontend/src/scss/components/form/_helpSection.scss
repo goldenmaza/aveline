@@ -1,56 +1,48 @@
-/*
- * HelpSection styling elements...
- */
+// HelpSection styling elements...
 
-#root {
-    .helpSection {
-        @include flexLayoutColumnDefault;
-        header {
+.helpSection {
+    @include flexLayoutColumnDefault;
+    header {
+        padding: $padding-all;
+        background-color: $background-color-secondary;
+        color: $font-color-secondary;
+        * {
+            background-color: $background-color-primary;
+            color: $font-color-primary;
             padding: $padding-all;
-            background-color: $background-color-secondary;
-            color: $font-color-secondary;
-            * {
+        }
+    }
+    .helpRow {
+        @include flexLayoutColumnDefault;
+        justify-content: space-between;
+        align-items: inherit;
+        padding: $padding-all;
+        background-color: $background-color-secondary;
+        color: $font-color-secondary;
+        .rowLabel {
+            &:first-child {
+                @include flexLayoutBasisTwenty;
+                padding: $padding-all;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+            }
+            &:last-child {
+                @include flexLayoutBasisSeventyFive;
                 background-color: $background-color-primary;
                 color: $font-color-primary;
             }
         }
-        .helpRow {
+        .rowContent {
             @include flexLayoutColumnDefault;
+            @include flexLayoutBasisSeventy;
             justify-content: space-between;
-            align-items: inherit;
+            align-items: flex-start;
             padding: $padding-all;
-            background-color: $background-color-secondary;
-            color: $font-color-secondary;
-            .rowLabel {
+            background-color: $background-color-primary;
+            color: $font-color-primary;
+            div {
                 &:first-child {
-                    @include flexLayoutBasisTwenty;
-                    padding: $padding-all-half;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                }
-                &:last-child {
-                    @include flexLayoutBasisSeventyFive;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                }
-            }
-            .rowContent {
-                @include flexLayoutColumnDefault;
-                @include flexLayoutBasisSeventyFive;
-                justify-content: space-between;
-                align-items: flex-start;
-                padding: $padding-all-half;
-                background-color: $background-color-primary;
-                color: $font-color-primary;
-                div {
-                    &:first-child {
-                        margin: $margin-bottom;
-                    }
-                    p {
-                        strong {
-                            margin: $margin-right;
-                        }
-                    }
+                    margin: $margin-bottom;
                 }
                 p {
                     strong {
@@ -58,25 +50,30 @@
                     }
                 }
             }
-            > p {
-                &:first-child {
-                    @include flexLayoutBasisTwenty;
-                    padding: $padding-all-half;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                }
-                &:last-child {
-                    @include flexLayoutBasisSeventyFive;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
+            p {
+                strong {
+                    margin: $margin-right;
                 }
             }
         }
-        @media (min-width: $resolution-large-mobile) {
-            .helpRow {
-                flex-direction: row;
-                align-items: center;
+        > p {
+            &:first-child {
+                @include flexLayoutBasisTwenty;
+                padding: $padding-all-half;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
             }
+            &:last-child {
+                @include flexLayoutBasisSeventyFive;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+            }
+        }
+    }
+    @media (min-width: $resolution-large-mobile) {
+        .helpRow {
+            flex-direction: row;
+            align-items: center;
         }
     }
 }

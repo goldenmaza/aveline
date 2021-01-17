@@ -1,42 +1,38 @@
-/*
- * Collage styling elements...
- */
+// Collage styling elements...
 
-#root {
-    .collageContainer {
+.collageContainer {
+    @include flexLayoutColumnDefault;
+    @include flexLayoutCenterDefault;
+    flex-wrap: wrap;
+    a {
         @include flexLayoutColumnDefault;
         @include flexLayoutCenterDefault;
-        flex-wrap: wrap;
-        a {
-            @include flexLayoutColumnDefault;
-            @include flexLayoutCenterDefault;
-            padding: $padding-all;
-            &:hover {
-                div {
-                    opacity: 1;
-                }
-            }
-            &:focus {
-                div {
-                    opacity: 1;
-                }
-            }
-            img {
-                display: block;
-                width: 100%;
-            }
+        padding: $padding-all;
+        &:hover {
             div {
-                position: absolute;
-                padding: $padding-all;
-                background-color: $background-color-tertiary;
-                color: $font-color-tertiary;
-                opacity: 0;
+                opacity: 1;
             }
+        }
+        &:focus {
+            div {
+                opacity: 1;
+            }
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        div {
+            position: absolute;
+            padding: $padding-all;
+            background-color: $background-color-tertiary;
+            color: $font-color-tertiary;
+            opacity: 0;
         }
     }
-    @media (min-width: $resolution-large-mobile) {
-        .collageContainer {
-            flex-direction: row;
-        }
+}
+@media (min-width: $resolution-large-mobile) {
+    .collageContainer {
+        flex-direction: row;
     }
 }

@@ -1,296 +1,278 @@
-/*
- * Contact styling elements...
- */
+// Contact styling elements...
 
-#root {
-    .childrenContainer {
+.childrenContainer {
+    @include flexLayoutColumnDefault;
+    .contact_summary {
         @include flexLayoutColumnDefault;
-        .contact_summary {
+        justify-content: flex-start;
+        .contact_full {
             @include flexLayoutColumnDefault;
-            justify-content: flex-start;
-            .contact_full {
+            margin: $margin-none;
+            padding: $padding-all;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
+            ul {
                 @include flexLayoutColumnDefault;
-                margin: $margin-none;
+                margin: $margin-bottom-half;
                 padding: $padding-all;
-                background-color: $background-color-secondary;
-                color: $font-color-secondary;
-                ul {
-                    @include flexLayoutColumnDefault;
-                    margin: $margin-bottom-half;
-                    padding: $padding-all;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                    &:first-child {
-                        li {
-                            &:last-child {
-                                margin: $margin-top-half;
-                            }
-                        }
-                    }
-                    &:last-child {
-                        a {
-                            text-transform: uppercase;
-                        }
-                    }
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+                &:first-child {
                     li {
-                        &:first-child {
-                            margin: $margin-bottom-half;
-                        }
-                        a {
-                            background-color: $background-color-tertiary;
-                            color: $font-color-tertiary;
+                        &:last-child {
+                            margin: $margin-top-half;
                         }
                     }
                 }
-            }
-            @media (min-width: $resolution-large-mobile) {
-                .contact_full {
-                    @include flexLayoutBasisThirty;
-                    @include flexLayoutResponsive;
+                &:last-child {
+                    a {
+                        text-transform: uppercase;
+                    }
                 }
-            }
-            @media (min-width: $resolution-small-monitor) {
-                .contact_full {
-                    @include flexLayoutBasisTwentyFive;
-                    @include flexLayoutResponsive;
-                }
-            }
-            .contact_map {
-                @include flexLayoutRowDefault;
-                @include flexLayoutBasisSixty;
-                @include flexLayoutResponsive;
-                padding: $padding-all;
-                background-color: $background-color-secondary;
-                color: $font-color-secondary;
-                iframe {
-                    width: 100%;
-                    min-height: 50vh;
-                }
-                @media (min-width: $resolution-small-monitor) {
-                    iframe {
-                        min-height: 75vh;
+                li {
+                    &:first-child {
+                        margin: $margin-bottom-half;
+                    }
+                    a {
+                        background-color: $background-color-tertiary;
+                        color: $font-color-tertiary;
                     }
                 }
             }
         }
         @media (min-width: $resolution-large-mobile) {
-            .contact_summary {
-                flex-direction: row;
+            .contact_full {
+                @include flexLayoutBasisThirty;
+                @include flexLayoutResponsive;
             }
         }
-        .contact_tree {
+        @media (min-width: $resolution-small-monitor) {
+            .contact_full {
+                @include flexLayoutBasisTwentyFive;
+                @include flexLayoutResponsive;
+            }
+        }
+        .contact_map {
+            @include flexLayoutRowDefault;
+            @include flexLayoutBasisSixty;
+            @include flexLayoutResponsive;
+            padding: $padding-all;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
+            iframe {
+                width: 100%;
+                min-height: 50vh;
+            }
+            @media (min-width: $resolution-small-monitor) {
+                iframe {
+                    min-height: 75vh;
+                }
+            }
+        }
+    }
+    @media (min-width: $resolution-large-mobile) {
+        .contact_summary {
+            flex-direction: row;
+        }
+    }
+    .contact_tree {
+        @include flexLayoutColumnDefault;
+        ul {
             @include flexLayoutColumnDefault;
-            ul {
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: $margin-bottom;
+            padding: $padding-bottom-double;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
+            li {
                 @include flexLayoutColumnDefault;
                 justify-content: space-evenly;
                 align-items: center;
-                flex-wrap: wrap;
-                margin: $margin-bottom;
-                padding: $padding-bottom-double;
-                background-color: $background-color-secondary;
-                color: $font-color-secondary;
-                li {
-                    @include flexLayoutColumnDefault;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    position: relative;
-                    width: 75%;
-                    max-height: 35vh;
-                    margin: $margin-top-double;
-                    padding: $padding-all;
-                    background-color: $background-color-primary;
-                    color: $font-color-primary;
-                    &.none {
-                        &:hover {
-                            a {
-                                div {
-                                    span {
-                                        &:after {
-                                            width: 100%;
-                                            left: 0;
-                                            background-color: #F00;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        a {
-                            cursor: not-allowed;
-                            &:focus {
-                                div {
-                                    span {
-                                        &:after {
-                                            width: 100%;
-                                            left: 0;
-                                            background-color: #F00;
-                                        }
-                                    }
-                                }
-                            }
-                            div {
-                                span {
-                                    &:after {
-                                        content: '';
-                                        display: block;
-                                        height: 0.2em;
-                                        width: 0;
-                                        position: relative;
-                                        left: 50%;
-                                        margin: $margin-top-half;
-                                        background-color: $background-color-secondary;
-                                        color: $font-color-secondary;
-                                        transition-property: width,background-color,left;
-                                        transition-duration: .7s;
-                                        transition-timing-function: ease;
-                                    }
-                                }
+                position: relative;
+                width: 75%;
+                max-height: 35vh;
+                margin: $margin-top-double;
+                padding: $padding-all;
+                background-color: $background-color-primary;
+                color: $font-color-primary;
+                &.none {
+                    &:hover {
+                        span {
+                            &:after {
+                                width: 100%;
+                                left: 0;
+                                background-color: #F00;
                             }
                         }
                     }
-                    &:not(&.none) {
-                        &:hover {
-                            a {
-                                div {
-                                    span {
-                                        &:after {
-                                            width: 100%;
-                                            left: 0;
-                                            background-color: #ffcd00;
-                                        }
-                                    }
+                    a {
+                        cursor: not-allowed;
+                        &:focus {
+                            span {
+                                &:after {
+                                    width: 100%;
+                                    left: 0;
+                                    background-color: #F00;
                                 }
                             }
                         }
-                        a {
-                            &:focus {
-                                div {
-                                    span {
-                                        &:after {
-                                            width: 100%;
-                                            left: 0;
-                                            background-color: #ffcd00;
-                                        }
-                                    }
-                                }
+                        span {
+                            &:after {
+                                content: '';
+                                display: block;
+                                height: 0.2em;
+                                width: 0;
+                                position: relative;
+                                left: 50%;
+                                margin: $margin-top-half;
+                                background-color: $background-color-secondary;
+                                color: $font-color-secondary;
+                                transition-property: width,background-color,left;
+                                transition-duration: .7s;
+                                transition-timing-function: ease;
                             }
-                            div {
-                                span {
-                                    &:after {
-                                        content: '';
-                                        display: block;
-                                        height: 0.2em;
-                                        width: 0;
-                                        position: relative;
-                                        left: 50%;
-                                        margin: $margin-top-half;
-                                        background-color: $background-color-secondary;
-                                        color: $font-color-secondary;
-                                        transition-property: width,background-color,left;
-                                        transition-duration: .7s;
-                                        transition-timing-function: ease;
-                                    }
+                        }
+                    }
+                }
+                &:not(&.none) {
+                    &:hover {
+                        a {
+                            span {
+                                &:after {
+                                    width: 100%;
+                                    left: 0;
+                                    background-color: #ffcd00;
                                 }
                             }
                         }
                     }
                     a {
-                        @include flexLayoutColumnDefault;
-                        align-items: center;
-                        width: 100%;
-                        background-color: $background-color-tertiary;
-                        color: $font-color-tertiary;
-                        .office_image {
-                            display: block;
-                            width: 100%;
-                            height: 15vh;
-                        }
-                        @media (min-width: 480px) {
-                            .office_image {
-                                height: 25vh;
-                            }
-                        }
-                        div {
-                            @include flexLayoutColumnDefault;
-                            position: absolute;
-                            top: 50%;
-                            left: 25%;
-                            width: 50%;
-                            transform: translateY(-50%);
-                            text-align: center;
+                        &:focus {
                             span {
-                                @include flexLayoutColumnDefault;
-                                width: auto;
-                                padding: $padding-rl-tb;
-                                background-color: $background-color-tertiary;
-                                color: $font-color-tertiary;
-                                font-size: $font-size-small;
+                                &:after {
+                                    width: 100%;
+                                    left: 0;
+                                    background-color: #ffcd00;
+                                }
                             }
+                        }
+                        span {
+                            &:after {
+                                content: '';
+                                display: block;
+                                height: 0.2em;
+                                width: 0;
+                                position: relative;
+                                left: 50%;
+                                margin: $margin-top-half;
+                                background-color: $background-color-secondary;
+                                color: $font-color-secondary;
+                                transition-property: width,background-color,left;
+                                transition-duration: .7s;
+                                transition-timing-function: ease;
+                            }
+                        }
+                    }
+                }
+                a {
+                    @include flexLayoutColumnDefault;
+                    align-items: center;
+                    width: 100%;
+                    background-color: $background-color-tertiary;
+                    color: $font-color-tertiary;
+                    .office_image {
+                        display: block;
+                        width: 100%;
+                        height: 15vh;
+                    }
+                    @media (min-width: 480px) {
+                        .office_image {
+                            height: 25vh;
                         }
                     }
                     div {
                         @include flexLayoutColumnDefault;
-                        align-items: center;
-                        width: 100%;
-                        .contact_image {
-                            display: block;
-                            width: 100%;
-                            height: 35vh;
-                        }
-                        div {
+                        position: absolute;
+                        top: 50%;
+                        left: 25%;
+                        width: 50%;
+                        transform: translateY(-50%);
+                        text-align: center;
+                        span {
                             @include flexLayoutColumnDefault;
-                            position: absolute;
-                            bottom: -10%;
-                            width: 110%;
-                            background-color: rgba(0,0,0,.3);
-                            transition: background-color .7s;
-                            transform: translateY(-50%);
-                            text-align: center;
-                            &:hover {
-                                background: rgba(0,0,0,1);
-                            }
-                            span {
-                                display: flex;
-                                flex-direction: column;
-                                width: auto;
-                                padding: $padding-rl-tb;
-                                font-size: $font-size-small;
-                                &:last-child {
-                                    a {
-                                        text-transform: uppercase;
-                                    }
+                            width: auto;
+                            padding: $padding-rl-tb;
+                            background-color: $background-color-tertiary;
+                            color: $font-color-tertiary;
+                            font-size: $font-size-small;
+                        }
+                    }
+                }
+                div {
+                    @include flexLayoutColumnDefault;
+                    align-items: center;
+                    width: 100%;
+                    .contact_image {
+                        display: block;
+                        width: 100%;
+                        height: 35vh;
+                    }
+                    div {
+                        @include flexLayoutColumnDefault;
+                        position: absolute;
+                        bottom: -10%;
+                        width: 110%;
+                        background-color: rgba(0,0,0,.3);
+                        transition: background-color .7s;
+                        transform: translateY(-50%);
+                        text-align: center;
+                        &:hover {
+                            background: rgba(0,0,0,1);
+                        }
+                        span {
+                            display: flex;
+                            flex-direction: column;
+                            width: auto;
+                            padding: $padding-rl-tb;
+                            font-size: $font-size-small;
+                            &:last-child {
+                                a {
+                                    text-transform: uppercase;
                                 }
                             }
                         }
                     }
                 }
             }
-            @media (min-width: $resolution-large-mobile) {
-                ul {
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    &:first-child {
-                        li {
-                            @include flexLayoutBasisForty;
-                        }
+        }
+        @media (min-width: $resolution-large-mobile) {
+            ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                &:first-child {
+                    li {
+                        @include flexLayoutBasisForty;
                     }
-                    &:last-child {
-                        li {
-                            @include flexLayoutBasisTwentyFive;
-                        }
+                }
+                &:last-child {
+                    li {
+                        @include flexLayoutBasisTwentyFive;
                     }
                 }
             }
-            @media (min-width: $resolution-small-monitor) {
-                ul {
-                    &:first-child {
-                        li {
-                            @include flexLayoutBasisTwentyFive;
-                        }
+        }
+        @media (min-width: $resolution-small-monitor) {
+            ul {
+                &:first-child {
+                    li {
+                        @include flexLayoutBasisTwentyFive;
                     }
-                    &:last-child {
-                        li {
-                            @include flexLayoutBasisTwentyFive;
-                        }
+                }
+                &:last-child {
+                    li {
+                        @include flexLayoutBasisTwentyFive;
                     }
                 }
             }
