@@ -31,41 +31,41 @@
 }
 
 @mixin flexLayoutBasisTwenty {
-    flex-basis: 20%;
+    flex-basis: $percent-twenty;
 }
 
 @mixin flexLayoutBasisTwentyFive {
-    flex-basis: 25%;
+    flex-basis: $percent-twentyFive;
 }
 
 @mixin flexLayoutBasisThirty {
-    flex-basis: 30%;
+    flex-basis: $percent-thirty;
 }
 
 @mixin flexLayoutBasisForty {
-    flex-basis: 40%;
+    flex-basis: $percent-forty;
 }
 
 @mixin flexLayoutBasisFifty {
-    flex-basis: 50%;
+    flex-basis: $percent-fifty;
 }
 
 @mixin flexLayoutBasisFiftyFive {
-    flex-basis: 55%;
+    flex-basis: $percent-fiftyFive;
 }
 
 @mixin flexLayoutBasisSixty {
-    flex-basis: 60%;
+    flex-basis: $percent-sixty;
 }
 
 @mixin flexLayoutBasisSeventy {
-    flex-basis: 70%;
+    flex-basis: $percent-seventy;
 }
 
 @mixin flexLayoutBasisSeventyFive {
-    flex-basis: 75%;
+    flex-basis: $percent-seventyFive;
 }
 
 @mixin flexLayoutBasisMax {
-    flex-basis: 100%;
+    flex-basis: $percent-hundred;
 }

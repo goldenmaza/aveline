@@ -7,7 +7,7 @@ $color-grey: #CCC;
 $color-grey-dark: #333;
 $color-orange: #F90;
 
-// Font sizes...
+// Font size variables...
 $font-size: 1em;
 $font-size-h1: $font-size * 2.50;
 $font-size-h2: $font-size * 2.25;
@@ -16,6 +16,14 @@ $font-size-h4: $font-size * 1.75;
 $font-size-h5: $font-size * 1.50;
 $font-size-small: $font-size * 0.90;
 $font-size-smaller: $font-size * 0.75;
+
+// Font-family variables...
+$font-family-custom: CUSTOM;
+$font-family-ms: "Segoe UI", Arial, sans-serif;
+$font-family-apple: -apple-system, BlinkMacSystemFont, Helvetica;
+$font-family-misc: Ubuntu, Roboto, "Droid Sans", Oxygen-Sans, Cantarell;
+$font-family-complete: $font-family-ms + ", " + $font-family-apple + ", " + $font-family-misc;
+$font-family-standard: $font-family-custom + ", " + $font-family-complete;
 
 // Margin variables...
 $margin-none: 0;
@@ -55,9 +63,39 @@ $padding-left-half: 0 0 0 0.5rem;
 $padding-custom-formRow: 0rem 1.5rem;
 $padding-custom-ul: 0rem 0.5rem 1rem 0.5rem;
 
+// Dimension variables...
+$percent-hundred: 100%;
+$percent-seventyFive: 75%;
+$percent-seventy: 70%;
+$percent-sixty: 60%;
+$percent-fiftyFive: 55%;
+$percent-fifty: 50%;
+$percent-forty: 40%;
+$percent-thirty: 30%;
+$percent-twentyFive: 25%;
+$percent-twenty: 20%;
+$percent-ten: 10%;
+$percent-zero: 0%;
+$vh-hundred: 100vh;
+$vh-fifty: 50vh;
+$vh-twentySeven: 27vh;
+$vh-zero: 0vh;
+$px-oneThousandSixHundred: 1600px;
+$px-oneThousandThreeHundredSixtySix: 1366px;
+$px-oneThousandTwentyFour: 1024px;
+$px-sevenHundredSixtyEight: 768px;
+$px-sevenHundredFifty: 750px;
+$px-fourHundredEighty: 480px;
+$px-twentyFive: 25px;
+$px-five: 5px;
+$px-four: 4px;
+$px-three: 3px;
+$px-two: 2px;
+$px-one: 1px;
+
 // Resolutions variables...
-$resolution-small-mobile: 480px;
-$resolution-large-mobile: 768px;
-$resolution-large-tablet: 1024px;
-$resolution-small-monitor: 1366px;
-$resolution-large-monitor: 1600px;
+$resolution-small-mobile: $px-fourHundredEighty;
+$resolution-large-mobile: $px-sevenHundredSixtyEight;
+$resolution-large-tablet: $px-oneThousandTwentyFour;
+$resolution-small-monitor: $px-oneThousandThreeHundredSixtySix;
+$resolution-large-monitor: $px-oneThousandSixHundred;
