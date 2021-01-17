@@ -1,29 +1,6 @@
 /*
  * Global styling elements...
  */
-/*
- * Global variables used for all scss files...
- */
-/*
- * Global themes that determine the look of the website...
- */
-/*$background-color-primary: $color-black;
-$background-color-secondary: $color-black;
-$background-color-tertiary: $color-black;
-$font-color-primary: $color-white;
-$font-color-secondary: $color-white;
-$font-color-tertiary: $color-white;
-
-// TOOD: Bright theme...
-$background-color-primary: $color-white;
-$background-color-secondary: $color-white;
-$background-color-tertiary: $color-white;
-$font-color-primary: $color-black;
-$font-color-secondary: $color-black;
-$font-color-tertiary: $color-black;*/
-/*
- * Global mixins used for all scss files...
- */
 html, body, header, footer, section, div, span, img, h1, h2, h3, h4,
 p, a, q, strong, ul, li, iframe, video, audio, input, textarea {
   margin: 0;
@@ -86,7 +63,8 @@ a {
       padding: 1rem; }
       #root > main.content > section > .contentContainer > * {
         background-color: #333;
-        color: #CCC; }
+        color: #CCC;
+        padding: 1rem; }
     #root > main.form > section > .contentContainer {
       padding: 1rem;
       background-color: #FFF;
@@ -109,9 +87,6 @@ a {
       text-align: justify;
       overflow: hidden; }
 
-/*
- * Header styling elements...
- */
 #root > header {
   display: flex;
   flex-direction: column;
@@ -138,38 +113,35 @@ a {
         background-color: #FFF;
         color: #333; } }
 
-/*
- * Handler styling elements...
- */
-.nav_container {
+#root .nav_container {
   display: flex;
   flex-direction: row;
   flex-basis: 20%;
   justify-content: space-between;
   align-items: center;
   padding: 0; }
-  .nav_container a {
+  #root .nav_container a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
-    .nav_container a .nav_logotype {
+    #root .nav_container a .nav_logotype {
       display: block;
       width: 75%;
       background-color: #FFF;
       color: #333; }
   @media (min-width: 768px) {
-    .nav_container a {
+    #root .nav_container a {
       display: flex;
       flex-direction: column; }
-      .nav_container a > .nav_logotype {
+      #root .nav_container a > .nav_logotype {
         width: 100%; } }
-  .nav_container .handler_toggle {
+  #root .nav_container .handler_toggle {
     padding: 0.5rem;
     background-color: #333;
     color: #CCC;
     cursor: pointer; }
-    .nav_container .handler_toggle i {
+    #root .nav_container .handler_toggle i {
       content: '';
       height: 2px;
       width: 25px;
@@ -178,16 +150,13 @@ a {
       background-color: #FFF;
       color: #333; }
     @media (min-width: 480px) {
-      .nav_container .handler_toggle i {
+      #root .nav_container .handler_toggle i {
         width: 25px; } }
   @media (min-width: 768px) {
-    .nav_container .handler_toggle {
+    #root .nav_container .handler_toggle {
       display: none; } }
 
-/*
- * Menu styling elements...
- */
-.handler_navigation {
+#root .handler_navigation {
   display: flex;
   flex-direction: column;
   flex-basis: 70%;
@@ -199,16 +168,16 @@ a {
   text-align: center;
   overflow: hidden;
   transition: max-height 2s, padding 2s, border-bottom 2s; }
-  .handler_navigation.active {
+  #root .handler_navigation.active {
     max-height: 750px;
     border-bottom: 2px solid #F90;
     transition: max-height 4s, padding 1s, border-bottom 4s; }
-  .handler_navigation li {
+  #root .handler_navigation li {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
     align-items: center; }
-    .handler_navigation li a {
+    #root .handler_navigation li a {
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -220,7 +189,7 @@ a {
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: color .4s ease; }
-      .handler_navigation li a:after {
+      #root .handler_navigation li a:after {
         content: '';
         display: block;
         height: 0.2em;
@@ -233,29 +202,26 @@ a {
         transition-property: left,width,background-color,color;
         transition-duration: .7s;
         transition-timing-function: ease; }
-      .handler_navigation li a:focus:after {
+      #root .handler_navigation li a:focus:after {
         width: 100%;
         left: 0;
         background-color: #ffcd00; }
-    .handler_navigation li:hover a:after {
+    #root .handler_navigation li:hover a:after {
       width: 100%;
       left: 0;
       background-color: #ffcd00; }
 
 @media (min-width: 768px) {
-  .handler_navigation {
+  #root .handler_navigation {
     display: flex;
     flex-direction: row;
     max-height: 100%;
     display: flex;
     justify-content: space-evenly; }
-    .handler_navigation.active {
+    #root .handler_navigation.active {
       border-top: 2px solid transparent;
       border-bottom: 2px solid transparent; } }
 
-/*
- * Highlights styling elements...
- */
 #root .highlights_navigation {
   display: flex;
   flex-direction: column;
@@ -272,7 +238,7 @@ a {
     padding: 1rem;
     background-color: #333;
     color: #CCC; }
-    #root .highlights_navigation li:hover a div span:after {
+    #root .highlights_navigation li:hover a span:after {
       width: 100%;
       left: 0;
       background-color: #ffcd00; }
@@ -285,7 +251,7 @@ a {
       justify-items: center;
       background-color: #000;
       color: #F90; }
-      #root .highlights_navigation li a:focus > div > span:after {
+      #root .highlights_navigation li a:focus span:after {
         width: 100%;
         left: 0;
         background-color: #ffcd00; }
@@ -327,9 +293,6 @@ a {
   #root .highlights_navigation {
     flex-direction: row; } }
 
-/*
- * Collage styling elements...
- */
 #root .collageContainer {
   display: flex;
   flex-direction: column;
@@ -364,9 +327,6 @@ a {
   #root .collageContainer {
     flex-direction: row; } }
 
-/*
- * Contact styling elements...
- */
 #root .childrenContainer {
   display: flex;
   flex-direction: column; }
@@ -450,17 +410,17 @@ a {
         padding: 1rem;
         background-color: #333;
         color: #CCC; }
-        #root .childrenContainer .contact_tree ul li.none:hover a div span:after {
+        #root .childrenContainer .contact_tree ul li.none:hover span:after {
           width: 100%;
           left: 0;
           background-color: #F00; }
         #root .childrenContainer .contact_tree ul li.none a {
           cursor: not-allowed; }
-          #root .childrenContainer .contact_tree ul li.none a:focus div span:after {
+          #root .childrenContainer .contact_tree ul li.none a:focus span:after {
             width: 100%;
             left: 0;
             background-color: #F00; }
-          #root .childrenContainer .contact_tree ul li.none a div span:after {
+          #root .childrenContainer .contact_tree ul li.none a span:after {
             content: '';
             display: block;
             height: 0.2em;
@@ -473,15 +433,15 @@ a {
             transition-property: width,background-color,left;
             transition-duration: .7s;
             transition-timing-function: ease; }
-        #root .childrenContainer .contact_tree ul li:hover a div span:after {
+        #root .childrenContainer .contact_tree ul li:hover a span:after {
           width: 100%;
           left: 0;
           background-color: #ffcd00; }
-        #root .childrenContainer .contact_tree ul li a:focus div span:after {
+        #root .childrenContainer .contact_tree ul li a:focus span:after {
           width: 100%;
           left: 0;
           background-color: #ffcd00; }
-        #root .childrenContainer .contact_tree ul li a div span:after {
+        #root .childrenContainer .contact_tree ul li a span:after {
           content: '';
           display: block;
           height: 0.2em;
@@ -568,9 +528,6 @@ a {
       #root .childrenContainer .contact_tree ul:last-child li {
         flex-basis: 25%; } }
 
-/*
- * Form styling elements...
- */
 #root #contactForm > .formBody {
   display: flex;
   flex-direction: column;
@@ -678,9 +635,6 @@ a {
     #root #contactForm > .formBody .formGroup .formRow {
       flex-direction: row; } }
 
-/*
- * HelpSection styling elements...
- */
 #root .helpSection {
   display: flex;
   flex-direction: column; }
@@ -690,7 +644,8 @@ a {
     color: #333; }
     #root .helpSection header * {
       background-color: #333;
-      color: #CCC; }
+      color: #CCC;
+      padding: 1rem; }
   #root .helpSection .helpRow {
     display: flex;
     flex-direction: column;
@@ -701,7 +656,7 @@ a {
     color: #333; }
     #root .helpSection .helpRow .rowLabel:first-child {
       flex-basis: 20%;
-      padding: 0.5rem;
+      padding: 1rem;
       background-color: #333;
       color: #CCC; }
     #root .helpSection .helpRow .rowLabel:last-child {
@@ -711,10 +666,10 @@ a {
     #root .helpSection .helpRow .rowContent {
       display: flex;
       flex-direction: column;
-      flex-basis: 75%;
+      flex-basis: 70%;
       justify-content: space-between;
       align-items: flex-start;
-      padding: 0.5rem;
+      padding: 1rem;
       background-color: #333;
       color: #CCC; }
       #root .helpSection .helpRow .rowContent div:first-child {
@@ -737,9 +692,6 @@ a {
       flex-direction: row;
       align-items: center; } }
 
-/*
- * Footer styling elements...
- */
 #root > footer {
   display: flex;
   flex-direction: column;
@@ -810,9 +762,6 @@ a {
     #root > footer footer {
       flex-direction: row; } }
 
-/*
- * Sitemap styling elements...
- */
 #root .sitemap_navigation {
   display: flex;
   flex-direction: column; }
@@ -834,16 +783,14 @@ a {
     #root .sitemap_navigation ul {
       margin-left: 0.5rem; } }
 
-/*
- * Copyright styling elements...
- */
 #root > footer footer div {
   background-color: #333;
   color: #CCC; }
 
 #root > footer footer .footer_copyright {
   margin: 0 0 1rem 0;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+  text-align: center; }
   #root > footer footer .footer_copyright strong {
     display: block;
     margin: 1rem; }
