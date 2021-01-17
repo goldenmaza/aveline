@@ -49,7 +49,7 @@ a specific address. The GraphQL API is used by many components to prepare the da
 generate a website with content.
 
 Work remaining for the Frontend module:
-- SCSS implementation
+- Selenium
 
 Work remaining for the Backend module:
 - TBD

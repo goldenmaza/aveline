@@ -26,7 +26,7 @@ a specific address. The GraphQL API is used by many components to prepare the da
 generate a website with content.
 
 Work remaining for the Frontend module:
-- SCSS implementation
+- Selenium
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.
