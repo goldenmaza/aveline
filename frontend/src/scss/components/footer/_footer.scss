@@ -13,10 +13,10 @@
         justify-content: center;
         a {
             display: block;
-            width: 75%;
+            width: $percent-seventyFive;
             .footer_logotype {
                 display: block;
-                width: 100%;
+                width: $percent-hundred;
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;
             }
@@ -25,7 +25,7 @@
     section {
         @include flexLayoutColumnDefault;
         justify-content: flex-start;
-        width: 75%;
+        width: $percent-seventyFive;
         margin: $margin-tb-lr;
         padding: $padding-all;
         background-color: $background-color-secondary;
@@ -63,7 +63,7 @@
         section {
             @include flexLayoutRowDefault;
             justify-content: flex-start;
-            width: 75%;
+            width: $percent-seventyFive;
             margin: $margin-tb-lr;
             padding: $padding-all;
         }
@@ -72,7 +72,7 @@
         @include flexLayoutColumnDefault;
         justify-content: space-between;
         align-items: center;
-        width: 75%;
+        width: $percent-seventyFive;
         background-color: $background-color-secondary;
         color: $font-color-secondary;
         padding: $padding-all;

@@ -60,7 +60,7 @@
             background-color: $background-color-secondary;
             color: $font-color-secondary;
             iframe {
-                width: 100%;
+                width: $percent-hundred;
                 min-height: 50vh;
             }
             @media (min-width: $resolution-small-monitor) {
@@ -91,7 +91,7 @@
                 justify-content: space-evenly;
                 align-items: center;
                 position: relative;
-                width: 75%;
+                width: $percent-seventyFive;
                 max-height: 35vh;
                 margin: $margin-top-double;
                 padding: $padding-all;
@@ -101,7 +101,7 @@
                     &:hover {
                         span {
                             &:after {
-                                width: 100%;
+                                width: $percent-hundred;
                                 left: 0;
                                 background-color: #F00;
                             }
@@ -112,7 +112,7 @@
                         &:focus {
                             span {
                                 &:after {
-                                    width: 100%;
+                                    width: $percent-hundred;
                                     left: 0;
                                     background-color: #F00;
                                 }
@@ -123,7 +123,7 @@
                                 content: '';
                                 display: block;
                                 height: 0.2em;
-                                width: 0;
+                                width: $percent-zero;
                                 position: relative;
                                 left: 50%;
                                 margin: $margin-top-half;
@@ -141,7 +141,7 @@
                         a {
                             span {
                                 &:after {
-                                    width: 100%;
+                                    width: $percent-hundred;
                                     left: 0;
                                     background-color: #ffcd00;
                                 }
@@ -152,7 +152,7 @@
                         &:focus {
                             span {
                                 &:after {
-                                    width: 100%;
+                                    width: $percent-hundred;
                                     left: 0;
                                     background-color: #ffcd00;
                                 }
@@ -163,7 +163,7 @@
                                 content: '';
                                 display: block;
                                 height: 0.2em;
-                                width: 0;
+                                width: $percent-zero;
                                 position: relative;
                                 left: 50%;
                                 margin: $margin-top-half;
@@ -179,15 +179,15 @@
                 a {
                     @include flexLayoutColumnDefault;
                     align-items: center;
-                    width: 100%;
+                    width: $percent-hundred;
                     background-color: $background-color-tertiary;
                     color: $font-color-tertiary;
                     .office_image {
                         display: block;
-                        width: 100%;
+                        width: $percent-hundred;
                         height: 15vh;
                     }
-                    @media (min-width: 480px) {
+                    @media (min-width: $resolution-small-mobile) {
                         .office_image {
                             height: 25vh;
                         }
@@ -197,7 +197,7 @@
                         position: absolute;
                         top: 50%;
                         left: 25%;
-                        width: 50%;
+                        width: $percent-fifty;
                         transform: translateY(-50%);
                         text-align: center;
                         span {
@@ -213,10 +213,10 @@
                 div {
                     @include flexLayoutColumnDefault;
                     align-items: center;
-                    width: 100%;
+                    width: $percent-hundred;
                     .contact_image {
                         display: block;
-                        width: 100%;
+                        width: $percent-hundred;
                         height: 35vh;
                     }
                     div {

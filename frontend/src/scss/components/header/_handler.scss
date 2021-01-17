@@ -12,7 +12,7 @@
         align-items: center;
         .nav_logotype {
             display: block;
-            width: 75%;
+            width: $percent-seventyFive;
             background-color: $background-color-secondary;
             color: $font-color-secondary;
         }
@@ -21,7 +21,7 @@
         a {
             @include flexLayoutColumnDefault;
             > .nav_logotype {
-                width: 100%;
+                width: $percent-hundred;
             }
         }
     }
@@ -32,8 +32,8 @@
         cursor: pointer;
         i {
             content: '';
-            height: 2px;
-            width: 25px;
+            height: $px-two;
+            width: $px-twentyFive;
             display: block;
             margin: $margin-custom-i;
             background-color: $background-color-secondary;
@@ -41,7 +41,7 @@
         }
         @media (min-width: $resolution-small-mobile) {
             i {
-                width: 25px;
+                width: $px-twentyFive;
             }
         }
     }

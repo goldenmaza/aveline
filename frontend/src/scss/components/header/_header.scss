@@ -2,14 +2,14 @@
 
 > header {
     @include flexLayoutColumnDefault;
-    width: 100%;
+    width: $percent-hundred;
     height: auto;
     background-color: $background-color-primary;
     color: $font-color-primary;
     nav {
         @include flexLayoutColumnDefault;
-        width: 100%;
-        height: 100%;
+        width: $percent-hundred;
+        height: $percent-hundred;
         margin: $margin-auto;
         max-width: $resolution-large-mobile;
         position: relative;
@@ -18,7 +18,7 @@
         nav {
             @include flexLayoutRowDefault;
             justify-content: space-around;
-            max-width: 100%;
+            max-width: $percent-hundred;
             padding: padding-tb-lr;
             > * {
                 background-color: $background-color-secondary;

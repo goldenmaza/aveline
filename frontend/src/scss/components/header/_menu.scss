@@ -3,8 +3,8 @@
 .handler_navigation {
     @include flexLayoutColumnDefault;
     @include flexLayoutBasisSeventy;
-    max-height: 0;
-    width: 100%;
+    max-height: $vh-zero;
+    width: $percent-hundred;
     list-style: none;
     padding: $padding-none;
     border: 2px solid transparent;
@@ -12,7 +12,7 @@
     overflow: hidden;
     transition: max-height 2s, padding 2s, border-bottom 2s;
     &.active {
-        max-height: 750px;
+        max-height: $px-sevenHundredFifty;
         border-bottom: 2px solid #F90;
         transition: max-height 4s, padding 1s, border-bottom 4s;
     }
@@ -22,22 +22,22 @@
         align-items: center;
         a {
             @include flexLayoutColumnDefault;
-            width: 100%;
+            width: $percent-hundred;
             height: auto;
             padding: $padding-rl-tb;
             font-size: $font-size-small;
             background-color: $background-color-tertiary;
             color: $font-color-tertiary;
-            letter-spacing: 1px;
+            letter-spacing: $px-one;
             text-transform: uppercase;
             transition: color .4s ease;
             &:after {
                 content: '';
                 display: block;
                 height: 0.2em;
-                width: 0;
+                width: $percent-zero;
                 position: relative;
-                left: 50%;
+                left: $percent-fifty;
                 margin: $margin-top-half;
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;
@@ -46,15 +46,15 @@
                 transition-timing-function: ease;
             }
             &:focus:after {
-                width: 100%;
-                left: 0;
+                width: $percent-hundred;
+                left: $percent-zero;
                 background-color: #ffcd00;
             }
         }
         &:hover {
             a:after {
-                width: 100%;
-                left: 0;
+                width: $percent-hundred;
+                left: $percent-zero;
                 background-color: #ffcd00;
             }
         }
@@ -63,7 +63,7 @@
 @media (min-width: $resolution-large-mobile) {
     .handler_navigation {
         @include flexLayoutRowDefault;
-        max-height: 100%;
+        max-height: $percent-hundred;
         display: flex;
         justify-content: space-evenly;
         &.active {

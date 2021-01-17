@@ -15,6 +15,10 @@ p, a, q, strong, ul, li, iframe, video, audio, input, textarea {
     vertical-align: baseline;
 }
 
+html {
+    font-family: $font-family-standard;
+}
+
 h1 {
     font-size: $font-size-h1;
 }

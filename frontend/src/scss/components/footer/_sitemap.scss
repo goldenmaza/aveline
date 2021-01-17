@@ -4,7 +4,7 @@
     @include flexLayoutColumnDefault;
     ul {
         @include flexLayoutColumnDefault;
-        width: 100%;
+        width: $percent-hundred;
         margin-left: $margin-none;
         background-color: $background-color-primary;
         color: $font-color-primary;

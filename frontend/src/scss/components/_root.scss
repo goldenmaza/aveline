@@ -8,8 +8,7 @@
 
 #root {
     @include flexLayoutColumnDefault;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    min-height: $vh-hundred;
     background-color: $background-color-primary;
     color: $font-color-primary;
     > main {

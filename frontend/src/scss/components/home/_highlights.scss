@@ -10,7 +10,7 @@
         @include flexLayoutBasisMax;
         position: relative;
         max-height: 25vh;
-        width: 75%;
+        width: $percent-seventyFive;
         margin: $margin-bottom;
         padding: $padding-all;
         background-color: $background-color-primary;
@@ -19,7 +19,7 @@
             a {
                 span {
                     &:after {
-                        width: 100%;
+                        width: $percent-hundred;
                         left: 0;
                         background-color: #ffcd00;
                     }
@@ -34,7 +34,7 @@
             &:focus {
                 span {
                     &:after {
-                        width: 100%;
+                        width: $percent-hundred;
                         left: 0;
                         background-color: #ffcd00;
                     }
@@ -42,7 +42,7 @@
             }
             .highlights_image {
                 display: block;
-                width: 100%;
+                width: $percent-hundred;
                 height: 25vh;
             }
             div {
@@ -58,7 +58,7 @@
                         content: '';
                         display: block;
                         height: 0.2em;
-                        width: 0;
+                        width: $percent-zero;
                         position: relative;
                         left: 50%;
                         margin: $margin-top-half;
