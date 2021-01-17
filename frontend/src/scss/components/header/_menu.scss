@@ -7,14 +7,14 @@
     width: $percent-hundred;
     list-style: none;
     padding: $padding-none;
-    border: 2px solid transparent;
+    border: $px-two solid transparent;
     text-align: center;
     overflow: hidden;
     transition: max-height 2s, padding 2s, border-bottom 2s;
     &.active {
         max-height: $px-sevenHundredFifty;
-        border-bottom: 2px solid #F90;
-        transition: max-height 4s, padding 1s, border-bottom 4s;
+        border-bottom: $border-handler-bottom;
+        transition: max-height 4s, padding 4s, border-bottom 4s;
     }
     li {
         @include flexLayoutColumnDefault;
@@ -34,11 +34,11 @@
             &:after {
                 content: '';
                 display: block;
-                height: 0.2em;
+                height: $page-indicator-height;
                 width: $percent-zero;
                 position: relative;
                 left: $percent-fifty;
-                margin: $margin-top-half;
+                margin: $margin-top-quarter;
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;
                 transition-property: left,width,background-color,color;
@@ -48,14 +48,14 @@
             &:focus:after {
                 width: $percent-hundred;
                 left: $percent-zero;
-                background-color: #ffcd00;
+                background-color: $color-orange-light;
             }
         }
         &:hover {
             a:after {
                 width: $percent-hundred;
                 left: $percent-zero;
-                background-color: #ffcd00;
+                background-color: $color-orange-light;
             }
         }
     }
@@ -67,8 +67,8 @@
         display: flex;
         justify-content: space-evenly;
         &.active {
-            border-top: 2px solid transparent;
-            border-bottom: 2px solid transparent;
+            border-top: $px-two solid transparent;
+            border-bottom: $px-two solid transparent;
         }
     }
 }

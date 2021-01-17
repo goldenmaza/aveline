@@ -6,16 +6,22 @@ $color-white: #FFF;
 $color-grey: #CCC;
 $color-grey-dark: #333;
 $color-orange: #F90;
+$color-orange-light: #ffcc00;
+$color-red: #F00;
+$color-red-light: #a66;
 
 // Font size variables...
-$font-size: 1em;
-$font-size-h1: $font-size * 2.50;
-$font-size-h2: $font-size * 2.25;
-$font-size-h3: $font-size * 2.00;
-$font-size-h4: $font-size * 1.75;
-$font-size-h5: $font-size * 1.50;
-$font-size-small: $font-size * 0.90;
-$font-size-smaller: $font-size * 0.75;
+$default-size: 1;
+$font-size: $default-size + rem;
+$font-size-h1: $default-size * 2.50 + rem;
+$font-size-h2: $default-size * 2.25 + rem;
+$font-size-h3: $default-size * 2.00 + rem;
+$font-size-h4: $default-size * 1.75 + rem;
+$font-size-h5: $default-size * 1.50 + rem;
+$font-size-small: $default-size * 0.90 + rem;
+$font-size-smaller: $default-size * 0.75 + rem;
+$page-indicator-height: $default-size * 0.20 + rem;
+$form-counter-bottom: $default-size * 2.25 + rem;
 
 // Font-family variables...
 $font-family-custom: CUSTOM;
@@ -35,6 +41,7 @@ $margin-tb-lr: 1rem 0 1rem 0;
 $margin-top: 1rem 0 0 0;
 $margin-top-double: 2rem 0 0 0;
 $margin-top-half: 0.5rem 0 0 0;
+$margin-top-quarter: 0.25rem 0 0 0;
 $margin-right: 0 1rem 0 0;
 $margin-right-half: 0 0.5rem 0 0;
 $margin-bottom: 0 0 1rem 0;
@@ -77,8 +84,12 @@ $percent-twenty: 20%;
 $percent-ten: 10%;
 $percent-zero: 0%;
 $vh-hundred: 100vh;
+$vh-seventyFive: 75vh;
 $vh-fifty: 50vh;
+$vh-thirtyFive: 35vh;
 $vh-twentySeven: 27vh;
+$vh-twentyFive: 25vh;
+$vh-fifteen: 15vh;
 $vh-zero: 0vh;
 $px-oneThousandSixHundred: 1600px;
 $px-oneThousandThreeHundredSixtySix: 1366px;
@@ -92,6 +103,7 @@ $px-four: 4px;
 $px-three: 3px;
 $px-two: 2px;
 $px-one: 1px;
+$px-zero: 0px;
 
 // Resolutions variables...
 $resolution-small-mobile: $px-fourHundredEighty;
@@ -99,3 +111,10 @@ $resolution-large-mobile: $px-sevenHundredSixtyEight;
 $resolution-large-tablet: $px-oneThousandTwentyFour;
 $resolution-small-monitor: $px-oneThousandThreeHundredSixtySix;
 $resolution-large-monitor: $px-oneThousandSixHundred;
+
+// Border variables...
+$border-default: $px-two solid $color-grey;
+$border-active: $px-two solid $color-orange-light;
+$border-handler-bottom: $px-two solid $color-orange;
+$border-radius-left-pointing: $px-five $px-zero $px-zero $px-five;
+$border-radius-right-pointing: $px-zero $px-five $px-five $px-zero;

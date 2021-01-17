@@ -64,12 +64,12 @@
                         @media (min-width: $resolution-large-mobile) {
                             &:first-child {
                                 input {
-                                    border-radius: 4px 0 0 4px;
+                                    border-radius: $border-radius-left-pointing;
                                 }
                             }
                             &:last-child {
                                 input {
-                                    border-radius: 0 4px 4px 0;
+                                    border-radius: $border-radius-right-pointing;
                                 }
                             }
                         }
@@ -100,31 +100,31 @@
                             &:last-child {
                                 align-self: flex-end;
                                 position: relative;
-                                bottom: 2.25em;
-                                right: 1em;
-                                color: #aaa;
+                                bottom: $form-counter-bottom;
+                                right: $font-size;
+                                color: $color-grey;
                             }
                         }
                     }
                     input {
                         height: unset;
                         padding: $padding-all;
-                        border: 2px solid #e5e5e5;
-                        border-radius: 4px;
+                        border: $border-default;
+                        border-radius: $px-four;
                         box-shadow: 0 0 0 0 transparent;
                         &.invalid {
-                            background-color: #a66;
+                            background-color: $color-red-light;
                             &::placeholder {
-                                color: #FFF;
+                                color: $color-white;
                             }
                         }
                         &:hover {
-                            border: 2px solid #ffcc00;
+                            border: $border-active;
                             background-color: $background-color-primary;
                             color: $font-color-primary;
                         }
                         &:focus {
-                            border: 2px solid #ffcc00;
+                            border: $border-active;
                             background-color: $background-color-primary;
                             color: $font-color-primary;
                         }
@@ -132,23 +132,23 @@
                     textarea {
                         min-height: $vh-twentySeven;
                         padding: $padding-all;
-                        border: 2px solid #e5e5e5;
-                        border-radius: 4px;
+                        border: $border-default;
+                        border-radius: $px-four;
                         resize: none;
                         overflow: auto;
                         &.invalid {
-                            background-color: #a66;
+                            background-color: $color-red-light;
                             &::placeholder {
-                                color: #FFF;
+                                color: $color-white;
                             }
                         }
                         &:hover {
-                            border: 2px solid #ffcc00;
+                            border: $border-active;
                             background-color: $background-color-primary;
                             color: $font-color-primary;
                         }
                         &:focus {
-                            border: 2px solid #ffcc00;
+                            border: $border-active;
                             background-color: $background-color-primary;
                             color: $font-color-primary;
                         }

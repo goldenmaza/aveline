@@ -13,22 +13,22 @@ html {
   font-family: CUSTOM, "Segoe UI", Arial, sans-serif, -apple-system, BlinkMacSystemFont, Helvetica, Ubuntu, Roboto, "Droid Sans", Oxygen-Sans, Cantarell; }
 
 h1 {
-  font-size: 2.5em; }
+  font-size: 2.5rem; }
 
 h2 {
-  font-size: 2.25em; }
+  font-size: 2.25rem; }
 
 h3 {
-  font-size: 2em; }
+  font-size: 2rem; }
 
 h4 {
-  font-size: 1.75em; }
+  font-size: 1.75rem; }
 
 h5 {
-  font-size: 1.5em; }
+  font-size: 1.5rem; }
 
 p {
-  font-size: 1em; }
+  font-size: 1rem; }
 
 ul {
   list-style: none; }
@@ -173,7 +173,7 @@ a {
   #root .handler_navigation.active {
     max-height: 750px;
     border-bottom: 2px solid #F90;
-    transition: max-height 4s, padding 1s, border-bottom 4s; }
+    transition: max-height 4s, padding 4s, border-bottom 4s; }
   #root .handler_navigation li {
     display: flex;
     flex-direction: column;
@@ -185,7 +185,7 @@ a {
       width: 100%;
       height: auto;
       padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-      font-size: 0.9em;
+      font-size: 0.9rem;
       background-color: #000;
       color: #F90;
       letter-spacing: 1px;
@@ -194,11 +194,11 @@ a {
       #root .handler_navigation li a:after {
         content: '';
         display: block;
-        height: 0.2em;
+        height: 0.2rem;
         width: 0%;
         position: relative;
         left: 50%;
-        margin: 0.5rem 0 0 0;
+        margin: 0.25rem 0 0 0;
         background-color: #FFF;
         color: #333;
         transition-property: left,width,background-color,color;
@@ -207,11 +207,11 @@ a {
       #root .handler_navigation li a:focus:after {
         width: 100%;
         left: 0%;
-        background-color: #ffcd00; }
+        background-color: #ffcc00; }
     #root .handler_navigation li:hover a:after {
       width: 100%;
       left: 0%;
-      background-color: #ffcd00; }
+      background-color: #ffcc00; }
 
 @media (min-width: 768px) {
   #root .handler_navigation {
@@ -243,7 +243,7 @@ a {
     #root .highlights_navigation li:hover a span:after {
       width: 100%;
       left: 0;
-      background-color: #ffcd00; }
+      background-color: #ffcc00; }
     #root .highlights_navigation li a {
       display: flex;
       flex-direction: column;
@@ -256,7 +256,7 @@ a {
       #root .highlights_navigation li a:focus span:after {
         width: 100%;
         left: 0;
-        background-color: #ffcd00; }
+        background-color: #ffcc00; }
       #root .highlights_navigation li a .highlights_image {
         display: block;
         width: 100%;
@@ -270,11 +270,11 @@ a {
           padding: 0.5rem 1.5rem 0.5rem 1.5rem;
           background-color: #000;
           color: #F90;
-          font-size: 0.9em; }
+          font-size: 0.9rem; }
           #root .highlights_navigation li a div span:after {
             content: '';
             display: block;
-            height: 0.2em;
+            height: 0.2rem;
             width: 0%;
             position: relative;
             left: 50%;
@@ -425,7 +425,7 @@ a {
           #root .childrenContainer .contact_tree ul li.none a span:after {
             content: '';
             display: block;
-            height: 0.2em;
+            height: 0.2rem;
             width: 0%;
             position: relative;
             left: 50%;
@@ -438,15 +438,15 @@ a {
         #root .childrenContainer .contact_tree ul li:hover a span:after {
           width: 100%;
           left: 0;
-          background-color: #ffcd00; }
+          background-color: #ffcc00; }
         #root .childrenContainer .contact_tree ul li a:focus span:after {
           width: 100%;
           left: 0;
-          background-color: #ffcd00; }
+          background-color: #ffcc00; }
         #root .childrenContainer .contact_tree ul li a span:after {
           content: '';
           display: block;
-          height: 0.2em;
+          height: 0.2rem;
           width: 0%;
           position: relative;
           left: 50%;
@@ -486,7 +486,7 @@ a {
               padding: 0.5rem 1.5rem 0.5rem 1.5rem;
               background-color: #000;
               color: #F90;
-              font-size: 0.9em; }
+              font-size: 0.9rem; }
         #root .childrenContainer .contact_tree ul li div {
           display: flex;
           flex-direction: column;
@@ -513,7 +513,7 @@ a {
               flex-direction: column;
               width: auto;
               padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-              font-size: 0.9em; }
+              font-size: 0.9rem; }
               #root .childrenContainer .contact_tree ul li div div span:last-child a {
                 text-transform: uppercase; }
     @media (min-width: 768px) {
@@ -574,9 +574,9 @@ a {
       flex-shrink: 1; }
     @media (min-width: 768px) {
       #root #contactForm > .formBody > .formGroup > .formGroup:first-child > .formRow:first-child > .formElement:first-child input {
-        border-radius: 4px 0 0 4px; }
+        border-radius: 5px 0px 0px 5px; }
       #root #contactForm > .formBody > .formGroup > .formGroup:first-child > .formRow:first-child > .formElement:last-child input {
-        border-radius: 0 4px 4px 0; } }
+        border-radius: 0px 5px 5px 0px; } }
   #root #contactForm > .formBody > .formGroup:last-child .formRow:last-child {
     padding: 0 0 1rem 0; }
   #root #contactForm > .formBody > .formGroup:last-child .formRow .formElement {
@@ -593,13 +593,13 @@ a {
       #root #contactForm > .formBody .formGroup .formRow .formElement label span:last-child {
         align-self: flex-end;
         position: relative;
-        bottom: 2.25em;
-        right: 1em;
-        color: #aaa; }
+        bottom: 2.25rem;
+        right: 1rem;
+        color: #CCC; }
     #root #contactForm > .formBody .formGroup .formRow .formElement input {
       height: unset;
       padding: 1rem;
-      border: 2px solid #e5e5e5;
+      border: 2px solid #CCC;
       border-radius: 4px;
       box-shadow: 0 0 0 0 transparent; }
       #root #contactForm > .formBody .formGroup .formRow .formElement input.invalid {
@@ -617,7 +617,7 @@ a {
     #root #contactForm > .formBody .formGroup .formRow .formElement textarea {
       min-height: 27vh;
       padding: 1rem;
-      border: 2px solid #e5e5e5;
+      border: 2px solid #CCC;
       border-radius: 4px;
       resize: none;
       overflow: auto; }
@@ -791,7 +791,7 @@ a {
 
 #root > footer footer .footer_copyright {
   margin: 0 0 1rem 0;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   text-align: center; }
   #root > footer footer .footer_copyright strong {
     display: block;
@@ -805,7 +805,7 @@ a {
     margin: 0; } }
 
 #root > footer footer .footer_by {
-  font-size: 0.9em; }
+  font-size: 0.9rem; }
   #root > footer footer .footer_by span {
     display: block;
     margin: 1rem; }

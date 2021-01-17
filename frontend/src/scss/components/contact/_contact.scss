@@ -61,11 +61,11 @@
             color: $font-color-secondary;
             iframe {
                 width: $percent-hundred;
-                min-height: 50vh;
+                min-height: $vh-fifty;
             }
             @media (min-width: $resolution-small-monitor) {
                 iframe {
-                    min-height: 75vh;
+                    min-height: $vh-seventyFive;
                 }
             }
         }
@@ -92,7 +92,7 @@
                 align-items: center;
                 position: relative;
                 width: $percent-seventyFive;
-                max-height: 35vh;
+                max-height: $vh-thirtyFive;
                 margin: $margin-top-double;
                 padding: $padding-all;
                 background-color: $background-color-primary;
@@ -103,7 +103,7 @@
                             &:after {
                                 width: $percent-hundred;
                                 left: 0;
-                                background-color: #F00;
+                                background-color: $color-red;
                             }
                         }
                     }
@@ -114,7 +114,7 @@
                                 &:after {
                                     width: $percent-hundred;
                                     left: 0;
-                                    background-color: #F00;
+                                    background-color: $color-red;
                                 }
                             }
                         }
@@ -122,10 +122,10 @@
                             &:after {
                                 content: '';
                                 display: block;
-                                height: 0.2em;
+                                height: $page-indicator-height;
                                 width: $percent-zero;
                                 position: relative;
-                                left: 50%;
+                                left: $percent-fifty;
                                 margin: $margin-top-half;
                                 background-color: $background-color-secondary;
                                 color: $font-color-secondary;
@@ -143,7 +143,7 @@
                                 &:after {
                                     width: $percent-hundred;
                                     left: 0;
-                                    background-color: #ffcd00;
+                                    background-color: $color-orange-light;
                                 }
                             }
                         }
@@ -154,7 +154,7 @@
                                 &:after {
                                     width: $percent-hundred;
                                     left: 0;
-                                    background-color: #ffcd00;
+                                    background-color: $color-orange-light;
                                 }
                             }
                         }
@@ -162,10 +162,10 @@
                             &:after {
                                 content: '';
                                 display: block;
-                                height: 0.2em;
+                                height: $page-indicator-height;
                                 width: $percent-zero;
                                 position: relative;
-                                left: 50%;
+                                left: $percent-fifty;
                                 margin: $margin-top-half;
                                 background-color: $background-color-secondary;
                                 color: $font-color-secondary;
@@ -185,18 +185,18 @@
                     .office_image {
                         display: block;
                         width: $percent-hundred;
-                        height: 15vh;
+                        height: $vh-fifteen;
                     }
                     @media (min-width: $resolution-small-mobile) {
                         .office_image {
-                            height: 25vh;
+                            height: $vh-twentyFive;
                         }
                     }
                     div {
                         @include flexLayoutColumnDefault;
                         position: absolute;
-                        top: 50%;
-                        left: 25%;
+                        top: $percent-fifty;
+                        left: $percent-twentyFive;
                         width: $percent-fifty;
                         transform: translateY(-50%);
                         text-align: center;
@@ -217,7 +217,7 @@
                     .contact_image {
                         display: block;
                         width: $percent-hundred;
-                        height: 35vh;
+                        height: $vh-thirtyFive;
                     }
                     div {
                         @include flexLayoutColumnDefault;

@@ -9,7 +9,7 @@
     li {
         @include flexLayoutBasisMax;
         position: relative;
-        max-height: 25vh;
+        max-height: $vh-twentyFive;
         width: $percent-seventyFive;
         margin: $margin-bottom;
         padding: $padding-all;
@@ -21,7 +21,7 @@
                     &:after {
                         width: $percent-hundred;
                         left: 0;
-                        background-color: #ffcd00;
+                        background-color: $color-orange-light;
                     }
                 }
             }
@@ -36,14 +36,14 @@
                     &:after {
                         width: $percent-hundred;
                         left: 0;
-                        background-color: #ffcd00;
+                        background-color: $color-orange-light;
                     }
                 }
             }
             .highlights_image {
                 display: block;
                 width: $percent-hundred;
-                height: 25vh;
+                height: $vh-twentyFive;
             }
             div {
                 position: absolute;
@@ -57,10 +57,10 @@
                     &:after {
                         content: '';
                         display: block;
-                        height: 0.2em;
+                        height: $page-indicator-height;
                         width: $percent-zero;
                         position: relative;
-                        left: 50%;
+                        left: $percent-fifty;
                         margin: $margin-top-half;
                         background-color: $background-color-secondary;
                         color: $font-color-secondary;
