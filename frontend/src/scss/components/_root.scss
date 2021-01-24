@@ -6,6 +6,11 @@
     display: none !important;
 }
 
+.storybook_container {
+    @include flexLayoutRowDefault;
+    margin: $margin-all;
+}
+
 #root {
     @include flexLayoutColumnDefault;
     min-height: $vh-hundred;
