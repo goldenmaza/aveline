@@ -14,7 +14,9 @@ Frontend module contains/will contain:
 - Babel
 - Axios
 - Redux
-- Selenium
+- Enzyme
+- Testing-library
+- WebdriverIO
 
 The basic flow is that the build output from the Frontend module should be placed on a server
 to host the React application. This application in turn calls the Backend application via REST
@@ -26,7 +28,7 @@ a specific address. The GraphQL API is used by many components to prepare the da
 generate a website with content.
 
 Work remaining for the Frontend module:
-- Selenium
+- WebdriverIO
 
 Note: These two modules currently only work locally as I have not been able to deploy the backend
 module to a webhosting service to test it live.
