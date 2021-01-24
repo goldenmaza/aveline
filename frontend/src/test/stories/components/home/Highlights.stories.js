@@ -4,10 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Highlights from '../../../../components/home/Highlights';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-const stateLevel = process.env.REACT_APP_DOC_HIGHLIGHTS_LEVEL;
-const stateLabel = process.env.REACT_APP_DOC_HIGHLIGHTS_LABEL;
-
 export const HighlightsComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -17,5 +13,6 @@ export const HighlightsComponent = () =>
 
 export default {
     title: '/Home',
-    component: HighlightsComponent
+    component: HighlightsComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

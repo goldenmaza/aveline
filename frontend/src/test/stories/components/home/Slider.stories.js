@@ -4,9 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Slider from '../../../../components/home/Slider';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-// ...
-
 export const SliderComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -16,5 +13,6 @@ export const SliderComponent = () =>
 
 export default {
     title: '/Home',
-    component: SliderComponent
+    component: SliderComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

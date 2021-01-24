@@ -4,9 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Footer from '../../../../components/footer/Footer';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-// ...
-
 export const FooterComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -16,5 +13,6 @@ export const FooterComponent = () =>
 
 export default {
     title: '/Footer',
-    component: FooterComponent
+    component: FooterComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

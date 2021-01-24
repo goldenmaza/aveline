@@ -4,9 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Handler from '../../../../components/header/Handler';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-// ...
-
 export const HandlerComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -16,5 +13,6 @@ export const HandlerComponent = () =>
 
 export default {
     title: '/Header',
-    component: HandlerComponent
+    component: HandlerComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

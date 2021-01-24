@@ -4,9 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Form from '../../../../components/form/Form';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-// ...
-
 export const FormComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -16,5 +13,6 @@ export const FormComponent = () =>
 
 export default {
     title: '/Form',
-    component: FormComponent
+    component: FormComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

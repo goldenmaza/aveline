@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Collage from '../../../../components/common/Collage';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
 const collage = [];
 const media = {
     id: 0,
@@ -23,5 +22,6 @@ export const CollageComponent = () =>
 
 export default {
     title: '/Common',
-    component: CollageComponent
+    component: CollageComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

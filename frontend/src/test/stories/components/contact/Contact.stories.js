@@ -4,9 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Contact from '../../../../components/contact/Contact';
 import store from '../../../../redux/store';
 
-// TODO: Refactor to a central location for both component tests and storybook stories...
-// ...
-
 export const ContactComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
@@ -16,5 +13,6 @@ export const ContactComponent = () =>
 
 export default {
     title: '/Contact',
-    component: ContactComponent
+    component: ContactComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }

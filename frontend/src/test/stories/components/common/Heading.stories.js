@@ -1,8 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import Heading from '../../../../components/common/Heading';
-import store from '../../../../redux/store';
 
 // TODO: Refactor to a central location for both component tests and storybook stories...
 const propLevel = 'h1';
@@ -12,5 +9,6 @@ export const HeadingComponent = () => <Heading hidden={false} level={propLevel} 
 
 export default {
     title: '/Common',
-    component: HeadingComponent
+    component: HeadingComponent,
+    decorators: [(Story) => <div class='storybook'><Story/></div>]
 }
