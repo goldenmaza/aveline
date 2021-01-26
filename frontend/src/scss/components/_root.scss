@@ -7,8 +7,68 @@
 }
 
 .storybook_container {
-    @include flexLayoutRowDefault;
+    @include flexLayoutColumnDefault;
     margin: $margin-all;
+    padding: $padding-all;
+    background-color: blue;
+    > * {
+        background-color: $background-color-secondary;
+        color: $font-color-secondary;
+    }
+    main {
+        @include flexLayoutColumnDefault;
+        background-color: $background-color-primary;
+        color: $font-color-primary;
+        &.home {
+            > section:first-child {
+                @include flexLayoutDefault;
+                background-color: $background-color-secondary;
+                color: $font-color-secondary;
+                img {
+                    width: $percent-hundred;
+                }
+            }
+        }
+        &.form {
+            section {
+                .contentContainer {
+                    padding: $padding-all;
+                    background-color: $background-color-secondary;
+                    color: $font-color-secondary;
+                    * {
+                        background-color: $background-color-primary;
+                        color: $font-color-primary;
+                        padding: $padding-all;
+                    }
+                }
+            }
+        }
+        &.content {
+            section {
+                .contentContainer {
+                    * {
+                        padding: $padding-all;
+                    }
+                }
+            }
+        }
+        &.invalid {
+            background-color: $background-color-tertiary;
+            color: $font-color-tertiary;
+            section {
+                .contentContainer {
+                    margin: $margin-all;
+                    background-color: $background-color-secondary;
+                    color: $font-color-secondary;
+                    * {
+                        background-color: $background-color-primary;
+                        color: $font-color-primary;
+                        padding: $padding-all;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #root {
@@ -29,6 +89,9 @@
                 > nav {
                     background-color: $background-color-secondary;
                     color: $font-color-secondary;
+                }
+                > img {
+                    width: $percent-hundred;
                 }
             }
         }

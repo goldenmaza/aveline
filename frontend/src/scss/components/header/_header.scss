@@ -1,11 +1,8 @@
 // Header styling elements...
 
-> header {
-    @include flexLayoutColumnDefault;
-    width: $percent-hundred;
+header {
+    @include flexLayoutRowDefault;
     height: auto;
-    background-color: $background-color-primary;
-    color: $font-color-primary;
     nav {
         @include flexLayoutColumnDefault;
         width: $percent-hundred;
@@ -19,7 +16,6 @@
             @include flexLayoutRowDefault;
             justify-content: space-around;
             max-width: $percent-hundred;
-            padding: padding-tb-lr;
             > * {
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;

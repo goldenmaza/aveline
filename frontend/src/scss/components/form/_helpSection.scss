@@ -2,11 +2,13 @@
 
 .helpSection {
     @include flexLayoutColumnDefault;
+    overflow: hidden;
     header {
         padding: $padding-all;
         background-color: $background-color-secondary;
         color: $font-color-secondary;
         * {
+            width: $percent-hundred;
             background-color: $background-color-primary;
             color: $font-color-primary;
             padding: $padding-all;

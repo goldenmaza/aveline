@@ -1,6 +1,6 @@
 // Footer styling elements...
 
-> footer {
+footer {
     @include flexLayoutColumnDefault;
     align-items: center;
     align-content: space-between;
@@ -13,10 +13,8 @@
         justify-content: center;
         a {
             display: block;
-            width: $percent-seventyFive;
             .footer_logotype {
                 display: block;
-                width: $percent-hundred;
                 background-color: $background-color-secondary;
                 color: $font-color-secondary;
             }
