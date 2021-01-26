@@ -42,6 +42,48 @@ a {
 .hidden {
   display: none !important; }
 
+.storybook_container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: blue; }
+  .storybook_container > * {
+    background-color: #FFF;
+    color: #333; }
+  .storybook_container main {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    color: #CCC; }
+    .storybook_container main.home > section:first-child {
+      display: flex;
+      background-color: #FFF;
+      color: #333; }
+      .storybook_container main.home > section:first-child img {
+        width: 100%; }
+    .storybook_container main.form section .contentContainer {
+      padding: 1rem;
+      background-color: #FFF;
+      color: #333; }
+      .storybook_container main.form section .contentContainer * {
+        background-color: #333;
+        color: #CCC;
+        padding: 1rem; }
+    .storybook_container main.content section .contentContainer * {
+      padding: 1rem; }
+    .storybook_container main.invalid {
+      background-color: #000;
+      color: #F90; }
+      .storybook_container main.invalid section .contentContainer {
+        margin: 1rem;
+        background-color: #FFF;
+        color: #333; }
+        .storybook_container main.invalid section .contentContainer * {
+          background-color: #333;
+          color: #CCC;
+          padding: 1rem; }
+
 #root {
   display: flex;
   flex-direction: column;
@@ -59,6 +101,8 @@ a {
     #root > main.home > section > nav {
       background-color: #FFF;
       color: #333; }
+    #root > main.home > section > img {
+      width: 100%; }
     #root > main.content > section > * {
       padding: 1rem; }
     #root > main.content > section > .contentContainer {
@@ -89,14 +133,11 @@ a {
       text-align: justify;
       overflow: hidden; }
 
-#root > header {
+#root header {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  background-color: #333;
-  color: #CCC; }
-  #root > header nav {
+  flex-direction: row;
+  height: auto; }
+  #root header nav {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -105,13 +146,12 @@ a {
     max-width: 768px;
     position: relative; }
   @media (min-width: 768px) {
-    #root > header nav {
+    #root header nav {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      max-width: 100%;
-      padding: padding-tb-lr; }
-      #root > header nav > * {
+      max-width: 100%; }
+      #root header nav > * {
         background-color: #FFF;
         color: #333; } }
 
@@ -166,7 +206,6 @@ a {
   width: 100%;
   list-style: none;
   padding: 0;
-  border: 2px solid transparent;
   text-align: center;
   overflow: hidden;
   transition: max-height 2s, padding 2s, border-bottom 2s; }
@@ -639,12 +678,14 @@ a {
 
 #root .helpSection {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: hidden; }
   #root .helpSection header {
     padding: 1rem;
     background-color: #FFF;
     color: #333; }
     #root .helpSection header * {
+      width: 100%;
       background-color: #333;
       color: #CCC;
       padding: 1rem; }
@@ -694,7 +735,7 @@ a {
       flex-direction: row;
       align-items: center; } }
 
-#root > footer {
+#root footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -703,19 +744,17 @@ a {
   background-color: #333;
   color: #CCC;
   padding: 1rem; }
-  #root > footer header {
+  #root footer header {
     display: flex;
     flex-direction: row;
     justify-content: center; }
-    #root > footer header a {
-      display: block;
-      width: 75%; }
-      #root > footer header a .footer_logotype {
+    #root footer header a {
+      display: block; }
+      #root footer header a .footer_logotype {
         display: block;
-        width: 100%;
         background-color: #FFF;
         color: #333; }
-  #root > footer section {
+  #root footer section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -724,34 +763,34 @@ a {
     padding: 1rem;
     background-color: #FFF;
     color: #333; }
-    #root > footer section .contact_minimal {
+    #root footer section .contact_minimal {
       overflow: hidden; }
-      #root > footer section .contact_minimal ul {
+      #root footer section .contact_minimal ul {
         display: flex;
         flex-direction: column;
         margin: 0 0 0.5rem 0;
         padding: 0rem 0.5rem 1rem 0.5rem;
         background-color: #333;
         color: #CCC; }
-        #root > footer section .contact_minimal ul:first-child li:last-child {
+        #root footer section .contact_minimal ul:first-child li:last-child {
           margin: 1rem 0 0 0; }
-        #root > footer section .contact_minimal ul li:first-child {
+        #root footer section .contact_minimal ul li:first-child {
           margin: 1rem 0 1rem 0; }
-        #root > footer section .contact_minimal ul li:last-child {
+        #root footer section .contact_minimal ul li:last-child {
           margin: 0; }
-        #root > footer section .contact_minimal ul li a {
+        #root footer section .contact_minimal ul li a {
           background-color: #000;
           color: #F90;
           text-transform: uppercase; }
   @media (min-width: 768px) {
-    #root > footer section {
+    #root footer section {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       width: 75%;
       margin: 1rem 0 1rem 0;
       padding: 1rem; } }
-  #root > footer footer {
+  #root footer footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -761,7 +800,7 @@ a {
     color: #333;
     padding: 1rem; }
   @media (min-width: 768px) {
-    #root > footer footer {
+    #root footer footer {
       flex-direction: row; } }
 
 #root .sitemap_navigation {
@@ -785,30 +824,30 @@ a {
     #root .sitemap_navigation ul {
       margin-left: 0.5rem; } }
 
-#root > footer footer div {
+#root footer footer div {
   background-color: #333;
   color: #CCC; }
 
-#root > footer footer .footer_copyright {
+#root footer footer .footer_copyright {
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
   text-align: center; }
-  #root > footer footer .footer_copyright strong {
+  #root footer footer .footer_copyright strong {
     display: block;
     margin: 1rem; }
-    #root > footer footer .footer_copyright strong a {
+    #root footer footer .footer_copyright strong a {
       background-color: #000;
       color: #F90; }
 
 @media (min-width: 768px) {
-  #root > footer footer .footer_copyright {
+  #root footer footer .footer_copyright {
     margin: 0; } }
 
-#root > footer footer .footer_by {
+#root footer footer .footer_by {
   font-size: 0.9rem; }
-  #root > footer footer .footer_by span {
+  #root footer footer .footer_by span {
     display: block;
     margin: 1rem; }
-    #root > footer footer .footer_by span a {
+    #root footer footer .footer_by span a {
       background-color: #000;
       color: #F90; }
