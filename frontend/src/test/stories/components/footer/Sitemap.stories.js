@@ -12,7 +12,7 @@ export const SitemapComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Footer',
+    title: 'Footer - 1',
     component: SitemapComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><footer><section><Story/></section></footer></div>]
 }

@@ -12,7 +12,7 @@ export const MenuComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Header',
+    title: 'Header - 2',
     component: MenuComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><header><Story/></header></div>]
 }

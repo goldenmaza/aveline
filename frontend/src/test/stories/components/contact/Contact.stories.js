@@ -7,12 +7,12 @@ import store from '../../../../redux/store';
 export const ContactComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
-        <Contact />
+        <Contact route={'contact'} minimalContact={false} />
     </BrowserRouter>
 </Provider>;
 
 export default {
-    title: '/Contact',
+    title: 'Contact - 0',
     component: ContactComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><main class='form'><Story/></main></div>]
 }

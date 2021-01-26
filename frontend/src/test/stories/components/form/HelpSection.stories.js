@@ -12,7 +12,7 @@ export const HelpSectionComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Form',
+    title: 'Form - 1',
     component: HelpSectionComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

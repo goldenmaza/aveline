@@ -12,7 +12,7 @@ export const HeaderComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Header',
+    title: 'Header - 0',
     component: HeaderComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

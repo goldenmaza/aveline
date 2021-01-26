@@ -12,7 +12,7 @@ export const SlideshowComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Home',
+    title: 'Home - 1',
     component: SlideshowComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><main class='home'><Story/></main></div>]
 }

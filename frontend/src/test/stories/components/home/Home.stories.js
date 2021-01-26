@@ -12,7 +12,7 @@ export const HomeComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Home',
+    title: 'Home - 0',
     component: HomeComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><main class='home'><Story/></main></div>]
 }

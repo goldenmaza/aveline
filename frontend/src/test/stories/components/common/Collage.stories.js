@@ -5,13 +5,24 @@ import Collage from '../../../../components/common/Collage';
 import store from '../../../../redux/store';
 
 const collage = [];
-const media = {
+collage.push({
     id: 0,
-    src: 'invalid link',
+    src: '../multimedia/image/slide_b.png',
     alt: 'example alt resource',
     title: 'example title resource'
-};
-collage.push(media);
+});
+collage.push({
+    id: 1,
+    src: '../multimedia/image/high_a.png',
+    alt: 'example alt resource',
+    title: 'example title resource'
+});
+collage.push({
+    id: 2,
+    src: '../multimedia/image/high_c.png',
+    alt: 'example alt resource',
+    title: 'example title resource'
+});
 
 export const CollageComponent = () =>
 <Provider store={store}>
@@ -21,7 +32,7 @@ export const CollageComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Common',
+    title: 'Common - 4',
     component: CollageComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

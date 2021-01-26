@@ -12,7 +12,7 @@ export const FormComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Form',
+    title: 'Form - 0',
     component: FormComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

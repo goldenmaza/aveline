@@ -12,7 +12,7 @@ export const HighlightsComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Home',
+    title: 'Home - 2',
     component: HighlightsComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><main class='home'><Story/></main></div>]
 }

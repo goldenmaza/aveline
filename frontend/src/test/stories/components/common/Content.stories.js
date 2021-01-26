@@ -7,12 +7,12 @@ import store from '../../../../redux/store';
 export const ContentComponent = () =>
 <Provider store={store}>
     <BrowserRouter>
-        <Content />
+        <Content route={'about'}/>
     </BrowserRouter>
 </Provider>;
 
 export default {
-    title: '/Common',
+    title: 'Common - 2',
     component: ContentComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><main class='content'><Story/></main></div>]
 }

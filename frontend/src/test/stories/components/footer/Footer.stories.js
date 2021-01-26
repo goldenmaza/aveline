@@ -12,7 +12,7 @@ export const FooterComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Footer',
+    title: 'Footer - 0',
     component: FooterComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

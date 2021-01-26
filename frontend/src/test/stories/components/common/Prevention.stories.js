@@ -12,7 +12,7 @@ export const PreventionComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Common',
+    title: 'Common - 1',
     component: PreventionComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

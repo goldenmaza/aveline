@@ -12,7 +12,7 @@ export const SelectorComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Common',
+    title: 'Common - 0',
     component: SelectorComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><Story/></div>]
 }

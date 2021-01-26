@@ -12,7 +12,7 @@ export const HandlerComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Header',
+    title: 'Header - 1',
     component: HandlerComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><header><Story/></header></div>]
 }

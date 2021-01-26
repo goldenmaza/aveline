@@ -12,7 +12,7 @@ export const CopyrightComponent = () =>
 </Provider>;
 
 export default {
-    title: '/Footer',
+    title: 'Footer - 2',
     component: CopyrightComponent,
-    decorators: [(Story) => <div class='storybook'><Story/></div>]
+    decorators: [(Story) => <div class='storybook_container'><footer><footer><Story/></footer></footer></div>]
 }
