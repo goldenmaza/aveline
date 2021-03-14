@@ -36,7 +36,7 @@ class Sitemap extends Component {
                         </li>
                     );
                     paragraphs.forEach(c => {
-                        if (p.id === c.page) {
+                        if (p.id === c.page && !c.sitemap) {
                             items.push(
                                 <li key={c.id}>
                                     <HashLink to={to + '#' + p_label + c.id} title={c.heading}>
