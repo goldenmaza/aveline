@@ -45,6 +45,12 @@ const PageContentOutput = new GraphQLObjectType({
                     return content.box;
                 }
             },
+            sitemap: {
+                type: GraphQLBoolean,
+                resolve(page) {
+                    return content.sitemap;
+                }
+            },
             heading: {
                 type: GraphQLString,
                 resolve(content) {

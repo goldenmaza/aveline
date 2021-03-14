@@ -36,6 +36,10 @@ const contentTable = {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
+    sitemap: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
     heading: {
         type: Sequelize.STRING,
         allowNull: false

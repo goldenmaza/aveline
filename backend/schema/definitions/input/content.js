@@ -30,6 +30,9 @@ const PageContentInput = new GraphQLInputObjectType({
             box: {
                 type: GraphQLBoolean
             },
+            sitemap: {
+                type: GraphQLBoolean
+            },
             heading: {
                 type: GraphQLString
             },
