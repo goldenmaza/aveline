@@ -21,24 +21,24 @@ export const formState = {
         submitButton: process.env.REACT_APP_DOC_FORM_STRONG_SUBMIT
     },
     regex: { // Refactor to a central utility...
-        forenameInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_FORENAME),
-        surnameInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_SURNAME),
-        addressInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS),
-        phoneInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_PHONE),
-        emailInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL),
-        purposeInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE),
-        messageInput: RegExp(process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE)
+        forenameInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_FORENAME + '$'),
+        surnameInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_SURNAME + '$'),
+        addressInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS + '$'),
+        phoneInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_PHONE + '$'),
+        emailInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_EMAIL + '$'),
+        purposeInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE + '$'),
+        messageInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE + '$')
     },
     maxLength: { // Refactor to a central utility...
-        forenameInput: process.env.REACT_APP_DOC_FORM_REGEX_FORENAME_MAX,
-        surnameInput: process.env.REACT_APP_DOC_FORM_REGEX_SURNAME_MAX,
-        addressInput: process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS_MAX,
-        phoneInput: process.env.REACT_APP_DOC_FORM_REGEX_PHONE_MAX,
+        forenameInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_FORENAME_MAX),
+        surnameInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_SURNAME_MAX),
+        addressInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS_MAX),
+        phoneInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_PHONE_MAX),
         emailInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_USERNAME_MAX)
                     + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_DOMAIN_MAX)
                     + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_SUFFIX_MAX),
-        purposeInput: process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE_MAX,
-        messageInput: process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE_MAX
+        purposeInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE_MAX),
+        messageInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE_MAX)
     },
     remainingLength: { // Refactor to a central utility...
         forenameInput: 0,
