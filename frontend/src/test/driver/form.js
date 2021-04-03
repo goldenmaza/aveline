@@ -18,10 +18,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         ContactForm.forenameInput.setValue('xö1');
         expect(ContactForm.forenameInput).toHaveAttribute('class', 'invalid');
         //Valid range limit:Between 2 and 50.
-        ContactForm.forenameInput.setValue(generateInvalidInput(1));
+        ContactForm.forenameInput.setValue('x');
         expect(ContactForm.forenameInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.forenameInput.setValue(generateInvalidInput(51));
-//        expect(ContactForm.forenameInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the Surname', () => {
@@ -36,10 +34,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         ContactForm.surnameInput.setValue('ö1');
         expect(ContactForm.surnameInput).toHaveAttribute('class', 'invalid');
         //Valid range limit:Between 2 and 50.
-        ContactForm.surnameInput.setValue(generateInvalidInput(1));
+        ContactForm.surnameInput.setValue('x');
         expect(ContactForm.surnameInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.surnameInput.setValue(generateInvalidInput(51));
-//        expect(ContactForm.surnameInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the Address', () => {
@@ -55,10 +51,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         expect(ContactForm.addressInput).toHaveAttribute('class', 'invalid');
         //Valid digits:0 to 9.
         //Valid range limit:Between 3 and 100.
-        ContactForm.addressInput.setValue(generateInvalidInput(2));
+        ContactForm.addressInput.setValue('xx');
         expect(ContactForm.addressInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.addressInput.setValue(generateInvalidInput(101));
-//        expect(ContactForm.addressInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the Phone', () => {
@@ -69,10 +63,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         ContactForm.phoneInput.setValue('++X');
         expect(ContactForm.phoneInput).toHaveAttribute('class', 'invalid');
         //Valid range limit:Between 3 and 25.
-        ContactForm.phoneInput.setValue(generateInvalidInput(2));
+        ContactForm.phoneInput.setValue('xx');
         expect(ContactForm.phoneInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.phoneInput.setValue(generateInvalidInput(26));
-//        expect(ContactForm.phoneInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the E-mail', () => {
@@ -85,12 +77,16 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         ContactForm.emailInput.setValue('forename,surname');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
+        ContactForm.emailInput.setValue('f@domain.com');
+        expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         //Domain:z to a, Z to A. dot. Between 2 and 50.
         ContactForm.emailInput.setValue('forename.surname@domainñ');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         ContactForm.emailInput.setValue('forename.surname@domainÑ');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         ContactForm.emailInput.setValue('forename.surname@domain,com');
+        expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
+        ContactForm.emailInput.setValue('forename@d.com');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         //Suffix:z to a, Z to A. dot. Between 2 and 13.
         ContactForm.emailInput.setValue('forename.surname@domain.cñ');
@@ -99,15 +95,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
         ContactForm.emailInput.setValue('forename.surname@domain.c,');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
-        //Verifying ranges for all groups.
-        ContactForm.emailInput.setValue(generateInvalidInput(1));
+        ContactForm.emailInput.setValue('forename@domain.c');
         expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.emailInput.setValue(generateInvalidInput(50) + '@domain.com');
-//        expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.emailInput.setValue('xxx' + generateInvalidInput(50) + '.com');
-//        expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.emailInput.setValue('xxx@domain.' + generateInvalidInput(13));
-//        expect(ContactForm.emailInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the Purpose', () => {
@@ -123,10 +112,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         expect(ContactForm.purposeInput).toHaveAttribute('class', 'invalid');
         //Valid digits:0 to 9.
         //Valid range limit:Between 2 and 50.
-        ContactForm.purposeInput.setValue(generateInvalidInput(1));
+        ContactForm.purposeInput.setValue('x');
         expect(ContactForm.purposeInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.purposeInput.setValue(generateInvalidInput(51));
-//        expect(ContactForm.purposeInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Regex used for the Message', () => {
@@ -142,10 +129,8 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         expect(ContactForm.messageInput).toHaveAttribute('class', 'invalid');
         //Valid digits:0 to 9.
         //Valid range limit:Between 5 and 5000.
-        ContactForm.messageInput.setValue(generateInvalidInput(4));
+        ContactForm.messageInput.setValue('xxxx');
         expect(ContactForm.messageInput).toHaveAttribute('class', 'invalid');
-//        ContactForm.messageInput.setValue(generateInvalidInput(5001));
-//        expect(ContactForm.messageInput).toHaveAttribute('class', 'invalid');
     });
 
     it('is validating the Clear button', () => {
@@ -203,13 +188,3 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
         assert.equal(false, ContactForm.submitButton.isClickable());
     });
 });
-
-function generateInvalidInput(max) {
-    let invalidInput = '';
-
-    for (let i = 0; i < max; i++) {
-        invalidInput += 'x';
-    }
-
-    return invalidInput;
-}
