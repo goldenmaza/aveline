@@ -20,7 +20,7 @@ class Selector extends Component {
             return (
                 <>
                     <Header />
-                    <main className={select}>
+                    <section className={select}>
                         <Heading hidden={true} level={level} label={label} />
                         {select === 'home' &&
                             <Home route={route} />
@@ -44,7 +44,7 @@ class Selector extends Component {
                                 </div>
                             </section>
                         }
-                    </main>
+                    </section>
                     <Footer />
                 </>
             );

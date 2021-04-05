@@ -16,21 +16,24 @@ class Footer extends Component {
         } else {
             return (
                 <footer>
-                    <header>
-                        <Heading hidden={true} level={level} label={label} />
-                        <a href='/'>
-                            <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />
-                        </a>
-                    </header>
                     <section>
-                        <div className='contact_minimal'>
-                            <Contact minimalContact={true} tag={tag} />
+                        <div className='logotype_minimal'>
+                            <a href='/'>
+                                <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />
+                            </a>
                         </div>
-                        <Sitemap />
+                        <div className='container_minimal'>
+                            <div className='contact_minimal'>
+                                <Contact minimalContact={true} tag={tag} />
+                            </div>
+                            <div className='sitemap_minimal'>
+                                <Sitemap />
+                            </div>
+                        </div>
+                        <div className='copyright_minimal'>
+                            <Copyright />
+                        </div>
                     </section>
-                    <footer>
-                        <Copyright />
-                    </footer>
                 </footer>
             );
         }

@@ -57,7 +57,7 @@ class Sitemap extends Component {
 
             return (
                 <>
-                    <nav className='sitemap_navigation'>
+                    <nav className='sitemap_navigation' aria-label='sitemap navigation'>
                         <Heading hidden={true} level={level} label={label} />
                         {lists}
                     </nav>

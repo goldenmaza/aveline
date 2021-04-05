@@ -10,8 +10,8 @@ class Header extends Component {
     render() {
         const { level, label } = this.props;
         return (
-            <header role='banner'>
-                <nav>
+            <header>
+                <nav aria-label='main navigation'>
                     <Heading hidden={true} level={level} label={label} />
                     <Handler />
                 </nav>
