@@ -10,19 +10,13 @@
         @include flexLayoutRowDefault;
         justify-content: space-between;
         align-items: center;
+        margin: $margin-auto;
         .nav_logotype {
             display: block;
             width: $percent-seventyFive;
+            margin: $margin-auto;
             background-color: $background-color-secondary;
             color: $font-color-secondary;
-        }
-    }
-    @media (min-width: $resolution-large-mobile) {
-        a {
-            @include flexLayoutColumnDefault;
-            > .nav_logotype {
-                width: $percent-hundred;
-            }
         }
     }
     .handler_toggle {
