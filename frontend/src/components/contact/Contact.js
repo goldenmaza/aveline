@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Heading from '../common/Heading';
 import Content from '../common/Content';
 import Navigation from './Navigation';
 
@@ -30,7 +31,7 @@ class Contact extends Component {
     }
 
     render() {
-        const { loading, offices, route, minimalContact, target } = this.props;
+        const { loading, offices, route, minimalContact, target, level, label } = this.props;
         if (loading) {
             return (<div></div>); // Refactor to display loading animation...minimalContact
         } else {
@@ -188,6 +189,7 @@ class Contact extends Component {
 
             return (
                 <>
+                    <Heading hidden={true} level={level} label={label} />
                     {minimalContact ? (
                         <>
                             { main }
@@ -214,7 +216,9 @@ class Contact extends Component {
 const mapStateToProps = state => ({
     loading: state.contactComponent.loading,
     offices: state.contactComponent.offices,
-    target: state.contactComponent.target
+    target: state.contactComponent.target,
+    level: state.contactComponent.level,
+    label: state.contactComponent.label
 });
 
 const mapDispatchToProps = dispatch => ({
