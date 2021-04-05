@@ -1,11 +1,9 @@
 // Copyright styling elements...
 
-div {
-    background-color: $background-color-primary;
-    color: $font-color-primary;
-}
 .footer_copyright {
     margin: $margin-bottom;
+    background-color: $background-color-primary;
+    color: $font-color-primary;
     font-size: $font-size-small;
     text-align: center;
     strong {
@@ -23,6 +21,8 @@ div {
     }
 }
 .footer_by {
+    background-color: $background-color-primary;
+    color: $font-color-primary;
     font-size: $font-size-small;
     span {
         display: block;

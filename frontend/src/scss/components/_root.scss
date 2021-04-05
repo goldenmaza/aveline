@@ -31,7 +31,7 @@
         background-color: $background-color-secondary;
         color: $font-color-secondary;
     }
-    main {
+    section {
         @include flexLayoutColumnDefault;
         background-color: $background-color-primary;
         color: $font-color-primary;
@@ -92,7 +92,7 @@
     min-height: $vh-hundred;
     background-color: $background-color-primary;
     color: $font-color-primary;
-    > main {
+    > section {
         @include flexLayoutColumnDefault;
         padding: $padding-bottom-double;
         background-color: $background-color-tertiary;

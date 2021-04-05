@@ -8,18 +8,6 @@ footer {
     background-color: $background-color-primary;
     color: $font-color-primary;
     padding: $padding-all;
-    header {
-        @include flexLayoutRowDefault;
-        justify-content: center;
-        a {
-            display: block;
-            .footer_logotype {
-                display: block;
-                background-color: $background-color-secondary;
-                color: $font-color-secondary;
-            }
-        }
-    }
     section {
         @include flexLayoutColumnDefault;
         justify-content: flex-start;
@@ -28,60 +16,77 @@ footer {
         padding: $padding-all;
         background-color: $background-color-secondary;
         color: $font-color-secondary;
-        .contact_minimal {
-            overflow: hidden;
-            ul {
-                @include flexLayoutColumnDefault;
-                margin: $margin-bottom-half;
-                padding: $padding-custom-ul;
-                background-color: $background-color-primary;
-                color: $font-color-primary;
-                &:first-child {
-                    li:last-child {
-                        margin: $margin-top;
-                    }
-                }
-                li {
-                    &:first-child {
-                        margin: $margin-tb-lr;
-                    }
-                    &:last-child {
-                        margin: $margin-none;
-                    }
-                    a {
-                        background-color: $background-color-tertiary;
-                        color: $font-color-tertiary;
-                        text-transform: uppercase;
-                    }
+        .logotype_minimal {
+            @include flexLayoutRowDefault;
+            justify-content: center;
+            a {
+                .footer_logotype {
+                    display: block;
+                    width: $percent-seventyFive;
+                    margin: $margin-auto;
+                    background-color: $background-color-secondary;
+                    color: $font-color-secondary;
                 }
             }
         }
-
-        @import './sitemap';
-    }
-    @media (min-width: $resolution-large-mobile) {
-        section {
-            @include flexLayoutRowDefault;
+        .container_minimal {
+            @include flexLayoutColumnDefault;
             justify-content: flex-start;
-            width: $percent-seventyFive;
             margin: $margin-tb-lr;
-            padding: $padding-all;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
+            .contact_minimal {
+                overflow: hidden;
+                ul {
+                    @include flexLayoutColumnDefault;
+                    margin: $margin-bottom-half;
+                    padding: $padding-custom-ul;
+                    background-color: $background-color-primary;
+                    color: $font-color-primary;
+                    &:first-child {
+                        li:last-child {
+                            margin: $margin-top;
+                        }
+                    }
+                    li {
+                        &:first-child {
+                            margin: $margin-tb-lr;
+                        }
+                        &:last-child {
+                            margin: $margin-none;
+                        }
+                        a {
+                            background-color: $background-color-tertiary;
+                            color: $font-color-tertiary;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+            .sitemap_minimal {
+                @import './sitemap';
+            }
         }
-    }
-    footer {
-        @include flexLayoutColumnDefault;
-        justify-content: space-between;
-        align-items: center;
-        width: $percent-seventyFive;
-        background-color: $background-color-secondary;
-        color: $font-color-secondary;
-        padding: $padding-all;
+        @media (min-width: $resolution-large-mobile) {
+            .container_minimal {
+                @include flexLayoutRowDefault;
+                justify-content: flex-start;
+                margin: $margin-tb-lr;
+            }
+        }
+        .copyright_minimal {
+            @include flexLayoutColumnDefault;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $background-color-secondary;
+            color: $font-color-secondary;
 
-        @import './copyright';
-    }
-    @media (min-width: $resolution-large-mobile) {
-        footer {
-            flex-direction: row;
+            @import './copyright';
+        }
+        @media (min-width: $resolution-large-mobile) {
+            .copyright_minimal {
+                flex-direction: row;
+            }
         }
     }
 }
