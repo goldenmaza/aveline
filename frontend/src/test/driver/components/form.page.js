@@ -1,4 +1,4 @@
-import Page from './page'
+import Page from './page';
 
 class ContactForm extends Page {
     get forenameInput() { return $('#forenameInput'); }
@@ -15,6 +15,10 @@ class ContactForm extends Page {
 
     open(path) {
         super.open(path);
+    }
+
+    pause(ms) {
+        super.pause(ms);
     }
 
     clear() {
