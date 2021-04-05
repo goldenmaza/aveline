@@ -169,18 +169,14 @@ a {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center; }
+        align-items: center;
+        margin: 0 auto; }
         #root header nav .nav_container a .nav_logotype {
           display: block;
           width: 75%;
+          margin: 0 auto;
           background-color: #FFF;
           color: #333; }
-      @media (min-width: 768px) {
-        #root header nav .nav_container a {
-          display: flex;
-          flex-direction: column; }
-          #root header nav .nav_container a > .nav_logotype {
-            width: 100%; } }
       #root header nav .nav_container .handler_toggle {
         padding: 0.5rem;
         background-color: #333;
