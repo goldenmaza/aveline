@@ -64,35 +64,35 @@ a {
   .storybook_container > * {
     background-color: #FFF;
     color: #333; }
-  .storybook_container main {
+  .storybook_container section {
     display: flex;
     flex-direction: column;
     background-color: #333;
     color: #CCC; }
-    .storybook_container main.home > section:first-child {
+    .storybook_container section.home > section:first-child {
       display: flex;
       background-color: #FFF;
       color: #333; }
-      .storybook_container main.home > section:first-child img {
+      .storybook_container section.home > section:first-child img {
         width: 100%; }
-    .storybook_container main.form section .contentContainer {
+    .storybook_container section.form section .contentContainer {
       padding: 1rem;
       background-color: #FFF;
       color: #333; }
-      .storybook_container main.form section .contentContainer * {
+      .storybook_container section.form section .contentContainer * {
         background-color: #333;
         color: #CCC;
         padding: 1rem; }
-    .storybook_container main.content section .contentContainer * {
+    .storybook_container section.content section .contentContainer * {
       padding: 1rem; }
-    .storybook_container main.invalid {
+    .storybook_container section.invalid {
       background-color: #000;
       color: #F90; }
-      .storybook_container main.invalid section .contentContainer {
+      .storybook_container section.invalid section .contentContainer {
         margin: 1rem;
         background-color: #FFF;
         color: #333; }
-        .storybook_container main.invalid section .contentContainer * {
+        .storybook_container section.invalid section .contentContainer * {
           background-color: #333;
           color: #CCC;
           padding: 1rem; }
@@ -103,41 +103,41 @@ a {
   min-height: 100vh;
   background-color: #333;
   color: #CCC; }
-  #root > main {
+  #root > section {
     display: flex;
     flex-direction: column;
     padding: 0 0 2rem 0;
     background-color: #000;
     color: #F90; }
-    #root > main.home > section:nth-child(2) {
+    #root > section.home > section:nth-child(2) {
       margin: 0; }
-    #root > main.home > section > nav {
+    #root > section.home > section > nav {
       background-color: #FFF;
       color: #333; }
-    #root > main.home > section > img {
+    #root > section.home > section > img {
       width: 100%; }
-    #root > main.content > section > * {
+    #root > section.content > section > * {
       padding: 1rem; }
-    #root > main.content > section > .contentContainer {
+    #root > section.content > section > .contentContainer {
       padding: 1rem; }
-      #root > main.content > section > .contentContainer > * {
+      #root > section.content > section > .contentContainer > * {
         background-color: #333;
         color: #CCC;
         padding: 1rem; }
-    #root > main.form > section > .contentContainer {
+    #root > section.form > section > .contentContainer {
       padding: 1rem;
       background-color: #FFF;
       color: #333; }
-      #root > main.form > section > .contentContainer > * {
+      #root > section.form > section > .contentContainer > * {
         background-color: #333;
         color: #CCC;
         padding: 1rem; }
     @media (min-width: 1366px) {
-      #root > main:not(.home) > section {
+      #root > section:not(.home) > section {
         margin: 1rem 7rem 0rem 7rem; }
-        #root > main:not(.home) > section:nth-child(2) {
+        #root > section:not(.home) > section:nth-child(2) {
           margin: 5rem 7rem 0rem 7rem; } }
-    #root > main > section {
+    #root > section > section {
       display: flex;
       flex-direction: column;
       margin: 1rem;
@@ -754,16 +754,6 @@ a {
   background-color: #333;
   color: #CCC;
   padding: 1rem; }
-  #root footer header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; }
-    #root footer header a {
-      display: block; }
-      #root footer header a .footer_logotype {
-        display: block;
-        background-color: #FFF;
-        color: #333; }
   #root footer section {
     display: flex;
     flex-direction: column;
@@ -773,86 +763,100 @@ a {
     padding: 1rem;
     background-color: #FFF;
     color: #333; }
-    #root footer section .contact_minimal {
-      overflow: hidden; }
-      #root footer section .contact_minimal ul {
-        display: flex;
-        flex-direction: column;
-        margin: 0 0 0.5rem 0;
-        padding: 0rem 0.5rem 1rem 0.5rem;
-        background-color: #333;
-        color: #CCC; }
-        #root footer section .contact_minimal ul:first-child li:last-child {
-          margin: 1rem 0 0 0; }
-        #root footer section .contact_minimal ul li:first-child {
-          margin: 1rem 0 1rem 0; }
-        #root footer section .contact_minimal ul li:last-child {
-          margin: 0; }
-        #root footer section .contact_minimal ul li a {
-          background-color: #000;
-          color: #F90;
-          text-transform: uppercase; }
-    #root footer section .sitemap_navigation {
+    #root footer section .logotype_minimal {
       display: flex;
-      flex-direction: column; }
-      #root footer section .sitemap_navigation ul {
+      flex-direction: row;
+      justify-content: center; }
+      #root footer section .logotype_minimal a .footer_logotype {
+        display: block;
+        width: 75%;
+        margin: 0 auto;
+        background-color: #FFF;
+        color: #333; }
+    #root footer section .container_minimal {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin: 1rem 0 1rem 0;
+      background-color: #FFF;
+      color: #333; }
+      #root footer section .container_minimal .contact_minimal {
+        overflow: hidden; }
+        #root footer section .container_minimal .contact_minimal ul {
+          display: flex;
+          flex-direction: column;
+          margin: 0 0 0.5rem 0;
+          padding: 0rem 0.5rem 1rem 0.5rem;
+          background-color: #333;
+          color: #CCC; }
+          #root footer section .container_minimal .contact_minimal ul:first-child li:last-child {
+            margin: 1rem 0 0 0; }
+          #root footer section .container_minimal .contact_minimal ul li:first-child {
+            margin: 1rem 0 1rem 0; }
+          #root footer section .container_minimal .contact_minimal ul li:last-child {
+            margin: 0; }
+          #root footer section .container_minimal .contact_minimal ul li a {
+            background-color: #000;
+            color: #F90;
+            text-transform: uppercase; }
+      #root footer section .container_minimal .sitemap_minimal .sitemap_navigation {
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-left: 0;
+        flex-direction: column; }
+        #root footer section .container_minimal .sitemap_minimal .sitemap_navigation ul {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-left: 0;
+          background-color: #333;
+          color: #CCC; }
+          #root footer section .container_minimal .sitemap_minimal .sitemap_navigation ul li {
+            margin: 0.5rem; }
+            #root footer section .container_minimal .sitemap_minimal .sitemap_navigation ul li.bold {
+              font-weight: 900; }
+            #root footer section .container_minimal .sitemap_minimal .sitemap_navigation ul li a {
+              background-color: #000;
+              color: #F90; }
+        @media (min-width: 768px) {
+          #root footer section .container_minimal .sitemap_minimal .sitemap_navigation ul {
+            margin-left: 0.5rem; } }
+    @media (min-width: 768px) {
+      #root footer section .container_minimal {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 1rem 0 1rem 0; } }
+    #root footer section .copyright_minimal {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #FFF;
+      color: #333; }
+      #root footer section .copyright_minimal .footer_copyright {
+        margin: 0 0 1rem 0;
         background-color: #333;
-        color: #CCC; }
-        #root footer section .sitemap_navigation ul li {
-          margin: 0.5rem; }
-          #root footer section .sitemap_navigation ul li.bold {
-            font-weight: 900; }
-          #root footer section .sitemap_navigation ul li a {
+        color: #CCC;
+        font-size: 0.9rem;
+        text-align: center; }
+        #root footer section .copyright_minimal .footer_copyright strong {
+          display: block;
+          margin: 1rem; }
+          #root footer section .copyright_minimal .footer_copyright strong a {
             background-color: #000;
             color: #F90; }
       @media (min-width: 768px) {
-        #root footer section .sitemap_navigation ul {
-          margin-left: 0.5rem; } }
-  @media (min-width: 768px) {
-    #root footer section {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 75%;
-      margin: 1rem 0 1rem 0;
-      padding: 1rem; } }
-  #root footer footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 75%;
-    background-color: #FFF;
-    color: #333;
-    padding: 1rem; }
-    #root footer footer div {
-      background-color: #333;
-      color: #CCC; }
-    #root footer footer .footer_copyright {
-      margin: 0 0 1rem 0;
-      font-size: 0.9rem;
-      text-align: center; }
-      #root footer footer .footer_copyright strong {
-        display: block;
-        margin: 1rem; }
-        #root footer footer .footer_copyright strong a {
-          background-color: #000;
-          color: #F90; }
+        #root footer section .copyright_minimal .footer_copyright {
+          margin: 0; } }
+      #root footer section .copyright_minimal .footer_by {
+        background-color: #333;
+        color: #CCC;
+        font-size: 0.9rem; }
+        #root footer section .copyright_minimal .footer_by span {
+          display: block;
+          margin: 1rem; }
+          #root footer section .copyright_minimal .footer_by span a {
+            background-color: #000;
+            color: #F90; }
     @media (min-width: 768px) {
-      #root footer footer .footer_copyright {
-        margin: 0; } }
-    #root footer footer .footer_by {
-      font-size: 0.9rem; }
-      #root footer footer .footer_by span {
-        display: block;
-        margin: 1rem; }
-        #root footer footer .footer_by span a {
-          background-color: #000;
-          color: #F90; }
-  @media (min-width: 768px) {
-    #root footer footer {
-      flex-direction: row; } }
+      #root footer section .copyright_minimal {
+        flex-direction: row; } }
