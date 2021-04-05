@@ -1,39 +1,35 @@
 // Copyright styling elements...
 
-footer {
-    footer {
-        div {
-            background-color: $background-color-primary;
-            color: $font-color-primary;
+div {
+    background-color: $background-color-primary;
+    color: $font-color-primary;
+}
+.footer_copyright {
+    margin: $margin-bottom;
+    font-size: $font-size-small;
+    text-align: center;
+    strong {
+        display: block;
+        margin: $margin-all;
+        a {
+            background-color: $background-color-tertiary;
+            color: $font-color-tertiary;
         }
-        .footer_copyright {
-            margin: $margin-bottom;
-            font-size: $font-size-small;
-            text-align: center;
-            strong {
-                display: block;
-                margin: $margin-all;
-                a {
-                    background-color: $background-color-tertiary;
-                    color: $font-color-tertiary;
-                }
-            }
-        }
-        @media (min-width: $resolution-large-mobile) {
-            .footer_copyright {
-                margin: $margin-none;
-            }
-        }
-        .footer_by {
-            font-size: $font-size-small;
-            span {
-                display: block;
-                margin: $margin-all;
-                a {
-                    background-color: $background-color-tertiary;
-                    color: $font-color-tertiary;
-                }
-            }
+    }
+}
+@media (min-width: $resolution-large-mobile) {
+    .footer_copyright {
+        margin: $margin-none;
+    }
+}
+.footer_by {
+    font-size: $font-size-small;
+    span {
+        display: block;
+        margin: $margin-all;
+        a {
+            background-color: $background-color-tertiary;
+            color: $font-color-tertiary;
         }
     }
 }

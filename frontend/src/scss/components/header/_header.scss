@@ -10,6 +10,8 @@ header {
         margin: $margin-auto;
         max-width: $resolution-large-mobile;
         position: relative;
+
+        @import './handler';
     }
     @media (min-width: $resolution-large-mobile) {
         nav {

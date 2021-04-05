@@ -56,6 +56,8 @@ footer {
                 }
             }
         }
+
+        @import './sitemap';
     }
     @media (min-width: $resolution-large-mobile) {
         section {
@@ -74,6 +76,8 @@ footer {
         background-color: $background-color-secondary;
         color: $font-color-secondary;
         padding: $padding-all;
+
+        @import './copyright';
     }
     @media (min-width: $resolution-large-mobile) {
         footer {
