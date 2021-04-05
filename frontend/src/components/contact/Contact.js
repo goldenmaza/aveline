@@ -88,7 +88,7 @@ class Contact extends Component {
                     const classValue = employees.some(e => e.office === o.id) ? '' : 'none';
                     regionalOffices.push(
                         <li key={o.id} className={classValue} data-none={classValue} data-id={o.id} onClick={this.toggleOffice}>
-                            <a href='#'>
+                            <a href='/'>
                                 <img className='office_image' src={thumbnail.src} alt={thumbnail.alt} title={thumbnail.title} />
                                 <div>
                                     <span>
@@ -174,10 +174,10 @@ class Contact extends Component {
                         <div key='1' className='childrenContainer'>
                             {regionalOffices.length > 0 &&
                                 <div className='contact_tree'>
-                                    <ul>
+                                    <ul id='regionalOffices'>
                                         { regionalOffices }
                                     </ul>
-                                    <ul>
+                                    <ul id='officeEmployees'>
                                         { officeEmployees }
                                     </ul>
                                 </div>

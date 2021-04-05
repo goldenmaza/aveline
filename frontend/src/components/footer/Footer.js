@@ -17,6 +17,7 @@ class Footer extends Component {
             return (
                 <footer>
                     <section>
+                        <Heading hidden={true} level={level} label={label} />
                         <div className='logotype_minimal'>
                             <a href='/'>
                                 <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} />

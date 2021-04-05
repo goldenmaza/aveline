@@ -11,7 +11,7 @@ class Navigation extends Component {
         } else {
             const src = 'https://maps.google.com/maps?q=' + address + '&t=k&z=13&ie=UTF8&iwloc=&output=embed';
             return (
-                <iframe src={src} tabIndex='-1'></iframe>//TODO: Add an unique title property...
+                <iframe src={src} tabIndex='-1' title='Navigational map to find our address...'></iframe>
             );
         }
     }
