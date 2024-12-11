@@ -1,4 +1,4 @@
-import Graphql from 'express-graphql';
+import { createHandler } from 'graphql-http/lib/use/express';
 import Schema from '../schema/schema';
 import db from '../schema/db';
 require('../schema/definitions/associations');
@@ -25,7 +25,7 @@ import {
 import global from '../app';
 
 // GraphQL API configuration...
-global.app.use(process.env.API_GRAPHQL, Graphql({
+global.app.use(process.env.API_GRAPHQL, createHandler({
     schema: Schema,
     pretty: true,
     graphiql: true,
