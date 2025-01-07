@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+
 import store from './redux/store';
 import App from './components/App';
-import path from 'path';
+
 import dotenv from 'dotenv';
+import path from 'path';
 
 const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 dotenv.config({ path: path.join(__dirname, `../.env.${environment}`) });
 
-window.addEventListener('load', () => {
-    ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <App />
         </Provider>
-    , document.getElementById('root'));
-});
+    <React.StrictMode>
+);
