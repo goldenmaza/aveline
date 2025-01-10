@@ -9,6 +9,7 @@ import {
     FORM_DISABLE_SUBMIT,
     FORM_VALIDATION_CHANGE,
     FORM_VALIDATION_RESET,
+    HELP_SECTION_CLEAR,
     HELP_SECTION_STORE
 } from '../constants/form';
 
@@ -97,6 +98,11 @@ export const formComponent = (state = formState, action) => {
 
 export const helpSectionComponent = (state = helpSectionState, action) => {
     switch (action.type) {
+        case HELP_SECTION_CLEAR:
+            return {
+                ...state,
+                helpSection: null
+            };
         case HELP_SECTION_STORE:
             return {
                 ...state,
