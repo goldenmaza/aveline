@@ -1,91 +1,62 @@
-import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { bindActionCreators } from 'redux';
-import { NavLink, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
+import { useHighlightsComponentState } from '../../hooks/home';
 
 import Heading from '../common/Heading';
 
-import {
-    getHighlights
-} from '../../redux/actions/home';
+export default function Highlights(props) {
+    const { loading, pages, level, label } = useHighlightsComponentState();
 
-class Highlights extends Component {
-    componentDidMount() {
-        this.props.actions.getHighlights();
-    }
-
-    render() {
-        const { loading, pages, level, label } = this.props;
-        if (loading) {
-            return (<div></div>); // Refactor to display loading animation...
-        } else {
-            const highlights = [];
-
-            pages.forEach(p => {
-                const collage = p.collage;
-                const to = '/p/' + p.route;
+    if (loading) {
+        return (<div></div>); // Refactor to display loading animation...
+    } else {
+        const highlights = [];
+        pages.forEach(p => {
+            const collage = p.collage;
+            const to = '/page/' + p.route;
+            collage.forEach(m => {
+                highlights.push(
+                    <li key={p.id + m.id}>
+                        <NavLink to={to} title={p.title}>
+                            <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
+                            <div>
+                                <span>{p.title}</span>
+                            </div>
+                        </NavLink>
+                    </li>
+                );
+            });
+        });
+        pages.forEach(p => {
+            const paragraphs = p.paragraphs;
+            const to = '/page/' + p.route;
+            paragraphs.forEach(c => {
+                const collage = c.collage;
                 collage.forEach(m => {
                     highlights.push(
-                        <li key={p.id + m.id}>
-                            <NavLink to={to} title={p.title}>
-                                <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
+                        <li key={p.id + c.id + m.id}>
+                            <HashLink to={to+'#'+p.route+c.id} title={c.text}>
+                                <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
                                 <div>
-                                    <span>{p.title}</span>
+                                    <span>{c.heading}</span>
                                 </div>
-                            </NavLink>
+                            </HashLink>
                         </li>
                     );
                 });
             });
-            pages.forEach(p => {
-                const paragraphs = p.paragraphs;
-                const to = '/p/' + p.route;
-                paragraphs.forEach(c => {
-                    const collage = c.collage;
-                    collage.forEach(m => {
-                        highlights.push(
-                            <li key={p.id + c.id + m.id}>
-                                <HashLink to={to+'#'+p.route+c.id} title={c.text}>
-                                    <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} />
-                                    <div>
-                                        <span>{c.heading}</span>
-                                    </div>
-                                </HashLink>
-                            </li>
-                        );
-                    });
-                });
-            });
+        });
 
-            return (
-                <section>
-                    <Heading hidden={true} level={level} label={label} />
-                    <nav>
-                        <ul className='highlights_navigation'>
-                            { highlights }
-                        </ul>
-                    </nav>
-                </section>
-            );
-        }
+        return (
+            <section>
+                <Heading hidden={true} level={level} label={label} />
+                <nav>
+                    <ul className='highlights_navigation'>
+                        { highlights }
+                    </ul>
+                </nav>
+            </section>
+        );
     }
 }
-
-const mapStateToProps = state => ({
-    loading: state.highlightsComponent.loading,
-    pages: state.highlightsComponent.pages,
-    level: state.highlightsComponent.level,
-    label: state.highlightsComponent.label
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        getHighlights
-    }, dispatch)
-});
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Highlights));
