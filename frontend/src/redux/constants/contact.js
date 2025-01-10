@@ -1,9 +1,11 @@
 export const contactState = {
     loading: true,
     offices: null,
-    target: null,
-    level: process.env.REACT_APP_DOC_FOOTER_CONTACT_LEVEL,
-    label: process.env.REACT_APP_DOC_FOOTER_CONTACT_LABEL
+    officeIdentifier: null,
+    officeLevel: process.env.REACT_APP_DOC_FORM_OFFICE_LEVEL,
+    officeLabel: process.env.REACT_APP_DOC_FORM_OFFICE_LABEL,
+    employeeLevel: process.env.REACT_APP_DOC_FORM_EMPLOYEE_LEVEL,
+    employeeLabel: process.env.REACT_APP_DOC_FORM_EMPLOYEE_LABEL
 };
 
 export const navigationState = {

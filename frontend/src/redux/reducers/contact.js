@@ -12,14 +12,14 @@ export const contactComponent = (state = contactState, action) => {
         case TOGGLE_CONTACT_OFFICE:
             return {
                 ...state,
-                target: action.id
+                officeIdentifier: action.id
             };
         case REQ_CONTACT_DETAILS:
             return {
                 ...state,
                 loading: true,
                 offices: null,
-                target: null
+                officeIdentifier: null
             };
         case RCV_CONTACT_DETAILS:
             return {
