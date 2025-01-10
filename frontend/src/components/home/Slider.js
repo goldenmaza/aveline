@@ -1,81 +1,54 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useEffect, useRef } from 'react';
+
+import { useSliderComponentState } from '../../hooks/home';
 
 import Slide from './Slide';
 
 import {
-    setSliderConfigurations,
+    setSliderSources,
     setCurrentSlide,
     setIntervalId,
     clearIntervalId
 } from '../../redux/actions/home';
 
-class Slider extends Component {
-    constructor(props) {
-        super(props);
-        this.props.actions.setSliderConfigurations(props);
+export default function Slider(props) {
+    const { loading, delay, duration, loop, current } = useSliderComponentState();
+    const indexRef = useRef(0);
 
-        this.cycleSlides = this.cycleSlides.bind(this);
-    }
+    useEffect(() => {
+        if (props.sources !== null) {
+            const sources = props.sources;
+            setSliderSources({ sources });
+        }
 
-    componentDidMount() {
-        const { delay, duration } = this.props;
         setTimeout(() => {
-            const intervalId = setInterval(this.cycleSlides, duration);
-            this.props.actions.setIntervalId(intervalId);
-        }, delay, duration, this);
-    }
+            setIntervalId(setInterval(cycleSlides, duration));
+        }, delay, duration);
 
-    componentWillUnmount() {
-        this.props.actions.clearIntervalId();
-    }
-
-    cycleSlides() {
-        const { sources, index, loop } = this.props;
-        const limit = sources.length - 1;
-        const i = index === limit ? 0 : Number(index) + 1;
-        this.props.actions.setCurrentSlide(i);
-        if (!loop) {
-            this.props.actions.clearIntervalId();
+        function cycleSlides() {
+            const currentIndex = Number(indexRef.current);
+            const sources = props.sources;
+            const finalIndex = sources.length - 1;
+            const newIndex = currentIndex === finalIndex ? 0 : currentIndex + 1;
+            indexRef.current = newIndex;
+            setCurrentSlide({ newIndex });
+            if (!loop) {
+                clearIntervalId();
+            }
         }
-    }
 
-    render() {
-        const { loading, current } = this.props;
-        if (loading) {
-            return (<div></div>); // Refactor to display loading animation...
-        } else {
-            return (
-                <>
-                    {current !== null &&
-                        <Slide current={current} />
-                    }
-                </>
-            );
+        return () => {
+            clearIntervalId();
         }
+    }, []);
+
+    if (loading) {
+        return (<div></div>); // Refactor to display loading animation...
+    } else {
+        return (
+            <>
+                <Slide loading={loading} current={current}/>
+            </>
+        );
     }
 }
-
-const mapStateToProps = state => ({
-    current: state.sliderComponent.current,
-    index: state.sliderComponent.index,
-    delay: state.sliderComponent.delay,
-    duration: state.sliderComponent.duration,
-    loop: state.sliderComponent.loop
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        setSliderConfigurations,
-        setCurrentSlide,
-        clearIntervalId,
-        setIntervalId
-    }, dispatch)
-});
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Slider));
