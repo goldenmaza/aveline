@@ -15,17 +15,14 @@ import {
 export const formComponent = (state = formState, action) => {
     switch (action.type) {
         case REQ_FORM_TRANSMIT:
-            console.log('Axios is trying to send the e-mail...');
             return {
                 ...state
             };
         case RCV_FORM_TRANSMIT:
-            console.log('Axios was successful...');
             return {
                 ...state
             };
         case ERR_FORM_TRANSMIT:
-            console.log('Axios failed...');
             return {
                 ...state
             };

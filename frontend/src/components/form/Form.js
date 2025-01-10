@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useFormComponentState, useHelpSectionComponentState } from '../../hooks/form';
 
-import Heading from '../common/Heading';
-import Contact from '../contact/Contact';
-import FormHelp from './HelpSection';
+import { prepareHelpSection } from '../../utils/helpSectionGenerator';
 
 import {
     processForm,
+    clearHelpSection,
     toggleHelpSection,
     enableSubmitButton,
     disableSubmitButton,
@@ -16,57 +12,32 @@ import {
     validationReset
 } from '../../redux/actions/form';
 
-class Form extends Component {
-    constructor(props) {
-        super(props);
+import Heading from '../common/Heading';
+import FormInputElement from './FormInputElement';
+import FormTextareaElement from './FormTextareaElement';
+import FormButtonElement from './FormButtonElement';
+import HelpSection from './HelpSection';
 
-        this.onKeyUp = this.onKeyUp.bind(this);
-        this.clearButton = this.clearButton.bind(this);
-        this.helpButton = this.helpButton.bind(this);
-        this.submitButton = this.submitButton.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.formIsValid = this.formIsValid.bind(this);
-        this.resetForm = this.resetForm.bind(this);
-    }
+export default function Form() {
+    const { validation, displayHelp, submitDisabled, level, label } = useFormComponentState();
+    const { helpMapping, rangeMapping, symbolMapping } = useHelpSectionComponentState();
 
-    onKeyUp(event) {
+    function handleOnKeyUp(event) {
         const { id, value } = event.target;
 
-        this.props.actions.validationChange(id, value);
-    }
+        validationChange(id, value);
 
-    clearButton(event) {
-        event.preventDefault();
-
-        this.resetForm();
-    }
-
-    helpButton(event) {
-        event.preventDefault();
-
-        this.props.actions.toggleHelpSection();
-    }
-
-    submitButton(event) {
-        event.preventDefault();
-
-        this.props.actions.processForm(this.props);
-
-        this.resetForm();
-    }
-
-    onChange() {
-        if (this.formIsValid()) {
-            this.props.actions.enableSubmitButton();
+        if (formIsValid()) {
+            enableSubmitButton();
         } else {
-            this.props.actions.disableSubmitButton();
+            disableSubmitButton();
         }
     }
 
-    formIsValid() {
+    function formIsValid() {
         let valid = true;
 
-        Object.values(this.props.validation).forEach(val => {
+        Object.values(validation).forEach(val => {
             if (val.length > 0) {
                 valid = false;
             }
@@ -75,184 +46,140 @@ class Form extends Component {
         return valid;
     }
 
-    resetForm() {
+    function handleToggleHelpSection(event) {
+        event.preventDefault();
+
+        clearHelpSection();
+        toggleHelpSection();
+
+        prepareHelpSection({helpMapping, rangeMapping, symbolMapping});
+    }
+
+    function handleResetForm(event) {
+        event.preventDefault();
+
+        resetForm();
+    }
+
+    function handleSubmitForm(event) {
+        event.preventDefault();
+
+        processForm({});
+
+        resetForm();
+    }
+
+    function resetForm() {
         document.getElementById('contactForm').reset();
-        this.props.actions.validationReset();
+
+        validationReset();
     }
 
-    componentDidUpdate() {
-        this.onChange();
-    }
-
-    render() {
-        const {
-            strong, maxLength, remainingLength, title, placeholder, validation, displayHelp, submitDisabled,
-            level, label, minimalContact, route
-        } = this.props;
-        const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
-        const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
-        const address = validation.addressInput === 'invalid' ? 'invalid' : '';
-        const phone = validation.phoneInput === 'invalid' ? 'invalid' : '';
-        const email = validation.emailInput === 'invalid' ? 'invalid' : '';
-        const purpose = validation.purposeInput === 'invalid' ? 'invalid' : '';
-        const message = validation.messageInput === 'invalid' ? 'invalid' : '';
-        return (
-            <>
-                {!minimalContact &&
-                    <Contact minimalContact={minimalContact} route={route} />
-                }
-                <section>
-                    <Heading hidden={true} level={level} label={label} />
-                    <form id='contactForm' encType='application/x-www-form-urlencoded' method='POST' action='#' noValidate>
-                        <div className='formBody'>
+    const forename = validation.forenameInput === 'invalid' ? 'invalid' : '';
+    const surname = validation.surnameInput === 'invalid' ? 'invalid' : '';
+    const address = validation.addressInput === 'invalid' ? 'invalid' : '';
+    const phone = validation.phoneInput === 'invalid' ? 'invalid' : '';
+    const email = validation.emailInput === 'invalid' ? 'invalid' : '';
+    const purpose = validation.purposeInput === 'invalid' ? 'invalid' : '';
+    const message = validation.messageInput === 'invalid' ? 'invalid' : '';
+    return (
+        <>
+            <section>
+                <Heading hidden={true} level={level} label={label} />
+                <form id='contactForm' encType='application/x-www-form-urlencoded' method='POST' action='#' noValidate>
+                    <div className='formBody'>
+                        <div className='formGroup'>
                             <div className='formGroup'>
-                                <div className='formGroup'>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='forenameInput'>
-                                                <strong className='required'>{strong['forenameInput']}</strong>
-                                                <input id='forenameInput' className={forename} type='text'
-                                                    maxLength={maxLength['forenameInput']} title={title['forenameInput']} placeholder={placeholder['forenameInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='forenameCounter'>{remainingLength['forenameInput']}</span>
-                                            </label>
-                                        </div>
-                                        <div className='formElement'>
-                                            <label htmlFor='surnameInput'>
-                                                <strong className='required'>{strong['surnameInput']}</strong>
-                                                <input id='surnameInput' className={surname} type='text'
-                                                    maxLength={maxLength['surnameInput']} title={title['surnameInput']} placeholder={placeholder['surnameInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='surnameCounter'>{remainingLength['surnameInput']}</span>
-                                            </label>
-                                        </div>
+                                <div className='formRow'>
+                                    <div className='formElement'>
+                                        { <FormInputElement labelFor={'forenameInput'} strongClass={'required'} elementID={'forenameInput'}
+                                                            elementClass={forename} elementType={'text'} elementLengthKey={'forenameInput'}
+                                                            labelStrongKey={'forenameInput'} elementTitleKey={'forenameInput'} elementPlaceholderKey={'forenameInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'forenameCounter'} spanLengthKey={'forenameInput'} /> }
                                     </div>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='addressInput'>
-                                                <strong className='required'>{strong['addressInput']}</strong>
-                                                <input id='addressInput' className={address} type='text'
-                                                    maxLength={maxLength['addressInput']} title={title['addressInput']} placeholder={placeholder['addressInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='addressCounter'>{remainingLength['addressInput']}</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='phoneInput'>
-                                                <strong className='required'>{strong['phoneInput']}</strong>
-                                                <input id='phoneInput' className={phone} type='tel'
-                                                    maxLength={maxLength['phoneInput']} title={title['phoneInput']} placeholder={placeholder['phoneInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='phoneCounter'>{remainingLength['phoneInput']}</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='emailInput'>
-                                                <strong className='required'>{strong['emailInput']}</strong>
-                                                <input id='emailInput' className={email} type='email'
-                                                    maxLength={maxLength['emailInput']} title={title['emailInput']} placeholder={placeholder['emailInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='emailCounter'>{remainingLength['emailInput']}</span>
-                                            </label>
-                                        </div>
+                                    <div className='formElement'>
+                                        { <FormInputElement labelFor={'surnameInput'} strongClass={'required'} elementID={'surnameInput'}
+                                                            elementClass={surname} elementType={'text'} elementLengthKey={'surnameInput'}
+                                                            labelStrongKey={'surnameInput'} elementTitleKey={'surnameInput'} elementPlaceholderKey={'surnameInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'surnameCounter'} spanLengthKey={'surnameInput'} /> }
                                     </div>
                                 </div>
-                                <div className='formGroup'>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='purposeInput'>
-                                                <strong className='required'>{strong['purposeInput']}</strong>
-                                                <input id='purposeInput' className={purpose} type='text'
-                                                    maxLength={maxLength['purposeInput']} title={title['purposeInput']} placeholder={placeholder['purposeInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" />
-                                                <span className='purposeCounter'>{remainingLength['purposeInput']}</span>
-                                            </label>
-                                        </div>
+                                <div className='formRow'>
+                                    <div className='formElement'>
+                                        { <FormInputElement labelFor={'addressInput'} strongClass={'required'} elementID={'addressInput'}
+                                                            elementClass={address} elementType={'text'} elementLengthKey={'addressInput'}
+                                                            labelStrongKey={'addressInput'} elementTitleKey={'addressInput'} elementPlaceholderKey={'addressInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'addressCounter'} spanLengthKey={'addressInput'} /> }
                                     </div>
-                                    <div className='formRow'>
-                                        <div className='formElement'>
-                                            <label htmlFor='messageInput'>
-                                                <strong className='required'>{strong['messageInput']}</strong>
-                                                <textarea id='messageInput' className={message}
-                                                    maxLength={maxLength['messageInput']} title={title['messageInput']} placeholder={placeholder['messageInput']}
-                                                    onKeyUp={this.onKeyUp} autoComplete="off" >
-                                                </textarea>
-                                                <span className='messageCounter'>{remainingLength['messageInput']}</span>
-                                            </label>
-                                        </div>
+                                </div>
+                                <div className='formRow'>
+                                    <div className='formElement'>
+                                        { <FormInputElement labelFor={'phoneInput'} strongClass={'required'} elementID={'phoneInput'}
+                                                            elementClass={phone} elementType={'tel'} elementLengthKey={'phoneInput'}
+                                                            labelStrongKey={'phoneInput'} elementTitleKey={'phoneInput'} elementPlaceholderKey={'phoneInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'phoneCounter'} spanLengthKey={'phoneInput'} /> }
+                                    </div>
+                                </div>
+                                <div className='formRow'>
+                                    <div className='formElement'>
+                                        { <FormInputElement labelFor={'emailInput'} strongClass={'required'} elementID={'emailInput'}
+                                                            elementClass={email} elementType={'email'} elementLengthKey={'emailInput'}
+                                                            labelStrongKey={'emailInput'} elementTitleKey={'emailInput'} elementPlaceholderKey={'emailInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'emailCounter'} spanLengthKey={'emailInput'} /> }
                                     </div>
                                 </div>
                             </div>
                             <div className='formGroup'>
                                 <div className='formRow'>
                                     <div className='formElement'>
-                                        <label htmlFor='clearButton'>
-                                            <strong>{strong['clearButton']}</strong>
-                                            <input id='clearButton' className='input' type='button'
-                                                title={title['clearButton']} value={placeholder['clearButton']}
-                                                onClick={this.clearButton} />
-                                        </label>
+                                        { <FormInputElement labelFor={'purposeInput'} strongClass={'required'} elementID={'purposeInput'}
+                                                            elementClass={purpose} elementType={'text'} elementLengthKey={'purposeInput'}
+                                                            labelStrongKey={'purposeInput'} elementTitleKey={'purposeInput'} elementPlaceholderKey={'purposeInput'}
+                                                            handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                            spanClass={'purposeCounter'} spanLengthKey={'purposeInput'} /> }
                                     </div>
+                                </div>
+                                <div className='formRow'>
                                     <div className='formElement'>
-                                        <label htmlFor='helpButton'>
-                                            <strong>{strong['helpButton']}</strong>
-                                            <input id='helpButton' className='input' type='button'
-                                                title={title['helpButton']} value={placeholder['helpButton']}
-                                                onClick={this.helpButton} />
-                                        </label>
-                                    </div>
-                                    <div className='formElement'>
-                                        <label htmlFor='submitButton'>
-                                            <strong>{strong['submitButton']}</strong>
-                                            <input id='submitButton' className='input' type='button'
-                                                title={title['submitButton']} value={placeholder['submitButton']}
-                                                disabled={submitDisabled ? 'disabled' : ''} onClick={this.submitButton} />
-                                        </label>
+                                        { <FormTextareaElement labelFor={'messageInput'} strongClass={'required'}
+                                                               elementID={'messageInput'} elementClass={message} labelStrongKey={'messageInput'}
+                                                               elementLengthKey={'messageInput'} elementTitleKey={'messageInput'} elementPlaceholderKey={'messageInput'}
+                                                               handleEventAction={handleOnKeyUp} autoComplete={'off'}
+                                                               spanClass={'messageCounter'} spanLengthKey={'messageInput'} /> }
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    {displayHelp &&
-                        <FormHelp />
-                    }
-                </section>
-            </>
-        );
-    }
+                        <div className='formGroup'>
+                            <div className='formRow'>
+                                <div className='formElement'>
+                                    { <FormButtonElement labelFor={'clearButton'} elementID={'clearButton'} elementClass={'input'} elementType={'button'}
+                                                         labelStrongKey={'clearButton'} elementTitleKey={'clearButton'} elementPlaceholderKey={'clearButton'}
+                                                         elementDisabled={''} handleEventAction={handleResetForm} /> }
+                                </div>
+                                <div className='formElement'>
+                                    { <FormButtonElement labelFor={'helpButton'} elementID={'helpButton'} elementClass={'input'} elementType={'button'}
+                                                         labelStrongKey={'helpButton'} elementTitleKey={'helpButton'} elementPlaceholderKey={'helpButton'}
+                                                         elementDisabled={''} handleEventAction={handleToggleHelpSection} /> }
+                                </div>
+                                <div className='formElement'>
+                                    { <FormButtonElement labelFor={'submitButton'} elementID={'submitButton'} elementClass={'input'} elementType={'button'}
+                                                         labelStrongKey={'submitButton'} elementTitleKey={'submitButton'} elementPlaceholderKey={'submitButton'}
+                                                         elementDisabled={submitDisabled ? 'disabled' : ''} handleEventAction={handleSubmitForm} /> }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {displayHelp &&
+                    <HelpSection />
+                }
+            </section>
+        </>
+    );
 }
-
-const mapStateToProps = state => ({
-    input: state.formComponent.input,
-    strong: state.formComponent.strong,
-    regex: state.formComponent.regex,
-    maxLength: state.formComponent.maxLength,
-    remainingLength: state.formComponent.remainingLength,
-    title: state.formComponent.title,
-    placeholder: state.formComponent.placeholder,
-    validation: state.formComponent.validation,
-    displayHelp: state.formComponent.displayHelp,
-    submitDisabled: state.formComponent.submitDisabled,
-    level: state.formComponent.level,
-    label: state.formComponent.label
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        processForm,
-        toggleHelpSection,
-        enableSubmitButton,
-        disableSubmitButton,
-        validationChange,
-        validationReset
-    }, dispatch)
-});
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Form));

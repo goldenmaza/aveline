@@ -84,8 +84,8 @@ export const formState = {
     },
     displayHelp: false,
     submitDisabled: true,
-    level: process.env.REACT_APP_DOC_FORM_LEVEL,
-    label: process.env.REACT_APP_DOC_FORM_LABEL
+    level: process.env.REACT_APP_DOC_FORM_CONTACT_LEVEL,
+    label: process.env.REACT_APP_DOC_FORM_CONTACT_LABEL
 };
 
 export const helpSectionState = {
