@@ -1,33 +1,24 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { lazy, Suspense } from "react";
+import { Outlet } from 'react-router';
 
-import Slideshow from './Slideshow';
-import Highlights from './Highlights';
-import Form from '../form/Form';
+//import Header from '../header/Header';
+//import Footer from '../footer/Footer';
 
-class Home extends Component {
-    render() {
-        return (
-            <>
-                <Slideshow />
-                <Highlights />
-                <Form minimalContact={true} minimalForm={true} tag={this.props.tag} />
-            </>
-        );
-    }
+const Header = lazy(() => import("../header/Header"));
+const Footer = lazy(() => import("../footer/Footer"));
+
+export default function Home() { // TODO: Rename to SiteLayout...
+    return (
+        <>
+            <Suspense fallback={<h1>Loading Header...</h1>}>
+                <Header />
+            </Suspense>
+            <Suspense fallback={<h1>Loading Outlet...</h1>}>
+                <Outlet />
+            </Suspense>
+            <Suspense fallback={<h1>Loading Footer...</h1>}>
+                <Footer />
+            </Suspense>
+        </>
+    );
 }
-
-const mapStateToProps = state => ({
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-    }, dispatch)
-});
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Home));
