@@ -10,19 +10,21 @@ import {
     DEFAULT_POST_OPTIONS
 } from './constants/options';
 
-export const getPageContent = () => (dispatch) => {
-    dispatch({ type: REQ_PAGE_CONTENT });
+import store from '../store';
+
+export const getPageContent = () => {
+    store.dispatch({ type: REQ_PAGE_CONTENT });
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_PAGE_CONTENT_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
-        .then(result => dispatch({
+        .then(result => store.dispatch({
             result, type: RCV_PAGE_CONTENT
         }))
-        .catch(() => dispatch({
+        .catch(() => store.dispatch({
             type: ERR_PAGE_CONTENT
         }));
 };

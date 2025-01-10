@@ -1,43 +1,53 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Heading from './common/Heading';
-import Selector from './common/Selector';
+import { useAppComponentState } from '../hooks/app';
+
+import {
+    siteGroupLoader,
+    homeGroupLoader,
+    formGroupLoader,
+    contentGroupLoader
+} from '../redux/actions/index';
+
+import Home from './home/Home';
+import HomeWrapper from './wrapper/HomeWrapper';
+import FormWrapper from './wrapper/FormWrapper';
+import ContentWrapper from './wrapper/ContentWrapper';
 import Prevention from './common/Prevention';
+import Heading from './common/Heading';
 
-class App extends Component {
-    render() {
-        const { level, label, location } = this.props;
-        const route = location.pathname.split("/").pop();
-        return (
-            <>
-                <Heading hidden={true} level={level} label={label} />
-                <Switch>
-                    <Route exact path='/' render={() => <Selector component={'home'} route={route} />} />
-                    <Route exact path='/p/contact/' render={() => <Selector component={'form'} route={route} />} />
-                    {route !== null &&
-                        <Route path='/p/' render={() => <Selector component={'content'} route={route} />} />
-                    }
-                    <Route component={Prevention} />
-                </Switch>
-            </>
-        );
-    }
+export default function App() {
+    const { level, label } = useAppComponentState();
+
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Home />, // TODO: rename to SiteLayout...
+            loader: siteGroupLoader,
+            errorElement: <Prevention />,
+            children: [
+                {
+                    index: true,
+                    element: <HomeWrapper />,
+                    loader: homeGroupLoader
+                },
+                {
+                    path: '/page/contact',
+                    element: <FormWrapper />,
+                    loader: formGroupLoader
+                },
+                {
+                    path: '/page/:page',
+                    element: <ContentWrapper />,
+                    loader: contentGroupLoader
+                }
+            ]
+        }
+    ]);
+    return (
+        <>
+            <Heading hidden={true} level={level} label={label} />
+            <RouterProvider router={router} />
+        </>
+    );
 }
-
-const mapStateToProps = state => ({
-    level: state.appComponent.level,
-    label: state.appComponent.label
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-    }, dispatch)
-});
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(App));

@@ -14,36 +14,38 @@ import {
     DEFAULT_POST_OPTIONS
 } from './constants/options';
 
-export const getFooterLogo = () => (dispatch) => {//Note: Not used as it gets the logo from Handler state...
-    dispatch({ type: REQ_FOOTER_LOGO });
+import store from '../store';
+
+export const getFooterLogo = () => {
+    store.dispatch({ type: REQ_FOOTER_LOGO });
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_LOGO_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
-        .then(result => dispatch({
+        .then(result => store.dispatch({
             result, type: RCV_FOOTER_LOGO
         }))
-        .catch(() => dispatch({
+        .catch(() => store.dispatch({
             type: ERR_FOOTER_LOGO
         }));
 };
 
-export const getFooterSitemap = () => (dispatch) => {
-    dispatch({ type: REQ_FOOTER_SITEMAP });
+export const getFooterSitemap = () => {
+    store.dispatch({ type: REQ_FOOTER_SITEMAP });
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_SITEMAP_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
-        .then(result => dispatch({
+        .then(result => store.dispatch({
             result, type: RCV_FOOTER_SITEMAP
         }))
-        .catch(() => dispatch({
+        .catch(() => store.dispatch({
             type: ERR_FOOTER_SITEMAP
         }));
 };

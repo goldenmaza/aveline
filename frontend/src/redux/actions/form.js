@@ -8,14 +8,17 @@ import {
     FORM_DISABLE_SUBMIT,
     FORM_VALIDATION_CHANGE,
     FORM_VALIDATION_RESET,
+    HELP_SECTION_CLEAR,
     HELP_SECTION_STORE
 } from '../constants/form';
 import {
     DEFAULT_NODEMAILER_OPTIONS
 } from './constants/options';
 
-export const processForm = (data) => (dispatch) => {
-    dispatch({ type: REQ_FORM_TRANSMIT });
+import store from '../store';
+
+export const processForm = (data) => {
+    store.dispatch({ type: REQ_FORM_TRANSMIT });
 
     const payload = {
         forename: data.input.forenameInput,
@@ -33,34 +36,38 @@ export const processForm = (data) => (dispatch) => {
 //    };
 
     axios.post(process.env.REACT_APP_SERVER_MAIL_ADDRESS, payload)
-        .then(res => dispatch({
+        .then(res => store.dispatch({
             res, type: RCV_FORM_TRANSMIT
         }))
-        .catch(err => dispatch({
+        .catch(err => store.dispatch({
             err, type: ERR_FORM_TRANSMIT
         }));
 }
 
-export const toggleHelpSection = () => (dispatch) => {
-    dispatch({ type: TOGGLE_HELP_SECTION });
+export const toggleHelpSection = () => {
+    store.dispatch({ type: TOGGLE_HELP_SECTION });
 };
 
-export const enableSubmitButton = () => (dispatch) => {
-    dispatch({ type: FORM_ENABLE_SUBMIT });
+export const enableSubmitButton = () => {
+    store.dispatch({ type: FORM_ENABLE_SUBMIT });
 };
 
-export const disableSubmitButton = () => (dispatch) => {
-    dispatch({ type: FORM_DISABLE_SUBMIT });
+export const disableSubmitButton = () => {
+    store.dispatch({ type: FORM_DISABLE_SUBMIT });
 };
 
-export const validationChange = (id, value) => (dispatch) => {
-    dispatch({ id, value, type: FORM_VALIDATION_CHANGE });
+export const validationChange = (id, value) => {
+    store.dispatch({ id, value, type: FORM_VALIDATION_CHANGE });
 };
 
-export const validationReset = () => (dispatch) => {
-    dispatch({ type: FORM_VALIDATION_RESET });
+export const validationReset = () => {
+    store.dispatch({ type: FORM_VALIDATION_RESET });
 };
 
-export const storeHelpSection = (section) => (dispatch) => {
-    dispatch({ section, type: HELP_SECTION_STORE });
+export const clearHelpSection = (section) => {
+    store.dispatch({ section, type: HELP_SECTION_CLEAR });
+};
+
+export const storeHelpSection = (section) => {
+    store.dispatch({ section, type: HELP_SECTION_STORE });
 };

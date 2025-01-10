@@ -11,23 +11,25 @@ import {
     DEFAULT_POST_OPTIONS
 } from './constants/options';
 
-export const getContactDetails = () => (dispatch) => {
-    dispatch({ type: REQ_CONTACT_DETAILS });
+import store from '../store';
+
+export const getContactDetails = () => {
+    store.dispatch({ type: REQ_CONTACT_DETAILS });
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_CONTACT_DETAILS_REQUEST);
 
-    fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
-        .then(result => dispatch({
+        .then(result => store.dispatch({
             result, type: RCV_CONTACT_DETAILS
         }))
-        .catch(() => dispatch({
+        .catch(() => store.dispatch({
             type: ERR_CONTACT_DETAILS
         }));
 };
 
-export const toggleContactOffice = (id) => (dispatch) => {
-    dispatch({ id, type: TOGGLE_CONTACT_OFFICE });
+export const toggleContactOffice = (id) => {
+    store.dispatch({ id, type: TOGGLE_CONTACT_OFFICE });
 };

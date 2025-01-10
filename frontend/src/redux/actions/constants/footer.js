@@ -1,4 +1,4 @@
-export const GET_FOOTER_LOGO_REQUEST = {//Note: Not used as it gets the logo from Handler state...
+export const GET_FOOTER_LOGO_REQUEST = {
     query: `
         query {
             collage (hidden: false, logo: true) {
