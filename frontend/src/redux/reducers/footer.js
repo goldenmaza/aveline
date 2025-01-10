@@ -21,7 +21,7 @@ export const footerComponent = (state = footerState, action) => {
         case RCV_FOOTER_LOGO:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 collage: action.result.data.collage
             };
         case ERR_FOOTER_LOGO:
@@ -44,7 +44,7 @@ export const sitemapComponent = (state = sitemapState, action) => {
         case RCV_FOOTER_SITEMAP:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 pages: action.result.data.pages
             };
         case ERR_FOOTER_SITEMAP:
