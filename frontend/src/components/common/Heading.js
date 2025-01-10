@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+export default function Heading(props) {
+    const { level, label, hidden } = props;
 
-class Heading extends Component {
-    render() {
-        const allowedLevels = ['h1', 'h2', 'h3', 'h4', 'h5'];
-        const { level, label, hidden } = this.props;
-        const Level = allowedLevels.includes(level) ? level : 'p';
-        return (
-            <Level className={hidden ? 'hidden' : ''}>
-                {label}
-            </Level>
-        );
-    }
+    const allowedHeadings = ['h1', 'h2', 'h3', 'h4', 'h5']; // Todo: Refactor to load allowed from ENV...
+    const Heading = allowedHeadings.includes(level) ? level : 'p';
+    return (
+        <Heading className={hidden ? 'hidden' : ''}>
+            {label}
+        </Heading>
+    );
 }
-
-export default Heading;
