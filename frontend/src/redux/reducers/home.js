@@ -1,5 +1,4 @@
 import {
-    homeState,
     slideshowState,
     sliderState,
     highlightsState,
@@ -14,13 +13,6 @@ import {
     RCV_HOME_HIGHLIGHTS,
     ERR_HOME_HIGHLIGHTS
 } from '../constants/home';
-
-export const homeComponent = (state = homeState, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};
 
 export const slideshowComponent = (state = slideshowState, action) => {
     switch (action.type) {

@@ -9,7 +9,7 @@ import {
     contentGroupLoader
 } from '../redux/actions/index';
 
-import Home from './home/Home';
+import SiteLayout from './layout/SiteLayout';
 import HomeWrapper from './wrapper/HomeWrapper';
 import FormWrapper from './wrapper/FormWrapper';
 import ContentWrapper from './wrapper/ContentWrapper';
@@ -22,7 +22,7 @@ export default function App() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <Home />, // TODO: rename to SiteLayout...
+            element: <SiteLayout />,
             loader: siteGroupLoader,
             errorElement: <Prevention />,
             children: [

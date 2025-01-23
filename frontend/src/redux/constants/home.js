@@ -1,6 +1,3 @@
-export const homeState = {
-};
-
 export const slideshowState = {
     loading: true,
     collage: null,
