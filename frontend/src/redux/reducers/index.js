@@ -8,7 +8,6 @@ import {
     menuComponent
 } from './header';
 import {
-    selectorComponent,
     contentComponent,
     collageComponent,
     preventionComponent
@@ -41,7 +40,6 @@ const combinedReducers = combineReducers({
     handlerComponent,
     menuComponent,
     // Common reducers...
-    selectorComponent,
     contentComponent,
     collageComponent,
     preventionComponent,
