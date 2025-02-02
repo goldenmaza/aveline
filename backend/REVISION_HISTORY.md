@@ -2,6 +2,14 @@
 
 
 
+4adb93f - [Backend] Adding Node configurations - Feb 2, 2025
+
+In this commit we have re-entered the Node configurations to the 'package.json' file with the latest versions.
+
+v.2.2.0
+
+
+
 f1f4ff5 - [Backend] Restarting Node configurations - Jan 28, 2025
 
 In this commit we have cleaned out the configurations from the 'package.json' file, and now include a
