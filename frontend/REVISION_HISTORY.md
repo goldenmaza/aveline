@@ -2,7 +2,15 @@
 
 
 
-fd4cb76 - [Frontend] Restarting React configurations - Jan 28, 2025
+fb0de80 - [Frontend] Adding React configurations - Mar 26, 2025
+
+In this commit we have re-entered the React configurations to the 'package.json' file with the latest versions.
+
+v.2.26.0
+
+
+
+93d638a - [Frontend] Restarting React configurations - Dec 11, 2024
 
 In this commit we have cleaned out the configurations from the 'package.json' file, and now include a
 revision history to give a little more details about the respective commits.
