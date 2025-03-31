@@ -14,8 +14,8 @@ configure({adapter: new Adapter()});
 afterEach(cleanup);
 
 describe('validates the Header component', () => {
-    const stateLevel = process.env.REACT_APP_DOC_HEADER_LEVEL;
-    const stateLabel = process.env.REACT_APP_DOC_HEADER_LABEL;
+    const stateLevel = import.meta.env.VITE_APP_DOC_HEADER_LEVEL;
+    const stateLabel = import.meta.env.VITE_APP_DOC_HEADER_LABEL;
 
     it('is rendering a default Header component', () => {
         const component = shallow(<Header />);

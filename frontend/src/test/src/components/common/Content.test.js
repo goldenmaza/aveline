@@ -16,7 +16,7 @@ configure({adapter: new Adapter()});
 afterEach(cleanup);
 
 describe('validates the Content component', () => {
-    const stateLevel = process.env.REACT_APP_DOC_CONTENT_LEVEL;
+    const stateLevel = import.meta.env.VITE_APP_DOC_CONTENT_LEVEL;
 
     it('is rendering a default Content component', () => {
         const component = shallow(<Content />);

@@ -2,6 +2,14 @@
 
 
 
+0333f4f - [Test] CRA => Vite migration - Apr 9, 2025
+
+In this commit we have migrated from CRA to Vite regarding test code.
+
+v.2.28.0
+
+
+
 afbfce8 - [Frontend] CRA => Vite migration - Apr 1, 2025
 
 In this commit we have migrated from CRA to Vite for bundling source code.

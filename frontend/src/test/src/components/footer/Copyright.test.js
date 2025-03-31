@@ -16,12 +16,12 @@ configure({adapter: new Adapter()});
 afterEach(cleanup);
 
 describe('validates the Copyright component', () => {
-    const stateCreated = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_YEAR;
-    const stateLevel = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LEVEL;
-    const stateLabel = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LABEL;
-    const stateName = process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_NAME;
-    const stateLink = process.env.REACT_APP_DOC_FOOTER_BY_LINK;
-    const stateBy = process.env.REACT_APP_DOC_FOOTER_BY_LABEL;
+    const stateCreated = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_YEAR;
+    const stateLevel = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LEVEL;
+    const stateLabel = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LABEL;
+    const stateName = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_NAME;
+    const stateLink = import.meta.env.VITE_APP_DOC_FOOTER_BY_LINK;
+    const stateBy = import.meta.env.VITE_APP_DOC_FOOTER_BY_LABEL;
 
     it('is rendering a default Copyright component', () => {
         const component = shallow(<Copyright />);

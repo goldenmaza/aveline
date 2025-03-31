@@ -14,8 +14,8 @@ configure({adapter: new Adapter()});
 afterEach(cleanup);
 
 describe('validates the Prevention component', () => {
-    const stateLevel = process.env.REACT_APP_DOC_E404_LEVEL;
-    const stateLabel = process.env.REACT_APP_DOC_E404_LABEL;
+    const stateLevel = import.meta.env.VITE_APP_DOC_E404_LEVEL;
+    const stateLabel = import.meta.env.VITE_APP_DOC_E404_LABEL;
 
     it('is rendering a default Prevention component', () => {
         const component = shallow(<Prevention />);

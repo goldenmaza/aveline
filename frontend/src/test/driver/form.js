@@ -159,7 +159,7 @@ describe('validates the contact form', () => {// TODO: Possible to use env regex
     });
 
     it('is validating the Help button', () => {
-        const label = 'Help section';//process.env.REACT_APP_DOC_HELP_SECTION_LABEL;
+        const label = 'Help section';//import.meta.env.VITE_APP_DOC_HELP_SECTION_LABEL;
         ContactForm.help();
         expect(ContactForm.displayHelp).toExist();
         expect(ContactForm.displayHelp).toHaveTextContaining(label);
