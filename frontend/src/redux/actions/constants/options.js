@@ -7,6 +7,6 @@ export const DEFAULT_POST_OPTIONS = {
 };
 
 export const DEFAULT_NODEMAILER_OPTIONS = {
-    url: process.env.REACT_APP_SERVER_MAIL_ADDRESS,
+    url: import.meta.env.VITE_APP_SERVER_MAIL_ADDRESS,
     method: 'POST'
 };

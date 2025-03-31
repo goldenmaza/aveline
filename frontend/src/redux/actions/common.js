@@ -17,7 +17,7 @@ export const getPageContent = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_PAGE_CONTENT_REQUEST);
 
-    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

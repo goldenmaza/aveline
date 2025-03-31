@@ -1,4 +1,5 @@
-import Fragment from 'react';
+import DOMPurify from 'dompurify';
+import ReactHtmlParser from 'html-react-parser';
 
 import { storeHelpSection } from '../redux/actions/form';
 
@@ -21,8 +22,8 @@ export function prepareHelpSection(props) {
     }
 
     let groupSummary = [];
-    let counter = 0;
     for (let group in helpData) {
+        let htmlCode = '';
         for (let word in helpData[group]) {
             let arr = helpData[group][word];
             if (group === 'E-mail') {
@@ -33,56 +34,52 @@ export function prepareHelpSection(props) {
                         </div>
                     );
                 }
+                if (word.match(/Username/g)) {
+                    htmlCode = `<strong>Username:</strong>`;
+                }
+                if (word.match(/Domain/g)) {
+                    htmlCode = `<strong>Domain:</strong>`;
+                }
+                if (word.match(/Suffix/g)) {
+                    htmlCode = `<strong>Suffix:</strong>`;
+                }
+                htmlCode += generateEmailGroup(arr, word, rangeMapping, symbolMapping);
                 groupSummary.push(
-                    <>
-                        {word.match(/Username/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Username:</strong>{generateEmailGroup(arr, word, rangeMapping, symbolMapping)}
-                            </p>
-                        }
-                        {word.match(/Domain/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Domain:</strong>{generateEmailGroup(arr, word, rangeMapping, symbolMapping)}
-                            </p>
-                        }
-                        {word.match(/Suffix/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Suffix:</strong>{generateEmailGroup(arr, word, rangeMapping, symbolMapping)}
-                            </p>
-                        }
-                    </>
+                    <p key={group+word}>
+                        {ReactHtmlParser(DOMPurify.sanitize(htmlCode))}
+                    </p>
                 );
-                counter++;
             } else {
-                const stored = groupSummary.length;
-                const final = Object.keys(helpData[group]).length;
+                if (word.match(/Letters/g)) {
+                    htmlCode = `<strong>Alphabetic characters:</strong>`;
+                    htmlCode += generateLetters(arr);
+                }
+                if (word.match(/Digits/g)) {
+                    htmlCode = `<strong>Digits:</strong>`;
+                    htmlCode += generateDigits(arr);
+                }
+                if (word.match(/Others/g)) {
+                    htmlCode = `<strong>Others:</strong>`;
+                    htmlCode += generateOthers(arr, symbolMapping);
+                }
                 groupSummary.push(
-                    <>
-                        {word.match(/Letters/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Alphabetic characters:</strong>{generateLetters(arr)}
-                            </p>
-                        }
-                        {word.match(/Digits/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Digits:</strong>{generateDigits(arr)}
-                            </p>
-                        }
-                        {word.match(/Others/g) &&
-                            <p key={group+word+counter}>
-                                <strong>Others:</strong>{generateOthers(arr, symbolMapping)}
-                            </p>
-                        }
-                        {stored === final &&
-                            <p key={group+word+counter}>
-                                <strong>Range limit:</strong>{generateRange(group, rangeMapping)}
-                            </p>
-                        }
-                    </>
+                    <p key={group+word}>
+                        {ReactHtmlParser(DOMPurify.sanitize(htmlCode))}
+                    </p>
                 );
-                counter++;
             }
         }
+
+        if (rangeMapping[group] !== undefined) {
+            htmlCode = `<strong>Range limit:</strong>`;
+            htmlCode += generateRange(group, rangeMapping);
+            groupSummary.push(
+                <p key={group+'Final'}>
+                    {ReactHtmlParser(DOMPurify.sanitize(htmlCode))}
+                </p>
+            );
+        }
+
         helpSection.push(
             <div key={group} className='helpRow'>
                 <strong className='rowLabel'>{group}</strong>

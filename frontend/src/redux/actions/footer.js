@@ -21,7 +21,7 @@ export const getFooterLogo = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_LOGO_REQUEST);
 
-    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -38,7 +38,7 @@ export const getFooterSitemap = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_SITEMAP_REQUEST);
 
-    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

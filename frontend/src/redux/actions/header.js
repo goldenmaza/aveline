@@ -23,7 +23,7 @@ export const getHeaderLogo = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_LOGO_REQUEST);
 
-    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -40,7 +40,7 @@ export const getHeaderMenu = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_MENU_REQUEST);
 
-    return fetch(process.env.REACT_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

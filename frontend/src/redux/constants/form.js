@@ -9,36 +9,36 @@ export const formState = {
         messageInput: null
     },
     strong: { // Refactor to a central utility...
-        forenameInput: process.env.REACT_APP_DOC_FORM_STRONG_FORENAME,
-        surnameInput: process.env.REACT_APP_DOC_FORM_STRONG_SURNAME,
-        addressInput: process.env.REACT_APP_DOC_FORM_STRONG_ADDRESS,
-        phoneInput: process.env.REACT_APP_DOC_FORM_STRONG_PHONE,
-        emailInput: process.env.REACT_APP_DOC_FORM_STRONG_EMAIL,
-        purposeInput: process.env.REACT_APP_DOC_FORM_STRONG_PURPOSE,
-        messageInput: process.env.REACT_APP_DOC_FORM_STRONG_MESSAGE,
-        clearButton: process.env.REACT_APP_DOC_FORM_STRONG_CLEAR,
-        helpButton: process.env.REACT_APP_DOC_FORM_STRONG_HELP,
-        submitButton: process.env.REACT_APP_DOC_FORM_STRONG_SUBMIT
+        forenameInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_FORENAME,
+        surnameInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_SURNAME,
+        addressInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_ADDRESS,
+        phoneInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_PHONE,
+        emailInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_EMAIL,
+        purposeInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_PURPOSE,
+        messageInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_MESSAGE,
+        clearButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_CLEAR,
+        helpButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_HELP,
+        submitButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_SUBMIT
     },
     regex: { // Refactor to a central utility...
-        forenameInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_FORENAME + '$'),
-        surnameInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_SURNAME + '$'),
-        addressInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS + '$'),
-        phoneInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_PHONE + '$'),
-        emailInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_EMAIL + '$'),
-        purposeInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE + '$'),
-        messageInput: RegExp('^' + process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE + '$')
+        forenameInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_FORENAME + '$'),
+        surnameInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_SURNAME + '$'),
+        addressInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_ADDRESS + '$'),
+        phoneInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_PHONE + '$'),
+        emailInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL + '$'),
+        purposeInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_PURPOSE + '$'),
+        messageInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_MESSAGE + '$')
     },
     maxLength: { // Refactor to a central utility...
-        forenameInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_FORENAME_MAX),
-        surnameInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_SURNAME_MAX),
-        addressInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_ADDRESS_MAX),
-        phoneInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_PHONE_MAX),
-        emailInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_USERNAME_MAX)
-                    + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_DOMAIN_MAX)
-                    + parseInt(process.env.REACT_APP_DOC_FORM_REGEX_EMAIL_SUFFIX_MAX),
-        purposeInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_PURPOSE_MAX),
-        messageInput: parseInt(process.env.REACT_APP_DOC_FORM_REGEX_MESSAGE_MAX)
+        forenameInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_FORENAME_MAX),
+        surnameInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_SURNAME_MAX),
+        addressInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_ADDRESS_MAX),
+        phoneInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_PHONE_MAX),
+        emailInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_USERNAME_MAX)
+                    + parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_DOMAIN_MAX)
+                    + parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_SUFFIX_MAX),
+        purposeInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_PURPOSE_MAX),
+        messageInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_MESSAGE_MAX)
     },
     remainingLength: { // Refactor to a central utility...
         forenameInput: 0,
@@ -50,28 +50,28 @@ export const formState = {
         messageInput: 0
     },
     title: { // Refactor to a central utility...
-        forenameInput: process.env.REACT_APP_DOC_FORM_TITLE_FORENAME,
-        surnameInput: process.env.REACT_APP_DOC_FORM_TITLE_SURNAME,
-        addressInput: process.env.REACT_APP_DOC_FORM_TITLE_ADDRESS,
-        phoneInput: process.env.REACT_APP_DOC_FORM_TITLE_PHONE,
-        emailInput: process.env.REACT_APP_DOC_FORM_TITLE_EMAIL,
-        purposeInput: process.env.REACT_APP_DOC_FORM_TITLE_PURPOSE,
-        messageInput: process.env.REACT_APP_DOC_FORM_TITLE_MESSAGE,
-        clearButton: process.env.REACT_APP_DOC_FORM_TITLE_CLEAR,
-        helpButton: process.env.REACT_APP_DOC_FORM_TITLE_HELP,
-        submitButton: process.env.REACT_APP_DOC_FORM_TITLE_SUBMIT
+        forenameInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_FORENAME,
+        surnameInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_SURNAME,
+        addressInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_ADDRESS,
+        phoneInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_PHONE,
+        emailInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_EMAIL,
+        purposeInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_PURPOSE,
+        messageInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_MESSAGE,
+        clearButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_CLEAR,
+        helpButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_HELP,
+        submitButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_SUBMIT
     },
     placeholder: { // Refactor to a central utility...
-        forenameInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_FORENAME,
-        surnameInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_SURNAME,
-        addressInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_ADDRESS,
-        phoneInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_PHONE,
-        emailInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_EMAIL,
-        purposeInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_PURPOSE,
-        messageInput: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_MESSAGE,
-        clearButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_CLEAR,
-        helpButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_HELP,
-        submitButton: process.env.REACT_APP_DOC_FORM_PLACEHOLDER_SUBMIT
+        forenameInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_FORENAME,
+        surnameInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_SURNAME,
+        addressInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_ADDRESS,
+        phoneInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_PHONE,
+        emailInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_EMAIL,
+        purposeInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_PURPOSE,
+        messageInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_MESSAGE,
+        clearButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_CLEAR,
+        helpButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_HELP,
+        submitButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_SUBMIT
     },
     validation: { // Refactor to a central utility...
         forenameInput: '?',
@@ -84,17 +84,17 @@ export const formState = {
     },
     displayHelp: false,
     submitDisabled: true,
-    level: process.env.REACT_APP_DOC_FORM_CONTACT_LEVEL,
-    label: process.env.REACT_APP_DOC_FORM_CONTACT_LABEL
+    level: import.meta.env.VITE_APP_DOC_FORM_CONTACT_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_FORM_CONTACT_LABEL
 };
 
 export const helpSectionState = {
-    helpMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_HELP_MAPPING),
-    rangeMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_RANGE_MAPPING),
-    symbolMapping: JSON.parse(process.env.REACT_APP_DOC_FORM_REGEX_SYMBOLS_MAPPING),
+    helpMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_HELP_MAPPING),
+    rangeMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_RANGE_MAPPING),
+    symbolMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_SYMBOLS_MAPPING),
     helpSection: null,
-    level: process.env.REACT_APP_DOC_HELP_SECTION_LEVEL,
-    label: process.env.REACT_APP_DOC_HELP_SECTION_LABEL
+    level: import.meta.env.VITE_APP_DOC_HELP_SECTION_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_HELP_SECTION_LABEL
 };
 
 export const REQ_FORM_TRANSMIT = 'REQ_FORM_TRANSMIT';

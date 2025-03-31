@@ -29,7 +29,7 @@ export default function Highlights(props) {
             });
         });
         pages.forEach(p => {
-            const paragraphs = p.paragraphs;
+            const paragraphs = Array.isArray(p.paragraphs) ? p.paragraphs : [];
             const to = '/page/' + p.route;
             paragraphs.forEach(c => {
                 const collage = c.collage;

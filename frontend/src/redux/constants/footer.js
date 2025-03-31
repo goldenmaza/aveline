@@ -1,24 +1,24 @@
 export const footerState = {
     loading: true,
     collage: null,
-    level: process.env.REACT_APP_DOC_FOOTER_LEVEL,
-    label: process.env.REACT_APP_DOC_FOOTER_LABEL
+    level: import.meta.env.VITE_APP_DOC_FOOTER_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_FOOTER_LABEL
 };
 
 export const sitemapState = {
     loading: true,
     pages: null,
-    level: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LEVEL,
-    label: process.env.REACT_APP_DOC_FOOTER_SITEMAP_LABEL
+    level: import.meta.env.VITE_APP_DOC_FOOTER_SITEMAP_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_FOOTER_SITEMAP_LABEL
 };
 
 export const copyrightState = {
-    created: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_YEAR,
-    level: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LEVEL,
-    label: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_LABEL,
-    name: process.env.REACT_APP_DOC_FOOTER_COPYRIGHT_NAME,
-    link: process.env.REACT_APP_DOC_FOOTER_BY_LINK,
-    by: process.env.REACT_APP_DOC_FOOTER_BY_LABEL
+    created: import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_YEAR,
+    level: import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LABEL,
+    name: import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_NAME,
+    link: import.meta.env.VITE_APP_DOC_FOOTER_BY_LINK,
+    by: import.meta.env.VITE_APP_DOC_FOOTER_BY_LABEL
 };
 
 export const REQ_FOOTER_LOGO = 'REQ_FOOTER_LOGO';

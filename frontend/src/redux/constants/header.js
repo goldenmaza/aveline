@@ -1,6 +1,6 @@
 export const headerState = {
-    level: process.env.REACT_APP_DOC_HEADER_LEVEL,
-    label: process.env.REACT_APP_DOC_HEADER_LABEL
+    level: import.meta.env.VITE_APP_DOC_HEADER_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_HEADER_LABEL
 };
 
 export const handlerState = {

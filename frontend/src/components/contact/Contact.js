@@ -14,7 +14,8 @@ import Page from '../common/Page';
 export default function Contact(props) {
     const {
         loading, offices, officeIdentifier,
-        officeLevel, officeLabel, employeeLevel, employeeLabel
+        officeLevel, officeLabel, employeeLevel, employeeLabel,
+        level, label
     } = useContactComponentState();
     const { minimalContact, route } = props;
 
@@ -74,20 +75,21 @@ export default function Contact(props) {
         });
 
         children.push(
-            <>
+            <section key='0'>
+                <Heading hidden={true} level={level} label={label} />
                 <section>
                     <Heading hidden={true} level={officeLevel} label={officeLabel} />
-                    <div key='0' className='childrenContainer'>
+                    <div className='childrenContainer'>
                         { <ContactSummary main={main} regionalSocials={regionalSocials} addressNavigation={addressNavigation} /> }
                     </div>
                 </section>
                 <section>
                     <Heading hidden={true} level={employeeLevel} label={employeeLabel} />
-                    <div key='1' className='childrenContainer'>
+                    <div className='childrenContainer'>
                         { <OfficeSummary regionalOffices={regionalOffices} officeEmployees={officeEmployees} /> }
                     </div>
                 </section>
-            </>
+            </section>
         );
 
         return (
@@ -105,9 +107,7 @@ export default function Contact(props) {
                         }
                     </>
                 ) : (
-                    <>
-                        <Page route={route} children={children} />
-                    </>
+                    <Page route={route} children={children} />
                 )}
             </>
         );

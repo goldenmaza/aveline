@@ -1,9 +1,11 @@
+import DOMPurify from 'dompurify';
+
 export default function MainOfficeList(props) {
     const { o, e } = props;
 
     const orgnr = 'https://www.allabolag.se/<ORGNR>/bokslut'.replace('<ORGNR>', o.orgnr);
     const phone = 'tel:<TEL>'.replace('<TEL>', e.phone);
-    const email = 'mailto:<MAIL>'.replace('<MAIL>', Buffer.from(e.email, "ascii").toString('hex'));
+    const email = 'mailto:<MAIL>'.replace('<MAIL>', Array.from(DOMPurify.sanitize(e.email)).toString('hex'));
     const address = e.street + ', ' + e.postal + ', '  + e.country;
     const find = 'https://www.google.se/maps/place/<FIND>'.replace('<FIND>', address);
     return (

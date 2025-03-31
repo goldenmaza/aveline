@@ -2,10 +2,12 @@ export const contactState = {
     loading: true,
     offices: null,
     officeIdentifier: null,
-    officeLevel: process.env.REACT_APP_DOC_FORM_OFFICE_LEVEL,
-    officeLabel: process.env.REACT_APP_DOC_FORM_OFFICE_LABEL,
-    employeeLevel: process.env.REACT_APP_DOC_FORM_EMPLOYEE_LEVEL,
-    employeeLabel: process.env.REACT_APP_DOC_FORM_EMPLOYEE_LABEL
+    officeLevel: import.meta.env.VITE_APP_DOC_FORM_OFFICE_LEVEL,
+    officeLabel: import.meta.env.VITE_APP_DOC_FORM_OFFICE_LABEL,
+    employeeLevel: import.meta.env.VITE_APP_DOC_FORM_EMPLOYEE_LEVEL,
+    employeeLabel: import.meta.env.VITE_APP_DOC_FORM_EMPLOYEE_LABEL,
+    level: import.meta.env.VITE_APP_DOC_FORM_CONTACT_TREE_LEVEL,
+    label: import.meta.env.VITE_APP_DOC_FORM_CONTACT_TREE_LABEL
 };
 
 export const navigationState = {

@@ -1,8 +1,10 @@
+import DOMPurify from 'dompurify';
+
 export default function OfficeEmployeeListItem(props) {
     const { e, profiles, portrait } = props;
 
     const media = [];
-    const mailto = Buffer.from(e.email, "ascii").toString('hex');
+    const mailto = Array.from(DOMPurify.sanitize(e.email)).toString('hex');
     profiles.forEach(p => {
         media.push(
             <a key={p.id} href={p.url + p.label} target='_blank' rel='noopener noreferrer'>{p.media}</a>

@@ -1,16 +1,17 @@
 {
   "name": "@aveline/frontend",
-  "version": "2.26.0",
+  "version": "2.27.0",
   "description": "The Frontend uses GraphQL queries to call the Backend APIs for processing...",
   "author": "Mats Richard Hellstrand",
   "main": "src/index.js",
   "license": "ISC",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "cross-env GENERATE_SOURCEMAP=false vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "browser": {
     "crypto": false
@@ -35,18 +36,22 @@
     "react-router-dom": "^7.1.3",
     "react-router-hash-link": "^2.4.3",
     "redux": "^5.0.1",
-    "redux-thunk": "^3.1.0"
+    "redux-thunk": "^3.1.0",
+    "os": "^0.1.2",
+    "dompurify": "^3.2.4",
+    "html-react-parser": "^5.2.2"
   },
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
+    "vite": "^6.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
     "@redux-devtools/extension": "^3.3.0",
-    "react-scripts": "^5.0.1",
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "ajv-keywords": "^5.1.0",
-    "os": "^0.1.2",
-    "dotenv": "^16.4.7",
-    "path": "^0.12.7",
-    "crypto-es": "^2.1.0"
+    "globals": "^15.15.0",
+    "cross-env": "^7.0.3"
   }
 }

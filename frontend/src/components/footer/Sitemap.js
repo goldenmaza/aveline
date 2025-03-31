@@ -15,7 +15,7 @@ export default function Sitemap() {
         let items = [];
         pages.forEach(p => {
             if (p.sitemap) {
-                const paragraphs = p.paragraphs;
+                const paragraphs = Array.isArray(p.paragraphs) ? p.paragraphs : [];
                 const p_label = p.label.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o');
                 const to = '/page/' + p_label;
                 items.push(

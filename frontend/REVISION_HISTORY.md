@@ -2,6 +2,14 @@
 
 
 
+afbfce8 - [Frontend] CRA => Vite migration - Apr 1, 2025
+
+In this commit we have migrated from CRA to Vite for bundling source code.
+
+v.2.27.0
+
+
+
 fb0de80 - [Frontend] Adding React configurations - Mar 26, 2025
 
 In this commit we have re-entered the React configurations to the 'package.json' file with the latest versions.

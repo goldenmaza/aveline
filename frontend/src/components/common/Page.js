@@ -5,12 +5,12 @@ export default function Page(props) {
     const { pages, route, level, label, children } = props;
 
     const sections = [];
-    if (route !== undefined) { // TODO: Remove...
-        pages.forEach(page => {
-            if (page.route === route) { // Verify which page, route, the user has chosen to view...
-                const paragraphs = page.paragraphs;
+    if (route !== undefined) {
+        pages.forEach(p => {
+            if (p.route === route) { // Verify which page, route, the user has chosen to view...
+                const paragraphs = Array.isArray(p.paragraphs) ? p.paragraphs : [];
                 paragraphs.forEach(paragraph => {
-                    const id = page.route + paragraph.id;
+                    const id = p.route + paragraph.id;
                     sections.push(
                         <section key={id}>
                             <ContentContainer route={route} paragraphs={paragraph} level={level} />

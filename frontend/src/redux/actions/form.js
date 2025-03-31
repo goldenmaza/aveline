@@ -35,7 +35,7 @@ export const processForm = (data) => {
 //        'Accept': 'application/json'
 //    };
 
-    axios.post(process.env.REACT_APP_SERVER_MAIL_ADDRESS, payload)
+    axios.post(import.meta.env.VITE_APP_SERVER_MAIL_ADDRESS, payload)
         .then(res => store.dispatch({
             res, type: RCV_FORM_TRANSMIT
         }))
