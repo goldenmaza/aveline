@@ -3,8 +3,6 @@ import { useParams } from "react-router";
 
 import { useContentComponentState } from '../../hooks/common';
 
-//import Page from '../common/Page';
-
 const Page = lazy(() => import("../common/Page"));
 
 export default function ContentWrapper() {

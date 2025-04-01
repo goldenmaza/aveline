@@ -26,7 +26,7 @@ export const contentComponent = (state = contentState, action) => {
         case RCV_PAGE_CONTENT:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 pages: action.result.data.pages
             };
         case ERR_PAGE_CONTENT:

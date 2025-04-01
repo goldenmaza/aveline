@@ -35,7 +35,7 @@ export const handlerComponent = (state = handlerState, action) => {
         case RCV_HEADER_LOGO:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 collage: action.result.data.collage
             };
         case ERR_HEADER_LOGO:
@@ -63,7 +63,7 @@ export const menuComponent = (state = menuState, action) => {
         case RCV_HEADER_MENU:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 pages: action.result.data.pages
             };
         case ERR_HEADER_MENU:

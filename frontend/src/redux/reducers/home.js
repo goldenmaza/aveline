@@ -6,6 +6,7 @@ import {
     RCV_HOME_SLIDESHOW,
     ERR_HOME_SLIDESHOW,
     SET_SLIDER_CONFIGURATIONS,
+    SET_SLIDER_SOURCES,
     SET_CURRENT_SLIDE,
     CLEAR_SLIDER_INTERVAL,
     SET_SLIDER_INTERVAL,
@@ -25,7 +26,7 @@ export const slideshowComponent = (state = slideshowState, action) => {
         case RCV_HOME_SLIDESHOW:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 collage: action.result.data.collage
             };
         case ERR_HOME_SLIDESHOW:
@@ -50,12 +51,17 @@ export const sliderComponent = (state = sliderState, action) => {
                 duration: action.values.duration,
                 loop: action.values.loop
             };
+        case SET_SLIDER_SOURCES:
+            return {
+                ...state,
+                sources: action.values.sources
+            };
         case SET_CURRENT_SLIDE:
             return {
                 ...state,
                 loading: false,
                 index: action.id,
-                current: state.sources[action.id]
+                current: state.sources[action.values.newIndex]
             };
         case CLEAR_SLIDER_INTERVAL:
             clearInterval(state.intervalId);
@@ -85,7 +91,7 @@ export const highlightsComponent = (state = highlightsState, action) => {
         case RCV_HOME_HIGHLIGHTS:
             return {
                 ...state,
-                loading: !state.loading,
+                loading: false,
                 pages: action.result.data.pages
             };
         case ERR_HOME_HIGHLIGHTS:

@@ -3,9 +3,6 @@ import { lazy, Suspense } from "react";
 import { useContentComponentState } from '../../hooks/common';
 
 import Heading from '../common/Heading';
-//import Slideshow from '../home/Slideshow';
-//import Highlights from '../home/Highlights';
-//import Form from '../form/Form';
 
 const Slideshow = lazy(() => import("../home/Slideshow"));
 const Highlights = lazy(() => import("../home/Highlights"));

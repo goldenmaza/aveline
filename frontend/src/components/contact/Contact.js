@@ -44,7 +44,7 @@ export default function Contact(props) {
                 if (o.main && e.main) {
                     addressNavigation = encodeURIComponent(e.street + ', ' + e.postal + ', '  + e.country);
                     main.push(
-                        <MainOfficeList key={e.id} o={o} e={e} />
+                        <MainOfficeList key={o.id} o={o} e={e} />
                     );
                 }
 
@@ -53,7 +53,7 @@ export default function Contact(props) {
                     const portrait = e.portraits.length > 0 ? e.portraits[0] : null;
                     if (portrait !== null && profiles !== null) {
                         officeEmployees.push(
-                            <OfficeEmployeeListItem key={o.id} e={e} profiles={profiles} portrait={portrait} />
+                            <OfficeEmployeeListItem key={e.id} e={e} profiles={profiles} portrait={portrait} />
                         );
                     }
                 }

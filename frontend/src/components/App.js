@@ -24,6 +24,7 @@ export default function App() {
             path: '/',
             element: <SiteLayout />,
             loader: siteGroupLoader,
+            hydrateFallbackElement: <Prevention />,
             errorElement: <Prevention />,
             children: [
                 {
@@ -47,7 +48,7 @@ export default function App() {
     return (
         <>
             <Heading hidden={true} level={level} label={label} />
-            <RouterProvider router={router} />
+            <RouterProvider router={router} fallback={<h1>Loading website...</h1>} />
         </>
     );
 }

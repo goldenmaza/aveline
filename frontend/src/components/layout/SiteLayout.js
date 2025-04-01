@@ -1,9 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Outlet } from 'react-router';
 
-//import Header from '../header/Header';
-//import Footer from '../footer/Footer';
-
 const Header = lazy(() => import("../header/Header"));
 const Footer = lazy(() => import("../footer/Footer"));
 

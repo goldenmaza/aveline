@@ -2,8 +2,6 @@ import { lazy, Suspense } from "react";
 import { useContentComponentState } from '../../hooks/common';
 
 import Heading from '../common/Heading';
-//import Contact from '../contact/Contact';
-//import Form from '../form/Form';
 
 const Contact = lazy(() => import("../contact/Contact"));
 const Form = lazy(() => import("../form/Form"));

@@ -13,7 +13,6 @@ import {
     preventionComponent
 } from './common';
 import {
-    homeComponent,
     slideshowComponent,
     sliderComponent,
     highlightsComponent
@@ -44,7 +43,6 @@ const combinedReducers = combineReducers({
     collageComponent,
     preventionComponent,
     // Home reducers...
-    homeComponent,
     slideshowComponent,
     sliderComponent,
     highlightsComponent,

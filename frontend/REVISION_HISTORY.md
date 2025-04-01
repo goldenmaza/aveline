@@ -2,6 +2,15 @@
 
 
 
+3bcbb34 - [Frontend] Cleanup and minor fixes - Apr 9, 2025
+
+In this commit we have removed some unnecessary code and configurations, added HydrateFallback to the main route, as
+well as fixed the Slideshow component from not looping correctly.
+
+v.2.29.0
+
+
+
 0333f4f - [Test] CRA => Vite migration - Apr 9, 2025
 
 In this commit we have migrated from CRA to Vite regarding test code.
