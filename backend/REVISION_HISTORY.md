@@ -2,7 +2,15 @@
 
 
 
-4adb93f - [Backend] Adding Node configurations - Feb 2, 2025
+c7a81bf - [Backend] Minor fixes - Apr 3, 2025
+
+In this commit we have made minor changes for avoiding NullPointerExceptions as well as less logging.
+
+v.2.3.0
+
+
+
+d3ff92e - [Backend] Adding Node configurations - Feb 2, 2025
 
 In this commit we have re-entered the Node configurations to the 'package.json' file with the latest versions.
 
@@ -10,7 +18,7 @@ v.2.2.0
 
 
 
-f1f4ff5 - [Backend] Restarting Node configurations - Jan 28, 2025
+820e295 - [Backend] Restarting Node configurations - Jan 28, 2025
 
 In this commit we have cleaned out the configurations from the 'package.json' file, and now include a
 revision history to give a little more details about the respective commits.

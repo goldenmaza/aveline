@@ -41,7 +41,6 @@ class LoggerUtil extends EventEmitter {
     }
 
     debug(data) { // Debug logging (extended information with console logging)...
-        console.log(data);
         this.debugWriter.queue(data);
     }
 
@@ -50,12 +49,13 @@ class LoggerUtil extends EventEmitter {
     }
 
     error(data) { // Error logging (error output)...
-        console.log(data);
         this.errorWriter.queue(data);
     }
 
     log(data) {
-        this.emit(data.mode, data.body); // this will call either info, debug etc...
+        if (data != undefined) { // TODO: Fix this bug...
+            this.emit(data.mode, data.body); // this will call either info, debug etc...
+        }
     }
 
     createDirectory(directory, mode) {

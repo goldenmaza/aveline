@@ -51,9 +51,11 @@ global.app.use(process.env.API_MAIL, (req, res, next) => {
 
     transporter.sendMail(mail, (err, data) => {
         if (err) {
-            res.json({
-                msg: data.body
-            });
+            if (data !== undefined) {
+                res.json({
+                    msg: data.body
+                });
+            }
             mailerData.mode = 'ERROR';
             mailerData.body = 'Transporter\'s sendMail failed: ' + err;
             global.mailerLogger.log(data);
