@@ -2,6 +2,14 @@
 
 
 
+1afcebd - [Frontend] Lighthouse improvements - Apr 9, 2025
+
+In this commit we have added some improvements suggested by Lighthouse tool in Chrome.
+
+v.2.30.0
+
+
+
 3bcbb34 - [Frontend] Cleanup and minor fixes - Apr 9, 2025
 
 In this commit we have removed some unnecessary code and configurations, added HydrateFallback to the main route, as

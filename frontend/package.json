@@ -1,6 +1,6 @@
 {
   "name": "@aveline/frontend",
-  "version": "2.29.0",
+  "version": "2.30.0",
   "description": "The Frontend uses GraphQL queries to call the Backend APIs for processing...",
   "author": "Mats Richard Hellstrand",
   "main": "src/index.js",
@@ -52,6 +52,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "@redux-devtools/extension": "^3.3.0",
     "globals": "^15.15.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.25.2"
   }
 }

@@ -1,8 +1,10 @@
 import { defineConfig, transformWithEsbuild } from 'vite';
 import react from '@vitejs/plugin-react';
+import esbuild from 'esbuild';
 
 export default defineConfig({
     build: {
+        minify: esbuild,
         sourcemap: false,
         rollupOptions: {
             output: {
