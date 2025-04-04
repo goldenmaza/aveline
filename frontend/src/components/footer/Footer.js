@@ -11,13 +11,20 @@ export default function Footer() {
     if (loading) {
         return (<div></div>); // Refactor to display loading animation...
     } else {
+        const source = collage[0].src;
+        const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
+        const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
         return (
             <footer>
                 <section>
                     <Heading hidden={true} level={level} label={label} />
                     <div className='logotype_minimal'>
                         <a href='/'>
-                            <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} loading="lazy" />
+                            <picture>
+                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
+                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} loading="lazy" />
+                            </picture>
                         </a>
                     </div>
                     <div className='container_minimal'>

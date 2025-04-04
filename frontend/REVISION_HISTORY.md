@@ -2,6 +2,15 @@
 
 
 
+f27f208 - [Frontend] Images wrapped with picture and source markup - Apr 9, 2025
+
+In this commit we have added so all 'img' tags are now using the wrapping 'picture' tag, with
+multiple 'source' tags, in the markup. The possible 'source' options will be loaded from the env file.
+
+v.2.31.0
+
+
+
 1afcebd - [Frontend] Lighthouse improvements - Apr 9, 2025
 
 In this commit we have added some improvements suggested by Lighthouse tool in Chrome.

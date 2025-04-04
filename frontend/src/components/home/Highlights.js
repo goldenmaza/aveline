@@ -16,10 +16,17 @@ export default function Highlights(props) {
             const collage = p.collage;
             const to = '/page/' + p.route;
             collage.forEach(m => {
+                const source = m.src;
+                const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
+                const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
                 highlights.push(
                     <li key={p.id + m.id}>
                         <NavLink to={to} title={p.title}>
-                            <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
+                            <picture>
+                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
+                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
+                            </picture>
                             <div>
                                 <span>{p.title}</span>
                             </div>
@@ -34,10 +41,17 @@ export default function Highlights(props) {
             paragraphs.forEach(c => {
                 const collage = c.collage;
                 collage.forEach(m => {
+                    const source = m.src;
+                    const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
+                    const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
                     highlights.push(
                         <li key={p.id + c.id + m.id}>
                             <HashLink to={to+'#'+p.route+c.id} title={c.text}>
-                                <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
+                                <picture>
+                                    <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
+                                    <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                    <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
+                                </picture>
                                 <div>
                                     <span>{c.heading}</span>
                                 </div>
