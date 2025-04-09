@@ -2,7 +2,23 @@
 
 
 
-f27f208 - [Frontend] Images wrapped with picture and source markup - Apr 9, 2025
+*#####* - [Frontend] Revision history corrected - Apr 11, 2025
+
+In this commit we have corrected the SHA commit codes for the latest commits in this document.
+
+v.2.33.0
+
+
+
+b83241f - [Aveline] Example env file updated - Apr 9, 2025
+
+In this commit we have updated the sample env file to now work with the Vite migration.
+
+v.2.32.0
+
+
+
+4d6a745 - [Frontend] Images wrapped with picture and source markup - Apr 9, 2025
 
 In this commit we have added so all 'img' tags are now using the wrapping 'picture' tag, with
 multiple 'source' tags, in the markup. The possible 'source' options will be loaded from the env file.
@@ -11,7 +27,7 @@ v.2.31.0
 
 
 
-1afcebd - [Frontend] Lighthouse improvements - Apr 9, 2025
+fbdcf09 - [Frontend] Lighthouse improvements - Apr 9, 2025
 
 In this commit we have added some improvements suggested by Lighthouse tool in Chrome.
 
@@ -19,7 +35,7 @@ v.2.30.0
 
 
 
-3bcbb34 - [Frontend] Cleanup and minor fixes - Apr 9, 2025
+01c12e4 - [Frontend] Cleanup and minor fixes - Apr 9, 2025
 
 In this commit we have removed some unnecessary code and configurations, added HydrateFallback to the main route, as
 well as fixed the Slideshow component from not looping correctly.
@@ -28,7 +44,7 @@ v.2.29.0
 
 
 
-0333f4f - [Test] CRA => Vite migration - Apr 9, 2025
+9e138ce - [Test] CRA => Vite migration - Apr 9, 2025
 
 In this commit we have migrated from CRA to Vite regarding test code.
 
@@ -36,7 +52,7 @@ v.2.28.0
 
 
 
-afbfce8 - [Frontend] CRA => Vite migration - Apr 1, 2025
+c22b83b - [Frontend] CRA => Vite migration - Apr 9, 2025
 
 In this commit we have migrated from CRA to Vite for bundling source code.
 
@@ -44,7 +60,7 @@ v.2.27.0
 
 
 
-fb0de80 - [Frontend] Adding React configurations - Mar 26, 2025
+13d2a3d - [Frontend] Adding React configurations - Apr 9, 2025
 
 In this commit we have re-entered the React configurations to the 'package.json' file with the latest versions.
 
@@ -52,7 +68,7 @@ v.2.26.0
 
 
 
-93d638a - [Frontend] Restarting React configurations - Dec 11, 2024
+9ece785 - [Frontend] Restarting React configurations - Apr 9, 2024
 
 In this commit we have cleaned out the configurations from the 'package.json' file, and now include a
 revision history to give a little more details about the respective commits.
