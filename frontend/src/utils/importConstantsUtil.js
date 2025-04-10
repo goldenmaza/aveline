@@ -1,4 +1,10 @@
 import {
+    CONTENT_LEVEL,
+    CONTENT_LABEL,
+    E404_LEVEL,
+    E404_LABEL
+} from './constants/commonKeys';
+import {
     SLIDESHOW_LEVEL,
     SLIDESHOW_LABEL,
     SLIDER_INDEX,
@@ -98,6 +104,29 @@ import {
     SERVER_API_ADDRESS,
     SERVER_MAIL_ADDRESS
 } from './constants/apiKeys';
+
+export function commonConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case CONTENT_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_CONTENT_LEVEL;
+            break;
+        case CONTENT_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_CONTENT_LABEL;
+            break;
+        case E404_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_E404_LEVEL;
+            break;
+        case E404_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_E404_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
 
 export function homeConstant(viteKey) {
     let viteValue = '';

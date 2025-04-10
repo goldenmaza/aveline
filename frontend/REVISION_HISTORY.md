@@ -2,6 +2,15 @@
 
 
 
+*#####* - [Frontend] ImportConstantUtility for Common components - Apr 11, 2025
+
+In this commit we have updated the central location for importing environmental variables, by adding
+the fetching of said variables for all 'Common' components.
+
+v.2.41.0
+
+
+
 *#####* - [Frontend] ImportConstantUtility for Contact components - Apr 11, 2025
 
 In this commit we have updated the central location for importing environmental variables, by adding
