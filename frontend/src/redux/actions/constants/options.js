@@ -1,3 +1,8 @@
+import { apiConstant } from '../../../utils/importConstantsUtil';
+import {
+    SERVER_MAIL_ADDRESS
+} from '../../../utils/constants/apiKeys';
+
 export const DEFAULT_POST_OPTIONS = {
     method: 'POST',
     headers: {
@@ -7,6 +12,6 @@ export const DEFAULT_POST_OPTIONS = {
 };
 
 export const DEFAULT_NODEMAILER_OPTIONS = {
-    url: import.meta.env.VITE_APP_SERVER_MAIL_ADDRESS,
+    url: apiConstant(SERVER_MAIL_ADDRESS),
     method: 'POST'
 };

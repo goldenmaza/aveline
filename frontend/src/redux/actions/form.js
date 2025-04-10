@@ -15,6 +15,11 @@ import {
     DEFAULT_NODEMAILER_OPTIONS
 } from './constants/options';
 
+import { apiConstant } from '../../utils/importConstantsUtil';
+import {
+    SERVER_API_ADDRESS
+} from '../../utils/constants/apiKeys';
+
 import store from '../store';
 
 export const processForm = (data) => {
@@ -35,7 +40,7 @@ export const processForm = (data) => {
 //        'Accept': 'application/json'
 //    };
 
-    axios.post(import.meta.env.VITE_APP_SERVER_MAIL_ADDRESS, payload)
+    axios.post(apiConstant(SERVER_MAIL_ADDRESS), payload)
         .then(res => store.dispatch({
             res, type: RCV_FORM_TRANSMIT
         }))

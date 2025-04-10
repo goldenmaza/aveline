@@ -2,6 +2,15 @@
 
 
 
+*#####* - [Frontend] ImportConstantUtility for API - Apr 11, 2025
+
+In this commit we have updated the central location for importing environmental variables, by adding
+the fetching of said variables for all API calls.
+
+v.2.35.0
+
+
+
 *#####* - [Frontend] ImportConstantUtility for Images - Apr 11, 2025
 
 In this commit we have created a central location for importing of environmental variables, and in this

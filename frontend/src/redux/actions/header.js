@@ -16,6 +16,11 @@ import {
     DEFAULT_POST_OPTIONS
 } from './constants/options';
 
+import { apiConstant } from '../../utils/importConstantsUtil';
+import {
+    SERVER_API_ADDRESS
+} from '../../utils/constants/apiKeys';
+
 import store from '../store';
 
 export const getHeaderLogo = () => {
@@ -23,7 +28,7 @@ export const getHeaderLogo = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_LOGO_REQUEST);
 
-    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(apiConstant(SERVER_API_ADDRESS), DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -40,7 +45,7 @@ export const getHeaderMenu = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_HEADER_MENU_REQUEST);
 
-    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(apiConstant(SERVER_API_ADDRESS), DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })

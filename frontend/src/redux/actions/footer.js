@@ -14,6 +14,11 @@ import {
     DEFAULT_POST_OPTIONS
 } from './constants/options';
 
+import { apiConstant } from '../../utils/importConstantsUtil';
+import {
+    SERVER_API_ADDRESS
+} from '../../utils/constants/apiKeys';
+
 import store from '../store';
 
 export const getFooterLogo = () => {
@@ -21,7 +26,7 @@ export const getFooterLogo = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_LOGO_REQUEST);
 
-    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(apiConstant(SERVER_API_ADDRESS), DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
@@ -38,7 +43,7 @@ export const getFooterSitemap = () => {
 
     DEFAULT_POST_OPTIONS.body = JSON.stringify(GET_FOOTER_SITEMAP_REQUEST);
 
-    return fetch(import.meta.env.VITE_APP_SERVER_API_ADDRESS, DEFAULT_POST_OPTIONS)
+    return fetch(apiConstant(SERVER_API_ADDRESS), DEFAULT_POST_OPTIONS)
         .then(promise => {
             return promise.json();
         })
