@@ -1,4 +1,14 @@
 import {
+    SLIDESHOW_LEVEL,
+    SLIDESHOW_LABEL,
+    SLIDER_INDEX,
+    SLIDER_DELAY,
+    SLIDER_DURATION,
+    SLIDER_LOOP,
+    HIGHLIGHTS_LEVEL,
+    HIGHLIGHTS_LABEL
+} from './constants/homeKeys';
+import {
     SOURCE_SRCSET_DEFAULT,
     SOURCE_TYPE_PRIMARY,
     SOURCE_SRCSET_PRIMARY,
@@ -9,6 +19,41 @@ import {
     SERVER_API_ADDRESS,
     SERVER_MAIL_ADDRESS
 } from './constants/apiKeys';
+
+export function homeConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case SLIDESHOW_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDESHOW_LEVEL;
+            break;
+        case SLIDESHOW_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDESHOW_LABEL;
+            break;
+        case SLIDER_INDEX:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDER_INDEX;
+            break;
+        case SLIDER_DELAY:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDER_DELAY;
+            break;
+        case SLIDER_DURATION:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDER_DURATION;
+            break;
+        case SLIDER_LOOP:
+            viteValue = import.meta.env.VITE_APP_DOC_SLIDER_LOOP;
+            break;
+        case HIGHLIGHTS_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_HIGHLIGHTS_LEVEL;
+            break;
+        case HIGHLIGHTS_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_HIGHLIGHTS_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
 
 export function mediaConstant(viteKey) {
     let viteValue = '';

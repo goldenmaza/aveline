@@ -1,26 +1,38 @@
+import { homeConstant } from '../../utils/importConstantsUtil';
+import {
+    SLIDESHOW_LEVEL,
+    SLIDESHOW_LABEL,
+    SLIDER_INDEX,
+    SLIDER_DELAY,
+    SLIDER_DURATION,
+    SLIDER_LOOP,
+    HIGHLIGHTS_LEVEL,
+    HIGHLIGHTS_LABEL
+} from '../../utils/constants/homeKeys';
+
 export const slideshowState = {
     loading: true,
     collage: null,
-    level: import.meta.env.VITE_APP_DOC_SLIDESHOW_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_SLIDESHOW_LABEL
+    level: homeConstant(SLIDESHOW_LEVEL),
+    label: homeConstant(SLIDESHOW_LABEL)
 };
 
 export const sliderState = {
     loading: true,
     sources: null,
     current: null,
-    index: import.meta.env.VITE_APP_DOC_SLIDER_INDEX,
-    delay: import.meta.env.VITE_APP_DOC_SLIDER_DELAY,
-    duration: import.meta.env.VITE_APP_DOC_SLIDER_DURATION,
-    loop: import.meta.env.VITE_APP_DOC_SLIDER_LOOP,
+    index: homeConstant(SLIDER_INDEX),
+    delay: homeConstant(SLIDER_DELAY),
+    duration: homeConstant(SLIDER_DURATION),
+    loop: homeConstant(SLIDER_LOOP),
     intervalId: -1
 };
 
 export const highlightsState = {
     loading: true,
     pages: null,
-    level: import.meta.env.VITE_APP_DOC_HIGHLIGHTS_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_HIGHLIGHTS_LABEL
+    level: homeConstant(HIGHLIGHTS_LEVEL),
+    label: homeConstant(HIGHLIGHTS_LABEL)
 };
 
 export const REQ_HOME_SLIDESHOW = 'REQ_HOME_SLIDESHOW';
