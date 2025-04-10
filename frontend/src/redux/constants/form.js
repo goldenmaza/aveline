@@ -1,3 +1,60 @@
+import { formConstant } from '../../utils/importConstantsUtil';
+import {
+    FORM_STRONG_FORENAME,
+    FORM_STRONG_SURNAME,
+    FORM_STRONG_ADDRESS,
+    FORM_STRONG_PHONE,
+    FORM_STRONG_EMAIL,
+    FORM_STRONG_PURPOSE,
+    FORM_STRONG_MESSAGE,
+    FORM_STRONG_CLEAR,
+    FORM_STRONG_HELP,
+    FORM_STRONG_SUBMIT,
+    FORM_REGEX_FORENAME,
+    FORM_REGEX_SURNAME,
+    FORM_REGEX_ADDRESS,
+    FORM_REGEX_PHONE,
+    FORM_REGEX_EMAIL,
+    FORM_REGEX_PURPOSE,
+    FORM_REGEX_MESSAGE,
+    FORM_REGEX_FORENAME_MAX,
+    FORM_REGEX_SURNAME_MAX,
+    FORM_REGEX_ADDRESS_MAX,
+    FORM_REGEX_PHONE_MAX,
+    FORM_REGEX_EMAIL_USERNAME_MAX,
+    FORM_REGEX_EMAIL_DOMAIN_MAX,
+    FORM_REGEX_EMAIL_SUFFIX_MAX,
+    FORM_REGEX_PURPOSE_MAX,
+    FORM_REGEX_MESSAGE_MAX,
+    FORM_TITLE_FORENAME,
+    FORM_TITLE_SURNAME,
+    FORM_TITLE_ADDRESS,
+    FORM_TITLE_PHONE,
+    FORM_TITLE_EMAIL,
+    FORM_TITLE_PURPOSE,
+    FORM_TITLE_MESSAGE,
+    FORM_TITLE_CLEAR,
+    FORM_TITLE_HELP,
+    FORM_TITLE_SUBMIT,
+    FORM_PLACEHOLDER_FORENAME,
+    FORM_PLACEHOLDER_SURNAME,
+    FORM_PLACEHOLDER_ADDRESS,
+    FORM_PLACEHOLDER_PHONE,
+    FORM_PLACEHOLDER_EMAIL,
+    FORM_PLACEHOLDER_PURPOSE,
+    FORM_PLACEHOLDER_MESSAGE,
+    FORM_PLACEHOLDER_CLEAR,
+    FORM_PLACEHOLDER_HELP,
+    FORM_PLACEHOLDER_SUBMIT,
+    FORM_CONTACT_LEVEL,
+    FORM_CONTACT_LABEL,
+    FORM_REGEX_HELP_MAPPING,
+    FORM_REGEX_RANGE_MAPPING,
+    FORM_REGEX_SYMBOLS_MAPPING,
+    HELP_SECTION_LEVEL,
+    HELP_SECTION_LABEL
+} from '../../utils/constants/formKeys';
+
 export const formState = {
     input: { // Refactor to a central utility...
         forenameInput: null,
@@ -9,36 +66,36 @@ export const formState = {
         messageInput: null
     },
     strong: { // Refactor to a central utility...
-        forenameInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_FORENAME,
-        surnameInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_SURNAME,
-        addressInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_ADDRESS,
-        phoneInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_PHONE,
-        emailInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_EMAIL,
-        purposeInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_PURPOSE,
-        messageInput: import.meta.env.VITE_APP_DOC_FORM_STRONG_MESSAGE,
-        clearButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_CLEAR,
-        helpButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_HELP,
-        submitButton: import.meta.env.VITE_APP_DOC_FORM_STRONG_SUBMIT
+        forenameInput: formConstant(FORM_STRONG_FORENAME),
+        surnameInput: formConstant(FORM_STRONG_SURNAME),
+        addressInput: formConstant(FORM_STRONG_ADDRESS),
+        phoneInput: formConstant(FORM_STRONG_PHONE),
+        emailInput: formConstant(FORM_STRONG_EMAIL),
+        purposeInput: formConstant(FORM_STRONG_PURPOSE),
+        messageInput: formConstant(FORM_STRONG_MESSAGE),
+        clearButton: formConstant(FORM_STRONG_CLEAR),
+        helpButton: formConstant(FORM_STRONG_HELP),
+        submitButton: formConstant(FORM_STRONG_SUBMIT)
     },
     regex: { // Refactor to a central utility...
-        forenameInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_FORENAME + '$'),
-        surnameInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_SURNAME + '$'),
-        addressInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_ADDRESS + '$'),
-        phoneInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_PHONE + '$'),
-        emailInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL + '$'),
-        purposeInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_PURPOSE + '$'),
-        messageInput: RegExp('^' + import.meta.env.VITE_APP_DOC_FORM_REGEX_MESSAGE + '$')
+        forenameInput: RegExp('^' + formConstant(FORM_REGEX_FORENAME) + '$'),
+        surnameInput: RegExp('^' + formConstant(FORM_REGEX_SURNAME) + '$'),
+        addressInput: RegExp('^' + formConstant(FORM_REGEX_ADDRESS) + '$'),
+        phoneInput: RegExp('^' + formConstant(FORM_REGEX_PHONE) + '$'),
+        emailInput: RegExp('^' + formConstant(FORM_REGEX_EMAIL) + '$'),
+        purposeInput: RegExp('^' + formConstant(FORM_REGEX_PURPOSE) + '$'),
+        messageInput: RegExp('^' + formConstant(FORM_REGEX_MESSAGE) + '$')
     },
     maxLength: { // Refactor to a central utility...
-        forenameInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_FORENAME_MAX),
-        surnameInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_SURNAME_MAX),
-        addressInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_ADDRESS_MAX),
-        phoneInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_PHONE_MAX),
-        emailInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_USERNAME_MAX)
-                    + parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_DOMAIN_MAX)
-                    + parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_EMAIL_SUFFIX_MAX),
-        purposeInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_PURPOSE_MAX),
-        messageInput: parseInt(import.meta.env.VITE_APP_DOC_FORM_REGEX_MESSAGE_MAX)
+        forenameInput: parseInt(formConstant(FORM_REGEX_FORENAME_MAX)),
+        surnameInput: parseInt(formConstant(FORM_REGEX_SURNAME_MAX)),
+        addressInput: parseInt(formConstant(FORM_REGEX_ADDRESS_MAX)),
+        phoneInput: parseInt(formConstant(FORM_REGEX_PHONE_MAX)),
+        emailInput: parseInt(formConstant(FORM_REGEX_EMAIL_USERNAME_MAX))
+                    + parseInt(formConstant(FORM_REGEX_EMAIL_DOMAIN_MAX))
+                    + parseInt(formConstant(FORM_REGEX_EMAIL_SUFFIX_MAX)),
+        purposeInput: parseInt(formConstant(FORM_REGEX_PURPOSE_MAX)),
+        messageInput: parseInt(formConstant(FORM_REGEX_MESSAGE_MAX))
     },
     remainingLength: { // Refactor to a central utility...
         forenameInput: 0,
@@ -50,28 +107,28 @@ export const formState = {
         messageInput: 0
     },
     title: { // Refactor to a central utility...
-        forenameInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_FORENAME,
-        surnameInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_SURNAME,
-        addressInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_ADDRESS,
-        phoneInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_PHONE,
-        emailInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_EMAIL,
-        purposeInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_PURPOSE,
-        messageInput: import.meta.env.VITE_APP_DOC_FORM_TITLE_MESSAGE,
-        clearButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_CLEAR,
-        helpButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_HELP,
-        submitButton: import.meta.env.VITE_APP_DOC_FORM_TITLE_SUBMIT
+        forenameInput: formConstant(FORM_TITLE_FORENAME),
+        surnameInput: formConstant(FORM_TITLE_SURNAME),
+        addressInput: formConstant(FORM_TITLE_ADDRESS),
+        phoneInput: formConstant(FORM_TITLE_PHONE),
+        emailInput: formConstant(FORM_TITLE_EMAIL),
+        purposeInput: formConstant(FORM_TITLE_PURPOSE),
+        messageInput: formConstant(FORM_TITLE_MESSAGE),
+        clearButton: formConstant(FORM_TITLE_CLEAR),
+        helpButton: formConstant(FORM_TITLE_HELP),
+        submitButton: formConstant(FORM_TITLE_SUBMIT)
     },
     placeholder: { // Refactor to a central utility...
-        forenameInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_FORENAME,
-        surnameInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_SURNAME,
-        addressInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_ADDRESS,
-        phoneInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_PHONE,
-        emailInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_EMAIL,
-        purposeInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_PURPOSE,
-        messageInput: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_MESSAGE,
-        clearButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_CLEAR,
-        helpButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_HELP,
-        submitButton: import.meta.env.VITE_APP_DOC_FORM_PLACEHOLDER_SUBMIT
+        forenameInput: formConstant(FORM_PLACEHOLDER_FORENAME),
+        surnameInput: formConstant(FORM_PLACEHOLDER_SURNAME),
+        addressInput: formConstant(FORM_PLACEHOLDER_ADDRESS),
+        phoneInput: formConstant(FORM_PLACEHOLDER_PHONE),
+        emailInput: formConstant(FORM_PLACEHOLDER_EMAIL),
+        purposeInput: formConstant(FORM_PLACEHOLDER_PURPOSE),
+        messageInput: formConstant(FORM_PLACEHOLDER_MESSAGE),
+        clearButton: formConstant(FORM_PLACEHOLDER_CLEAR),
+        helpButton: formConstant(FORM_PLACEHOLDER_HELP),
+        submitButton: formConstant(FORM_PLACEHOLDER_SUBMIT)
     },
     validation: { // Refactor to a central utility...
         forenameInput: '?',
@@ -84,17 +141,17 @@ export const formState = {
     },
     displayHelp: false,
     submitDisabled: true,
-    level: import.meta.env.VITE_APP_DOC_FORM_CONTACT_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_FORM_CONTACT_LABEL
+    level: formConstant(FORM_CONTACT_LEVEL),
+    label: formConstant(FORM_CONTACT_LABEL)
 };
 
 export const helpSectionState = {
-    helpMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_HELP_MAPPING),
-    rangeMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_RANGE_MAPPING),
-    symbolMapping: JSON.parse(import.meta.env.VITE_APP_DOC_FORM_REGEX_SYMBOLS_MAPPING),
+    helpMapping: JSON.parse(formConstant(FORM_REGEX_HELP_MAPPING)),
+    rangeMapping: JSON.parse(formConstant(FORM_REGEX_RANGE_MAPPING)),
+    symbolMapping: JSON.parse(formConstant(FORM_REGEX_SYMBOLS_MAPPING)),
     helpSection: null,
-    level: import.meta.env.VITE_APP_DOC_HELP_SECTION_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_HELP_SECTION_LABEL
+    level: formConstant(HELP_SECTION_LEVEL),
+    label: formConstant(HELP_SECTION_LABEL)
 };
 
 export const REQ_FORM_TRANSMIT = 'REQ_FORM_TRANSMIT';
