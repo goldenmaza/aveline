@@ -9,6 +9,10 @@ import {
     HIGHLIGHTS_LABEL
 } from './constants/homeKeys';
 import {
+    HEADER_LEVEL,
+    HEADER_LABEL
+} from './constants/headerKeys';
+import {
     SOURCE_SRCSET_DEFAULT,
     SOURCE_TYPE_PRIMARY,
     SOURCE_SRCSET_PRIMARY,
@@ -47,6 +51,23 @@ export function homeConstant(viteKey) {
             break;
         case HIGHLIGHTS_LABEL:
             viteValue = import.meta.env.VITE_APP_DOC_HIGHLIGHTS_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
+
+export function headerConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case HEADER_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_HEADER_LEVEL;
+            break;
+        case HEADER_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_HEADER_LABEL;
             break;
         default:
             viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;

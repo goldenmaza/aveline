@@ -1,6 +1,12 @@
+import { headerConstant } from '../../utils/importConstantsUtil';
+import {
+    HEADER_LEVEL,
+    HEADER_LABEL
+} from '../../utils/constants/headerKeys';
+
 export const headerState = {
-    level: import.meta.env.VITE_APP_DOC_HEADER_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_HEADER_LABEL
+    level: headerConstant(HEADER_LEVEL),
+    label: headerConstant(HEADER_LABEL)
 };
 
 export const handlerState = {
