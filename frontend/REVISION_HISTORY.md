@@ -2,6 +2,16 @@
 
 
 
+*#####* - [Frontend] ImportConstantUtility for Images - Apr 11, 2025
+
+In this commit we have created a central location for importing of environmental variables, and in this
+change we also added the fetching of said variables for all picture, and source, tags. The ImportConstantUtility
+will basically use a Switch case to determine which environmental variable that should be fetched during runtime.
+
+v.2.34.0
+
+
+
 *#####* - [Frontend] Revision history corrected - Apr 11, 2025
 
 In this commit we have corrected the SHA commit codes for the latest commits in this document.

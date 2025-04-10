@@ -1,5 +1,14 @@
 import { useFooterComponentState } from '../../hooks/footer';
 
+import { mediaConstant } from '../../utils/importConstantsUtil';
+import {
+    SOURCE_SRCSET_DEFAULT,
+    SOURCE_TYPE_PRIMARY,
+    SOURCE_SRCSET_PRIMARY,
+    SOURCE_TYPE_SECONDARY,
+    SOURCE_SRCSET_SECONDARY
+} from '../../utils/constants/mediaKeys';
+
 import Heading from '../common/Heading';
 import Contact from '../contact/Contact';
 import Sitemap from './Sitemap';
@@ -12,8 +21,8 @@ export default function Footer() {
         return (<div></div>); // Refactor to display loading animation...
     } else {
         const source = collage[0].src;
-        const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
-        const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
+        const primary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_PRIMARY));
+        const secondary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_SECONDARY));
         return (
             <footer>
                 <section>
@@ -21,8 +30,8 @@ export default function Footer() {
                     <div className='logotype_minimal'>
                         <a href='/'>
                             <picture>
-                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
-                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                <source type={mediaConstant(SOURCE_TYPE_PRIMARY)} srcSet={primary} />
+                                <source type={mediaConstant(SOURCE_TYPE_SECONDARY)} srcSet={secondary} />
                                 <img className='footer_logotype' src={collage[0].src} alt={collage[0].alt} title={collage[0].title} loading="lazy" />
                             </picture>
                         </a>

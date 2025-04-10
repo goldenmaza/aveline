@@ -3,6 +3,15 @@ import { NavLink } from 'react-router-dom';
 
 import { useHighlightsComponentState } from '../../hooks/home';
 
+import { mediaConstant } from '../../utils/importConstantsUtil';
+import {
+    SOURCE_SRCSET_DEFAULT,
+    SOURCE_TYPE_PRIMARY,
+    SOURCE_SRCSET_PRIMARY,
+    SOURCE_TYPE_SECONDARY,
+    SOURCE_SRCSET_SECONDARY
+} from '../../utils/constants/mediaKeys';
+
 import Heading from '../common/Heading';
 
 export default function Highlights(props) {
@@ -17,14 +26,14 @@ export default function Highlights(props) {
             const to = '/page/' + p.route;
             collage.forEach(m => {
                 const source = m.src;
-                const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
-                const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
+                const primary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_PRIMARY));
+                const secondary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_SECONDARY));
                 highlights.push(
                     <li key={p.id + m.id}>
                         <NavLink to={to} title={p.title}>
                             <picture>
-                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
-                                <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                <source type={mediaConstant(SOURCE_TYPE_PRIMARY)} srcSet={primary} />
+                                <source type={mediaConstant(SOURCE_TYPE_SECONDARY)} srcSet={secondary} />
                                 <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
                             </picture>
                             <div>
@@ -42,14 +51,14 @@ export default function Highlights(props) {
                 const collage = c.collage;
                 collage.forEach(m => {
                     const source = m.src;
-                    const primary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_PRIMARY);
-                    const secondary = source.replace(import.meta.env.VITE_APP_SOURCE_SRCSET_DEFAULT, import.meta.env.VITE_APP_SOURCE_SRCSET_SECONDARY);
+                    const primary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_PRIMARY));
+                    const secondary = source.replace(mediaConstant(SOURCE_SRCSET_DEFAULT), mediaConstant(SOURCE_SRCSET_SECONDARY));
                     highlights.push(
                         <li key={p.id + c.id + m.id}>
                             <HashLink to={to+'#'+p.route+c.id} title={c.text}>
                                 <picture>
-                                    <source type={import.meta.env.VITE_APP_SOURCE_TYPE_PRIMARY} srcSet={primary} />
-                                    <source type={import.meta.env.VITE_APP_SOURCE_TYPE_SECONDARY} srcSet={secondary} />
+                                    <source type={mediaConstant(SOURCE_TYPE_PRIMARY)} srcSet={primary} />
+                                    <source type={mediaConstant(SOURCE_TYPE_SECONDARY)} srcSet={secondary} />
                                     <img className='highlights_image' src={m.src} alt={m.alt} title={m.title} loading="lazy" />
                                 </picture>
                                 <div>
