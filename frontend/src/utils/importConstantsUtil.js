@@ -25,6 +25,14 @@ import {
     FOOTER_BY_LABEL
 } from './constants/footerKeys';
 import {
+    FORM_OFFICE_LEVEL,
+    FORM_OFFICE_LABEL,
+    FORM_EMPLOYEE_LEVEL,
+    FORM_EMPLOYEE_LABEL,
+    FORM_CONTACT_TREE_LEVEL,
+    FORM_CONTACT_TREE_LABEL
+} from './constants/contactKeys';
+import {
     FORM_STRONG_FORENAME,
     FORM_STRONG_SURNAME,
     FORM_STRONG_ADDRESS,
@@ -176,6 +184,35 @@ export function footerConstant(viteKey) {
             break;
         case FOOTER_BY_LABEL:
             viteValue = import.meta.env.VITE_APP_DOC_FOOTER_BY_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
+
+export function contactConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case FORM_OFFICE_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_OFFICE_LEVEL;
+            break;
+        case FORM_OFFICE_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_OFFICE_LABEL;
+            break;
+        case FORM_EMPLOYEE_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_EMPLOYEE_LEVEL;
+            break;
+        case FORM_EMPLOYEE_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_EMPLOYEE_LABEL;
+            break;
+        case FORM_CONTACT_TREE_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_CONTACT_TREE_LEVEL;
+            break;
+        case FORM_CONTACT_TREE_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FORM_CONTACT_TREE_LABEL;
             break;
         default:
             viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
