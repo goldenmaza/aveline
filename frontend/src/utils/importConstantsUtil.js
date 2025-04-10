@@ -13,6 +13,18 @@ import {
     HEADER_LABEL
 } from './constants/headerKeys';
 import {
+    FOOTER_LEVEL,
+    FOOTER_LABEL,
+    FOOTER_SITEMAP_LEVEL,
+    FOOTER_SITEMAP_LABEL,
+    FOOTER_COPYRIGHT_YEAR,
+    FOOTER_COPYRIGHT_LEVEL,
+    FOOTER_COPYRIGHT_LABEL,
+    FOOTER_COPYRIGHT_NAME,
+    FOOTER_BY_LINK,
+    FOOTER_BY_LABEL
+} from './constants/footerKeys';
+import {
     FORM_STRONG_FORENAME,
     FORM_STRONG_SURNAME,
     FORM_STRONG_ADDRESS,
@@ -123,6 +135,47 @@ export function headerConstant(viteKey) {
             break;
         case HEADER_LABEL:
             viteValue = import.meta.env.VITE_APP_DOC_HEADER_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
+
+export function footerConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case FOOTER_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_LEVEL;
+            break;
+        case FOOTER_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_LABEL;
+            break;
+        case FOOTER_SITEMAP_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_SITEMAP_LEVEL;
+            break;
+        case FOOTER_SITEMAP_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_SITEMAP_LABEL;
+            break;
+        case FOOTER_COPYRIGHT_YEAR:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_YEAR;
+            break;
+        case FOOTER_COPYRIGHT_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LEVEL;
+            break;
+        case FOOTER_COPYRIGHT_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_LABEL;
+            break;
+        case FOOTER_COPYRIGHT_NAME:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_COPYRIGHT_NAME;
+            break;
+        case FOOTER_BY_LINK:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_BY_LINK;
+            break;
+        case FOOTER_BY_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_FOOTER_BY_LABEL;
             break;
         default:
             viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;

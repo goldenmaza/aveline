@@ -2,6 +2,15 @@
 
 
 
+*#####* - [Frontend] ImportConstantUtility for Footer components - Apr 11, 2025
+
+In this commit we have updated the central location for importing environmental variables, by adding
+the fetching of said variables for all 'Footer' components.
+
+v.2.39.0
+
+
+
 *#####* - [Frontend] ImportConstantUtility for Form components - Apr 11, 2025
 
 In this commit we have updated the central location for importing environmental variables, by adding
