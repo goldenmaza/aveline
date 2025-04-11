@@ -1,6 +1,6 @@
 {
   "name": "@aveline/frontend",
-  "version": "2.41.0",
+  "version": "2.42.0",
   "description": "The Frontend uses GraphQL queries to call the Backend APIs for processing...",
   "author": "Mats Richard Hellstrand",
   "main": "src/index.js",

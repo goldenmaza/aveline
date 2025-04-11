@@ -2,6 +2,15 @@
 
 
 
+*#####* - [Frontend] ImportConstantUtility for App component - Apr 11, 2025
+
+In this commit we have updated the central location for importing environmental variables, by adding
+the fetching of said variables for the 'App' component.
+
+v.2.42.0
+
+
+
 *#####* - [Frontend] ImportConstantUtility for Common components - Apr 11, 2025
 
 In this commit we have updated the central location for importing environmental variables, by adding

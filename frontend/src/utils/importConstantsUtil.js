@@ -1,4 +1,8 @@
 import {
+    ROOT_LEVEL,
+    ROOT_LABEL
+} from './constants/rootKeys';
+import {
     CONTENT_LEVEL,
     CONTENT_LABEL,
     E404_LEVEL,
@@ -104,6 +108,23 @@ import {
     SERVER_API_ADDRESS,
     SERVER_MAIL_ADDRESS
 } from './constants/apiKeys';
+
+export function rootConstant(viteKey) {
+    let viteValue = '';
+
+    switch (viteKey) {
+        case ROOT_LEVEL:
+            viteValue = import.meta.env.VITE_APP_DOC_ROOT_LEVEL;
+            break;
+        case ROOT_LABEL:
+            viteValue = import.meta.env.VITE_APP_DOC_ROOT_LABEL;
+            break;
+        default:
+            viteValue = import.meta.env.VITE_APP_INVALID_IMPORT_KEY;
+    }
+
+    return viteValue;
+}
 
 export function commonConstant(viteKey) {
     let viteValue = '';

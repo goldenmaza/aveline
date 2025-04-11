@@ -1,4 +1,10 @@
+import { rootConstant } from '../../utils/importConstantsUtil';
+import {
+    ROOT_LEVEL,
+    ROOT_LABEL
+} from '../../utils/constants/rootKeys';
+
 export const appState = {
-    level: import.meta.env.VITE_APP_DOC_LEVEL,
-    label: import.meta.env.VITE_APP_DOC_LABEL
+    level: rootConstant(ROOT_LEVEL),
+    label: rootConstant(ROOT_LABEL)
 };
